@@ -1,0 +1,151 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 64px;
+
+    /* Default state — over hero canvas */
+    background: rgba(10, 16, 30, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(200, 150, 62, 0.12);
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    opacity: 1;
+}
+
+/* Scrolled state — applied via JS when scrollY > 80 */
+.scrolled {
+    background: rgba(8, 12, 24, 0.94);
+    border-bottom-color: rgba(200, 150, 62, 0.18);
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Logo */
+.navLogo {
+    font-family: var(--font-cormorant), serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.48em;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+/* Links container */
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Individual link */
+.navLinks a {
+    font-family: var(--font-barlow), sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 3px;
+    transition: color 0.3s ease;
+}
+
+/* Underline hover effect */
+.navLinks a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.navLinks a:hover {
+    color: #ffffff;
+}
+
+.navLinks a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Active link */
+.navLinks a.active {
+    color: var(--gold-l);
+}
+
+.navLinks a.active::after {
+    transform: scaleX(1);
+    background: var(--gold-l);
+}
+
+/* CTA button */
+.navCta {
+    font-family: var(--font-barlow), sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 11px 28px;
+    background: transparent;
+    border: 1px solid rgba(200, 150, 62, 0.55);
+    color: var(--gold-l);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.navCta:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #000;
+}
+
+/* MOBILE hamburger — show at < 768px */
+.navHamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.navHamburger span {
+    width: 24px;
+    height: 1.5px;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        padding: 0 24px;
+    }
+
+    .navLinks {
+        display: none;
+    }
+
+    .navCta {
+        display: none;
+    }
+
+    .navHamburger {
+        display: flex;
+    }
+}

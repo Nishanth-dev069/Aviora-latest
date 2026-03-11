@@ -1,0 +1,16 @@
+﻿src/app/page.tsx(483,16): error TS2322: Type 'RefObject<HTMLCanvasElement | null>' is not assignable to type 'Ref<HTMLDivElement> | undefined'.
+  Type 'RefObject<HTMLCanvasElement | null>' is not assignable to type 'RefObject<HTMLDivElement | null>'.
+    Type 'HTMLCanvasElement | null' is not assignable to type 'HTMLDivElement | null'.
+      Property 'align' is missing in type 'HTMLCanvasElement' but required in type 'HTMLDivElement'.
+src/app/page.tsx(512,46): error TS2322: Type 'RefObject<HTMLSpanElement | null>' is not assignable to type 'Ref<HTMLDivElement> | undefined'.
+  Type 'RefObject<HTMLSpanElement | null>' is not assignable to type 'RefObject<HTMLDivElement | null>'.
+    Type 'HTMLSpanElement | null' is not assignable to type 'HTMLDivElement | null'.
+      Property 'align' is missing in type 'HTMLSpanElement' but required in type 'HTMLDivElement'.
+src/app/page.tsx(517,46): error TS2322: Type 'RefObject<HTMLSpanElement | null>' is not assignable to type 'Ref<HTMLDivElement> | undefined'.
+  Type 'RefObject<HTMLSpanElement | null>' is not assignable to type 'RefObject<HTMLDivElement | null>'.
+    Type 'HTMLSpanElement | null' is not assignable to type 'HTMLDivElement | null'.
+      Property 'align' is missing in type 'HTMLSpanElement' but required in type 'HTMLDivElement'.
+src/app/page.tsx(545,44): error TS2322: Type 'RefObject<HTMLSpanElement | null>' is not assignable to type 'Ref<HTMLDivElement> | undefined'.
+  Type 'RefObject<HTMLSpanElement | null>' is not assignable to type 'RefObject<HTMLDivElement | null>'.
+    Type 'HTMLSpanElement | null' is not assignable to type 'HTMLDivElement | null'.
+      Property 'align' is missing in type 'HTMLSpanElement' but required in type 'HTMLDivElement'.
