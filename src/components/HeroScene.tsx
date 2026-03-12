@@ -31,8 +31,8 @@ export default function HeroScene() {
     const [hudStats, setHudStats] = useState({ spd: 0, alt: 0 });
     const [showCTA, setShowCTA] = useState(true);
 
-    const frameCount = 300;
-    const imagesRef = useRef<HTMLImageElement[]>(new Array(300));
+    const frameCount = 137;
+    const imagesRef = useRef<HTMLImageElement[]>(new Array(137));
 
     useEffect(() => {
         const heroCanvas = canvasRef.current;
@@ -58,13 +58,13 @@ export default function HeroScene() {
             heroCanvas.height = frame0.naturalHeight || window.innerHeight;
             hctx.drawImage(frame0, 0, 0, heroCanvas.width, heroCanvas.height);
         };
-        frame0.src = '/frames/ezgif-frame-001.jpg';
+        frame0.src = '/hero-sequence/0050.png';
         imagesRef.current[0] = frame0;
 
         // Step 5: Load frames 1–49 right away (eager preload)
         for (let i = 1; i < 50; i++) {
             const img = new Image();
-            img.src = `/frames/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
+            img.src = `/hero-sequence/${String(50 + i).padStart(4, '0')}.png`;
             imagesRef.current[i] = img;
         }
 
@@ -72,7 +72,7 @@ export default function HeroScene() {
         const loadRestFrames = () => {
             for (let i = 50; i < frameCount; i++) {
                 const img = new Image();
-                img.src = `/frames/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
+                img.src = `/hero-sequence/${String(50 + i).padStart(4, '0')}.png`;
                 imagesRef.current[i] = img;
             }
         };

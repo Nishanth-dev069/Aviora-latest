@@ -74,9 +74,9 @@ const PHASE_LABELS = [
   'Ground', 'Eng Start', 'Taxi', 'T/O Roll', 'Vr 55kts', 'Climb Vy', 'Climb 3500', 'Cruise',
 ];
 
-const FRAME_COUNT = 300;
+const FRAME_COUNT = 137;
 const getFrameSrc = (i: number) =>
-  `/frames/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
+  `/hero-sequence/${String(50 + i).padStart(4, '0')}.png`;
 
 const TICKER_ITEMS = [
   'DGCA Certified',
@@ -454,7 +454,7 @@ export default function HomePage() {
           const p = self.progress;
 
           /* Image frame */
-          const frame = Math.min(299, Math.floor(p * 300));
+          const frame = Math.min(FRAME_COUNT - 1, Math.floor(p * FRAME_COUNT));
           if (frame !== currentFrame) {
             currentFrame = frame;
             renderFrame(frame);
