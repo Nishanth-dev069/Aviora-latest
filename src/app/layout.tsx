@@ -1,36 +1,44 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Barlow_Condensed, Space_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import CustomCursor from "@/components/CustomCursor";
 import AirplaneScrollbar from "@/components/AirplaneScrollbar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "600"],
+/* ── Heading font: Plus Jakarta Sans ── */
+const plusJakarta = Plus_Jakarta_Sans({
+  weight: ["400", "500", "600", "700", "800"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
-  display: "swap"
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
 });
 
-const barlow = Barlow_Condensed({
+/* ── Body / UI font: Inter ── */
+const inter = Inter({
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  variable: "--font-barlow",
-  display: "swap"
-});
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-space",
-  display: "swap"
+  variable: "--font-body",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "AVIORA AVIATION ACADEMY",
-  description: "A premium Indian aviation training institute. Where Legends Learn to Command the Sky.",
+  metadataBase: new URL('https://avioraacademy.com'),
+  title: {
+    default: 'Aviora Aviation Academy — Pilot Training & Cabin Crew in Hyderabad',
+    template: '%s | Aviora Aviation Academy',
+  },
+  description: 'India\'s premier aviation training institute. DGCA CPL, Cabin Crew, Global Training USA, and Type Rating. 2,400+ graduates. 98% placement rate. Hyderabad.',
+  keywords: ['pilot training India', 'DGCA CPL', 'cabin crew training Hyderabad', 'type rating India', 'aviation academy Hyderabad', 'commercial pilot training'],
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    siteName: 'Aviora Aviation Academy',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Aviora Aviation Academy' }],
+  },
+  twitter: { card: 'summary_large_image' },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -39,8 +47,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${cormorant.variable} ${barlow.variable} ${spaceMono.variable}`}>
+    <html lang="en" className={`${plusJakarta.variable} ${inter.variable}`}>
+      <body>
         <CustomCursor />
         <AirplaneScrollbar />
         <Nav />

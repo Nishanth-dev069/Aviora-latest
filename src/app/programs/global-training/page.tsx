@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import s from './global.module.css';
+import CessnaFly from '@/components/CessnaFly';
 
 const PHASES = [
   {
@@ -69,9 +70,12 @@ export default function GlobalTrainingPage() {
             src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80"
             alt="Aerial view of Arizona desert from small aircraft"
             className={s.heroBgImg}
+            fetchPriority="high"
+            loading="eager"
           />
           <div className={s.heroOverlay} />
         </div>
+        <CessnaFly direction="right" size={52} opacity={0.15} top="65%" delay="0s" />
         <div className={s.heroContent}>
           <div className={s.heroTag}>03 — International Training</div>
           <h1 className={s.heroH1}>Global Training<br/><em>Program — USA</em></h1>
@@ -161,7 +165,7 @@ export default function GlobalTrainingPage() {
           },
         ].map((g, i) => (
           <div className={s.galleryItem} key={i}>
-            <img src={g.src} alt={g.alt} className={s.galleryImg} />
+            <img src={g.src} alt={g.alt} className={s.galleryImg} loading="lazy" />
             <div className={s.galleryFade} />
             <span className={s.galleryCap}>{g.cap}</span>
           </div>

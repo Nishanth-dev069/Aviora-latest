@@ -7,26 +7,23 @@
 .successState {
     text-align: center;
     padding: 60px;
-    background-color: rgba(200, 169, 110, 0.05);
-    border: 1px solid var(--gold-dim);
-    border-radius: 2px;
+    background-color: rgba(10, 36, 114, 0.04);
+    border: 1px solid rgba(10, 36, 114, 0.15);
 }
 
 .successState h2 {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), sans-serif;
     font-size: 40px;
-    color: var(--gold-l);
+    color: var(--accent-primary);
     margin-bottom: 16px;
-    font-weight: 300;
+    font-weight: 700;
 }
 
 .successState p {
-    font-family: var(--font-space), monospace;
-    font-size: 14px;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    line-height: 1.6;
+    font-family: var(--font-body), sans-serif;
+    font-size: 16px;
+    color: var(--text-body);
+    line-height: 1.75;
 }
 
 .form {
@@ -52,56 +49,65 @@
 }
 
 .formGroup label {
-    font-family: var(--font-space), monospace;
-    font-size: 10px;
-    color: var(--gold);
+    font-family: var(--font-body), sans-serif;
+    font-size: 12px;
+    color: var(--accent-primary);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.20em;
+    font-weight: 600;
 }
 
 .formGroup input,
 .formGroup select,
 .formGroup textarea {
-    font-family: var(--font-barlow), sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-size: 16px;
-    background-color: var(--bg-2);
-    border: 1px solid var(--divider);
-    color: var(--ink);
+    background-color: var(--bg-base);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
     padding: 16px;
-    border-radius: 2px;
     outline: none;
     transition: border-color 0.3s ease;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+    color: var(--text-dim);
 }
 
 .formGroup input:focus,
 .formGroup select:focus,
 .formGroup textarea:focus {
-    border-color: var(--gold-dim);
+    border-color: var(--accent-primary);
 }
 
 .submitBtn {
     margin-top: 16px;
-    font-family: var(--font-barlow), sans-serif;
-    font-size: 14px;
+    font-family: var(--font-body), sans-serif;
+    font-size: 15px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--bg);
-    background-color: var(--gold);
-    padding: 20px 32px;
+    letter-spacing: 0.12em;
+    color: #FFFFFF;
+    background-color: var(--accent-primary);
+    padding: 18px 32px;
     border: none;
-    border-radius: 2px;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .submitBtn:hover {
-    background-color: var(--gold-l);
+    background-color: var(--accent-secondary);
     transform: translateY(-2px);
 }
 
 @media (max-width: 600px) {
     .formRow {
         grid-template-columns: 1fr;
+    }
+    .container {
+        padding: 48px 24px;
     }
 }

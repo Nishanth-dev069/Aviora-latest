@@ -46,7 +46,7 @@ export default function HeroScene() {
         heroCanvas.height = window.innerHeight;
 
         // Step 2: Fill with a warm dark tone
-        hctx.fillStyle = '#1a1208';
+        hctx.fillStyle = '#050E2D';
         hctx.fillRect(0, 0, heroCanvas.width, heroCanvas.height);
 
         // Step 4: Load frame 0 with a priority flag - draws the moment it's ready
@@ -184,7 +184,7 @@ export default function HeroScene() {
                         height: '100%',
                         objectFit: 'cover',
                         display: 'block',
-                        background: '#1a1208',
+                        background: '#050E2D',
                     }}
                 />
 

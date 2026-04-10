@@ -1,211 +1,134 @@
 'use client';
+
 import Link from 'next/link';
 import s from './programs.module.css';
+import CessnaFly from '@/components/CessnaFly';
 
-/* ─── COMPARISON DATA ─── */
-interface CompRow {
-  label: string;
-  pilot: string;
-  cabin: string;
-  global: string;
-  key?: boolean;   // highlighted row
-}
-
-const ROWS: CompRow[] = [
-  {
-    label: 'Program Duration',
-    pilot: '18 – 24 Months',
-    cabin: '6 Months',
-    global: '3 – 6 Months',
-    key: false,
-  },
-  {
-    label: 'Educational Eligibility',
-    pilot: '10+2 with Physics & Mathematics (min. 50%)',
-    cabin: '10+2 Any Stream (min. 50%)',
-    global: '10+2 Any Stream · Existing CPL holders preferred',
-    key: false,
-  },
-  {
-    label: 'Minimum Age',
-    pilot: '17 Years',
-    cabin: '18 Years',
-    global: '18 Years',
-    key: false,
-  },
-  {
-    label: 'Medical Requirement',
-    pilot: 'DGCA Class 2 Medical Certificate — mandatory before first solo',
-    cabin: 'Standard fitness — no aviation medical required',
-    global: 'FAA Class 3 Medical (for flight hours) — arranged by Aviora in USA',
-    key: false,
-  },
-  {
-    label: 'Language Requirement',
-    pilot: 'English proficiency — ICAO Level 4 minimum',
-    cabin: 'Conversational English — tested at interview',
-    global: 'ICAO Level 5 English recommended for USA ATC communication',
-    key: false,
-  },
-  {
-    label: 'Training Location',
-    pilot: 'Hyderabad (Ground + Sim) → USA (Flight Hours)',
-    cabin: 'Hyderabad — Aviora Campus',
-    global: 'Phoenix, Arizona + Florida, USA — FAA Part 141 Schools',
-    key: false,
-  },
-  {
-    label: 'Aircraft Type',
-    pilot: 'Cessna 172 Skyhawk (C172S)',
-    cabin: 'Not applicable — mock cabin used',
-    global: 'Cessna 172 (PPL phase) → Piper Seminole PA-44 (Multi-engine)',
-    key: false,
-  },
-  {
-    label: 'Total Flight Hours',
-    pilot: '200 hours total (FAA + DGCA combined)',
-    cabin: 'Not applicable',
-    global: '60 – 200 hours depending on program entry level',
-    key: false,
-  },
-  {
-    label: 'Simulator Hours',
-    pilot: 'FBS simulator — DGCA counted toward total time',
-    cabin: 'Mock aircraft cabin drills — not flight simulation',
-    global: 'Glass cockpit sim in USA prior to actual flight hours',
-    key: false,
-  },
-  {
-    label: 'Examinations',
-    pilot: '5 DGCA written papers + DGCA CPL Skill Test',
-    cabin: 'Aviora internal assessment + mock airline interview clearance',
-    global: 'FAA PPL written + FAA Practical Test (checkride) + multi-engine add-on',
-    key: false,
-  },
-  {
-    label: 'Licence / Certificate',
-    pilot: 'CPL (Commercial Pilot Licence) — DGCA, India',
-    cabin: 'Aviora Cabin Crew Certificate (airline-recognised)',
-    global: 'FAA PPL + FAA Multi-Engine Rating + US logbook hours',
-    key: true,
-  },
-  {
-    label: 'DGCA Conversion',
-    pilot: 'Directly issued — all training DGCA-compliant',
-    cabin: 'Not applicable',
-    global: 'FAA hours fully convertible to DGCA CPL — standard conversion route',
-    key: true,
-  },
-  {
-    label: 'Career Outcome',
-    pilot: 'First Officer → Captain at domestic & international airlines',
-    cabin: 'Flight Attendant — domestic & international airlines',
-    global: 'CPL (after DGCA conversion) · Multi-engine command · Global airline entry',
-    key: true,
-  },
-  {
-    label: 'Batch Size',
-    pilot: 'Maximum 20 cadets — intimate classroom learning',
-    cabin: 'Maximum 30 candidates per batch',
-    global: 'Maximum 8 cadets — individual instructor attention in USA',
-    key: false,
-  },
-  {
-    label: 'Placement Support',
-    pilot: '42 airline partners · Interview coaching · Type rating guidance',
-    cabin: 'Direct airline placement drives · Walk-in coaching',
-    global: 'DGCA conversion support · 42 airline partners · Type rating pathways',
-    key: false,
-  },
-  {
-    label: 'Starting Salary',
-    pilot: '₹80,000 – ₹1,80,000 / month as First Officer',
-    cabin: '₹30,000 – ₹75,000 / month (entry domestic)',
-    global: '₹80,000 – ₹2,00,000 / month (post CPL conversion)',
-    key: false,
-  },
-  {
-    label: 'Next Intake',
-    pilot: 'July 2025 — 4 seats remaining',
-    cabin: 'June 2025 — 8 seats remaining',
-    global: 'August 2025 — 3 seats remaining',
-    key: true,
-  },
-];
-
-/* ─── PROGRAM CARDS DATA ─── */
+/* ── DATA ──────────────────────────────────────────────────── */
 const PROGRAMS = [
   {
     num: '01',
-    tag: 'Commercial Aviation',
+    tag: 'DGCA · CPL',
     title: 'Pilot Training',
-    sub: 'Program',
-    desc: 'The complete Zero-to-CPL pathway. DGCA ground school in Hyderabad, FBS simulator hours, and international flight training in the USA. Graduate with a DGCA Commercial Pilot Licence and join one of 42 airline partner networks.',
-    meta: [
-      { label: 'Duration',    val: '18–24 Months'         },
-      { label: 'Eligibility', val: '10+2 Physics & Math'  },
-      { label: 'Outcome',     val: 'CPL · DGCA'           },
-    ],
+    sub: 'Zero to Commercial Pilot Licence',
+    desc: 'Complete ground school, FBS simulator, and international flight training in the USA. DGCA-aligned across all 4 written papers. The full CPL pathway.',
+    duration: '18 – 24 Months',
+    outcome: 'DGCA CPL + Instrument Rating',
     href: '/programs/pilot-training',
-    accent: true,
+    img: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&q=80',
   },
   {
     num: '02',
-    tag: 'Cabin Crew',
+    tag: 'Airlines · IndiGo · AirAsia',
     title: 'Cabin Crew',
-    sub: 'Program',
-    desc: 'Six months of airline-standard grooming, safety training, communication, and emergency procedures. Graduate with a cabin crew certificate recognised by domestic and international carriers, backed by direct placement drives.',
-    meta: [
-      { label: 'Duration',    val: '6 Months'            },
-      { label: 'Eligibility', val: '10+2 Any Stream'     },
-      { label: 'Outcome',     val: 'Airline Ready'       },
-    ],
+    sub: 'Airline-Ready in 6 Months',
+    desc: 'Grooming, safety, emergency procedures, mock cabin, and airline interview coaching. Structured for IndiGo, Air India, and international carrier standards.',
+    duration: '6 Months',
+    outcome: 'Certified Cabin Crew — Airline Ready',
     href: '/programs/cabin-crew',
-    accent: false,
+    img: 'https://images.unsplash.com/photo-1540339832862-474599807836?w=900&q=80',
   },
   {
     num: '03',
-    tag: 'International',
+    tag: 'FAA · USA · PA-34',
     title: 'Global Training',
-    sub: 'USA',
-    desc: 'Train on FAA-registered aircraft in Phoenix, Arizona and Florida. Acquire real flight hours in open American airspace on Cessna 172 and multi-engine Piper aircraft — fully convertible to DGCA CPL under Indian regulations.',
-    meta: [
-      { label: 'Duration',    val: '3–6 Months'          },
-      { label: 'Location',    val: 'Phoenix AZ + Florida' },
-      { label: 'Outcome',     val: 'FAA · DGCA Convertible' },
-    ],
+    sub: 'Flight Hours in America',
+    desc: 'FAA Part 141 certified schools. Phoenix AZ and California Sacramento. PA-34 Piper Seneca multi-engine. 225–252 hours depending on program. The international edge India cannot provide.',
+    duration: '7 – 10 Months',
+    outcome: '200+ FAA Flight Hours · CPL International Credit',
     href: '/programs/global-training',
-    accent: false,
+    img: 'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=900&q=80',
+  },
+  {
+    num: '04',
+    tag: 'A320 · B737 · ATR',
+    title: 'Type Rating',
+    sub: 'From CPL to Airline First Officer',
+    desc: "Aviora's global type rating partnerships across Vietnam, Madrid Spain, and Bangkok. A320, B737, and ATR programmes for DGCA CPL holders. Max 85 cadets per annual intake.",
+    duration: '6 – 10 Weeks',
+    outcome: 'DGCA Type Rating — Airline Entry',
+    href: '/programs/type-rating',
+    img: 'https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=900&q=80',
   },
 ];
 
+const TABLE_CATEGORIES = [
+  {
+    category: 'ELIGIBILITY',
+    rows: [
+      { label: 'Minimum Education',   pilot: '10+2 · Physics & Maths · 50%', cabin: '10+2 · Any Stream · 50%', global: '10+2 · Physics & Maths · 50%', typerating: 'Valid DGCA CPL' },
+      { label: 'Medical Requirement', pilot: 'DGCA Class 2',                  cabin: 'Standard Fitness',         global: 'DGCA Class 1 (FAA)',            typerating: 'Valid DGCA Class 1' },
+      { label: 'Minimum Age',         pilot: '17 years',                       cabin: '18 years',                 global: '18 years',                      typerating: '21 years' },
+    ],
+  },
+  {
+    category: 'TRAINING',
+    rows: [
+      { label: 'Total Duration',     pilot: '18 – 24 Months',    cabin: '6 Months',          global: '7 – 10 Months',                      typerating: '6 – 10 Weeks',         highlight: true },
+      { label: 'Flight Hours',       pilot: '252 Hours',          cabin: '—',                 global: '225 – 252 Hours',                    typerating: 'Simulator Only' },
+      { label: 'Aircraft',           pilot: 'Cessna 172',         cabin: '—',                 global: 'PA-34 Piper Seneca',                 typerating: 'A320 / B737 / ATR' },
+      { label: 'Training Location',  pilot: 'India + USA',        cabin: 'Hyderabad Campus',  global: 'Phoenix AZ + California Sacramento', typerating: 'Vietnam · Madrid · Bangkok' },
+      { label: 'Simulator',          pilot: 'FBS Level D',        cabin: 'Mock Cabin',         global: 'FAA Certified FTD',                  typerating: 'Full Flight Simulator (FFS)' },
+    ],
+  },
+  {
+    category: 'EXAMINATIONS',
+    rows: [
+      { label: 'Written Papers',   pilot: '4 DGCA Papers',     cabin: 'Internal Assessments',    global: 'All FAA Written Exams',  typerating: 'Aircraft Systems + Procedures' },
+      { label: 'Final Assessment', pilot: 'DGCA Skill Test',   cabin: 'Airline-Style Interview', global: 'FAA Checkride',          typerating: 'DGCA Licence Skill Test' },
+      { label: 'Authority',        pilot: 'DGCA India',        cabin: 'Aviora Certification',    global: 'FAA + DGCA Credit',      typerating: 'DGCA India' },
+    ],
+  },
+  {
+    category: 'CAREER OUTCOMES',
+    rows: [
+      { label: 'Qualification Awarded', pilot: 'DGCA CPL + IR',              cabin: 'Certified Cabin Crew',      global: 'FAA Hours + CPL Credit',       typerating: 'DGCA Type Rating Endorsement', highlight: true },
+      { label: 'Immediate Role',        pilot: 'FO / First Officer',          cabin: 'Airline Cabin Crew',        global: 'CPL with International Hours', typerating: 'First Officer / Co-Pilot',     highlight: true },
+      { label: 'Starting Salary',       pilot: '₹2.0L – ₹3.2L / month',      cabin: '₹50K – ₹75K / month',       global: '₹2.0L – ₹3.2L / month',       typerating: '₹2.0L – ₹3.2L / month' },
+      { label: 'Placement Support',     pilot: 'Airline Placement Assistance', cabin: 'Airline Placement Assistance', global: 'Airline Placement Assistance', typerating: 'Airline Placement Assistance' },
+    ],
+  },
+  {
+    category: 'INTAKE',
+    rows: [
+      { label: 'Annual Intake', pilot: '40 seats',        cabin: '75 seats',       global: '40 seats',       typerating: 'Max 85 cadets / year' },
+      { label: 'Next Batch',    pilot: 'July 2026',       cabin: 'August 2026',    global: 'October 2026',   typerating: 'Rolling Intake',       highlight: true },
+      { label: 'Status',        pilot: 'Open',            cabin: 'Open',           global: 'Open',           typerating: 'Enquire' },
+    ],
+  },
+];
+
+/* ── COMPONENT ─────────────────────────────────────────────── */
 export default function ProgramsPage() {
   return (
     <main className={s.page}>
 
-      {/* ── 1. PAGE HERO ── */}
+      {/* ── 1. HERO ── */}
       <section className={s.hero}>
         <div className={s.heroBg}>
           <img
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=80"
-            alt="Commercial aircraft on runway at dusk"
+            src="https://images.unsplash.com/photo-1583396618422-e4bde3d21c58?w=1920&q=80"
+            alt="Aviora Programs"
             className={s.heroBgImg}
+            fetchPriority="high"
+            loading="eager"
           />
           <div className={s.heroImgOverlay} />
         </div>
         <div className={s.heroContent}>
-          <span className={s.eyebrow}>Aviora Programs</span>
+          <p className={s.heroTag}>
+            <span className={s.heroTagLine} />
+            Aviora Aviation Academy · Programmes
+          </p>
           <h1 className={s.heroH1}>
-            Choose Your<br/><em>Aviation Path.</em>
+            Choose Your<br /><em>Altitude.</em>
           </h1>
           <p className={s.heroP}>
-            Three world-class programs. One standard of excellence.
-            Whether you want to sit left seat, serve in the cabin,
-            or earn your wings in America — your career starts here.
+            Four pathways. One mission — putting Indian aviation professionals into global cockpits and world-class cabins. From your first ground school lesson to your airline type rating.
           </p>
         </div>
         <div className={s.heroScroll}>
-          <span className={s.heroScrollLabel}>Select a Program</span>
+          <span className={s.heroScrollLabel}>scroll</span>
           <div className={s.heroScrollLine} />
         </div>
       </section>
@@ -213,96 +136,131 @@ export default function ProgramsPage() {
       {/* ── 2. PROGRAM CARDS ── */}
       <section className={s.cardSection}>
         <div className={s.cardGrid}>
-          {PROGRAMS.map((p) => (
-            <Link key={p.num} href={p.href} className={`${s.card} ${p.accent ? s.cardAccent : ''}`}>
-              <div className={s.cardNum}>{p.num}</div>
-              <div className={s.cardTag}>{p.tag}</div>
-              <h2 className={s.cardTitle}>
-                {p.title}<br/><em>{p.sub}</em>
-              </h2>
-              <p className={s.cardDesc}>{p.desc}</p>
-              <div className={s.cardMeta}>
-                {p.meta.map((m, i) => (
-                  <div className={s.cardMetaItem} key={i}>
-                    <span className={s.cardMetaLabel}>{m.label}</span>
-                    <span className={s.cardMetaVal}>{m.val}</span>
+          {PROGRAMS.map((p, i) => (
+            <Link key={p.num} href={p.href} className={`${s.card} ${i === 0 ? s.cardAccent : ''}`}>
+              {/* BG image */}
+              <img src={p.img} alt={p.title} className={s.cardBgImg} />
+              <div className={s.cardBgOverlay} />
+
+              {/* Gold top sweep on hover */}
+              <div className={s.cardTopLine} />
+
+              {/* Content */}
+              <div className={s.cardInner}>
+                <span className={s.cardNum}>{p.num}</span>
+                <span className={s.cardTag}>{p.tag}</span>
+                <h2 className={s.cardTitle}>{p.title}</h2>
+                <p className={s.cardSub}>{p.sub}</p>
+                <p className={s.cardDesc}>{p.desc}</p>
+
+                <div className={s.cardMeta}>
+                  <div className={s.cardMetaItem}>
+                    <span className={s.cardMetaLabel}>Duration</span>
+                    <span className={s.cardMetaVal}>{p.duration}</span>
                   </div>
-                ))}
-              </div>
-              <div className={s.cardCta}>
-                <span>Explore Program</span>
-                <span className={s.cardArrow}>→</span>
+                  <div className={s.cardMetaItem}>
+                    <span className={s.cardMetaLabel}>Outcome</span>
+                    <span className={s.cardMetaVal}>{p.outcome}</span>
+                  </div>
+                </div>
+
+                <span className={s.cardCta}>
+                  Explore Programme <span className={s.cardArrow}>→</span>
+                </span>
               </div>
             </Link>
           ))}
         </div>
       </section>
 
+      {/* Cessna transition */}
+      <div style={{ position: 'relative', width: '100%', overflow: 'hidden', height: '10px' }}>
+        <CessnaFly direction="right" size={44} opacity={0.12} top="50%" delay="1s" />
+      </div>
+
       {/* ── 3. COMPARISON TABLE ── */}
       <section className={s.tableSection}>
         <div className={s.tableSectionHead}>
-          <span className={s.eyebrow}>Side-by-Side</span>
+          <p className={s.eyebrow}>Programme Comparison</p>
           <h2 className={s.tableSectionH2}>
-            Full Program<br/><em>Comparison</em>
+            Find the Right<br /><em>Pathway.</em>
           </h2>
           <p className={s.tableSectionP}>
-            Every detail you need to make an informed decision —
-            eligibility, training structure, certifications, career outcomes, and intake dates.
+            Every programme at Aviora is built around a clear outcome. Use this table to compare eligibility, training structure, examination requirements, and career results across all four pathways.
           </p>
         </div>
 
         <div className={s.tableWrap}>
           <table className={s.table}>
+            <colgroup>
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+            </colgroup>
             <thead>
               <tr>
-                <th className={s.thLabel}>Program Detail</th>
-                <th className={`${s.thCol} ${s.thPilot}`}>
+                <th className={s.thLabel}></th>
+                <th className={s.thCol + ' ' + s.thPilot}>
                   <span className={s.thNum}>01</span>
                   <span className={s.thName}>Pilot Training</span>
-                  <span className={s.thSub}>CPL · DGCA · 18–24 mo</span>
+                  <span className={s.thSub}>DGCA CPL</span>
                 </th>
-                <th className={`${s.thCol} ${s.thCabin}`}>
+                <th className={s.thCol + ' ' + s.thCabin}>
                   <span className={s.thNum}>02</span>
                   <span className={s.thName}>Cabin Crew</span>
-                  <span className={s.thSub}>Certificate · 6 mo</span>
+                  <span className={s.thSub}>Airline-Ready</span>
                 </th>
-                <th className={`${s.thCol} ${s.thGlobal}`}>
+                <th className={s.thCol + ' ' + s.thGlobal}>
                   <span className={s.thNum}>03</span>
                   <span className={s.thName}>Global Training</span>
-                  <span className={s.thSub}>FAA · USA · 3–6 mo</span>
+                  <span className={s.thSub}>FAA · USA</span>
+                </th>
+                <th className={s.thCol + ' ' + s.thType}>
+                  <span className={s.thNum}>04</span>
+                  <span className={s.thName}>Type Rating</span>
+                  <span className={s.thSub}>A320 · B737 · ATR</span>
                 </th>
               </tr>
             </thead>
             <tbody>
-              {ROWS.map((row, i) => (
-                <tr
-                  key={i}
-                  className={`${s.tr} ${row.key ? s.trKey : ''} ${i % 2 === 1 ? s.trAlt : ''}`}
-                >
-                  <td className={s.tdLabel}>{row.label}</td>
-                  <td className={s.tdPilot}>{row.pilot}</td>
-                  <td className={s.tdCabin}>{row.cabin}</td>
-                  <td className={s.tdGlobal}>{row.global}</td>
-                </tr>
+              {TABLE_CATEGORIES.map((cat) => (
+                <>
+                  {/* Category header row */}
+                  <tr key={cat.category} className={s.trCatHeader}>
+                    <td colSpan={5} className={s.tdCatLabel}>{cat.category}</td>
+                  </tr>
+                  {/* Data rows */}
+                  {cat.rows.map((row, ri) => (
+                    <tr
+                      key={row.label}
+                      className={`${s.tr} ${ri % 2 === 1 ? s.trAlt : ''} ${row.highlight ? s.trKey : ''}`}
+                    >
+                      <td className={s.tdLabel}>{row.label}</td>
+                      <td className={s.tdCell}>{row.pilot}</td>
+                      <td className={s.tdCell}>{row.cabin}</td>
+                      <td className={s.tdCell}>{row.global}</td>
+                      <td className={s.tdCell}>{row.typerating}</td>
+                    </tr>
+                  ))}
+                </>
               ))}
             </tbody>
             <tfoot>
-              <tr className={s.tfootRow}>
-                <td className={s.tfootLabel}>Apply</td>
+              <tr>
+                <td className={s.tfootLabel}>Links</td>
                 <td className={s.tfootCol}>
-                  <Link href="/programs/pilot-training" className={s.tableCtaLink}>
-                    View Pilot Program →
-                  </Link>
+                  <Link href="/programs/pilot-training" className={s.tableCtaLink}>Pilot Training →</Link>
                 </td>
                 <td className={s.tfootCol}>
-                  <Link href="/programs/cabin-crew" className={s.tableCtaLink}>
-                    View Cabin Crew →
-                  </Link>
+                  <Link href="/programs/cabin-crew" className={s.tableCtaLink}>Cabin Crew →</Link>
                 </td>
                 <td className={s.tfootCol}>
-                  <Link href="/programs/global-training" className={s.tableCtaLink}>
-                    View Global Training →
-                  </Link>
+                  <Link href="/programs/global-training" className={s.tableCtaLink}>Global Training →</Link>
+                </td>
+                <td className={s.tfootCol}>
+                  <Link href="/programs/type-rating" className={s.tableCtaLink}>Type Rating →</Link>
                 </td>
               </tr>
             </tfoot>
@@ -313,30 +271,29 @@ export default function ProgramsPage() {
       {/* ── 4. ADMISSIONS STRIP ── */}
       <section className={s.admStrip}>
         <div className={s.admInner}>
-          <div className={s.admLeft}>
-            <span className={s.eyebrow}>Ready to Begin?</span>
-            <h2 className={s.admH2}>Take the First Step.<br/><em>Apply Today.</em></h2>
+          <div>
+            <p className={s.eyebrow}>Limited Intake · Quality Controlled</p>
+            <h2 className={s.admH2}>
+              Applications Now<br /><em>Open.</em>
+            </h2>
           </div>
           <div className={s.admRight}>
-            <Link href="/admissions" className={s.btnGold}>Apply Now →</Link>
-            <Link href="/contact"    className={s.btnLine}>Talk to Admissions</Link>
+            <Link href="/admissions" className={s.btnGold}>Apply Now</Link>
+            <Link href="/contact" className={s.btnLine}>Talk to Admissions</Link>
           </div>
         </div>
       </section>
 
       {/* ── 5. COUNSELLOR STRIP ── */}
-      <section className={s.counselStrip}>
+      <div className={s.counselStrip}>
         <div className={s.counselInner}>
-          <span className={s.counselDiamond}>✦</span>
+          <span className={s.counselDiamond}>◆</span>
           <p className={s.counselP}>
-            Not sure which program fits your goals? Our admissions team are pilots
-            and aviation professionals — they have walked the same path you are considering.
+            &ldquo;Every programme we offer is designed around one outcome — airline employment. We do not run programmes that don't have a clear career trajectory.&rdquo;
           </p>
-          <Link href="/contact" className={s.counselLink}>
-            Speak to a Counsellor →
-          </Link>
+          <Link href="/contact" className={s.counselLink}>Speak with a Counsellor →</Link>
         </div>
-      </section>
+      </div>
 
     </main>
   );

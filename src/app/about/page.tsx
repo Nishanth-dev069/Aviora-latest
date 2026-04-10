@@ -1,5 +1,14 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import s from './about.module.css';
+
+export const metadata: Metadata = {
+  title: 'About Us — India\'s Premier Aviation Academy',
+  description: '2,400+ graduates, 98% placement rate, 42 airline partners. Learn about Aviora\'s faculty, facilities, and commitment to aviation excellence.',
+};
+import CessnaFly from '@/components/CessnaFly';
+import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
+import Image from 'next/image';
 
 const STATS = [
   { num: '2,400+', label: 'Graduates', sub: 'Since founding'            },
@@ -54,10 +63,14 @@ export default function AboutPage() {
       {/* ═══ 1. HERO ═══ */}
       <section className={s.hero}>
         <div className={s.heroBgWrap}>
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=1920&q=80"
             alt="Aircraft wing over clouds — Aviora Aviation Academy"
             className={s.heroBgImg}
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: 'cover' }}
           />
         </div>
         <div className={s.heroOverlay} />
@@ -84,6 +97,8 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+
+      <TrainingPartnersTicker />
 
       {/* ═══ 2. ORIGIN STORY ═══ */}
       <section className={s.storySection}>
@@ -120,6 +135,11 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Cessna transition */}
+      <div style={{ position: 'relative', width: '100%', overflow: 'hidden', height: '10px' }}>
+        <CessnaFly direction="left" size={36} opacity={0.10} top="50%" delay="2s" />
+      </div>
 
       {/* ═══ 3. MISSION PILLARS ═══ */}
       <section className={s.missionSection}>

@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import s from './contact.module.css';
+import CessnaFly from '@/components/CessnaFly';
 
 const CONTACT_CHANNELS = [
   {
@@ -58,6 +59,8 @@ export default function ContactPage() {
             src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=1920&q=80"
             alt="Pilot in cockpit looking out at horizon"
             className={s.heroBgImg}
+            fetchPriority="high"
+            loading="eager"
           />
         </div>
         <div className={s.heroOverlay} />
@@ -220,7 +223,8 @@ export default function ContactPage() {
       </section>
 
       {/* ═══ 5. BOTTOM CTA ═══ */}
-      <section className={s.bottomCta}>
+      <section className={s.bottomCta} style={{ position: 'relative', overflow: 'hidden' }}>
+        <CessnaFly direction="right" size={32} opacity={0.08} top="50%" delay="3s" />
         <div className={s.bottomCtaInner}>
           <div className={s.eyebrow}>Ready to Begin?</div>
           <h2 className={s.bottomCtaH2}>

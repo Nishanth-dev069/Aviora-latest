@@ -10,32 +10,35 @@
     justify-content: space-between;
     padding: 0 64px;
 
-    /* Default state — over hero canvas */
-    background: rgba(10, 16, 30, 0.72);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(200, 150, 62, 0.12);
-    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-    opacity: 1;
+    /* Default state — transparent over dark hero */
+    background: transparent;
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
 }
 
-/* Scrolled state — applied via JS when scrollY > 80 */
+/* Scrolled state — deep navy glass */
 .scrolled {
-    background: rgba(8, 12, 24, 0.94);
-    border-bottom-color: rgba(200, 150, 62, 0.18);
-    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.35);
+    background: rgba(5, 14, 45, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 4px 32px rgba(5, 14, 45, 0.25);
 }
 
 /* Logo */
 .navLogo {
-    font-family: var(--font-cormorant), serif;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0.48em;
-    color: #ffffff;
+    font-family: var(--font-display), sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.30em;
+    color: var(--text-inv);
     text-decoration: none;
     text-transform: uppercase;
     flex-shrink: 0;
+    transition: color 0.4s ease;
+}
+
+.scrolled .navLogo {
+    color: #FFFFFF;
 }
 
 /* Links container */
@@ -50,16 +53,20 @@
 
 /* Individual link */
 .navLinks a {
-    font-family: var(--font-barlow), sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.72);
+    font-family: var(--font-body), sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: var(--text-inv-muted);
     text-decoration: none;
     position: relative;
     padding-bottom: 3px;
     transition: color 0.3s ease;
+}
+
+.scrolled .navLinks a {
+    color: rgba(255, 255, 255, 0.72);
 }
 
 /* Underline hover effect */
@@ -70,14 +77,22 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: var(--gold);
+    background: var(--accent-highlight);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
 }
 
+.scrolled .navLinks a::after {
+    background: var(--accent-highlight);
+}
+
 .navLinks a:hover {
-    color: #ffffff;
+    color: #FFFFFF;
+}
+
+.scrolled .navLinks a:hover {
+    color: #FFFFFF;
 }
 
 .navLinks a:hover::after {
@@ -86,37 +101,57 @@
 
 /* Active link */
 .navLinks a.active {
-    color: var(--gold-l);
+    color: var(--accent-highlight);
+}
+
+.scrolled .navLinks a.active {
+    color: var(--accent-highlight);
 }
 
 .navLinks a.active::after {
     transform: scaleX(1);
-    background: var(--gold-l);
+    background: var(--accent-highlight);
+}
+
+.scrolled .navLinks a.active::after {
+    background: var(--accent-highlight);
 }
 
 /* CTA button */
 .navCta {
-    font-family: var(--font-barlow), sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
+    font-family: var(--font-body), sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 11px 28px;
-    background: transparent;
-    border: 1px solid rgba(200, 150, 62, 0.55);
-    color: var(--gold-l);
+    background: var(--accent-primary);
+    border: 1.5px solid var(--accent-primary);
+    color: #FFFFFF;
     text-decoration: none;
     transition: all 0.3s ease;
     white-space: nowrap;
 }
 
 .navCta:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: #000;
+    background: var(--accent-secondary);
+    border-color: var(--accent-secondary);
+    color: #FFFFFF;
 }
 
-/* MOBILE hamburger — show at < 768px */
+.scrolled .navCta {
+    background: var(--accent-highlight);
+    border-color: var(--accent-highlight);
+    color: #050E2D;
+}
+
+.scrolled .navCta:hover {
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    color: var(--accent-primary);
+}
+
+/* MOBILE hamburger */
 .navHamburger {
     display: none;
     flex-direction: column;
@@ -128,8 +163,12 @@
 .navHamburger span {
     width: 24px;
     height: 1.5px;
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--text-inv-muted);
     transition: all 0.3s;
+}
+
+.scrolled .navHamburger span {
+    background: #FFFFFF;
 }
 
 @media (max-width: 768px) {
@@ -148,4 +187,151 @@
     .navHamburger {
         display: flex;
     }
+}
+
+/* ── EXPLORE DROPDOWN ── */
+
+.navExploreLink {
+    font-family: var(--font-body), sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--text-inv-muted);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.navExploreLink::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--accent-highlight);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.navExploreLink:hover,
+.navExploreLink.active {
+    color: var(--accent-highlight);
+}
+
+.navExploreLink.active::after,
+.navExploreLink:hover::after {
+    transform: scaleX(1);
+}
+
+.scrolled .navExploreLink {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.scrolled .navExploreLink:hover,
+.scrolled .navExploreLink.active {
+    color: var(--accent-highlight);
+}
+
+.scrolled .navExploreLink::after {
+    background: var(--accent-highlight);
+}
+
+/* Wrapper to anchor the dropdown */
+.navItemWrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 72px;
+}
+
+/* ∨ chevron */
+.dropIcon {
+    font-size: 9px;
+    display: inline-block;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    line-height: 1;
+    margin-top: 1px;
+}
+
+.navItemWrap:hover .dropIcon {
+    transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.dropdown {
+    position: absolute;
+    top: calc(100% + 0px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 48px rgba(5, 14, 45, 0.18), 0 4px 16px rgba(5, 14, 45, 0.10);
+    padding: 8px;
+    min-width: 300px;
+    z-index: 1000;
+    animation: dropIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Individual dropdown item */
+.dropItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: background 0.18s, border-color 0.18s;
+}
+
+.dropItem:hover {
+    background: rgba(10, 36, 114, 0.06);
+    border-left-color: var(--accent-primary);
+}
+
+.dropItemIcon {
+    font-size: 18px;
+    color: var(--accent-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+    width: 24px;
+    text-align: center;
+}
+
+.dropItemContent {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.dropItemTitle {
+    font-family: var(--font-body), sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.dropItemSub {
+    font-family: var(--font-body), sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+    line-height: 1.5;
 }

@@ -167,7 +167,7 @@
 }
 
 .navLogo {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 0.45em;
@@ -193,7 +193,7 @@
 }
 
 .navLink {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -215,7 +215,7 @@
 }
 
 .navApply {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -243,7 +243,7 @@
     top: 100px;
     left: 64px;
     z-index: 10;
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     opacity: 0;
     pointer-events: none;
     will-change: opacity;
@@ -254,7 +254,7 @@
     top: 100px;
     right: 64px;
     z-index: 10;
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     text-align: right;
     opacity: 0;
     pointer-events: none;
@@ -324,7 +324,7 @@
 }
 
 .phLabel {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 7px;
     letter-spacing: 0.3em;
     color: rgba(255, 255, 255, 0.2);
@@ -361,7 +361,7 @@
 
 /* Eyebrow */
 :global(#phase-headline .eyebrow-hero) {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.48em;
     margin-bottom: 16px;
@@ -384,7 +384,7 @@
 
 /* H1 — strict line height, no overflow */
 :global(#phase-headline h1) {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: clamp(38px, 5.5vw, 78px);
     font-weight: 300;
     color: #fff;
@@ -402,7 +402,7 @@
 
 /* Body copy — capped height, no reflow */
 :global(#phase-headline p) {
-    font-family: var(--font-barlow), sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-weight: 300;
     color: rgba(245, 242, 236, 0.6);
     font-size: 14px;
@@ -423,7 +423,7 @@
 }
 
 .btnHeroPrimary {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -442,7 +442,7 @@
 }
 
 .btnHeroOutline {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -468,7 +468,7 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     opacity: 0;
     pointer-events: none;
     will-change: opacity;
@@ -534,7 +534,7 @@
 }
 
 .scrollHint span {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 8px;
     letter-spacing: 0.45em;
     color: rgba(255, 255, 255, 0.28);
@@ -600,7 +600,7 @@
 }
 
 .tickItem {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -634,7 +634,7 @@
 }
 
 .eyebrowLight {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.5em;
     text-transform: uppercase;
@@ -663,7 +663,7 @@
 }
 
 .eyebrowDark {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.5em;
     text-transform: uppercase;
@@ -692,7 +692,7 @@
 }
 
 .sectionTitle {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: clamp(34px, 5vw, 60px);
     font-weight: 300;
     color: var(--ink);
@@ -716,7 +716,7 @@
 }
 
 .sectionTitleDark {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: clamp(34px, 5vw, 60px);
     font-weight: 300;
     color: #fff;
@@ -740,7 +740,7 @@
 }
 
 .sectionSub {
-    font-family: var(--font-barlow), sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-size: 15px;
     line-height: 1.9;
     font-weight: 300;
@@ -811,7 +811,7 @@
 }
 
 .pcNum {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.4em;
     color: var(--ink-dim);
@@ -825,7 +825,7 @@
 
 .pcBadge {
     display: inline-block;
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 8px;
     letter-spacing: 0.35em;
     text-transform: uppercase;
@@ -837,7 +837,7 @@
 }
 
 .pcTitle {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 28px;
     font-weight: 400;
     color: var(--ink);
@@ -852,7 +852,7 @@
 }
 
 .pcDesc {
-    font-family: var(--font-barlow), sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-size: 14px;
     line-height: 1.9;
     font-weight: 300;
@@ -869,7 +869,7 @@
 }
 
 .pcHighlights li {
-    font-family: var(--font-barlow), sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-size: 13px;
     color: var(--ink-mid);
     padding: 6px 0;
@@ -916,7 +916,7 @@
 }
 
 .btnProgram {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -947,7 +947,7 @@
 }
 
 .pcMeta {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 8px;
     letter-spacing: 0.3em;
     color: var(--ink-dim);
@@ -1011,7 +1011,7 @@
 }
 
 .statNumber {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: clamp(52px, 6vw, 80px);
     font-weight: 300;
     color: var(--gold-l);
@@ -1039,7 +1039,7 @@
 }
 
 .statLabel {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 8px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
@@ -1052,7 +1052,7 @@
     bottom: -60px;
     left: 50%;
     transform: translateX(-50%);
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 20vw;
     font-weight: 300;
     letter-spacing: 0.3em;
@@ -1100,7 +1100,7 @@
 }
 
 .tcardQuoteMark {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 96px;
     line-height: 1;
     color: var(--divider-gold);
@@ -1131,7 +1131,7 @@
 }
 
 .tcardText {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 17px;
     line-height: 1.85;
     font-style: italic;
@@ -1157,7 +1157,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 14px;
     font-weight: 600;
     color: #fff;
@@ -1165,14 +1165,14 @@
 }
 
 .tcardName {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 17px;
     font-weight: 600;
     color: var(--ink);
 }
 
 .tcardRole {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 8px;
     letter-spacing: 0.2em;
     color: var(--gold);
@@ -1196,7 +1196,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 22vw;
     font-weight: 300;
     letter-spacing: 0.3em;
@@ -1218,7 +1218,7 @@
 }
 
 .ctaTitle {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: clamp(40px, 6vw, 72px);
     font-weight: 300;
     color: #fff;
@@ -1233,7 +1233,7 @@
 }
 
 .ctaBody {
-    font-family: var(--font-barlow), sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-size: 15px;
     line-height: 1.9;
     font-weight: 300;
@@ -1250,7 +1250,7 @@
 }
 
 .btnCtaPrimary {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -1280,7 +1280,7 @@
 }
 
 .btnCtaOutline {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -1297,7 +1297,7 @@
 }
 
 .ctaTrust {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 8px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -1458,7 +1458,7 @@
 }
 
 .fcNum {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 8px;
     letter-spacing: 0.4em;
     color: rgba(200, 150, 62, 0.25);
@@ -1466,7 +1466,7 @@
 }
 
 .fcTitle {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 20px;
     font-weight: 400;
     color: #fff;
@@ -1475,7 +1475,7 @@
 }
 
 .fcDesc {
-    font-family: var(--font-barlow), sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-size: 13px;
     font-weight: 300;
     line-height: 1.85;
@@ -1500,7 +1500,7 @@
 }
 
 .btnOutlineLight {
-    font-family: var(--font-barlow), sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.22em;
@@ -1555,7 +1555,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 18px;
     font-weight: 600;
     color: #000;
@@ -1563,7 +1563,7 @@
 }
 
 .mcName {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 20px;
     font-weight: 400;
     color: #fff;
@@ -1571,7 +1571,7 @@
 }
 
 .mcRole {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 8px;
     letter-spacing: 0.3em;
     color: var(--gold);
@@ -1580,7 +1580,7 @@
 }
 
 .mcHours {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 8px;
     letter-spacing: 0.2em;
     color: rgba(245, 242, 236, 0.25);
@@ -1589,7 +1589,7 @@
 }
 
 .mcBio {
-    font-family: var(--font-barlow), sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-size: 13px;
     line-height: 1.85;
     font-weight: 300;
@@ -1606,7 +1606,7 @@
 }
 
 .mcAirlineTag {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 7px;
     letter-spacing: 0.25em;
     color: rgba(200, 150, 62, 0.5);
@@ -1635,7 +1635,7 @@
 }
 
 .msNum {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 42px;
     font-weight: 300;
     color: var(--gold-l);
@@ -1643,7 +1643,7 @@
 }
 
 .msLabel {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 8px;
     letter-spacing: 0.3em;
     color: rgba(245, 242, 236, 0.25);
@@ -1696,7 +1696,7 @@
 }
 
 .mapLabel {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 8px;
     letter-spacing: 0.35em;
     color: rgba(200, 150, 62, 0.3);
@@ -1735,7 +1735,7 @@
 }
 
 .gfTitle {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 17px;
     font-weight: 400;
     color: #fff;
@@ -1743,7 +1743,7 @@
 }
 
 .gfDesc {
-    font-family: var(--font-barlow), sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-size: 13px;
     font-weight: 300;
     line-height: 1.8;
@@ -1766,7 +1766,7 @@
 }
 
 .gsNum {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: 28px;
     font-weight: 300;
     color: var(--gold-l);
@@ -1775,7 +1775,7 @@
 }
 
 .gsLabel {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 7px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -1787,7 +1787,7 @@
 
 
 .sectionH2 {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: clamp(38px, 5vw, 64px);
     font-weight: 300;
     color: #fff;
@@ -1801,7 +1801,7 @@
 }
 
 .bodyCopy {
-    font-family: var(--font-barlow), sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-size: 15px;
     line-height: 1.85;
     font-weight: 300;
@@ -1809,7 +1809,7 @@
 }
 
 .btnGold {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -1896,7 +1896,7 @@
 }
 
 :global(.intro-logo) {
-    font-family: var(--font-cormorant), serif;
+    font-family: var(--font-display), serif;
     font-size: clamp(64px, 12vw, 130px);
     font-weight: 300;
     letter-spacing: 0.38em;
@@ -1920,7 +1920,7 @@
 }
 
 :global(.intro-sub) {
-    font-family: var(--font-space), monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 9px;
     letter-spacing: 0.5em;
     color: rgba(200, 150, 62, 0.4);

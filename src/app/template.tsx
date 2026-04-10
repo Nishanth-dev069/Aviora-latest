@@ -1,20 +1,24 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+'use client';
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Template({ children }: { children: React.ReactNode }) {
-    const containerRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const [isVisible, setIsVisible] = useState(false);
 
-    useEffect(() => {
-        if (containerRef.current) {
-            gsap.fromTo(
-                containerRef.current,
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-            );
-        }
-    }, []);
+  useEffect(() => {
+    setIsVisible(false);
+    const t = setTimeout(() => setIsVisible(true), 20);
+    return () => clearTimeout(t);
+  }, [pathname]);
 
-    return <div ref={containerRef}>{children}</div>;
+  return (
+    <div style={{
+      opacity: isVisible ? 1 : 0,
+      transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+      transition: 'opacity 0.60s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.60s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+    }}>
+      {children}
+    </div>
+  );
 }

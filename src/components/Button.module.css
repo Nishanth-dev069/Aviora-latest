@@ -2,44 +2,72 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-barlow), sans-serif;
-    font-size: 14px;
+    font-family: var(--font-body), sans-serif;
+    font-size: 15px;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     padding: 16px 32px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     font-weight: 600;
     border-radius: 2px;
     border: none;
     background: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent);
+    transform: skewX(-20deg);
+    transition: none;
 }
 
 .primary {
-    background-color: var(--gold);
-    color: var(--bg);
+    background-color: var(--accent-primary);
+    color: #FFFFFF;
 }
 
 .primary:hover {
-    background-color: var(--gold-l);
-    transform: translateY(-2px);
+    background-color: var(--accent-secondary);
+    transform: scale(1.03) translateY(-2px);
+    box-shadow: 0 10px 30px rgba(10, 36, 114, 0.25);
+}
+
+.primary:hover::after {
+    animation: shimmerSweep 0.8s ease-out;
 }
 
 .outline {
-    border: 1px solid var(--gold);
-    color: var(--gold);
+    border: 1.5px solid var(--accent-primary);
+    color: var(--accent-primary);
 }
 
 .outline:hover {
-    background-color: rgba(200, 169, 110, 0.1);
-    transform: translateY(-2px);
+    background-color: var(--accent-primary);
+    color: #FFFFFF;
+    transform: scale(1.03) translateY(-2px);
+    box-shadow: 0 8px 24px rgba(10, 36, 114, 0.15);
+}
+
+.outline:hover::after {
+    animation: shimmerSweep 0.8s ease-out;
 }
 
 .ghost {
-    color: var(--text-dim);
+    color: var(--text-muted);
     padding: 16px 16px;
 }
 
 .ghost:hover {
-    color: var(--gold);
+    color: var(--accent-primary);
+    transform: translateX(4px);
+}
+
+@keyframes shimmerSweep {
+    0% { left: -100%; }
+    100% { left: 200%; }
 }

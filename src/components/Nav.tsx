@@ -9,14 +9,35 @@ const navLinks = [
     { name: "Home", href: "/" },
     { name: "Programs", href: "/programs" },
     { name: "Admissions", href: "/admissions" },
-    { name: "Explore", href: "/explore" },
     { name: "About Us", href: "/about" },
     { name: "Contact Us", href: "/contact" },
+];
+
+const exploreItems = [
+    {
+        href: "/gallery",
+        icon: "◉",
+        title: "Gallery",
+        sub: "Cockpit sessions · Campus life · USA training",
+    },
+    {
+        href: "/blog",
+        icon: "◈",
+        title: "Blog",
+        sub: "DGCA guides · Career roadmaps · Written by pilots",
+    },
+    {
+        href: "/news",
+        icon: "◎",
+        title: "News",
+        sub: "Industry updates · Airline hiring · DGCA circulars",
+    },
 ];
 
 export default function Nav() {
     const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState(false);
+    const [exploreOpen, setExploreOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -25,6 +46,8 @@ export default function Nav() {
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const isExploreActive = pathname.startsWith("/explore") || pathname.startsWith("/gallery") || pathname.startsWith("/blog") || pathname.startsWith("/news");
 
     return (
         <nav id="main-nav" className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
@@ -43,6 +66,42 @@ export default function Nav() {
                         </li>
                     );
                 })}
+
+                {/* Explore dropdown item */}
+                <li>
+                    <div
+                        className={styles.navItemWrap}
+                        onMouseEnter={() => setExploreOpen(true)}
+                        onMouseLeave={() => setExploreOpen(false)}
+                    >
+                        <Link
+                            href="/explore"
+                            className={`${styles.navExploreLink} ${isExploreActive ? styles.active : ""}`}
+                        >
+                            Explore
+                            <span className={styles.dropIcon}>∨</span>
+                        </Link>
+
+                        {exploreOpen && (
+                            <div className={styles.dropdown}>
+                                {exploreItems.map((item) => (
+                                    <Link
+                                        key={item.href}
+                                        href={item.href}
+                                        className={styles.dropItem}
+                                        onClick={() => setExploreOpen(false)}
+                                    >
+                                        <div className={styles.dropItemIcon}>{item.icon}</div>
+                                        <div className={styles.dropItemContent}>
+                                            <div className={styles.dropItemTitle}>{item.title}</div>
+                                            <div className={styles.dropItemSub}>{item.sub}</div>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </li>
             </ul>
 
             <Link href="/admissions" className={styles.navCta}>

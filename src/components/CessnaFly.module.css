@@ -1,0 +1,38 @@
+.wrap {
+  position: absolute;
+  top: var(--top);
+  color: var(--gold);
+  opacity: var(--opacity);
+  pointer-events: none;
+  z-index: 1;
+  width: var(--size);
+}
+
+.wrapRight {
+  left: -80px;
+  animation: flyRight calc(18s + var(--delay, 0s)) linear var(--delay, 0s) infinite;
+}
+.wrapLeft {
+  right: -80px;
+  animation: flyLeft calc(20s + var(--delay, 0s)) linear var(--delay, 0s) infinite;
+}
+
+@keyframes flyRight {
+  from { left: -80px; }
+  to   { left: calc(100% + 80px); }
+}
+@keyframes flyLeft {
+  from { right: -80px; }
+  to   { right: calc(100% + 80px); }
+}
+
+/* Slight altitude oscillation */
+@keyframes glide {
+  0%   { transform: translateY(0px); }
+  33%  { transform: translateY(-6px); }
+  66%  { transform: translateY(4px); }
+  100% { transform: translateY(0px); }
+}
+.wrap svg {
+  animation: glide 6s ease-in-out infinite;
+}

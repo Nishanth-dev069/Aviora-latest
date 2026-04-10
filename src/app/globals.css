@@ -1,53 +1,94 @@
 @layer base {
   :root {
-    /* ── Base ── */
-    --bg: #F5F2EC;
-    --bg-card: #FDFBF7;
-    --bg-dark: #0E1525;
-    --bg-dark-2: #162035;
+    /* ═══════════════════════════════════════════
+       AVIORA AVIATION ACADEMY — PREMIUM PALETTE
+       "Rolls-Royce meets Boeing"
+    ════════════════════════════════════════════ */
+
+    /* ── Backgrounds ── */
+    --bg-base:       #FDFAF5;   /* Warm Cream — primary bg */
+    --bg-surface:    #FFFFFF;   /* Pure White — cards, panels */
+    --bg-panel:      #F5F1EA;   /* Slightly warm off-white */
+    --bg-dark:       #050E2D;   /* Deep Navy — headers, footers, dark sections */
+    --bg-deep:       #050E2D;   /* alias */
+
+    /* ── Accent / Brand ── */
+    --accent-primary:   #0A2472;  /* Royal Blue */
+    --accent-secondary: #1E90FF;  /* Sky Blue */
+    --accent-highlight: #4FC3F7;  /* Light Sky Blue / CTA */
+
+    /* ── Gold (premium touch) ── */
+    --gold:          #C9A84C;
+    --gold-l:        #D4B96A;
+    --gold-dark:     #A07830;
+    --gold-line:     rgba(201, 168, 76, 0.25);
+    --gold-bg:       rgba(201, 168, 76, 0.08);
+    --gold-bg-hover: rgba(201, 168, 76, 0.15);
+    --gold-dim:      rgba(201, 168, 76, 0.30);
+    --gold-glow:     rgba(201, 168, 76, 0.10);
 
     /* ── Text ── */
-    --ink: #1A1610;
-    --ink-mid: rgba(26, 22, 16, 0.55);
-    --ink-dim: rgba(26, 22, 16, 0.35);
-    --ink-light: #F5F2EC;
+    --text-primary:  #0D0D0D;    /* Richest black for headings */
+    --text-body:     #3A3A4A;    /* Body paragraphs */
+    --text-muted:    #7A7A8A;    /* Subdued / captions */
+    --text-dim:      #9A9AAA;    /* Meta / labels */
+    --text-inv:      #FFFFFF;    /* White on dark */
+    --text-inv-muted: rgba(255, 255, 255, 0.72);
+    --text-sec:      rgba(255, 255, 255, 0.60);
 
-    /* ── Accent ── */
-    --gold: #C8963E;
-    --gold-l: #E8B86D;
-    --gold-dim: rgba(200, 150, 62, 0.25);
-    --gold-glow: rgba(200, 150, 62, 0.08);
+    /* ── Legacy aliases — kept for backward compat ── */
+    --bg:            #FDFAF5;
+    --bg-card:       #FFFFFF;
+    --bg-2:          #050E2D;
+    --ink:           #0D0D0D;
+    --ink-mid:       rgba(13, 13, 13, 0.55);
+    --ink-dim:       rgba(13, 13, 13, 0.35);
+    --ink-light:     #FFFFFF;
+    --navy:          #050E2D;
+    --navy-mid:      rgba(5, 14, 45, 0.07);
+    --text-pri:      #0D0D0D;    /* alias for old --text-pri */
 
-    /* ── Navy ── */
-    --navy: #0E1525;
-    --navy-mid: rgba(14, 21, 37, 0.07);
+    /* ── Borders & Dividers ── */
+    --border:        rgba(10, 36, 114, 0.10);
+    --border-gold:   rgba(201, 168, 76, 0.28);
+    --border-dark:   rgba(255, 255, 255, 0.10);
+    --divider:       rgba(10, 36, 114, 0.08);
+    --divider-light: rgba(10, 36, 114, 0.08);
+    --divider-gold:  rgba(201, 168, 76, 0.22);
 
-    /* ── Structural ── */
-    --divider-light: rgba(14, 21, 37, 0.08);
-    --divider-gold: rgba(200, 150, 62, 0.2);
-    --shadow: 0 4px 40px rgba(14, 21, 37, 0.08);
-    --shadow-hover: 0 12px 60px rgba(14, 21, 37, 0.14);
+    /* ── Shadows ── */
+    --shadow:        0 4px 40px rgba(5, 14, 45, 0.10);
+    --shadow-hover:  0 12px 60px rgba(5, 14, 45, 0.18);
 
-    /* Legacy aliases for existing components */
-    --bg-2: #162035;
-    --text-dim: rgba(245, 242, 236, 0.45);
-    --divider: rgba(200, 150, 62, 0.12);
+    /* ── Fonts ── */
+    --font-heading:  'Plus Jakarta Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-body:     'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-display:  'Plus Jakarta Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono:     'Inter', 'Segoe UI', monospace;
   }
 
   *,
   *::before,
   *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-display: swap;
   }
 
   body {
-    background-color: var(--bg);
-    color: var(--ink);
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-barlow), sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-body);
+    background: var(--bg-base);
+    color: var(--text-body);
+    font-size: 16px;
+    line-height: 1.75;
     cursor: none;
     scrollbar-width: none;
   }
@@ -56,25 +97,69 @@
     display: none;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-cormorant), serif;
-    font-weight: 300;
+  /* ── Heading Hierarchy — Premium Aviation Typography ── */
+  h1 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--text-primary);
     margin: 0;
+    font-size: clamp(28px, 6vw, 42px); /* 28px mobile → 42px+ desktop */
   }
 
-  h1 em,
-  h2 em,
-  h3 em,
-  h4 em,
-  h5 em,
-  h6 em {
+  h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin: 0;
+    font-size: clamp(30px, 4.5vw, 58px);
+  }
+
+  h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin: 0;
+    font-size: clamp(22px, 2.8vw, 32px);
+  }
+
+  h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
+    margin: 0;
+    font-size: clamp(18px, 2vw, 24px);
+  }
+
+  /* Italic accent on dark sections — sky blue instead of gold */
+  h1 em, h2 em, h3 em, h4 em {
     color: var(--gold);
     font-style: italic;
+  }
+
+  p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text-body);
+  }
+
+  li, label, span {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  input, textarea, select, button {
+    font-family: var(--font-body);
+    font-size: 15px;
+  }
+
+  button {
+    font-weight: 600;
   }
 
   a {
@@ -82,37 +167,134 @@
     text-decoration: none;
   }
 
+  /* ── Smooth page entrance ── */
+  main {
+    animation: fadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+
   /* ── Homepage: hide global footer ── */
-  body.homepage-active>footer {
+  body.homepage-active > footer {
     display: none !important;
   }
 }
 
 @layer utilities {
+  /* Eyebrow label */
   .eyebrow {
-    font-family: var(--font-space), monospace;
-    font-size: 9px;
-    letter-spacing: 0.5em;
-    color: var(--gold);
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
     display: flex;
     align-items: center;
-    text-transform: uppercase;
-    gap: 14px;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-weight: 600;
   }
 
   .eyebrow::before {
-    content: "";
-    display: block;
+    content: '';
     width: 28px;
     height: 1px;
-    background-color: var(--gold);
+    background: currentColor;
     flex-shrink: 0;
+  }
+
+  /* On dark sections override */
+  .eyebrowInv {
+    color: var(--accent-highlight);
+  }
+
+  /* Gold top-line card hover sweep */
+  .cardHoverLine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cardHoverLine::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cardHoverLine:hover::before { transform: scaleX(1); }
+
+  /* Primary button */
+  .btnPrimary {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    padding: 14px 44px;
+    background: var(--accent-primary);
+    color: #FFFFFF;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.25s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btnPrimary:hover {
+    background: var(--accent-secondary);
+    transform: translateY(-1px);
+  }
+
+  /* Outline button */
+  .btnOutline {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    background: transparent;
+    color: var(--accent-primary);
+    border: 1.5px solid var(--accent-primary);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+
+  .btnOutline:hover {
+    background: var(--accent-primary);
+    color: #FFFFFF;
+  }
+
+  /* On dark bg variants */
+  .btnPrimaryInv {
+    background: var(--gold-l);
+    color: #050E2D;
+  }
+
+  .btnPrimaryInv:hover { background: var(--gold); color: #050E2D; }
+
+  .btnOutlineInv {
+    color: var(--gold-l);
+    border-color: rgba(212, 185, 106, 0.40);
+  }
+
+  .btnOutlineInv:hover {
+    background: rgba(212, 185, 106, 0.12);
+    border-color: var(--gold-l);
   }
 }
 
 /* ── Reduced Motion Kill Switch ── */
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
@@ -121,3 +303,37 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ── SCROLL REVEAL ── */
+.revealed { opacity: 1 !important; transform: translateY(0) !important; }
+
+/* ── HOVER MICRO-INTERACTIONS ── */
+.cardLift {
+  transition: transform 0.28s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.28s cubic-bezier(0.16,1,0.3,1);
+}
+.cardLift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(5,14,45,0.14);
+}
+
+/* Link arrow slide */
+.arrowLink {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-primary); text-decoration: none;
+  transition: gap 0.25s;
+}
+.arrowLink:hover { gap: 14px; }
+
+/* Gold underline reveal */
+.underlineReveal {
+  position: relative; display: inline-block;
+}
+.underlineReveal::after {
+  content: ''; position: absolute; bottom: -2px; left: 0;
+  width: 0; height: 1px; background: var(--gold);
+  transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.underlineReveal:hover::after { width: 100%; }

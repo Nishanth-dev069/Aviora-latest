@@ -3,6 +3,9 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from '@/styles/home.module.css';
+import CessnaFly from '@/components/CessnaFly';
+import RevealOnScroll from '@/components/RevealOnScroll';
+import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
 
 /* ─────────────────────────────────────────────────
    TYPES & CONSTANTS
@@ -241,32 +244,43 @@ export default function HomePage() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    interface Star { x: number; y: number; r: number; phase: number; }
-    const stars: Star[] = Array.from({ length: 220 }, () => ({
+    interface Streak { x: number; y: number; length: number; speed: number; alpha: number; }
+    const streaks: Streak[] = Array.from({ length: 45 }, () => ({
       x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height * 0.65,
-      r: Math.random() * 1.4 + 0.2,
-      phase: Math.random() * Math.PI * 2,
+      y: Math.random() * canvas.height * 0.8,
+      length: Math.random() * 150 + 50,
+      speed: Math.random() * 8 + 4,
+      alpha: Math.random() * 0.4 + 0.1,
     }));
 
-    let tick = 0;
     let rafId: number;
     let currentAlpha = 0;
 
-    function drawStars() {
+    function drawStreaks() {
       if (!ctx) return;
       ctx.clearRect(0, 0, canvas!.width, canvas!.height);
-      tick += 0.016;
-      stars.forEach((s) => {
-        const b = 0.35 + 0.65 * Math.sin(tick + s.phase);
+      streaks.forEach((s) => {
+        s.x -= s.speed;
+        if (s.x < -s.length) {
+          s.x = canvas!.width + s.length;
+          s.y = Math.random() * canvas!.height * 0.8;
+        }
+
+        const grad = ctx!.createLinearGradient(s.x, s.y, s.x + s.length, s.y);
+        grad.addColorStop(0, `rgba(79, 195, 247, 0)`);
+        grad.addColorStop(0.5, `rgba(79, 195, 247, ${currentAlpha * s.alpha})`);
+        grad.addColorStop(1, `rgba(79, 195, 247, 0)`);
+
         ctx!.beginPath();
-        ctx!.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx!.fillStyle = `rgba(210,225,255,${currentAlpha * b})`;
-        ctx!.fill();
+        ctx!.moveTo(s.x, s.y);
+        ctx!.lineTo(s.x + s.length, s.y);
+        ctx!.strokeStyle = grad;
+        ctx!.lineWidth = 1.5;
+        ctx!.stroke();
       });
-      rafId = requestAnimationFrame(drawStars);
+      rafId = requestAnimationFrame(drawStreaks);
     }
-    drawStars();
+    drawStreaks();
 
     /* Expose alpha setter via canvas data */
     (canvas as HTMLCanvasElement & { setAlpha: (a: number) => void }).setAlpha = (a: number) => {
@@ -760,6 +774,10 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           SECTION 2 — TICKER
       ═══════════════════════════════════════════ */}
+      <div style={{ position: 'relative', overflow: 'hidden', height: '1px', background: 'var(--border-gold)' }}>
+        <CessnaFly direction="right" size={40} opacity={0.18} top="-20px" delay="0s" />
+      </div>
+
       <div className={styles.tickerSection}>
         <div className={styles.tickerTrack}>
           <div className={styles.tickerTape}>
@@ -773,13 +791,15 @@ export default function HomePage() {
         </div>
       </div>
 
+      <TrainingPartnersTicker />
+
       {/* ═══════════════════════════════════════════
           SECTION 3 — PROGRAMS
       ═══════════════════════════════════════════ */}
       <section className={styles.programsSection} id="programs">
         <div className={styles.container}>
 
-          <div className={styles.sectionHead}>
+          <RevealOnScroll className={styles.sectionHead}>
             <div className={styles.eyebrowLight}>Flight Programs</div>
             <h2 className={styles.sectionTitle}>
               Courses Built for Those<br />Who <em>Dare to Ascend</em>
@@ -788,7 +808,7 @@ export default function HomePage() {
               Every Aviora program is engineered by veteran captains who
               commanded the exact aircraft you are training for.
             </p>
-          </div>
+          </RevealOnScroll>
 
           <div className={styles.programsGrid}>
 
