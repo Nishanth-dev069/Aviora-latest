@@ -12,12 +12,6 @@ export default function CustomCursor() {
     const [isTouch, setIsTouch] = useState(false);
 
     useEffect(() => {
-        // Detect touch device
-        if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
-            setIsTouch(true);
-            return;
-        }
-
         const onMouseMove = (e: MouseEvent) => {
             // Inner cursor precisely follows mouse
             gsap.to(innerRef.current, {
@@ -58,7 +52,6 @@ export default function CustomCursor() {
         };
     }, []);
 
-    if (isTouch) return null;
 
     return (
         <div className={styles.cursorWrapper} aria-hidden="true">
