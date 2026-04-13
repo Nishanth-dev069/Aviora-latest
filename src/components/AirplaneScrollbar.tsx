@@ -59,8 +59,9 @@ export default function AirplaneScrollbar() {
         return () => cancelAnimationFrame(animationFrameId);
     }, []);
 
-    const clamp = (val: number, min: number, max: number) =>
-        Math.min(Math.max(val, min), max);
+    function clamp(val: number, min: number, max: number) {
+        return Math.min(Math.max(val, min), max);
+    }
 
     const handleTrackClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!trackRef.current) return;
@@ -88,7 +89,7 @@ export default function AirplaneScrollbar() {
                     <svg
                         className={styles.planeIcon}
                         viewBox="0 0 24 24"
-                        fill="var(--gold)"
+                        fill="var(--color-secondary)"
                         xmlns="http://www.w3.org/2000/svg"
                     >
                         <path d="M12,2 C12,2 11,3.5 11,5 L11,9.5 L2,10.5 L2,12.5 L11,12 L11,18 L8,20 L8,22 L12,21.5 L16,22 L16,20 L13,18 L13,12 L22,12.5 L22,10.5 L13,9.5 L13,5 C13,3.5 12,2 12,2 Z" />

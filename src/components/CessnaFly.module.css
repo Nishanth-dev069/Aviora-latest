@@ -1,7 +1,7 @@
 .wrap {
   position: absolute;
   top: var(--top);
-  color: var(--gold);
+  color: var(--color-secondary);
   opacity: var(--opacity);
   pointer-events: none;
   z-index: 1;

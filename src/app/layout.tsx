@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import CustomCursor from "@/components/CustomCursor";
 import AirplaneScrollbar from "@/components/AirplaneScrollbar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-/* ── Heading font: Plus Jakarta Sans ── */
-const plusJakarta = Plus_Jakarta_Sans({
-  weight: ["400", "500", "600", "700", "800"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
+/* ── Typography: Inter for everything ── */
 
 /* ── Body / UI font: Inter ── */
 const inter = Inter({
@@ -47,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plusJakarta.variable} ${inter.variable}`}>
+    <html lang="en" className={`${inter.variable}`}>
       <body>
         <CustomCursor />
         <AirplaneScrollbar />

@@ -1,7 +1,7 @@
 /* ──────────────────────────────────────────────
    BLOG POST MODULE CSS — Aviora Linen System
    ────────────────────────────────────────────── */
-.page { background: var(--bg-base); }
+.page { background: var(--color-primary); }
 
 /* HERO */
 .hero {
@@ -25,10 +25,10 @@
 }
 .breadcrumb {
   display: flex; align-items: center; gap: 10px; margin-bottom: 28px;
-  font-family: var(--font-mono), monospace; font-size: 9px;
+  font-family: var(--font-mono), monospace; font-size: 14px;
   letter-spacing: 0.28em; text-transform: uppercase;
 }
-.bcLink { color: var(--gold-l); text-decoration: none; transition: opacity 0.2s; }
+.bcLink { color: var(--color-secondary); text-decoration: none; transition: opacity 0.2s; }
 .bcLink:hover { opacity: 0.65; }
 .bcSep { color: rgba(248,245,240,0.30); }
 .bcCurrent { color: rgba(248,245,240,0.50); }
@@ -37,30 +37,30 @@
   display: flex; align-items: center; gap: 16px; margin-bottom: 22px; flex-wrap: wrap;
 }
 .postTag {
-  font-family: var(--font-mono), monospace; font-size: 9px;
+  font-family: var(--font-mono), monospace; font-size: 14px;
   letter-spacing: 0.28em; text-transform: uppercase;
-  color: var(--gold-dark); background: var(--gold-bg);
-  border: 1px solid var(--gold-line); padding: 5px 12px;
+  color: var(--color-secondary); background: rgba(100, 145, 222, 0.08);
+  border: 1px solid rgba(100, 145, 222, 0.25); padding: 5px 12px;
 }
 .postDate, .postRead {
-  font-family: var(--font-mono), monospace; font-size: 9px;
+  font-family: var(--font-mono), monospace; font-size: 14px;
   letter-spacing: 0.22em; text-transform: uppercase; color: rgba(248,245,240,0.45);
 }
 .heroH1 {
   font-family: var(--font-display), serif;
-  font-size: clamp(32px, 5vw, 62px); font-weight: 400; color: var(--text-inv);
+  font-size: clamp(32px, 5vw, 62px); font-weight: 400; color: var(--color-text-light);
   line-height: 1.10; letter-spacing: -0.012em;
 }
 
 /* ARTICLE */
-.articleWrap { background: var(--bg-base); padding: 80px 0 100px; }
+.articleWrap { background: var(--color-primary); padding: 80px 0 100px; }
 .articleInner {
   max-width: 740px; margin: 0 auto; padding: 0 40px;
 }
 .lead {
   font-family: var(--font-display), serif;
   font-size: 22px; font-weight: 400; font-style: italic; line-height: 1.65;
-  color: var(--text-primary); margin-bottom: 40px;
+  color: var(--color-text-dark); margin-bottom: 40px;
 }
 .divider {
   border: none; border-top: 1px solid var(--border);
@@ -69,21 +69,21 @@
 .bodyPara {
   font-family: var(--font-body), sans-serif;
   font-size: 18px; font-weight: 400; line-height: 1.90;
-  color: var(--text-body); margin-bottom: 26px;
+  color: var(--color-text-dark); margin-bottom: 26px;
 }
 .pullQuote {
   margin: 48px 0; padding: 32px 40px;
-  border-left: 3px solid var(--gold);
-  background: var(--bg-surface);
+  border-left: 3px solid var(--color-secondary);
+  background: var(--color-surface);
   font-family: var(--font-display), serif;
   font-size: 22px; font-weight: 400; font-style: italic;
-  line-height: 1.70; color: var(--text-primary);
+  line-height: 1.70; color: var(--color-text-dark);
 }
 
 /* Inline CTA */
 .inlineCta {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 24px; padding: 36px; background: var(--bg-dark);
+  gap: 24px; padding: 36px; background: var(--color-accent);
   flex-wrap: wrap;
 }
 .inlineCtaText {
@@ -91,33 +91,33 @@
   font-weight: 400; line-height: 1.65; color: var(--text-inv-muted); flex: 1;
 }
 .inlineCtaBtn {
-  font-family: var(--font-body), sans-serif; font-size: 12px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
-  padding: 13px 36px; background: var(--gold-l); color: #0F0D0A;
+  padding: 13px 36px; background: var(--color-secondary); color: #0F0D0A;
   text-decoration: none; white-space: nowrap; flex-shrink: 0;
   transition: background 0.25s;
 }
 .inlineCtaBtn:hover { background: #E8B870; }
 
 /* RELATED */
-.relatedSection { background: var(--bg-surface); padding: 80px; border-top: 1px solid var(--border); }
+.relatedSection { background: var(--color-surface); padding: 80px; border-top: 1px solid var(--border); }
 .relatedInner { max-width: 1200px; margin: 0 auto; }
 .relatedEye {
-  font-family: var(--font-mono), monospace; font-size: 10px;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-dark);
+  font-family: var(--font-mono), monospace; font-size: 14px;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--color-secondary);
   display: inline-flex; align-items: center; gap: 12px; margin-bottom: 12px;
 }
 .relatedEye::before { content:''; width:28px; height:1px; background:currentColor; flex-shrink:0; }
 .relatedH2 {
   font-family: var(--font-display), serif;
-  font-size: 36px; font-weight: 400; color: var(--text-primary);
+  font-size: 36px; font-weight: 400; color: var(--color-text-dark);
   margin-bottom: 40px;
 }
 .relatedGrid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
 }
 .relatedCard {
-  background: #FFFFFF; display: block; text-decoration: none;
+  background: var(--color-surface); display: block; text-decoration: none;
   border: 1px solid var(--border); padding: 36px 32px;
   position: relative; overflow: hidden;
   transition: transform 0.24s, box-shadow 0.24s;
@@ -125,24 +125,24 @@
 .relatedCard:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(26,22,18,0.10); }
 .relatedCardAccent {
   position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--gold), transparent);
+  background: linear-gradient(90deg, var(--color-secondary), transparent);
   transform: scaleX(0); transform-origin: left;
   transition: transform 0.44s cubic-bezier(0.16,1,0.3,1);
 }
 .relatedCard:hover .relatedCardAccent { transform: scaleX(1); }
 .relatedTag {
-  font-family: var(--font-mono), monospace; font-size: 8px;
+  font-family: var(--font-mono), monospace; font-size: 14px;
   letter-spacing: 0.28em; text-transform: uppercase;
-  color: var(--gold-dark); margin-bottom: 14px; display: block;
+  color: var(--color-secondary); margin-bottom: 14px; display: block;
 }
 .relatedTitle {
   font-family: var(--font-display), serif;
-  font-size: 18px; font-weight: 400; color: var(--text-primary);
+  font-size: 18px; font-weight: 400; color: var(--color-text-dark);
   line-height: 1.30; margin-bottom: 20px;
 }
 .relatedArrow {
-  font-family: var(--font-body), sans-serif; font-size: 12px;
-  font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark);
+  font-family: var(--font-body), sans-serif; font-size: 14px;
+  font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-secondary);
 }
 
 /* RESPONSIVE */

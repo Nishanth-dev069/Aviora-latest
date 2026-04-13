@@ -1,0 +1,11 @@
+export const COMPANY_NAME = "Aviora Aviation Academy";
+export const CONTACT_PHONE_PRIMARY = "+91 40 XXXX XXXX";
+export const CONTACT_PHONE_SECONDARY = "+91 XXXXX XXXXX";
+export const CONTACT_EMAIL = "admissions@avioraacademy.com";
+export const CONTACT_ADDRESS_LINE_1 = "Aviora Aviation Academy";
+export const CONTACT_ADDRESS_LINE_2 = "Hyderabad, Telangana, India";
+export const OFFICE_HOURS_WEEKDAY = "9:00 AM – 7:00 PM";
+export const OFFICE_HOURS_SATURDAY = "9:00 AM – 5:00 PM";
+export const FOUNDATION_YEAR = "2014";
+export const TOTAL_GRADUATES_STAT = "2,400+";
+export const PLACEMENT_RATE_STAT = "98%";

@@ -7,10 +7,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(false);
     const t = setTimeout(() => setIsVisible(true), 20);
     return () => clearTimeout(t);
-  }, [pathname]);
+  }, []);
 
   return (
     <div style={{

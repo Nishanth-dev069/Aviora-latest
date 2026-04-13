@@ -1,8 +1,8 @@
 .eyebrow {
     font-family: var(--font-body), sans-serif;
-    font-size: 11px;
+    font-size: 14px;
     letter-spacing: 0.32em;
-    color: var(--accent-primary);
+    color: var(--color-accent);
     display: flex;
     align-items: center;
     text-transform: uppercase;
@@ -21,9 +21,9 @@
 
 .eyebrowInv {
     font-family: var(--font-body), sans-serif;
-    font-size: 11px;
+    font-size: 14px;
     letter-spacing: 0.32em;
-    color: var(--accent-highlight);
+    color: var(--color-secondary);
     display: flex;
     align-items: center;
     text-transform: uppercase;

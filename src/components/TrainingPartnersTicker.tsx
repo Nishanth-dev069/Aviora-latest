@@ -2,16 +2,16 @@ import React from 'react';
 import styles from './TrainingPartnersTicker.module.css';
 
 const PARTNERS = [
-  "IndiGo Airlines",
-  "Air India",
-  "Vistara",
-  "SpiceJet",
-  "Qatar Airways",
-  "Emirates",
-  "Akasa Air",
-  "Go First",
-  "AirAsia India",
-  "Etihad Airways"
+  { name: "IndiGo Airlines", short: "IG" },
+  { name: "Air India", short: "AI" },
+  { name: "Vistara", short: "VS" },
+  { name: "SpiceJet", short: "SJ" },
+  { name: "Qatar Airways", short: "QA" },
+  { name: "Emirates", short: "EK" },
+  { name: "Akasa Air", short: "AK" },
+  { name: "Go First", short: "GF" },
+  { name: "AirAsia India", short: "AA" },
+  { name: "Etihad Airways", short: "EY" }
 ];
 
 export default function TrainingPartnersTicker() {
@@ -21,9 +21,12 @@ export default function TrainingPartnersTicker() {
       <div className={styles.marqueeWrap}>
         <div className={styles.marqueeContent}>
           {/* Repeat slightly more than twice to ensure a seamless infinite loop */}
-          {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, i) => (
-            <div key={i} className={styles.partnerCard}>
-              <span className={styles.partnerName}>{partner}</span>
+          {[...PARTNERS, ...PARTNERS].map((partner, i) => (
+            <div key={`${partner.short}-${i}`} className={styles.partnerCard}>
+              <div className={styles.monogram}>
+                {partner.short}
+              </div>
+              <span className={styles.partnerName}>{partner.name}</span>
             </div>
           ))}
         </div>

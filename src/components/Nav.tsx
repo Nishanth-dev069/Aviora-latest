@@ -38,6 +38,7 @@ export default function Nav() {
     const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState(false);
     const [exploreOpen, setExploreOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -47,10 +48,14 @@ export default function Nav() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const isExploreActive = pathname.startsWith("/explore") || pathname.startsWith("/gallery") || pathname.startsWith("/blog") || pathname.startsWith("/news");
+
+    const isExploreActive = pathname?.startsWith("/explore") || pathname?.startsWith("/gallery") || pathname?.startsWith("/blog") || pathname?.startsWith("/news");
+    
+    // Determine if page has a dark hero where transparency overlay is preferred before scroll
+    const isDarkHero = pathname === "/" || pathname === "/admissions" || pathname === "/programs" || pathname?.startsWith("/programs/");
 
     return (
-        <nav id="main-nav" className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
+        <nav id="main-nav" className={`${styles.nav} ${isScrolled ? styles.scrolled : (isDarkHero ? styles.navHeroDark : "")}`}>
             <Link href="/" className={styles.navLogo}>
                 AVIORA
             </Link>
@@ -108,9 +113,37 @@ export default function Nav() {
                 Apply Now
             </Link>
 
-            <div className={styles.navHamburger}>
+            <div 
+                className={`${styles.navHamburger} ${isMobileMenuOpen ? styles.isOpen : ""}`}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
                 <span />
                 <span />
+                <span />
+            </div>
+
+            {/* Mobile Overlay */}
+            <div className={`${styles.mobileOverlay} ${isMobileMenuOpen ? styles.isOpen : ""}`}>
+                <ul className={styles.mobileLinks}>
+                    {navLinks.map((link) => {
+                        const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                        return (
+                            <li key={link.name}>
+                                <Link href={link.href} className={isActive ? styles.active : ""} onClick={() => setIsMobileMenuOpen(false)}>
+                                    {link.name}
+                                </Link>
+                            </li>
+                        );
+                    })}
+                    <li>
+                        <Link href="/explore" className={isExploreActive ? styles.active : ""} onClick={() => setIsMobileMenuOpen(false)}>
+                            Explore
+                        </Link>
+                    </li>
+                </ul>
+                <Link href="/admissions" className={`${styles.navCta} ${styles.mobileOverlayCta}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    Apply Now
+                </Link>
             </div>
         </nav>
     );

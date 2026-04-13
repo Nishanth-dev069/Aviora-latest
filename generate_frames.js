@@ -1,19 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 
-const framesDir = path.join(__dirname, 'public', 'frames');
+const framesDir = path.join(__dirname, 'public', 'hero-sequence');
 if (!fs.existsSync(framesDir)) {
     fs.mkdirSync(framesDir, { recursive: true });
 }
 
-// A valid 1x1 black JPEG
-const base64Jpeg = "/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA=";
-const buffer = Buffer.from(base64Jpeg, 'base64');
+// 1x1 Transparent WEBP
+const base64WebP = "UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==";
+const buffer = Buffer.from(base64WebP, 'base64');
 
-for (let i = 1; i <= 180; i++) {
-    const paddedNum = i.toString().padStart(3, '0');
-    const fileName = `c172-frame-${paddedNum}.jpg`;
+for (let i = 1; i <= 242; i++) {
+    const paddedNum = i.toString().padStart(4, '0');
+    const fileName = `${paddedNum}.webp`;
     fs.writeFileSync(path.join(framesDir, fileName), buffer);
 }
 
-console.log("Successfully generated 180 placeholder frames.");
+console.log("Successfully generated 242 placeholder webp frames.");

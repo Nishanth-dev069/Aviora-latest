@@ -11,7 +11,8 @@
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    background: #050E2D; /* Updated to deep navy */
+    background: #050E2D;
+    /* Updated to deep navy */
 }
 
 .heroCanvas {
@@ -200,16 +201,44 @@
 }
 
 @keyframes pulse {
-    0% { opacity: 0.4; }
-    50% { opacity: 1; }
-    100% { opacity: 0.4; }
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
 }
 
 @media (max-width: 1024px) {
-    .hudLeft { left: 24px; }
-    .hudRight { right: 24px; }
-    .phaseText { left: 24px; bottom: 40px; }
-    .phaseText h2 { font-size: 32px; }
-    .phasesTrack { right: 24px; bottom: 40px; }
-    .ctaGroup { flex-direction: column; gap: 16px; }
+    .hudLeft {
+        left: 24px;
+    }
+
+    .hudRight {
+        right: 24px;
+    }
+
+    .phaseText {
+        left: 24px;
+        bottom: 40px;
+    }
+
+    .phaseText h2 {
+        font-size: 32px;
+    }
+
+    .phasesTrack {
+        right: 24px;
+        bottom: 40px;
+    }
+
+    .ctaGroup {
+        flex-direction: column;
+        gap: 16px;
+    }
 }

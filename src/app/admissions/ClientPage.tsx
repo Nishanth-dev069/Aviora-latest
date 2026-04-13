@@ -2,46 +2,26 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import s from './admissions.module.css';
-import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
 import Image from 'next/image';
 
-const STEPS = [
-  {
-    num: '01',
-    title: 'Submit Online Application',
-    desc: 'Complete the Aviora online application form with your personal details, educational background, and program of choice. Takes 10 minutes. No application fee.',
-    time: 'Day 1',
-  },
-  {
-    num: '02',
-    title: 'Document Verification',
-    desc: 'Upload scanned copies of your 10+2 marksheet, identity proof, and photographs. Our admissions team verifies documents within 48 working hours and sends confirmation.',
-    time: '48 Hours',
-  },
-  {
-    num: '03',
-    title: 'Admissions Counselling Call',
-    desc: 'A one-on-one call with an Aviora admissions counsellor — a working pilot or aviation professional. They answer every question honestly. No sales pressure.',
-    time: 'Day 3–5',
-  },
-  {
-    num: '04',
-    title: 'Medical / Fitness Check',
-    desc: 'Pilot applicants are guided to a DGCA-approved Aviation Medical Examiner (AME) for Class 2 medical. Cabin crew applicants complete a standard fitness declaration. Aviora assists with AME referrals.',
-    time: 'Day 5–10',
-  },
-  {
-    num: '05',
-    title: 'Offer Letter & Fee Confirmation',
-    desc: 'Upon successful verification and medical clearance, Aviora issues a formal Offer of Admission. Seat is reserved upon payment of the confirmation deposit.',
-    time: 'Day 10–14',
-  },
-  {
-    num: '06',
-    title: 'Induction & Batch Commencement',
-    desc: 'Attend Aviora Induction Day — meet your batch, your instructors, and the campus. Ground school begins the following Monday. For pilot cadets, USA travel documentation is initiated in parallel.',
-    time: 'Intake Date',
-  },
+const PARTNERS = [
+  { name: "IndiGo Airlines", short: "IG" },
+  { name: "Air India",       short: "AI" },
+  { name: "Vistara",         short: "VS" },
+  { name: "SpiceJet",        short: "SJ" },
+  { name: "Qatar Airways",   short: "QA" },
+  { name: "Emirates",        short: "EK" },
+  { name: "Akasa Air",       short: "AK" },
+  { name: "AirAsia India",   short: "AA" },
+  { name: "Etihad Airways",  short: "EY" },
+  { name: "Go First",        short: "GF" },
+];
+
+const TIMELINE_STEPS = [
+  { num: '01', label: 'Apply Online',         sub: 'Submit in under 10 mins' },
+  { num: '02', label: 'Document Submission',  sub: 'Upload ID & marksheet'   },
+  { num: '03', label: 'Aptitude & Interview', sub: 'One-on-one counsellor'   },
+  { num: '04', label: 'Seat Confirmation',    sub: 'Medical & fee deposit'   },
 ];
 
 const ELIGIBILITY = [
@@ -86,7 +66,7 @@ const FAQS = [
   },
   {
     q: 'Is a passport mandatory to apply?',
-    a: 'For the Pilot Training program, a valid passport is required before USA travel (typically Month 6–8 of the program). If you do not have a passport, Aviora\'s admissions team will guide you through the application process from day one.',
+    a: "For the Pilot Training program, a valid passport is required before USA travel (typically Month 6–8 of the program). If you do not have a passport, Aviora's admissions team will guide you through the application process from day one.",
   },
   {
     q: 'Are payment plans or EMI options available?',
@@ -100,6 +80,8 @@ const FAQS = [
 
 export default function AdmissionsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openReq, setOpenReq] = useState<number | null>(0);
+  const allPartners = [...PARTNERS, ...PARTNERS];
 
   return (
     <main className={s.page}>
@@ -108,35 +90,64 @@ export default function AdmissionsPage() {
       <section className={s.hero}>
         <div className={s.heroBgWrap}>
           <Image
-            src="https://images.unsplash.com/photo-1559628233-100c798642d8?w=1920&q=80"
-            alt="Aircraft cockpit at golden hour"
+            src="https://images.unsplash.com/photo-1542282245-21d960f58ec7?w=1920&q=80"
+            alt="Wide-angle runway view at dawn"
             className={s.heroBgImg}
-            fill
-            priority
-            sizes="100vw"
+            fill priority sizes="100vw"
             style={{ objectFit: 'cover' }}
           />
         </div>
         <div className={s.heroOverlay} />
         <div className={s.heroGlow} />
+
         <div className={s.heroContent}>
-          <div className={s.eyebrow}>Admissions 2025–26</div>
-          <h1 className={s.heroH1}>
-            Your First Step<br/><em>Into Aviation.</em>
-          </h1>
+          <span className={s.heroEyebrow}>ADMISSIONS · AY 2025–26</span>
+          <h1 className={s.heroH1}>Your Flight Plan<br/>Starts Here.</h1>
           <p className={s.heroPara}>
-            A straightforward, transparent process — no entrance exams, no hidden steps.
-            Six clear stages from application to induction.
-            Our admissions counsellors are pilots. They have been where you are.
+            Join India's elite aviation academy. Seats are limited — secure yours before the runway closes.
           </p>
           <div className={s.heroActions}>
-            <a href="#apply" className={s.btnPrimary}>Apply Now →</a>
-            <a href="#eligibility" className={s.btnSecondary}>Check Eligibility</a>
+            <a href="#apply" className={s.btnPrimaryApply}>Apply for Intake</a>
+            <a href="#prospectus" className={s.btnSecondaryApply}>Download Brochure</a>
           </div>
+
+          {/* 4-step horizontal timeline */}
+          <div className={s.heroTimeline}>
+            {TIMELINE_STEPS.map((step) => (
+              <div className={s.htStep} key={step.num}>
+                <div className={s.htNode}>
+                  <span className={s.htNodeNum}>{step.num}</span>
+                </div>
+                <div className={s.htLabel}>{step.label}</div>
+                <div className={s.htSub}>{step.sub}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Hero image emerging from bottom */}
+        <div className={s.heroImageWrap}>
+          <img
+            src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1400&q=80"
+            alt="Aviora Academy campus and students"
+          />
         </div>
       </section>
 
-      <TrainingPartnersTicker />
+      {/* ═══ PARTNER SCROLL ═══ */}
+      <section className={s.partnerSection}>
+        <span className={s.partnerLabel}>TRUSTED BY INDIA'S LEADING AVIATION ORGANISATIONS</span>
+        <div className={s.partnerMarqueeWrap}>
+          <div className={s.partnerMarqueeTrack}>
+            {allPartners.map((p, i) => (
+              <div className={s.partnerCard} key={i}>
+                <div className={s.partnerMonogram}>{p.short}</div>
+                <span className={s.partnerName}>{p.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ═══ 2. INTAKE DATES STRIP ═══ */}
       <section className={s.intakeStrip}>
@@ -162,18 +173,19 @@ export default function AdmissionsPage() {
         <div className={s.container}>
           <div className={s.eyebrow}>Admissions Process</div>
           <h2 className={s.sectionH2}>
-            Six Steps.<br/><em>Zero Complexity.</em>
+            Four Steps.<br/><em>Zero Complexity.</em>
           </h2>
-          <div className={s.processGrid}>
-            {STEPS.map((step, i) => (
-              <div className={s.processStep} key={i}>
-                <div className={s.psTop}>
-                  <div className={s.psNum}>{step.num}</div>
-                  <div className={s.psTime}>{step.time}</div>
+          <div className={s.processTimeline}>
+            {TIMELINE_STEPS.map((step, i) => (
+              <div className={s.tlItem} key={i}>
+                <div className={s.tlVisual}>
+                  <div className={s.tlDot} />
+                  {i < TIMELINE_STEPS.length - 1 && <div className={s.tlLine} />}
                 </div>
-                <h3 className={s.psTitle}>{step.title}</h3>
-                <p className={s.psDesc}>{step.desc}</p>
-                {i < STEPS.length - 1 && <div className={s.psConnector} />}
+                <div className={s.tlContent}>
+                  <h3 className={s.tlTitle}>{step.label}</h3>
+                  <p className={s.tlDesc}>{step.sub}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -187,33 +199,37 @@ export default function AdmissionsPage() {
           <h2 className={s.sectionH2}>
             Do You Qualify<br/><em>for Aviora?</em>
           </h2>
-          <div className={s.eligGrid}>
+          <div className={s.eligAccordion}>
             {ELIGIBILITY.map((prog, i) => (
-              <div className={s.eligCard} key={i}>
-                <div className={s.eligAccent} />
-                <div className={s.eligTag}>{prog.tag}</div>
-                <h3 className={s.eligProgram}>{prog.program}</h3>
-                <ul className={s.eligList}>
-                  {prog.items.map((item, j) => (
-                    <li className={s.eligItem} key={j}>
-                      <span className={s.eligBullet}>→</span>
-                      <span className={s.eligText}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={i === 0 ? '/programs/pilot-training' : '/programs/cabin-crew'}
-                  className={s.eligLink}
-                >
-                  Full Program Details →
-                </Link>
+              <div className={`${s.reqCard} ${openReq === i ? s.reqOpen : ''}`} key={i} onClick={() => setOpenReq(openReq === i ? null : i)}>
+                <div className={s.reqCardHeader}>
+                  <div className={s.reqTitleGroup}>
+                    <div className={s.reqProgram}>{prog.program}</div>
+                  </div>
+                  <div className={s.reqToggle}>{openReq === i ? '−' : '+'}</div>
+                </div>
+                {openReq === i && (
+                  <div className={s.reqCardBody}>
+                    <ul className={s.reqList}>
+                      {prog.items.map((item, j) => (
+                        <li className={s.reqItem} key={j}>
+                          <span className={s.reqCheckbox}>✓</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link href={i === 0 ? '/programs/cpl' : '/programs/cabin-crew'} className={s.reqLink}>
+                      Full Program Details →
+                    </Link>
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ 5. APPLICATION FORM REDIRECT ═══ */}
+      {/* ═══ 5. APPLICATION FORM ═══ */}
       <section className={s.applySection} id="apply">
         <div className={s.applyInner}>
           <div className={s.applyLeft}>
@@ -235,7 +251,7 @@ export default function AdmissionsPage() {
                 <span className={s.applyStatLabel}>Application fee</span>
               </div>
               <div className={s.applyStat}>
-                <span className={s.applyStatNum}>6 steps</span>
+                <span className={s.applyStatNum}>4 steps</span>
                 <span className={s.applyStatLabel}>To your seat</span>
               </div>
             </div>
@@ -266,8 +282,10 @@ export default function AdmissionsPage() {
                     <label className={s.applyLabel}>Program of Interest</label>
                     <select className={s.applySelect}>
                       <option value="">Select a program</option>
-                      <option value="pilot">Pilot Training — CPL</option>
+                      <option value="cpl">Commercial Pilot — CPL</option>
+                      <option value="ppl">Private Pilot — PPL</option>
                       <option value="cabin">Cabin Crew Program</option>
+                      <option value="type">Type Rating</option>
                       <option value="unsure">Not sure yet</option>
                     </select>
                   </div>
@@ -281,9 +299,7 @@ export default function AdmissionsPage() {
                     </select>
                   </div>
                 </div>
-                <button className={s.applySubmit}>
-                  Submit Application →
-                </button>
+                <button className={s.applySubmit}>Submit Application →</button>
                 <p className={s.applyDisclaimer}>
                   By submitting you agree to be contacted by Aviora admissions.
                   We do not share your information with third parties.

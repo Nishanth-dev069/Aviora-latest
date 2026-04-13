@@ -1,47 +1,57 @@
-.page { background: var(--bg-base); min-height: 100vh; }
+.page { background: var(--color-primary); min-height: 100vh; }
 .container { max-width: 1280px; margin: 0 auto; width: 100%; }
 
 .eyebrow {
   font-family: var(--font-body), sans-serif;
-  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
-  color: var(--gold-dark); display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+  font-size: 14px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--color-secondary); display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
   font-weight: 600;
 }
 .eyebrow::before { content:''; width:28px; height:1px; background:currentColor; flex-shrink:0; }
 
 /* On dark backgrounds — eyebrow uses light sky blue */
 .eyebrowInv {
-  color: var(--accent-highlight);
+  color: var(--color-secondary);
 }
-.eyebrowInv::before { background: var(--accent-highlight); }
+.eyebrowInv::before { background: var(--color-secondary); }
 
 .sectionH2 {
   font-family: var(--font-display), sans-serif;
   font-size: clamp(30px, 5vw, 68px); font-weight: 700; line-height: 1.1;
-  color: var(--text-primary); letter-spacing: -0.015em; margin-bottom: 56px;
+  color: var(--color-text-dark); letter-spacing: -0.015em; margin-bottom: 56px;
 }
-.sectionH2 em { font-style: italic; color: var(--gold); }
+.sectionH2 em { font-style: italic; color: var(--color-secondary); }
+
+/* Override: headings on dark (navy) sections must be white */
+.missionSection .sectionH2,
+.facilitiesSection .sectionH2 {
+  color: #ffffff;
+}
+.missionSection .eyebrow,
+.facilitiesSection .eyebrow {
+  color: var(--color-secondary);
+}
 
 /* On dark bg — headings white */
 .sectionH2Inv {
-  color: #FFFFFF;
+  color: var(--color-surface);
 }
 
 .btnPrimary {
   font-family: var(--font-body), sans-serif; font-size: 15px; font-weight: 600;
   letter-spacing: 0.10em; text-transform: uppercase; padding: 14px 44px;
-  background: var(--accent-primary); color: #FFFFFF; text-decoration: none;
+  background: var(--color-accent); color: var(--color-surface); text-decoration: none;
   transition: background 0.25s, transform 0.2s; display: inline-block; border: none; cursor: pointer;
 }
-.btnPrimary:hover { background: var(--accent-secondary); transform: translateY(-1px); }
+.btnPrimary:hover { background: var(--color-secondary); transform: translateY(-1px); }
 
 .btnSecondary {
   font-family: var(--font-body), sans-serif; font-size: 15px; font-weight: 600;
   letter-spacing: 0.10em; text-transform: uppercase; padding: 14px 36px;
-  border: 1.5px solid var(--accent-primary); color: var(--accent-primary);
+  border: 1.5px solid var(--color-accent); color: var(--color-accent);
   text-decoration: none; transition: all 0.25s; display: inline-block;
 }
-.btnSecondary:hover { border-color: var(--accent-secondary); background: rgba(10,36,114,0.06); color: var(--accent-secondary); }
+.btnSecondary:hover { border-color: var(--color-secondary); background: rgba(10,36,114,0.06); color: var(--color-secondary); }
 
 /* ── HERO ── */
 .hero {
@@ -52,17 +62,15 @@
 .heroBgWrap { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
 .heroBgImg {
   width: 100%; height: 100%; object-fit: cover; object-position: center 45%;
-  filter: brightness(0.26) saturate(0.52); transform: scale(1.04);
+  transform: scale(1.04);
   animation: hd 24s ease-in-out infinite alternate;
 }
 @keyframes hd { from { transform: scale(1.04); } to { transform: scale(1.08) translateX(-18px); } }
 
-/* Deep navy overlay — minimum 0.65 */
+/* Hero Overlay */
 .heroOverlay {
   position: absolute; inset: 0; z-index: 1;
-  background:
-    linear-gradient(105deg, rgba(5,14,45,0.95) 0%, rgba(5,14,45,0.70) 52%, rgba(5,14,45,0.40) 100%),
-    linear-gradient(to bottom, rgba(5,14,45,0.10) 0%, rgba(5,14,45,0.90) 100%);
+  background: linear-gradient(135deg, rgba(7,61,127,0.55) 0%, rgba(13,27,42,0.60) 100%);
 }
 .heroContent {
   position: relative; z-index: 2; max-width: 780px; padding: 0 80px; flex: 1;
@@ -70,13 +78,15 @@
 }
 .heroH1 {
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(42px, 8.5vw, 108px); font-weight: 800; color: #FFFFFF;
+  font-size: clamp(42px, 8.5vw, 108px); font-weight: 800; color: #F1F1F1;
   line-height: 1.0; letter-spacing: -0.020em; margin-bottom: 28px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
-.heroH1 em { font-style: italic; color: var(--gold-l); }
+.heroH1 em { font-style: italic; color: var(--color-secondary); }
 .heroPara {
   font-family: var(--font-body), sans-serif; font-size: 18px;
-  font-weight: 400; line-height: 1.75; color: var(--text-inv-muted); max-width: 560px;
+  font-weight: 400; line-height: 1.75; color: #F1F1F1; max-width: 560px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 
 /* Stat strip at bottom of hero */
@@ -95,14 +105,14 @@
 .heroStat:last-child { border-right: none; }
 .heroStatNum {
   font-family: var(--font-display), sans-serif; font-size: 42px;
-  font-weight: 700; color: var(--gold-l); line-height: 1;
+  font-weight: 700; color: var(--color-secondary); line-height: 1;
 }
 .heroStatLabel {
   font-family: var(--font-body), sans-serif; font-size: 15px;
-  font-weight: 400; color: #FFFFFF;
+  font-weight: 400; color: var(--color-surface);
 }
 .heroStatSub {
-  font-family: var(--font-body), sans-serif; font-size: 12px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.48);
   font-weight: 400;
 }
@@ -110,7 +120,7 @@
 /* ── STORY SECTION ── */
 .storySection {
   padding: 108px 80px;
-  background: var(--bg-base);
+  background: var(--color-primary);
   border-bottom: 1px solid var(--border);
 }
 .storyInner {
@@ -120,21 +130,98 @@
 .storyLeft { position: sticky; top: 120px; }
 .storyPara {
   font-family: var(--font-body), sans-serif; font-size: 16px;
-  font-weight: 400; line-height: 1.85; color: var(--text-body);
+  font-weight: 400; line-height: 1.9; color: var(--color-text-dark);
   margin-bottom: 28px;
 }
-.storyPara:last-of-type { margin-bottom: 36px; }
+.storyPara span { font-weight: 600; }
+.storyQuote {
+  font-family: var(--font-body), sans-serif; font-size: 22px;
+  font-style: italic; color: #6491DE; line-height: 1.6;
+  margin-bottom: 32px; padding-left: 20px; border-left: 3px solid #6491DE;
+}
+/* Timeline alongside story */
+.storyTimeline {
+  display: flex; flex-direction: column; gap: 0; margin-top: 40px;
+}
+.stItem {
+  display: flex; gap: 20px; position: relative;
+}
+.stVisual {
+  display: flex; flex-direction: column; align-items: center;
+}
+.stDot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #6491DE; border: 2px solid rgba(7,61,127,0.3);
+  flex-shrink: 0; position: relative; z-index: 2; margin-top: 4px;
+}
+.stLine {
+  width: 2px; flex: 1; background: rgba(100,145,222,0.35);
+  position: relative; z-index: 1; margin: 4px 0 -4px; min-height: 48px;
+}
+.stContent { padding-bottom: 28px; }
+.stYear {
+  font-family: var(--font-display), sans-serif; font-size: 18px;
+  font-weight: 700; color: #0D1B2A; margin-bottom: 6px; line-height: 1;
+}
+.stText {
+  font-family: var(--font-body), sans-serif; font-size: 14px;
+  font-weight: 400; color: var(--text-muted); line-height: 1.6;
+}
 .storySignature { display: flex; align-items: center; gap: 20px; }
-.sigLine { width: 48px; height: 1px; background: var(--gold); }
+.sigLine { width: 48px; height: 1px; background: var(--color-secondary); }
 .sigText {
   font-family: var(--font-display), sans-serif; font-size: 18px;
-  font-style: italic; font-weight: 600; color: var(--gold);
+  font-style: italic; font-weight: 600; color: var(--color-secondary);
 }
 
-/* ── MISSION ── */
+/* ── PARTNER SCROLL (light) ── */
+.partnerSection {
+  background: #F1F1F1; padding: 0 0 60px;
+  position: relative; overflow: hidden;
+  border-bottom: 1px solid rgba(7,61,127,0.12);
+}
+.partnerLabel {
+  font-family: var(--font-body), sans-serif;
+  font-weight: 600; font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.12em; color: #073D7F;
+  text-align: center; padding-top: 60px; margin-bottom: 32px; display: block;
+}
+.partnerMarqueeWrap {
+  position: relative; width: 100%; overflow: hidden; display: flex;
+}
+.partnerMarqueeWrap::before,
+.partnerMarqueeWrap::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+}
+.partnerMarqueeWrap::before { left: 0; background: linear-gradient(to right, #F1F1F1, transparent); }
+.partnerMarqueeWrap::after  { right: 0; background: linear-gradient(to left, #F1F1F1, transparent); }
+.partnerMarqueeTrack {
+  display: flex; gap: 16px; min-width: max-content;
+  animation: partnerScroll 35s linear infinite; will-change: transform;
+}
+.partnerMarqueeTrack:hover { animation-play-state: paused; }
+@keyframes partnerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% / 2)); }
+}
+.partnerCard {
+  background: #FFFFFF; border: 1px solid rgba(7,61,127,0.12);
+  border-radius: 10px; padding: 14px 22px;
+  display: flex; align-items: center; gap: 10px; cursor: default; transition: all 0.25s;
+}
+.partnerCard:hover { border-color: rgba(7,61,127,0.28); box-shadow: 0 4px 16px rgba(7,61,127,0.1); }
+.partnerMonogram {
+  width: 36px; height: 36px; border-radius: 50%; background: #073D7F; color: #6491DE;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body), sans-serif; font-weight: 700; font-size: 11px; flex-shrink: 0;
+}
+.partnerName {
+  font-family: var(--font-body), sans-serif; font-weight: 500; font-size: 13px;
+  color: #073D7F; white-space: nowrap;
+}
 .missionSection {
   padding: 108px 80px;
-  background: var(--bg-dark);
+  background: var(--color-accent);
   border-bottom: 1px solid var(--border-dark);
 }
 .missionGrid {
@@ -149,15 +236,15 @@
 .missionCard:hover { background: rgba(10,24,65,0.92); }
 .missionAccent {
   position: absolute; top: 0; left: 0; width: 2px; height: 80px;
-  background: linear-gradient(to bottom, var(--gold-l), transparent);
+  background: linear-gradient(to bottom, var(--color-secondary), transparent);
 }
 .missionNum {
-  font-family: var(--font-body), sans-serif; font-size: 11px;
-  letter-spacing: 0.42em; color: var(--gold-l); margin-bottom: 20px; font-weight: 600;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
+  letter-spacing: 0.42em; color: var(--color-secondary); margin-bottom: 20px; font-weight: 600;
 }
 .missionTitle {
   font-family: var(--font-display), sans-serif; font-size: 26px;
-  font-weight: 700; color: #FFFFFF; margin-bottom: 16px; line-height: 1.2;
+  font-weight: 700; color: var(--color-surface); margin-bottom: 16px; line-height: 1.2;
 }
 .missionDesc {
   font-family: var(--font-body), sans-serif; font-size: 16px;
@@ -167,7 +254,7 @@
 /* ── PROGRAMS STRIP ── */
 .programsStrip {
   padding: 108px 80px;
-  background: var(--bg-surface);
+  background: var(--color-surface);
   border-bottom: 1px solid var(--border);
 }
 .programsInner { max-width: 1280px; margin: 0 auto; }
@@ -177,7 +264,7 @@
   border: 1px solid var(--border);
 }
 .programBlock {
-  background: #FFFFFF; padding: 52px 44px;
+  background: var(--color-surface); padding: 52px 44px;
   position: relative; text-decoration: none;
   transition: box-shadow 0.28s, transform 0.25s; display: flex; flex-direction: column;
   box-shadow: 0 2px 20px rgba(5,14,45,0.06);
@@ -185,18 +272,18 @@
 .programBlock:hover { box-shadow: 0 8px 48px rgba(5,14,45,0.14); transform: translateY(-2px); }
 .programBlockAccent {
   position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--accent-primary), transparent);
+  background: linear-gradient(90deg, var(--color-accent), transparent);
   transform: scaleX(0); transform-origin: left;
   transition: transform 0.50s cubic-bezier(0.16,1,0.3,1);
 }
 .programBlock:hover .programBlockAccent { transform: scaleX(1); }
 .programBlockNum {
-  font-family: var(--font-body), sans-serif; font-size: 11px;
-  letter-spacing: 0.42em; color: var(--accent-primary); margin-bottom: 16px; font-weight: 700;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
+  letter-spacing: 0.42em; color: var(--color-accent); margin-bottom: 16px; font-weight: 700;
 }
 .programBlockTitle {
   font-family: var(--font-display), sans-serif; font-size: 22px;
-  font-weight: 700; color: var(--text-primary); margin-bottom: 16px; line-height: 1.2;
+  font-weight: 700; color: var(--color-text-dark); margin-bottom: 16px; line-height: 1.2;
 }
 .programBlockDesc {
   font-family: var(--font-body), sans-serif; font-size: 15px;
@@ -204,23 +291,23 @@
   flex: 1; margin-bottom: 24px;
 }
 .programBlockDuration {
-  font-family: var(--font-body), sans-serif; font-size: 11px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   letter-spacing: 0.20em; text-transform: uppercase;
-  color: var(--accent-primary); border: 1px solid var(--border);
+  color: var(--color-accent); border: 1px solid var(--border);
   padding: 6px 14px;
   width: fit-content; margin-bottom: 20px; font-weight: 600;
 }
 .programBlockLink {
-  font-family: var(--font-body), sans-serif; font-size: 13px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent-primary); transition: letter-spacing 0.28s;
+  color: var(--color-accent); transition: letter-spacing 0.28s;
 }
-.programBlock:hover .programBlockLink { letter-spacing: 0.20em; color: var(--accent-secondary); }
+.programBlock:hover .programBlockLink { letter-spacing: 0.20em; color: var(--color-secondary); }
 
 /* ── FACILITIES ── */
 .facilitiesSection {
   padding: 108px 80px;
-  background: var(--bg-dark);
+  background: var(--color-accent);
   border-bottom: 1px solid var(--border-dark);
 }
 .facilitiesGrid {
@@ -235,18 +322,18 @@
 .facilityCard:hover { background: rgba(10,24,65,0.92); }
 .facilityCard::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--accent-highlight), transparent);
+  background: linear-gradient(90deg, var(--color-secondary), transparent);
   transform: scaleX(0); transform-origin: left;
   transition: transform 0.50s cubic-bezier(0.16,1,0.3,1);
 }
 .facilityCard:hover::before { transform: scaleX(1); }
 .facilityIcon {
-  font-size: 24px; color: var(--accent-highlight); margin-bottom: 20px;
+  font-size: 24px; color: var(--color-secondary); margin-bottom: 20px;
   display: block; opacity: 0.90;
 }
 .facilityName {
   font-family: var(--font-display), sans-serif; font-size: 22px;
-  font-weight: 700; color: #FFFFFF; margin-bottom: 12px; line-height: 1.2;
+  font-weight: 700; color: var(--color-surface); margin-bottom: 12px; line-height: 1.2;
 }
 .facilityDesc {
   font-family: var(--font-body), sans-serif; font-size: 15px;
@@ -256,7 +343,7 @@
 /* ── TEAM ── */
 .teamSection {
   padding: 108px 80px;
-  background: var(--bg-panel);
+  background: var(--color-primary);
   border-bottom: 1px solid var(--border);
 }
 .teamGrid {
@@ -264,7 +351,7 @@
   gap: 24px;
 }
 .teamCard {
-  background: #FFFFFF; padding: 40px 36px;
+  background: var(--color-surface); padding: 40px 36px;
   position: relative; overflow: hidden; transition: box-shadow 0.28s, transform 0.25s;
   box-shadow: 0 2px 20px rgba(5,14,45,0.06);
 }
@@ -272,25 +359,25 @@
 .teamCardAccent {
   position: absolute; top: 0; left: 0;
   width: 2px; height: 60px;
-  background: linear-gradient(to bottom, var(--accent-primary), transparent);
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
 }
 .teamName {
   font-family: var(--font-display), sans-serif; font-size: 22px;
-  font-weight: 700; color: var(--text-primary); margin-bottom: 6px; line-height: 1.2;
+  font-weight: 700; color: var(--color-text-dark); margin-bottom: 6px; line-height: 1.2;
 }
 .teamRole {
   font-family: var(--font-body), sans-serif; font-size: 14px;
-  font-weight: 600; color: var(--accent-primary); margin-bottom: 8px;
+  font-weight: 600; color: var(--color-accent); margin-bottom: 8px;
 }
 .teamNote {
-  font-family: var(--font-body), sans-serif; font-size: 13px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim);
   line-height: 1.7; font-weight: 400;
 }
 
 /* ── BOTTOM CTA ── */
 .bottomCta {
-  padding: 120px 80px; background: var(--bg-dark);
+  padding: 120px 80px; background: var(--color-accent);
   position: relative; overflow: hidden;
 }
 .bottomCta::before {
@@ -305,9 +392,9 @@
 .bottomCtaH2 {
   font-family: var(--font-display), sans-serif;
   font-size: clamp(30px, 6.5vw, 88px); font-weight: 800; line-height: 1.06;
-  color: #FFFFFF; letter-spacing: -0.020em; margin-bottom: 48px;
+  color: var(--color-surface); letter-spacing: -0.020em; margin-bottom: 48px;
 }
-.bottomCtaH2 em { font-style: italic; color: var(--gold-l); }
+.bottomCtaH2 em { font-style: italic; color: var(--color-secondary); }
 .bottomCtaBtns { display: flex; gap: 16px; }
 
 /* RESPONSIVE */
@@ -326,4 +413,20 @@
   .facilitiesGrid { grid-template-columns: 1fr; }
   .teamGrid { grid-template-columns: 1fr; }
   .bottomCtaBtns { flex-direction: column; align-items: center; }
+}
+
+/* ── ANIMATIONS ── */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.slideIn {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.visible {
+  opacity: 1;
+  transform: translate(0, 0);
 }

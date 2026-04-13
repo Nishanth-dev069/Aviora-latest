@@ -1,337 +1,338 @@
 .nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 200;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
     height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 64px;
-
-    /* Default state — transparent over dark hero */
-    background: transparent;
-    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+    background: rgba(7, 61, 127, 0.97);
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
 }
 
-/* Scrolled state — deep navy glass */
-.scrolled {
-    background: rgba(5, 14, 45, 0.94);
+.nav::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent), var(--color-secondary));
+    z-index: 1001;
+}
+
+.navHeroDark {
+    background: rgba(7, 61, 127, 0.15);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 4px 32px rgba(5, 14, 45, 0.25);
+    box-shadow: none;
 }
 
-/* Logo */
+.scrolled {
+    background: rgba(7, 61, 127, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 2px 24px rgba(7, 61, 127, 0.25);
+}
+
 .navLogo {
     font-family: var(--font-display), sans-serif;
     font-size: 20px;
     font-weight: 800;
     letter-spacing: 0.30em;
-    color: var(--text-inv);
+    color: var(--color-text-light); /* Will use light base */
     text-decoration: none;
     text-transform: uppercase;
     flex-shrink: 0;
-    transition: color 0.4s ease;
+    transition: color 0.4s ease, text-shadow 0.3s ease;
 }
 
-.scrolled .navLogo {
-    color: #FFFFFF;
+.navLogo:hover {
+    text-shadow: 0 0 12px rgba(241, 241, 241, 0.4);
 }
 
-/* Links container */
 .navLinks {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 32px;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-/* Individual link */
 .navLinks a {
     font-family: var(--font-body), sans-serif;
-    font-size: 15px;
     font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: none;
-    color: var(--text-inv-muted);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #F1F1F1;
+    opacity: 0.75;
     text-decoration: none;
     position: relative;
-    padding-bottom: 3px;
-    transition: color 0.3s ease;
-}
-
-.scrolled .navLinks a {
-    color: rgba(255, 255, 255, 0.72);
-}
-
-/* Underline hover effect */
-.navLinks a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--accent-highlight);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-.scrolled .navLinks a::after {
-    background: var(--accent-highlight);
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: color 0.25s ease, opacity 0.25s ease, border-color 0.25s ease;
+    z-index: 1;
+    border-bottom: 2px solid transparent;
 }
 
 .navLinks a:hover {
-    color: #FFFFFF;
+    color: #6491DE;
+    opacity: 1.0;
 }
 
-.scrolled .navLinks a:hover {
-    color: #FFFFFF;
-}
-
-.navLinks a:hover::after {
-    transform: scaleX(1);
-}
-
-/* Active link */
 .navLinks a.active {
-    color: var(--accent-highlight);
+    color: #6491DE;
+    opacity: 1.0;
+    border-bottom: 2px solid #6491DE;
 }
 
-.scrolled .navLinks a.active {
-    color: var(--accent-highlight);
-}
-
-.navLinks a.active::after {
-    transform: scaleX(1);
-    background: var(--accent-highlight);
-}
-
-.scrolled .navLinks a.active::after {
-    background: var(--accent-highlight);
-}
-
-/* CTA button */
 .navCta {
-    font-family: var(--font-body), sans-serif;
-    font-size: 15px;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    font-size: 13px;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
-    padding: 11px 28px;
-    background: var(--accent-primary);
-    border: 1.5px solid var(--accent-primary);
-    color: #FFFFFF;
+    padding: 9px 20px;
+    border-radius: 8px;
+    background: #073D7F;
+    color: #F1F1F1;
+    border: 1px solid #F1F1F1;
     text-decoration: none;
-    transition: all 0.3s ease;
-    white-space: nowrap;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navCta:hover {
-    background: var(--accent-secondary);
-    border-color: var(--accent-secondary);
-    color: #FFFFFF;
+    background: #F1F1F1;
+    color: #073D7F;
+    border-color: #073D7F;
 }
 
-.scrolled .navCta {
-    background: var(--accent-highlight);
-    border-color: var(--accent-highlight);
-    color: #050E2D;
-}
-
-.scrolled .navCta:hover {
-    background: #FFFFFF;
-    border-color: #FFFFFF;
-    color: var(--accent-primary);
-}
-
-/* MOBILE hamburger */
-.navHamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 8px;
-}
-
-.navHamburger span {
-    width: 24px;
-    height: 1.5px;
-    background: var(--text-inv-muted);
-    transition: all 0.3s;
-}
-
-.scrolled .navHamburger span {
-    background: #FFFFFF;
-}
-
-@media (max-width: 768px) {
-    .nav {
-        padding: 0 24px;
-    }
-
-    .navLinks {
-        display: none;
-    }
-
-    .navCta {
-        display: none;
-    }
-
-    .navHamburger {
-        display: flex;
-    }
-}
-
-/* ── EXPLORE DROPDOWN ── */
-
-.navExploreLink {
-    font-family: var(--font-body), sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--text-inv-muted);
-    text-decoration: none;
-    position: relative;
-    padding-bottom: 3px;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    transition: color 0.3s ease;
-    cursor: pointer;
-}
-
-.navExploreLink::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--accent-highlight);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-.navExploreLink:hover,
-.navExploreLink.active {
-    color: var(--accent-highlight);
-}
-
-.navExploreLink.active::after,
-.navExploreLink:hover::after {
-    transform: scaleX(1);
-}
-
-.scrolled .navExploreLink {
-    color: rgba(255, 255, 255, 0.72);
-}
-
-.scrolled .navExploreLink:hover,
-.scrolled .navExploreLink.active {
-    color: var(--accent-highlight);
-}
-
-.scrolled .navExploreLink::after {
-    background: var(--accent-highlight);
-}
-
-/* Wrapper to anchor the dropdown */
+/* EXPLORE DROPDOWN */
 .navItemWrap {
     position: relative;
     display: inline-flex;
     align-items: center;
-    height: 72px;
 }
 
-/* ∨ chevron */
+.navItemWrap::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -10px;
+    right: -10px;
+    height: 16px;
+    z-index: 1;
+}
+
+.navExploreLink {
+    font-family: var(--font-body), sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #F1F1F1;
+    opacity: 0.75;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: color 0.25s ease, opacity 0.25s ease;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.navExploreLink:hover,
+.navExploreLink.active {
+    color: #6491DE;
+    opacity: 1.0;
+}
+
+.navExploreLink.active {
+    border-bottom: 2px solid #6491DE;
+}
+
 .dropIcon {
-    font-size: 9px;
-    display: inline-block;
-    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-    line-height: 1;
-    margin-top: 1px;
+    font-size: 12px;
+    margin-top: -1px;
+    transition: transform 0.2s ease;
 }
 
 .navItemWrap:hover .dropIcon {
     transform: rotate(180deg);
 }
 
-/* Dropdown panel */
 .dropdown {
     position: absolute;
-    top: calc(100% + 0px);
+    top: calc(100% + 8px);
     left: 50%;
     transform: translateX(-50%);
-    background: #FFFFFF;
-    border: 1px solid var(--border);
-    box-shadow: 0 16px 48px rgba(5, 14, 45, 0.18), 0 4px 16px rgba(5, 14, 45, 0.10);
-    padding: 8px;
+    background: #073D7F;
+    border: 1px solid rgba(100, 145, 222, 0.3);
+    box-shadow: 0 8px 32px rgba(7, 61, 127, 0.3);
+    border-radius: 10px;
+    padding: 8px 0;
     min-width: 300px;
-    z-index: 1000;
+    z-index: 1001;
     animation: dropIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes dropIn {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(-8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
+    from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
-/* Individual dropdown item */
 .dropItem {
     display: flex;
     align-items: flex-start;
     gap: 14px;
-    padding: 14px 16px;
+    padding: 10px 20px;
     text-decoration: none;
-    border-left: 2px solid transparent;
-    transition: background 0.18s, border-color 0.18s;
+    transition: all 0.15s;
 }
 
 .dropItem:hover {
-    background: rgba(10, 36, 114, 0.06);
-    border-left-color: var(--accent-primary);
+    background: rgba(100, 145, 222, 0.15);
 }
 
 .dropItemIcon {
     font-size: 18px;
-    color: var(--accent-primary);
+    color: #F1F1F1;
+    opacity: 0.8;
     flex-shrink: 0;
     margin-top: 2px;
-    width: 24px;
-    text-align: center;
 }
 
 .dropItemContent {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 4px;
 }
 
 .dropItemTitle {
     font-family: var(--font-body), sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
-    color: var(--accent-primary);
+    color: #F1F1F1;
+    opacity: 0.8;
 }
 
 .dropItemSub {
     font-family: var(--font-body), sans-serif;
     font-size: 13px;
-    font-weight: 400;
-    color: var(--text-muted);
-    line-height: 1.5;
+    color: #F1F1F1;
+    opacity: 0.6;
+    line-height: 1.4;
+}
+
+.dropItem:hover .dropItemIcon,
+.dropItem:hover .dropItemTitle,
+.dropItem:hover .dropItemSub {
+    opacity: 1;
+}
+
+/* MOBILE NAV */
+.navHamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    z-index: 500;
+}
+
+.navHamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--color-text-light);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    margin: 0 auto;
+}
+
+.navHamburger.isOpen span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.navHamburger.isOpen span:nth-child(2) {
+    opacity: 0;
+}
+
+.navHamburger.isOpen span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobileOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--color-accent);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.mobileOverlay.isOpen {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobileLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobileLinks a {
+    font-family: var(--font-body), sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(241, 241, 241, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.mobileLinks a:hover,
+.mobileLinks a.active {
+    color: var(--color-text-light);
+}
+
+.mobileOverlayCta {
+    margin-top: 48px;
+    font-size: 16px;
+    padding: 16px 40px;
+    border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+    .nav {
+        padding: 0 24px;
+    }
+    .navLinks {
+        display: none;
+    }
+    .navCta {
+        display: none;
+    }
+    .navHamburger {
+        display: flex;
+    }
 }

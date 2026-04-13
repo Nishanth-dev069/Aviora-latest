@@ -1,8 +1,8 @@
 /* MENTORS PAGE */
-.page { background: var(--bg-dark); min-height: 100vh; }
+.page { background: var(--color-accent); min-height: 100vh; }
 .eyebrow {
-  font-family: var(--font-body), sans-serif; font-size: 11px;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-l);
+  font-family: var(--font-body), sans-serif; font-size: 14px;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--color-secondary);
   display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; font-weight: 600;
 }
 .eyebrow::before { content:''; width:28px; height:1px; background:currentColor; flex-shrink:0; }
@@ -30,16 +30,16 @@
 }
 .heroTag {
   display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px;
-  font-family: var(--font-body), sans-serif; font-size: 11px;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-l); font-weight: 700;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--color-secondary); font-weight: 700;
 }
 .heroLine { width: 28px; height: 1px; background: currentColor; flex-shrink: 0; }
 .heroH1 {
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(42px, 8vw, 100px); font-weight: 800; color: #FFFFFF;
+  font-size: clamp(42px, 8vw, 100px); font-weight: 800; color: var(--color-surface);
   line-height: 1.0; letter-spacing: -0.020em; margin-bottom: 28px;
 }
-.heroH1 em { font-style: italic; color: var(--gold-l); }
+.heroH1 em { font-style: italic; color: var(--color-secondary); }
 .heroP {
   font-family: var(--font-body), sans-serif;
   font-size: 18px; font-weight: 400; line-height: 1.75;
@@ -59,30 +59,30 @@
 .statItem:last-child { border-right: none; }
 .statNum {
   font-family: var(--font-display), sans-serif; font-size: 38px;
-  font-weight: 700; color: var(--gold-l); line-height: 1;
+  font-weight: 700; color: var(--color-secondary); line-height: 1;
 }
 .statLabel {
   font-family: var(--font-body), sans-serif; font-size: 15px;
-  font-weight: 400; color: #FFFFFF;
+  font-weight: 400; color: var(--color-surface);
 }
 .statSub {
-  font-family: var(--font-body), sans-serif; font-size: 12px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.48);
   line-height: 1.55; font-weight: 400;
 }
 
 /* MENTORS SECTION */
-.mentorsSection { padding: 100px 80px; background: var(--bg-base); border-top: 1px solid var(--border); }
+.mentorsSection { padding: 100px 80px; background: var(--color-primary); border-top: 1px solid var(--border); }
 .sectionHead { max-width: 1280px; margin: 0 auto 64px; }
 .sectionH2 {
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(30px, 5vw, 62px); font-weight: 700; color: var(--text-primary);
+  font-size: clamp(30px, 5vw, 62px); font-weight: 700; color: var(--color-text-dark);
   line-height: 1.1; letter-spacing: -0.015em; margin-bottom: 18px;
 }
-.sectionH2 em { font-style: italic; color: var(--gold); }
+.sectionH2 em { font-style: italic; color: var(--color-secondary); }
 .sectionSub {
   font-family: var(--font-body), sans-serif; font-size: 16px;
-  font-weight: 400; line-height: 1.85; color: var(--text-body); max-width: 560px;
+  font-weight: 400; line-height: 1.85; color: var(--color-text-dark); max-width: 560px;
 }
 
 .mentorGrid {
@@ -92,7 +92,7 @@
 }
 
 .mentorCard {
-  background: #FFFFFF; padding: 52px 48px;
+  background: var(--color-surface); padding: 52px 48px;
   border: 1px solid var(--border);
   box-shadow: 0 2px 20px rgba(5,14,45,0.06);
   position: relative; overflow: hidden;
@@ -104,33 +104,33 @@
 .mentorAccent {
   position: absolute; top: 0; left: 0;
   width: 3px; height: 100%;
-  background: linear-gradient(to bottom, var(--accent-primary), rgba(10,36,114,0.12));
+  background: linear-gradient(to bottom, var(--color-accent), rgba(10,36,114,0.12));
 }
 
 .mentorTop { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
 .mentorNum {
-  font-family: var(--font-body), sans-serif; font-size: 11px;
-  letter-spacing: 0.32em; color: var(--accent-primary); font-weight: 700;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
+  letter-spacing: 0.32em; color: var(--color-accent); font-weight: 700;
 }
 .mentorTags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
 .mentorTag {
-  font-family: var(--font-body), sans-serif; font-size: 11px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--accent-primary); border: 1px solid rgba(10,36,114,0.20);
+  color: var(--color-accent); border: 1px solid rgba(10,36,114,0.20);
   padding: 4px 10px; background: rgba(10,36,114,0.06); font-weight: 500;
 }
 
 .mentorName {
   font-family: var(--font-display), sans-serif;
-  font-size: 28px; font-weight: 700; color: var(--text-primary);
+  font-size: 28px; font-weight: 700; color: var(--color-text-dark);
   margin-bottom: 6px; line-height: 1.2;
 }
 .mentorRole {
   font-family: var(--font-body), sans-serif;
-  font-size: 15px; font-weight: 600; color: var(--accent-primary); margin-bottom: 8px;
+  font-size: 15px; font-weight: 600; color: var(--color-accent); margin-bottom: 8px;
 }
 .mentorCredential {
-  font-family: var(--font-body), sans-serif; font-size: 13px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); line-height: 1.6; font-weight: 400;
 }
 .mentorDivider {
@@ -139,23 +139,23 @@
 .mentorPhilosophy {
   font-family: var(--font-display), sans-serif;
   font-size: 18px; font-style: italic; font-weight: 500;
-  line-height: 1.80; color: var(--text-body);
-  border-left: 2px solid var(--accent-primary);
+  line-height: 1.80; color: var(--color-text-dark);
+  border-left: 2px solid var(--color-accent);
   padding-left: 16px; margin: 0;
 }
 
 /* CTA */
 .ctaSection {
-  background: var(--bg-dark); border-top: 1px solid var(--border-dark);
+  background: var(--color-accent); border-top: 1px solid var(--border-dark);
   padding: 100px 80px; text-align: center;
 }
 .ctaInner { max-width: 680px; margin: 0 auto; }
 .ctaH2 {
   font-family: var(--font-display), sans-serif;
   font-size: clamp(28px, 4.5vw, 58px); font-weight: 700;
-  color: #FFFFFF; line-height: 1.1; margin-bottom: 20px;
+  color: var(--color-surface); line-height: 1.1; margin-bottom: 20px;
 }
-.ctaH2 em { font-style: italic; color: var(--gold-l); }
+.ctaH2 em { font-style: italic; color: var(--color-secondary); }
 .ctaP {
   font-family: var(--font-body), sans-serif; font-size: 16px;
   font-weight: 400; line-height: 1.85; color: var(--text-inv-muted); margin-bottom: 44px;
@@ -164,17 +164,17 @@
 .btnGold {
   font-family: var(--font-body), sans-serif; font-size: 15px;
   font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase;
-  padding: 14px 44px; background: var(--gold-l); color: #050E2D;
+  padding: 14px 44px; background: var(--color-secondary); color: var(--color-accent);
   text-decoration: none; transition: background 0.25s;
 }
-.btnGold:hover { background: var(--gold); }
+.btnGold:hover { background: var(--color-secondary); }
 .btnLine {
   font-family: var(--font-body), sans-serif; font-size: 15px;
   font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase;
   padding: 14px 36px; border: 1.5px solid rgba(201,168,76,0.40);
-  color: var(--gold-l); text-decoration: none; transition: all 0.25s;
+  color: var(--color-secondary); text-decoration: none; transition: all 0.25s;
 }
-.btnLine:hover { border-color: var(--gold-l); background: rgba(201,168,76,0.12); }
+.btnLine:hover { border-color: var(--color-secondary); background: rgba(201,168,76,0.12); }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) { .mentorGrid { grid-template-columns: 1fr; } }

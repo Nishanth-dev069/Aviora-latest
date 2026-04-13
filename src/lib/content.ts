@@ -15,7 +15,7 @@ export interface PostData {
     category?: string;
     image?: string;
     contentHtml?: string;
-    [key: string]: any;
+    [key: string]: unknown;
 }
 
 export function getAllPosts(collection: 'blog' | 'news' | 'gallery'): PostData[] {

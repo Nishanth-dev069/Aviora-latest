@@ -1,14 +1,14 @@
 /* FACILITIES PAGE */
-.page { background: var(--bg-base); min-height: 100vh; }
+.page { background: var(--color-primary); min-height: 100vh; }
 .eyebrow {
-  font-family: var(--font-body), sans-serif; font-size: 11px;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-dark);
+  font-family: var(--font-body), sans-serif; font-size: 14px;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--color-secondary);
   display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; font-weight: 700;
 }
 .eyebrow::before { content:''; width:28px; height:1px; background:currentColor; flex-shrink:0; }
 .eyebrowInv {
-  font-family: var(--font-body), sans-serif; font-size: 11px;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent-highlight);
+  font-family: var(--font-body), sans-serif; font-size: 14px;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--color-secondary);
   display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; font-weight: 700;
 }
 .eyebrowInv::before { content:''; width:28px; height:1px; background:currentColor; flex-shrink:0; }
@@ -40,16 +40,16 @@
 }
 .heroTag {
   display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px;
-  font-family: var(--font-body), sans-serif; font-size: 11px;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-l); font-weight: 700;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--color-secondary); font-weight: 700;
 }
 .heroLine { width: 28px; height: 1px; background: currentColor; flex-shrink: 0; }
 .heroH1 {
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(42px, 8vw, 100px); font-weight: 800; color: #FFFFFF;
+  font-size: clamp(42px, 8vw, 100px); font-weight: 800; color: var(--color-surface);
   line-height: 1.0; letter-spacing: -0.020em; margin-bottom: 28px;
 }
-.heroH1 em { font-style: italic; color: var(--gold-l); }
+.heroH1 em { font-style: italic; color: var(--color-secondary); }
 .heroP {
   font-family: var(--font-body), sans-serif;
   font-size: 18px; font-weight: 400; line-height: 1.75;
@@ -70,23 +70,23 @@
 .statItem:last-child { border-right: none; }
 .statNum {
   font-family: var(--font-display), sans-serif; font-size: 40px;
-  font-weight: 700; color: var(--gold-l); line-height: 1;
+  font-weight: 700; color: var(--color-secondary); line-height: 1;
 }
 .statLabel {
   font-family: var(--font-body), sans-serif; font-size: 15px;
-  font-weight: 400; color: #FFFFFF;
+  font-weight: 400; color: var(--color-surface);
 }
 .statSub {
-  font-family: var(--font-body), sans-serif; font-size: 11px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   letter-spacing: 0.20em; text-transform: uppercase; color: rgba(255,255,255,0.50);
   line-height: 1.55; font-weight: 600;
 }
 
 /* FACILITY SECTIONS */
 .facilitySection { border-bottom: 1px solid var(--border); padding: 100px 80px; }
-.bgBase  { background: var(--bg-base); }
-.bgSurface { background: var(--bg-surface); }
-.bgPanel { background: #FFFFFF; } /* Use solid white instead of off-white panel */
+.bgBase  { background: var(--color-primary); }
+.bgSurface { background: var(--color-surface); }
+.bgPanel { background: var(--color-surface); } /* Use solid white instead of off-white panel */
 
 .facilityInner { max-width: 1280px; margin: 0 auto; }
 .facilityContent {
@@ -100,25 +100,25 @@
 .facilityH2 {
   font-family: var(--font-display), sans-serif;
   font-size: clamp(32px, 4vw, 52px); font-weight: 700; line-height: 1.1;
-  color: var(--text-primary); margin-bottom: 12px;
+  color: var(--color-text-dark); margin-bottom: 12px;
 }
 .facilitySub {
-  font-family: var(--font-body), sans-serif; font-size: 11px;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-dark);
+  font-family: var(--font-body), sans-serif; font-size: 14px;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--color-secondary);
   margin-bottom: 24px; font-weight: 700;
 }
 .facilityDesc {
   font-family: var(--font-body), sans-serif; font-size: 15px;
-  font-weight: 400; line-height: 1.85; color: var(--text-body); margin-bottom: 28px;
+  font-weight: 400; line-height: 1.85; color: var(--color-text-dark); margin-bottom: 28px;
 }
 .specList { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
 .specItem { display: flex; gap: 12px; align-items: flex-start; }
 .specArrow {
-  font-size: 16px; color: var(--accent-primary); flex-shrink: 0; margin-top: 2px;
+  font-size: 16px; color: var(--color-accent); flex-shrink: 0; margin-top: 2px;
 }
 .specText {
   font-family: var(--font-body), sans-serif; font-size: 15px;
-  font-weight: 400; line-height: 1.65; color: var(--text-body);
+  font-weight: 400; line-height: 1.65; color: var(--color-text-dark);
 }
 
 .facilityImgWrap {
@@ -139,16 +139,16 @@
 
 /* CTA */
 .ctaSection {
-  background: var(--bg-dark); border-top: 1px solid var(--border-dark);
+  background: var(--color-accent); border-top: 1px solid var(--border-dark);
   padding: 100px 80px; text-align: center;
 }
 .ctaInner { max-width: 700px; margin: 0 auto; }
 .ctaH2 {
   font-family: var(--font-display), sans-serif;
   font-size: clamp(32px, 4.5vw, 64px); font-weight: 700;
-  color: #FFFFFF; line-height: 1.1; margin-bottom: 20px;
+  color: var(--color-surface); line-height: 1.1; margin-bottom: 20px;
 }
-.ctaH2 em { font-style: italic; color: var(--gold-l); }
+.ctaH2 em { font-style: italic; color: var(--color-secondary); }
 .ctaP {
   font-family: var(--font-body), sans-serif; font-size: 16px;
   font-weight: 400; line-height: 1.85; color: var(--text-inv-muted); margin-bottom: 44px;
@@ -157,17 +157,17 @@
 .btnGold {
   font-family: var(--font-body), sans-serif; font-size: 15px;
   font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase;
-  padding: 14px 44px; background: var(--gold-l); color: #050E2D;
+  padding: 14px 44px; background: var(--color-secondary); color: var(--color-accent);
   text-decoration: none; transition: background 0.25s;
 }
-.btnGold:hover { background: var(--gold); }
+.btnGold:hover { background: var(--color-secondary); }
 .btnLine {
   font-family: var(--font-body), sans-serif; font-size: 15px;
   font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase;
   padding: 14px 36px; border: 1.5px solid rgba(201,168,76,0.40);
-  color: var(--gold-l); text-decoration: none; transition: all 0.25s;
+  color: var(--color-secondary); text-decoration: none; transition: all 0.25s;
 }
-.btnLine:hover { border-color: var(--gold-l); background: rgba(201,168,76,0.12); }
+.btnLine:hover { border-color: var(--color-secondary); background: rgba(201,168,76,0.12); }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {

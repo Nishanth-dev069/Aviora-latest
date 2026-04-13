@@ -25,7 +25,7 @@
     height: 44px;
     top: -22px;
     left: -22px;
-    border-color: var(--gold);
+    border-color: var(--color-secondary);
 }
 
 .inner {
@@ -34,7 +34,7 @@
     left: -2px;
     width: 4px;
     height: 4px;
-    background-color: var(--gold);
+    background-color: var(--color-secondary);
     border-radius: 50%;
     will-change: transform;
     display: flex;

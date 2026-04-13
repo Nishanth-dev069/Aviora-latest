@@ -1,7 +1,7 @@
 /* ──────────────────────────────────────
    BLOG MODULE CSS — Aviora Aviation Brand
    ────────────────────────────────────── */
-.page { background: var(--bg-base); min-height: 100vh; }
+.page { background: var(--color-primary); min-height: 100vh; }
 
 /* PAGE HEADER */
 .pageHeader {
@@ -24,25 +24,25 @@
 }
 .breadcrumb {
   display: flex; align-items: center; gap: 10px; margin-bottom: 24px;
-  font-family: var(--font-body), sans-serif; font-size: 12px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   letter-spacing: 0.20em; text-transform: uppercase; font-weight: 500;
 }
-.bcLink { color: var(--accent-highlight); text-decoration: none; transition: opacity 0.2s; }
+.bcLink { color: var(--color-secondary); text-decoration: none; transition: opacity 0.2s; }
 .bcLink:hover { opacity: 0.75; }
 .bcSep { color: rgba(255,255,255,0.22); }
 .bcCurrent { color: rgba(255,255,255,0.55); }
 .eyebrow {
-  font-family: var(--font-body), sans-serif; font-size: 11px;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-l);
+  font-family: var(--font-body), sans-serif; font-size: 14px;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--color-secondary);
   display: flex; align-items: center; gap: 12px; margin-bottom: 18px; font-weight: 700;
 }
 .eyebrow::before { content:''; width:28px; height:1px; background:currentColor; flex-shrink:0; }
 .pageH1 {
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(42px, 6.5vw, 80px); font-weight: 800; color: #FFFFFF;
+  font-size: clamp(42px, 6.5vw, 80px); font-weight: 800; color: var(--color-surface);
   line-height: 1.0; letter-spacing: -0.020em; margin-bottom: 20px;
 }
-.pageH1 em { font-style: italic; color: var(--gold-l); }
+.pageH1 em { font-style: italic; color: var(--color-secondary); }
 .pageSub {
   font-family: var(--font-body), sans-serif; font-size: 18px;
   font-weight: 400; line-height: 1.75; color: var(--text-inv-muted); max-width: 520px;
@@ -51,20 +51,20 @@
 /* FILTER BAR */
 .filterBar {
   padding: 22px 80px; display: flex; gap: 8px; flex-wrap: wrap;
-  background: var(--bg-surface); border-bottom: 1px solid var(--border);
+  background: var(--color-surface); border-bottom: 1px solid var(--border);
 }
 .filterBtn {
-  font-family: var(--font-body), sans-serif; font-size: 13px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   letter-spacing: 0.12em; text-transform: uppercase;
   padding: 9px 20px; background: transparent;
   border: 1px solid var(--border); color: var(--text-muted);
   cursor: pointer; transition: all 0.22s; font-weight: 500;
 }
-.filterBtn:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
-.filterBtnActive { background: rgba(10,36,114,0.08); border-color: var(--accent-primary); color: var(--accent-primary); font-weight: 600; }
+.filterBtn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.filterBtnActive { background: rgba(10,36,114,0.08); border-color: var(--color-accent); color: var(--color-accent); font-weight: 600; }
 
 /* POSTS SECTION */
-.postsSection { padding: 64px 80px 80px; background: var(--bg-base); }
+.postsSection { padding: 64px 80px 80px; background: var(--color-primary); }
 .postsGrid {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 24px; margin-bottom: 60px;
@@ -72,7 +72,7 @@
 
 /* POST CARD */
 .postCard {
-  background: #FFFFFF; display: block; text-decoration: none;
+  background: var(--color-surface); display: block; text-decoration: none;
   border: 1px solid var(--border);
   box-shadow: 0 2px 16px rgba(5,14,45,0.06);
   position: relative; overflow: hidden;
@@ -81,7 +81,7 @@
 /* Royal blue top line on hover */
 .postCard::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), transparent);
+  background: linear-gradient(90deg, var(--color-accent), var(--color-secondary), transparent);
   transform: scaleX(0); transform-origin: left;
   transition: transform 0.48s cubic-bezier(0.16,1,0.3,1);
 }
@@ -98,22 +98,22 @@
   display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap;
 }
 .postTag {
-  font-family: var(--font-body), sans-serif; font-size: 11px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--accent-primary); border: 1px solid rgba(10,36,114,0.20);
+  color: var(--color-accent); border: 1px solid rgba(10,36,114,0.20);
   padding: 5px 11px; background: rgba(10,36,114,0.06); font-weight: 600;
 }
 .postDate {
-  font-family: var(--font-body), sans-serif; font-size: 12px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); font-weight: 400;
 }
 .postTitle {
   font-family: var(--font-display), sans-serif; font-size: 22px;
-  font-weight: 700; color: var(--text-primary); line-height: 1.28; margin-bottom: 14px;
+  font-weight: 700; color: var(--color-text-dark); line-height: 1.28; margin-bottom: 14px;
 }
 .postExcerpt {
   font-family: var(--font-body), sans-serif; font-size: 15px;
-  font-weight: 400; line-height: 1.75; color: var(--text-body);
+  font-weight: 400; line-height: 1.75; color: var(--color-text-dark);
   flex: 1; margin-bottom: 24px;
 }
 .postFooter {
@@ -121,37 +121,37 @@
   border-top: 1px solid var(--border); padding-top: 16px;
 }
 .postReadTime {
-  font-family: var(--font-body), sans-serif; font-size: 12px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); font-weight: 400;
 }
 .postArrow {
-  font-family: var(--font-body), sans-serif; font-size: 13px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--accent-primary); transition: letter-spacing 0.28s;
+  color: var(--color-accent); transition: letter-spacing 0.28s;
 }
-.postCard:hover .postArrow { letter-spacing: 0.22em; color: var(--accent-secondary); }
+.postCard:hover .postArrow { letter-spacing: 0.22em; color: var(--color-secondary); }
 
 /* PAGINATION */
 .pagination {
   display: flex; align-items: center; justify-content: center; gap: 6px;
 }
 .pageBtn {
-  font-family: var(--font-body), sans-serif; font-size: 13px;
+  font-family: var(--font-body), sans-serif; font-size: 14px;
   font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
   padding: 11px 26px; background: transparent; cursor: pointer;
   border: 1px solid var(--border); color: var(--text-muted);
   transition: all 0.22s;
 }
-.pageBtn:hover:not(:disabled) { border-color: var(--accent-primary); color: var(--accent-primary); }
+.pageBtn:hover:not(:disabled) { border-color: var(--color-accent); color: var(--color-accent); }
 .pageBtn:disabled { opacity: 0.28; cursor: not-allowed; }
 .pageNum {
-  font-family: var(--font-body), sans-serif; font-size: 13px; letter-spacing: 0.14em;
+  font-family: var(--font-body), sans-serif; font-size: 14px; letter-spacing: 0.14em;
   width: 44px; height: 44px; background: transparent; cursor: pointer;
   border: 1px solid var(--border); color: var(--text-muted);
   display: flex; align-items: center; justify-content: center; transition: all 0.22s;
 }
-.pageNum:hover { border-color: var(--accent-primary); color: var(--text-primary); }
-.pageNumActive { background: rgba(10,36,114,0.08); border-color: var(--accent-primary); color: var(--accent-primary); font-weight: 700; }
+.pageNum:hover { border-color: var(--color-accent); color: var(--color-text-dark); }
+.pageNumActive { background: rgba(10,36,114,0.08); border-color: var(--color-accent); color: var(--color-accent); font-weight: 700; }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) { .postsGrid { grid-template-columns: repeat(2, 1fr); } }

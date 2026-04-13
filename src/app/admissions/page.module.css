@@ -14,7 +14,7 @@
 .successState h2 {
     font-family: var(--font-display), sans-serif;
     font-size: 40px;
-    color: var(--accent-primary);
+    color: var(--color-accent);
     margin-bottom: 16px;
     font-weight: 700;
 }
@@ -22,7 +22,7 @@
 .successState p {
     font-family: var(--font-body), sans-serif;
     font-size: 16px;
-    color: var(--text-body);
+    color: var(--color-text-dark);
     line-height: 1.75;
 }
 
@@ -50,8 +50,8 @@
 
 .formGroup label {
     font-family: var(--font-body), sans-serif;
-    font-size: 12px;
-    color: var(--accent-primary);
+    font-size: 14px;
+    color: var(--color-accent);
     text-transform: uppercase;
     letter-spacing: 0.20em;
     font-weight: 600;
@@ -62,9 +62,9 @@
 .formGroup textarea {
     font-family: var(--font-body), sans-serif;
     font-size: 16px;
-    background-color: var(--bg-base);
+    background-color: var(--color-primary);
     border: 1px solid var(--border);
-    color: var(--text-primary);
+    color: var(--color-text-dark);
     padding: 16px;
     outline: none;
     transition: border-color 0.3s ease;
@@ -80,7 +80,7 @@
 .formGroup input:focus,
 .formGroup select:focus,
 .formGroup textarea:focus {
-    border-color: var(--accent-primary);
+    border-color: var(--color-accent);
 }
 
 .submitBtn {
@@ -89,8 +89,8 @@
     font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: #FFFFFF;
-    background-color: var(--accent-primary);
+    color: var(--color-surface);
+    background-color: var(--color-accent);
     padding: 18px 32px;
     border: none;
     cursor: pointer;
@@ -99,7 +99,7 @@
 }
 
 .submitBtn:hover {
-    background-color: var(--accent-secondary);
+    background-color: var(--color-secondary);
     transform: translateY(-2px);
 }
 
