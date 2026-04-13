@@ -201,7 +201,7 @@ export default function ClientPage() {
         <div className={s.programsInner}>
           <div className={`${s.eyebrow} ${s.fadeUp}`}>Programs Offered</div>
           <h2 className={`${s.sectionH2} ${s.fadeUp}`}>
-            Two Programs.<br/><em>One Standard.</em>
+            Four Programs.<br/><em>One Standard.</em>
           </h2>
           <div className={s.programsRow}>
             <Link href="/programs/pilot-training" className={`${s.programBlock} ${s.fadeUp}`} style={{ transitionDelay: '0.1s' }}>
@@ -235,6 +235,17 @@ export default function ClientPage() {
                 The international edge that Indian airspace cannot provide.
               </p>
               <div className={s.programBlockDuration}>6 – 10 Months</div>
+              <div className={s.programBlockLink}>Full Details →</div>
+            </Link>
+            <Link href="/programs/type-rating" className={`${s.programBlock} ${s.fadeUp}`} style={{ transitionDelay: '0.4s' }}>
+              <div className={s.programBlockAccent} />
+              <div className={s.programBlockNum}>04</div>
+              <div className={s.programBlockTitle}>Type Rating</div>
+              <p className={s.programBlockDesc}>
+                A320, B737, and ATR programmes for DGCA CPL holders.
+                Global partnerships across Vietnam, Madrid, and Bangkok.
+              </p>
+              <div className={s.programBlockDuration}>6 – 10 Weeks</div>
               <div className={s.programBlockLink}>Full Details →</div>
             </Link>
           </div>

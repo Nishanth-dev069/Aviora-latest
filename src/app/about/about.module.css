@@ -165,7 +165,7 @@
 }
 .stText {
   font-family: var(--font-body), sans-serif; font-size: 14px;
-  font-weight: 400; color: var(--text-muted); line-height: 1.6;
+  font-weight: 400; color: rgba(13, 27, 42, 0.65); line-height: 1.6;
 }
 .storySignature { display: flex; align-items: center; gap: 20px; }
 .sigLine { width: 48px; height: 1px; background: var(--color-secondary); }
@@ -174,51 +174,9 @@
   font-style: italic; font-weight: 600; color: var(--color-secondary);
 }
 
-/* ── PARTNER SCROLL (light) ── */
-.partnerSection {
-  background: #F1F1F1; padding: 0 0 60px;
-  position: relative; overflow: hidden;
-  border-bottom: 1px solid rgba(7,61,127,0.12);
-}
-.partnerLabel {
-  font-family: var(--font-body), sans-serif;
-  font-weight: 600; font-size: 10px; text-transform: uppercase;
-  letter-spacing: 0.12em; color: #073D7F;
-  text-align: center; padding-top: 60px; margin-bottom: 32px; display: block;
-}
-.partnerMarqueeWrap {
-  position: relative; width: 100%; overflow: hidden; display: flex;
-}
-.partnerMarqueeWrap::before,
-.partnerMarqueeWrap::after {
-  content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
-}
-.partnerMarqueeWrap::before { left: 0; background: linear-gradient(to right, #F1F1F1, transparent); }
-.partnerMarqueeWrap::after  { right: 0; background: linear-gradient(to left, #F1F1F1, transparent); }
-.partnerMarqueeTrack {
-  display: flex; gap: 16px; min-width: max-content;
-  animation: partnerScroll 35s linear infinite; will-change: transform;
-}
-.partnerMarqueeTrack:hover { animation-play-state: paused; }
-@keyframes partnerScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% / 2)); }
-}
-.partnerCard {
-  background: #FFFFFF; border: 1px solid rgba(7,61,127,0.12);
-  border-radius: 10px; padding: 14px 22px;
-  display: flex; align-items: center; gap: 10px; cursor: default; transition: all 0.25s;
-}
-.partnerCard:hover { border-color: rgba(7,61,127,0.28); box-shadow: 0 4px 16px rgba(7,61,127,0.1); }
-.partnerMonogram {
-  width: 36px; height: 36px; border-radius: 50%; background: #073D7F; color: #6491DE;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-body), sans-serif; font-weight: 700; font-size: 11px; flex-shrink: 0;
-}
-.partnerName {
-  font-family: var(--font-body), sans-serif; font-weight: 500; font-size: 13px;
-  color: #073D7F; white-space: nowrap;
-}
+/* Partner scroll — now using shared TrainingPartnersTicker component */
+/* Local partnerSection styles removed — see TrainingPartnersTicker.module.css */
+
 .missionSection {
   padding: 108px 80px;
   background: var(--color-accent);
@@ -261,7 +219,8 @@
 .programsRow {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 1px; background: rgba(10,36,114,0.10);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(10,36,114,0.15);
+  box-shadow: 0 2px 24px rgba(5,14,45,0.07);
 }
 .programBlock {
   background: var(--color-surface); padding: 52px 44px;
@@ -371,7 +330,7 @@
 }
 .teamNote {
   font-family: var(--font-body), sans-serif; font-size: 14px;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim);
+  letter-spacing: 0.08em; text-transform: uppercase; color: rgba(13, 27, 42, 0.60);
   line-height: 1.7; font-weight: 400;
 }
 

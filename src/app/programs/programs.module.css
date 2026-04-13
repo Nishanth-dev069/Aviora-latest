@@ -329,22 +329,24 @@
 }
 
 .cardSub {
-  font-family: var(--font-body), sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.38);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 14px;
+    font-family: var(--font-body), sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    /* Was 0.38 opacity = ~2.7:1 on dark card — fails WCAG. Raised to 0.65 */
+    color: rgba(255, 255, 255, 0.65);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
 }
 
 .cardDesc {
-  font-family: var(--font-body), sans-serif;
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.65;
-  margin-bottom: 24px;
-  flex: 1;
+    font-family: var(--font-body), sans-serif;
+    font-size: 13.5px;
+    /* Was 0.55 opacity - borderline. Raised to 0.72 */
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.65;
+    margin-bottom: 24px;
+    flex: 1;
 }
 
 /* Duration + Outcome pill row */
@@ -368,12 +370,13 @@
 }
 
 .cardMetaLabel {
-  font-family: var(--font-body), sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
+    font-family: var(--font-body), sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    /* Was 0.30 opacity = ~2.1:1 — severe contrast failure. Fixed to 0.60 */
+    color: rgba(255, 255, 255, 0.60);
 }
 
 .cardMetaValue {
@@ -392,18 +395,19 @@
 
 /* CTA link */
 .cardCta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: auto;
-  align-self: flex-start;
-  padding: 8px 0;
-  font-family: var(--font-body), sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 8px 0;
+    font-family: var(--font-body), sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    /* Was 0.40 opacity = ~2.8:1 — fails WCAG. Raised to 0.65 */
+    color: rgba(255, 255, 255, 0.65);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.25s ease;
 }
 
 .card:hover .cardCta {

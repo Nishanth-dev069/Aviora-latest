@@ -3,31 +3,98 @@ import Link from 'next/link';
 import { useState } from 'react';
 import s from './admissions.module.css';
 import Image from 'next/image';
+import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
 
 const PARTNERS = [
   { name: "IndiGo Airlines", short: "IG" },
-  { name: "Air India",       short: "AI" },
-  { name: "Vistara",         short: "VS" },
-  { name: "SpiceJet",        short: "SJ" },
-  { name: "Qatar Airways",   short: "QA" },
-  { name: "Emirates",        short: "EK" },
-  { name: "Akasa Air",       short: "AK" },
-  { name: "AirAsia India",   short: "AA" },
-  { name: "Etihad Airways",  short: "EY" },
-  { name: "Go First",        short: "GF" },
+  { name: "Air India", short: "AI" },
+  { name: "Vistara", short: "VS" },
+  { name: "SpiceJet", short: "SJ" },
+  { name: "Qatar Airways", short: "QA" },
+  { name: "Emirates", short: "EK" },
+  { name: "Akasa Air", short: "AK" },
+  { name: "AirAsia India", short: "AA" },
+  { name: "Etihad Airways", short: "EY" },
+  { name: "Go First", short: "GF" },
 ];
 
-const TIMELINE_STEPS = [
-  { num: '01', label: 'Apply Online',         sub: 'Submit in under 10 mins' },
-  { num: '02', label: 'Document Submission',  sub: 'Upload ID & marksheet'   },
-  { num: '03', label: 'Aptitude & Interview', sub: 'One-on-one counsellor'   },
-  { num: '04', label: 'Seat Confirmation',    sub: 'Medical & fee deposit'   },
+const ONBOARDING_7_DAY = [
+  {
+    day: '1',
+    title: 'Application & Pre-Screening',
+    desc: 'Candidates submit their online application specifying their program of interest. Our admissions team conducts an initial profile match within 24 hours to ensure minimum age and educational criteria are met. This filters out ineligible candidates immediately.',
+    metrics: [
+      { label: 'Action Required', value: 'Complete Online Form' },
+      { label: 'Turnaround', value: '24 Hours' },
+      { label: 'Outcome', value: 'Profile Validation' }
+    ]
+  },
+  {
+    day: '2',
+    title: 'Admissions Consultation',
+    desc: 'A 1-on-1 scheduled telephonic or video consultation with an Aviora counselor (often an active airline pilot or cabin crew member). We discuss your career goals, evaluate your communication skills, and explain training demands honestly.',
+    metrics: [
+      { label: 'Platform', value: 'Google Meet / Call' },
+      { label: 'Duration', value: '30 – 45 Minutes' },
+      { label: 'Goal', value: 'Expectation Setting' }
+    ]
+  },
+  {
+    day: '3',
+    title: 'Document Verification',
+    desc: 'Candidates upload digital copies of their 10+2 marksheets, valid government ID, and a passport-size photograph through the secure Aviora admissions portal. All documents are cross-verified with issuing authorities for authenticity.',
+    metrics: [
+      { label: 'Key Document 1', value: '10+2 Marksheet' },
+      { label: 'Key Document 2', value: 'Aadhar / Passport' },
+      { label: 'Verification Type', value: 'Digital Authentication' }
+    ]
+  },
+  {
+    day: '4',
+    title: 'Medical Coordination',
+    desc: 'Aviora assists pilot and type rating candidates in scheduling their required DGCA Class 2 or Class 1 medical examinations with approved Aviation Medical Examiners (AMEs) in their respective cities. We provide the approved AME list.',
+    metrics: [
+      { label: 'Requirement', value: 'DGCA Class 2/1 Medical' },
+      { label: 'Applicability', value: 'Pilots Only' },
+      { label: 'Assistance', value: 'AME Appointment Booking' }
+    ]
+  },
+  {
+    day: '5',
+    title: 'Aptitude & Psychometric Assessment',
+    desc: 'A standardized 60-minute online assessment covering logical reasoning, spatial awareness, and basic physics/math (for pilots), alongside a psychometric profile to ensure candidates possess the resilience required for airline training environments.',
+    metrics: [
+      { label: 'Format', value: 'Online MCQ Test' },
+      { label: 'Duration', value: '60 Minutes' },
+      { label: 'Cut-off', value: '70% Minimum Score' }
+    ]
+  },
+  {
+    day: '6',
+    title: 'Final Selection & Offer Letter',
+    desc: 'The academy\'s selection board reviews the candidate\'s complete profile—comprising the interview, document checks, and aptitude scores. Successful candidates receive a formal Offer Letter outlining program details, start dates, and fee schedules.',
+    metrics: [
+      { label: 'Issuance', value: 'Digital Signage via Email' },
+      { label: 'Validity', value: '14 Days from issuance' },
+      { label: 'Next Step', value: 'Acceptance Signature' }
+    ]
+  },
+  {
+    day: '7',
+    title: 'Enrollment & Seat Confirmation',
+    desc: 'The candidate signs the enrollment agreement and pays the initial seat reservation deposit. Upon confirmation, Aviora dispatches the official Welcome Kit, accesses to the cadet portal, and assigns the candidate to their incoming training batch.',
+    metrics: [
+      { label: 'Action Required', value: 'Seat Deposit Payment' },
+      { label: 'Deliverable', value: 'Cadet Portal Access' },
+      { label: 'Final Status', value: 'Officially Enrolled' }
+    ]
+  }
 ];
 
 const ELIGIBILITY = [
   {
     program: 'Pilot Training',
-    tag: '01',
+    href: '/programs/pilot-training',
     items: [
       '10+2 with Physics and Mathematics — minimum 50% aggregate',
       'Minimum age: 17 years at time of first solo flight',
@@ -38,7 +105,7 @@ const ELIGIBILITY = [
   },
   {
     program: 'Cabin Crew',
-    tag: '02',
+    href: '/programs/cabin-crew',
     items: [
       '10+2 any stream — minimum 50% aggregate',
       'Minimum age: 18 years at time of application',
@@ -47,12 +114,34 @@ const ELIGIBILITY = [
       'Good spoken English and presentable personality',
     ],
   },
+  {
+    program: 'Global Training',
+    href: '/programs/global-training',
+    items: [
+      '10+2 with Physics and Mathematics — minimum 50% aggregate',
+      'Minimum age: 18 years at time of application',
+      'DGCA Class 1 Medical Certificate (FAA standard) — Aviora assists',
+      'Valid passport mandatory — USA & international travel required',
+      'English proficiency — ICAO Level 4 standard or equivalent',
+    ],
+  },
+  {
+    program: 'Type Rating',
+    href: '/programs/type-rating',
+    items: [
+      'Valid DGCA Commercial Pilot Licence (CPL) — mandatory',
+      'Valid DGCA Class 1 Medical Certificate',
+      'Minimum age: 21 years',
+      'Minimum 200 hours total flight experience recommended',
+      'Aircraft systems knowledge of A320 / B737 / ATR preferred',
+    ],
+  },
 ];
 
 const INTAKES = [
   { program: 'Pilot Training', date: 'April 2026', seats: '40 seats', status: 'Closed' },
-  { program: 'Cabin Crew',     date: 'August 2026', seats: '75 seats', status: 'Open' },
-  { program: 'Pilot Training', date: 'July 2026',   seats: '40 seats', status: 'Open' },
+  { program: 'Cabin Crew', date: 'August 2026', seats: '75 seats', status: 'Open' },
+  { program: 'Pilot Training', date: 'July 2026', seats: '40 seats', status: 'Open' },
 ];
 
 const FAQS = [
@@ -86,105 +175,78 @@ export default function AdmissionsPage() {
   return (
     <main className={s.page}>
 
-      {/* ═══ 1. HERO ═══ */}
       <section className={s.hero}>
         <div className={s.heroBgWrap}>
-          <Image
-            src="https://images.unsplash.com/photo-1542282245-21d960f58ec7?w=1920&q=80"
-            alt="Wide-angle runway view at dawn"
+          <img
+            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=80"
+            alt="Commercial airplane taking off into the sky"
             className={s.heroBgImg}
-            fill priority sizes="100vw"
-            style={{ objectFit: 'cover' }}
           />
+          <div className={s.heroOverlay} />
         </div>
-        <div className={s.heroOverlay} />
-        <div className={s.heroGlow} />
 
         <div className={s.heroContent}>
           <span className={s.heroEyebrow}>ADMISSIONS · AY 2025–26</span>
-          <h1 className={s.heroH1}>Your Flight Plan<br/>Starts Here.</h1>
+          <h1 className={s.heroH1}>Your Flight Plan<br /><em>Starts Here.</em></h1>
           <p className={s.heroPara}>
-            Join India's elite aviation academy. Seats are limited — secure yours before the runway closes.
+            Join India's elite aviation academy. Seats are limited — secure yours before the runway closes. Applications take under 10 minutes.
           </p>
           <div className={s.heroActions}>
             <a href="#apply" className={s.btnPrimaryApply}>Apply for Intake</a>
             <a href="#prospectus" className={s.btnSecondaryApply}>Download Brochure</a>
           </div>
-
-          {/* 4-step horizontal timeline */}
-          <div className={s.heroTimeline}>
-            {TIMELINE_STEPS.map((step) => (
-              <div className={s.htStep} key={step.num}>
-                <div className={s.htNode}>
-                  <span className={s.htNodeNum}>{step.num}</span>
-                </div>
-                <div className={s.htLabel}>{step.label}</div>
-                <div className={s.htSub}>{step.sub}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* Hero image emerging from bottom */}
-        <div className={s.heroImageWrap}>
-          <img
-            src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1400&q=80"
-            alt="Aviora Academy campus and students"
-          />
+        {/* HERO STATS BAR REPLACING INTAKE STRIP */}
+        <div className={s.heroStats}>
+          {INTAKES.map((intake, i) => (
+            <div className={s.heroStat} key={i}>
+              <span className={s.heroStatNum}>{intake.date}</span>
+              <span className={s.heroStatLabel}>{intake.program} — {intake.seats}</span>
+              <span className={s.heroStatSub}>
+                <span className={`${s.statusDot} ${intake.status === 'Open' ? s.dotOpen : intake.status === 'Closed' ? s.dotClosed : s.dotSoon}`} />
+                {intake.status} Intake
+              </span>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* ═══ PARTNER SCROLL ═══ */}
-      <section className={s.partnerSection}>
-        <span className={s.partnerLabel}>TRUSTED BY INDIA'S LEADING AVIATION ORGANISATIONS</span>
-        <div className={s.partnerMarqueeWrap}>
-          <div className={s.partnerMarqueeTrack}>
-            {allPartners.map((p, i) => (
-              <div className={s.partnerCard} key={i}>
-                <div className={s.partnerMonogram}>{p.short}</div>
-                <span className={s.partnerName}>{p.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TrainingPartnersTicker />
 
-      {/* ═══ 2. INTAKE DATES STRIP ═══ */}
-      <section className={s.intakeStrip}>
-        <div className={s.intakeInner}>
-          <div className={s.intakeLabel}>Current Intakes</div>
-          <div className={s.intakeGrid}>
-            {INTAKES.map((intake, i) => (
-              <div className={s.intakeItem} key={i}>
-                <div className={s.intakeProgram}>{intake.program}</div>
-                <div className={s.intakeDate}>{intake.date}</div>
-                <div className={s.intakeSeats}>{intake.seats}</div>
-                <div className={`${s.intakeStatus} ${intake.status === 'Open' ? s.statusOpen : intake.status === 'Closed' ? s.statusClosed : s.statusSoon}`}>
-                  {intake.status}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* ═══ 3. PROCESS TIMELINE ═══ */}
       <section className={s.processSection}>
         <div className={s.container}>
           <div className={s.eyebrow}>Admissions Process</div>
           <h2 className={s.sectionH2}>
-            Four Steps.<br/><em>Zero Complexity.</em>
+            Your First 7 Days At<br /><em>Aviora Academy.</em>
           </h2>
-          <div className={s.processTimeline}>
-            {TIMELINE_STEPS.map((step, i) => (
-              <div className={s.tlItem} key={i}>
-                <div className={s.tlVisual}>
-                  <div className={s.tlDot} />
-                  {i < TIMELINE_STEPS.length - 1 && <div className={s.tlLine} />}
+
+          <div className={s.timelineContainer}>
+            {ONBOARDING_7_DAY.map((step, i) => (
+              <div className={s.dayRow} key={i}>
+                <div className={s.daySide}>
+                  <div className={s.dayCircle}>
+                    <span className={s.dayLabel}>Day</span>
+                    <span className={s.dayNum}>{step.day}</span>
+                  </div>
+                  {i < ONBOARDING_7_DAY.length - 1 && <div className={s.dayLine} />}
                 </div>
-                <div className={s.tlContent}>
-                  <h3 className={s.tlTitle}>{step.label}</h3>
-                  <p className={s.tlDesc}>{step.sub}</p>
+                <div className={s.dayBody}>
+                  <h3 className={s.dayTitle}>{step.title}</h3>
+                  <p className={s.dayDesc}>{step.desc}</p>
+
+                  <div className={s.dayGrid}>
+                    {step.metrics.map((m, j) => (
+                      <div className={s.dayBlock} key={j}>
+                        <div className={s.dayBlockTitle}>{m.label}</div>
+                        <div className={s.dayBlockVal}>{m.value}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -197,7 +259,7 @@ export default function AdmissionsPage() {
         <div className={s.container}>
           <div className={s.eyebrow}>Eligibility Criteria</div>
           <h2 className={s.sectionH2}>
-            Do You Qualify<br/><em>for Aviora?</em>
+            Do You Qualify<br /><em>for Aviora?</em>
           </h2>
           <div className={s.eligAccordion}>
             {ELIGIBILITY.map((prog, i) => (
@@ -218,7 +280,7 @@ export default function AdmissionsPage() {
                         </li>
                       ))}
                     </ul>
-                    <Link href={i === 0 ? '/programs/cpl' : '/programs/cabin-crew'} className={s.reqLink}>
+                    <Link href={prog.href} className={s.reqLink}>
                       Full Program Details →
                     </Link>
                   </div>
@@ -235,7 +297,7 @@ export default function AdmissionsPage() {
           <div className={s.applyLeft}>
             <div className={s.eyebrow}>Apply Now</div>
             <h2 className={s.applyH2}>
-              Reserve Your<br/><em>Seat Today.</em>
+              Reserve Your<br /><em>Seat Today.</em>
             </h2>
             <p className={s.applyPara}>
               Applications take under 10 minutes. No entrance examination.
@@ -315,7 +377,7 @@ export default function AdmissionsPage() {
         <div className={s.container}>
           <div className={s.eyebrow}>Common Questions</div>
           <h2 className={s.sectionH2}>
-            Admissions<br/><em>FAQ</em>
+            Admissions<br /><em>FAQ</em>
           </h2>
           <div className={s.faqList}>
             {FAQS.map((faq, i) => (
@@ -344,7 +406,7 @@ export default function AdmissionsPage() {
         <div className={s.bottomCtaInner}>
           <div className={s.eyebrow}>Ready?</div>
           <h2 className={s.bottomCtaH2}>
-            The Cockpit is<br/><em>Waiting for You.</em>
+            The Cockpit is<br /><em>Waiting for You.</em>
           </h2>
           <div className={s.bottomCtaBtns}>
             <a href="#apply" className={s.btnPrimary}>Apply Now →</a>

@@ -2,31 +2,38 @@ import React from 'react';
 import styles from './TrainingPartnersTicker.module.css';
 
 const PARTNERS = [
-  { name: "IndiGo Airlines", short: "IG" },
-  { name: "Air India", short: "AI" },
-  { name: "Vistara", short: "VS" },
-  { name: "SpiceJet", short: "SJ" },
-  { name: "Qatar Airways", short: "QA" },
-  { name: "Emirates", short: "EK" },
-  { name: "Akasa Air", short: "AK" },
-  { name: "Go First", short: "GF" },
-  { name: "AirAsia India", short: "AA" },
-  { name: "Etihad Airways", short: "EY" }
+  { name: 'IndiGo',        color: '#6441C1', abbr: 'IG' },
+  { name: 'Air India',     color: '#C8102E', abbr: 'AI' },
+  { name: 'Emirates',      color: '#D71921', abbr: 'EK' },
+  { name: 'Qatar Airways', color: '#5C0632', abbr: 'QA' },
+  { name: 'SpiceJet',      color: '#E2231A', abbr: 'SJ' },
+  { name: 'Vistara',       color: '#4B2A7A', abbr: 'VS' },
+  { name: 'Etihad',        color: '#BD8B13', abbr: 'EY' },
+  { name: 'Akasa Air',     color: '#FF6621', abbr: 'AK' },
+  { name: 'AirAsia',       color: '#FF0000', abbr: 'AA' },
+  { name: 'Go First',      color: '#073D7F', abbr: 'GF' },
 ];
 
 export default function TrainingPartnersTicker() {
+  const doubled = [...PARTNERS, ...PARTNERS];
+
   return (
     <section className={styles.container}>
-      <h3 className={styles.title}>TRAINING PARTNERS FOR</h3>
-      <div className={styles.marqueeWrap}>
-        <div className={styles.marqueeContent}>
-          {/* Repeat slightly more than twice to ensure a seamless infinite loop */}
-          {[...PARTNERS, ...PARTNERS].map((partner, i) => (
-            <div key={`${partner.short}-${i}`} className={styles.partnerCard}>
-              <div className={styles.monogram}>
-                {partner.short}
-              </div>
-              <span className={styles.partnerName}>{partner.name}</span>
+      <p className={styles.label}>
+        Trusted by India&rsquo;s Leading Aviation Organisations
+      </p>
+      <div className={styles.track}>
+        <div className={styles.tape}>
+          {doubled.map((p, i) => (
+            <div key={i} className={styles.card}>
+              {/* Typographic logo — greyscale by default, colored on hover */}
+              <span
+                className={styles.logoMark}
+                style={{ '--brand-color': p.color } as React.CSSProperties}
+              >
+                {p.abbr}
+              </span>
+              <span className={styles.name}>{p.name}</span>
             </div>
           ))}
         </div>

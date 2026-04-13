@@ -68,242 +68,232 @@
 
 /* ── 1. HERO ── */
 .hero {
-  min-height: 100vh; position: relative; display: flex; flex-direction: column;
-  justify-content: center; overflow: hidden; padding: 120px 80px 0;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
 }
-.heroBgWrap { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+.heroBgWrap { position: absolute; inset: 0; z-index: 0; }
 .heroBgImg {
-  width: 100%; height: 100%; object-fit: cover; object-position: center 42%;
-  transform: scale(1.04);
-  animation: heroDrift 22s ease-in-out infinite alternate;
-}
-@keyframes heroDrift {
-  from { transform: scale(1.04) translateX(0); }
-  to   { transform: scale(1.08) translateX(-20px); }
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    display: block;
 }
 .heroOverlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(160deg, rgba(7,61,127,0.85) 0%, rgba(13,27,42,0.9) 60%, rgba(7,61,127,0.7) 100%);
-}
-.heroGlow {
-  position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  background: radial-gradient(ellipse 45% 50% at 10% 60%, rgba(30,144,255,0.07) 0%, transparent 68%);
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(to top, rgba(5, 14, 45, 0.98) 0%, rgba(5, 14, 45, 0.7) 40%, rgba(5, 14, 45, 0.2) 80%, transparent 100%),
+        linear-gradient(to right, rgba(5, 14, 45, 0.6) 0%, transparent 60%);
 }
 .heroContent {
-  position: relative; z-index: 3; max-width: 680px; padding-bottom: 60px;
+    position: relative;
+    z-index: 2;
+    padding: 160px 80px 0;
 }
 .heroEyebrow {
-  font-family: var(--font-body), sans-serif;
-  font-weight: 600; font-size: 10px; text-transform: uppercase;
-  letter-spacing: 0.14em; color: #6491DE;
-  margin-bottom: 20px; display: block;
+    font-family: var(--font-mono), monospace;
+    font-size: 14px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.heroEyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--color-secondary);
 }
 .heroH1 {
-  font-family: var(--font-body), sans-serif;
-  font-size: 60px; font-weight: 700;
-  color: #F1F1F1; line-height: 1.1;
-  letter-spacing: -0.025em; margin-bottom: 20px;
-  text-shadow: 0 2px 16px rgba(0,0,0,0.3);
+    font-family: var(--font-display), serif;
+    font-size: clamp(48px, 7vw, 100px);
+    font-weight: 300;
+    color: #fff;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    margin: 0 0 24px;
+}
+.heroH1 em {
+    font-style: italic;
+    color: var(--color-secondary);
 }
 .heroPara {
-  font-family: var(--font-body), sans-serif;
-  font-size: 17px; font-weight: 400; line-height: 1.75;
-  color: rgba(241,241,241,0.8); max-width: 580px; margin-bottom: 40px;
+    font-family: var(--font-body), sans-serif;
+    font-size: 16px;
+    line-height: 1.85;
+    font-weight: 300;
+    color: rgba(241, 241, 241, 0.70);
+    max-width: 560px;
+    margin-bottom: 32px;
 }
-.heroActions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 60px; }
+.heroActions { display: flex; gap: 14px; margin-bottom: 0; }
 
-/* ── ADMISSIONS TIMELINE in HERO ── */
-.heroTimeline {
-  display: flex; align-items: flex-start; gap: 0;
-  position: relative; margin-top: 8px;
+/* STATS STRIP FOR INTAKES IN HERO */
+.heroStats {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(200, 150, 62, 0.12);
+    margin-top: 72px;
 }
-.htStep {
-  flex: 1; display: flex; flex-direction: column; align-items: center;
-  position: relative; text-align: center;
+.heroStat {
+    padding: 32px 40px;
+    border-right: 1px solid rgba(200, 150, 62, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
-.htStep:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 17px;
-  left: calc(50% + 18px);
-  right: calc(-50% + 18px);
-  height: 1px;
-  border-top: 1px dashed #6491DE;
+.heroStat:last-child { border-right: none; }
+.heroStatNum {
+    font-family: var(--font-display), serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--color-secondary);
+    line-height: 1;
 }
-.htNode {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: #073D7F; border: 2px solid #6491DE;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 10px; flex-shrink: 0; position: relative; z-index: 1;
+.heroStatLabel {
+    font-family: var(--font-display), serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #fff;
 }
-.htNodeNum {
-  font-family: var(--font-body), sans-serif;
-  font-weight: 700; font-size: 11px; color: #6491DE;
+.heroStatSub {
+    font-family: var(--font-body), sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    /* Was 0.45 opacity — too low contrast. Raised to 0.65 = ~4.6:1 on dark bg */
+    color: rgba(241, 241, 241, 0.65);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-.htLabel {
-  font-family: var(--font-body), sans-serif;
-  font-weight: 500; font-size: 12px; color: #F1F1F1; margin-bottom: 4px;
+.statusDot {
+    width: 6px; height: 6px; border-radius: 50%;
 }
-.htSub {
-  font-family: var(--font-body), sans-serif;
-  font-size: 11px; color: rgba(241,241,241,0.6); line-height: 1.4;
-}
+.dotOpen { background: #16a34a; box-shadow: 0 0 8px rgba(22, 163, 74, 0.6); }
+.dotClosed { background: #dc2626; box-shadow: 0 0 8px rgba(220, 38, 38, 0.6); }
+.dotSoon { background: var(--color-secondary); box-shadow: 0 0 8px rgba(200, 150, 62, 0.6); }
 
-/* ── HERO IMAGE BOTTOM — "emerging from hero" ── */
-.heroImageWrap {
-  position: relative; z-index: 4;
-  max-width: 900px; width: 100%;
-  margin: 0 auto;
-  border-radius: 16px 16px 0 0;
-  overflow: hidden;
-  box-shadow: 0 -20px 60px rgba(7,61,127,0.3);
-  transform: translateY(40px);
-}
-.heroImageWrap img {
-  width: 100%; display: block; height: auto;
-}
+/* Remove old hero image wrap CSS since we are no longer using it */
 
-/* ── PARTNER TICKER (light) ── */
-.partnerSection {
-  background: #F1F1F1;
-  padding: 0 0 60px;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(7,61,127,0.12);
-}
-.partnerLabel {
-  font-family: var(--font-body), sans-serif;
-  font-weight: 600; font-size: 10px; text-transform: uppercase;
-  letter-spacing: 0.12em; color: #073D7F;
-  text-align: center; padding-top: 80px; margin-bottom: 32px;
-  display: block;
-}
-.partnerMarqueeWrap {
-  position: relative; width: 100%; overflow: hidden; display: flex;
-}
-.partnerMarqueeWrap::before,
-.partnerMarqueeWrap::after {
-  content: ''; position: absolute; top: 0; bottom: 0; width: 80px;
-  z-index: 2; pointer-events: none;
-}
-.partnerMarqueeWrap::before {
-  left: 0;
-  background: linear-gradient(to right, #F1F1F1, transparent);
-}
-.partnerMarqueeWrap::after {
-  right: 0;
-  background: linear-gradient(to left, #F1F1F1, transparent);
-}
-.partnerMarqueeTrack {
-  display: flex; gap: 16px; min-width: max-content;
-  animation: partnerScroll 35s linear infinite;
-  will-change: transform;
-}
-.partnerMarqueeTrack:hover { animation-play-state: paused; }
-@keyframes partnerScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% / 2)); }
-}
-.partnerCard {
-  background: #FFFFFF; border: 1px solid rgba(7,61,127,0.12);
-  border-radius: 10px; padding: 14px 22px;
-  display: flex; align-items: center; gap: 10px;
-  cursor: default; transition: all 0.25s;
-}
-.partnerCard:hover {
-  border-color: rgba(7,61,127,0.25);
-  box-shadow: 0 4px 16px rgba(7,61,127,0.1);
-}
-.partnerMonogram {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: #073D7F; color: #6491DE;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-body), sans-serif;
-  font-weight: 700; font-size: 11px; letter-spacing: 0.02em;
-  flex-shrink: 0;
-}
-.partnerName {
-  font-family: var(--font-body), sans-serif;
-  font-weight: 500; font-size: 13px; color: #073D7F; white-space: nowrap;
-}
 
-/* ── 2. INTAKE STRIP ── */
-.intakeStrip {
-  background: #F1F1F1; border-bottom: 1px solid rgba(7,61,127,0.12);
-  padding: 36px 80px;
-}
-.intakeInner {
-  max-width: 1280px; margin: 0 auto;
-  display: flex; align-items: center; gap: 48px;
-}
-.intakeLabel {
-  font-family: var(--font-body), sans-serif; font-size: 14px;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--color-secondary);
-  flex-shrink: 0; font-weight: 700;
-}
-.intakeGrid { display: flex; gap: 0; flex: 1; border: 1px solid rgba(7,61,127,0.12); }
-.intakeItem {
-  flex: 1; padding: 20px 28px;
-  border-right: 1px solid rgba(7,61,127,0.12);
-  display: grid; grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  gap: 4px 16px; align-items: center;
-}
-.intakeItem:last-child { border-right: none; }
-.intakeProgram {
-  font-family: var(--font-body), sans-serif; font-size: 15px;
-  font-weight: 500; color: #073D7F; grid-column: 1; grid-row: 1;
-}
-.intakeDate {
-  font-family: var(--font-display), sans-serif; font-size: 20px;
-  font-weight: 700; color: var(--color-secondary); grid-column: 1; grid-row: 2;
-}
-.intakeSeats {
-  font-family: var(--font-body), sans-serif; font-size: 14px;
-  letter-spacing: 0.18em; color: #073D7F;
-  text-transform: uppercase; grid-column: 2; grid-row: 1; text-align: right; font-weight: 400;
-}
-.intakeStatus {
-  font-family: var(--font-body), sans-serif; font-size: 14px;
-  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
-  grid-column: 2; grid-row: 2; text-align: right;
-}
-.statusOpen  { color: #16a34a; }
-.statusClosed { color: #dc2626; }
-.statusSoon  { color: #073D7F; }
+/* ── PARTNER TICKER — now using shared TrainingPartnersTicker component — */
+/* Local partner section styles removed — see TrainingPartnersTicker.module.css */
 
-/* ── 3. PROCESS SECTION ── */
+/* ── 3. PROCESS 7-DAY TIMELINE ── */
 .processSection {
-  padding: 108px 80px;
-  background: var(--color-accent);
-  border-bottom: 1px solid var(--border-dark);
+    padding: 120px 80px;
+    background: #050E2D;
 }
-.processTimeline {
-  display: flex; gap: 0; align-items: stretch; margin-top: 40px;
+.timelineContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 900px;
+    margin-top: 60px;
 }
-.tlItem {
-  flex: 1; display: flex; flex-direction: column; position: relative;
+.dayRow {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    padding-bottom: 64px;
 }
-.tlVisual {
-  display: flex; align-items: center; margin-bottom: 24px;
+.dayRow:last-child { padding-bottom: 0; }
+
+.daySide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
 }
-.tlDot {
-  width: 14px; height: 14px; border-radius: 50%;
-  background: #6491DE; border: 2px solid #F1F1F1;
-  flex-shrink: 0; z-index: 2;
+.dayCircle {
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(200, 150, 62, 0.4);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(200, 150, 62, 0.08);
+    flex-shrink: 0;
 }
-.tlLine {
-  flex: 1; height: 1px; background: rgba(100,145,222,0.4);
-  margin: 0 8px;
+.dayLabel {
+    font-family: var(--font-mono), monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(200, 150, 62, 0.8);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 2px;
 }
-.tlContent { padding-right: 24px; }
-.tlTitle {
-  font-family: var(--font-display), sans-serif; font-size: 20px;
-  font-weight: 700; color: #ffffff; margin-bottom: 12px; line-height: 1.2;
+.dayNum {
+    font-family: var(--font-display), serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--color-secondary);
+    line-height: 1;
 }
-.tlDesc {
-  font-family: var(--font-body), sans-serif; font-size: 15px;
-  font-weight: 400; line-height: 1.7; color: rgba(241,241,241,0.72);
+.dayLine {
+    width: 1px;
+    flex: 1;
+    min-height: 60px;
+    background: linear-gradient(to bottom, rgba(200, 150, 62, 0.3), rgba(200, 150, 62, 0.05));
+    margin-top: 12px;
+}
+.dayBody {
+    padding-top: 14px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 32px 40px;
+}
+.dayTitle {
+    font-family: var(--font-display), serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #fff;
+    margin: 0 0 16px;
+}
+.dayDesc {
+    font-family: var(--font-body), sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+    font-weight: 300;
+    color: rgba(241, 241, 241, 0.7);
+    margin-bottom: 20px;
+}
+.dayGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 20px;
+}
+.dayBlockTitle {
+    font-family: var(--font-mono), monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(200, 150, 62, 0.8);
+    margin-bottom: 6px;
+}
+.dayBlockVal {
+    font-family: var(--font-body), sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #F1F1F1;
+    line-height: 1.4;
 }
 
 /* ── 4. ELIGIBILITY ── */
@@ -384,7 +374,9 @@
 }
 .applyStatLabel {
   font-family: var(--font-body), sans-serif; font-size: 13px;
-  text-transform: uppercase; letter-spacing: 0.12em; color: rgba(13,27,42,0.6);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  /* Was 0.6 opacity = ~3.5:1 — raised to meet 4.5:1 */
+  color: rgba(13,27,42,0.70);
   font-weight: 500;
 }
 /* Form card */
@@ -427,7 +419,8 @@
 .applySubmit:hover { background: #6491DE; }
 .applyDisclaimer {
   font-family: var(--font-body), sans-serif; font-size: 12px;
-  color: rgba(13,27,42,0.5); line-height: 1.5;
+  /* Was 0.5 opacity = ~3.0:1 — raised to 0.6 for minimum legibility */
+  color: rgba(13,27,42,0.60); line-height: 1.5;
 }
 
 /* ── 6. FAQ ── */
@@ -456,7 +449,18 @@
   width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
   border: 1px solid rgba(100,145,222,0.3); border-radius: 50%; flex-shrink: 0;
 }
-.faqAnswer { padding: 0 0 24px; }
+.faqAnswer {
+  padding: 0 0 24px;
+  overflow: hidden;
+  /* smooth accordion height via grid trick */
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.3s ease;
+}
+.faqItem:not(.faqOpen) .faqAnswer {
+  grid-template-rows: 0fr;
+  padding: 0;
+}
 .faqA {
   font-family: var(--font-body), sans-serif; font-size: 15px;
   font-weight: 400; line-height: 1.8; color: #0D1B2A; max-width: 720px;
@@ -487,19 +491,14 @@
 /* RESPONSIVE */
 @media (max-width: 1024px) {
   .applyInner { grid-template-columns: 1fr; gap: 48px; }
-  .processTimeline { flex-direction: column; }
-  .tlItem { flex-direction: row; gap: 20px; }
-  .tlVisual { flex-direction: column; align-items: center; margin-bottom: 0; }
-  .tlLine { width: 2px; height: 48px; margin: 8px 0; }
+  .dayGrid { grid-template-columns: 1fr; gap: 16px; }
 }
 @media (max-width: 768px) {
-  .hero { padding: 100px 24px 0; }
+  .heroContent { padding: 120px 24px 0; }
   .heroH1 { font-size: 36px; }
-  .heroTimeline { flex-direction: column; gap: 24px; }
-  .htStep::after { display: none; }
-  .intakeStrip { padding: 24px; }
-  .intakeInner { flex-direction: column; gap: 24px; }
-  .intakeGrid { flex-direction: column; }
+  .heroStats { grid-template-columns: 1fr; }
+  .dayRow { grid-template-columns: 60px 1fr; gap: 20px; }
+  .dayBody { padding: 24px; }
   .processSection, .eligibilitySection, .applySection,
   .faqSection, .bottomCta { padding-left: 24px; padding-right: 24px; }
   .applyStats { gap: 20px; }
