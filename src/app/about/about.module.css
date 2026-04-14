@@ -48,10 +48,10 @@
 .btnSecondary {
   font-family: var(--font-body), sans-serif; font-size: 15px; font-weight: 600;
   letter-spacing: 0.10em; text-transform: uppercase; padding: 14px 36px;
-  border: 1.5px solid var(--color-accent); color: var(--color-accent);
+  border: 1.5px solid rgba(255, 255, 255, 0.55); color: #ffffff;
   text-decoration: none; transition: all 0.25s; display: inline-block;
 }
-.btnSecondary:hover { border-color: var(--color-secondary); background: rgba(10,36,114,0.06); color: var(--color-secondary); }
+.btnSecondary:hover { border-color: var(--color-secondary); background: rgba(100,145,222,0.12); color: var(--color-secondary); }
 
 /* ── HERO ── */
 .hero {

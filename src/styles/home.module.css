@@ -1689,9 +1689,9 @@
    SECTION 3B — MENTORS
    ═══════════════════════════════════════════════ */
 .mentorsSection {
-    background: var(--color-primary);
+    background: var(--color-accent);
     padding: 120px 64px;
-    border-top: 1px solid rgba(7, 61, 127, 0.12);
+    border-top: 1px solid rgba(200, 150, 62, 0.12);
 }
 
 .mentorsHeader {
@@ -2230,6 +2230,21 @@
     .facilitiesSection,
     .mentorsSection {
         padding: 80px 24px;
+    }
+
+    .hcSection {
+        padding: 60px 0;
+    }
+
+    .hcGrid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 0 20px;
+    }
+
+    .hcCard {
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .globalVisual {

@@ -499,7 +499,7 @@
 /* ── ELIGIBILITY + CTA ── */
 .eligSection {
     padding: 120px 80px;
-    background: var(--color-primary);
+    background: var(--color-accent);
 }
 
 .eligInner {
@@ -511,7 +511,7 @@
 }
 
 .eligCard {
-    background: rgba(200, 150, 62, 0.03);
+    background: rgba(5, 14, 45, 0.5);
     border: 1px solid rgba(200, 150, 62, 0.1);
     padding: 56px 52px;
 }

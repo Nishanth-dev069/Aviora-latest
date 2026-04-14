@@ -512,7 +512,7 @@
 /* ── PROCESS ── */
 .processSection {
     padding: 120px 80px;
-    background: var(--color-primary);
+    background: #050E2D;
 }
 
 .processHead { margin-bottom: 80px; }
@@ -625,7 +625,7 @@
 .eligArrow { color: var(--color-secondary); flex-shrink: 0; font-size: 16px; margin-top: 2px; }
 
 .ctaCard {
-    background: var(--color-primary);
+    background: var(--color-accent);
     border: 1px solid rgba(200, 150, 62, 0.1);
     padding: 56px 52px;
     display: flex;
