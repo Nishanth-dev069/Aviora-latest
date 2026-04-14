@@ -93,7 +93,6 @@
     text-rendering: optimizeLegibility;
     font-display: swap;
     background: #0E1525;
-    overflow-x: hidden;
   }
 
   body {
@@ -104,8 +103,6 @@
     line-height: 1.75;
     cursor: none;
     scrollbar-width: none;
-    overflow-x: hidden;
-    width: 100%;
   }
 
   body::-webkit-scrollbar {
