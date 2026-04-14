@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
 import s from './admissions.module.css';
 import Image from 'next/image';
 import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
@@ -172,6 +173,69 @@ export default function AdmissionsPage() {
   const [openReq, setOpenReq] = useState<number | null>(0);
   const allPartners = [...PARTNERS, ...PARTNERS];
 
+  // Form states
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    email: '',
+    program: '',
+    education: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const templateParams = {
+        fullName: formData.fullName,
+        phone: formData.phone,
+        email: formData.email,
+        program: formData.program,
+        education: formData.education,
+      };
+
+      // Send to Admin
+      await emailjs.send(
+        'service_7b7bf2b',
+        'template_zxw602a',
+        templateParams,
+        { publicKey: 'X8vIIQSyMtWBrTNOk' }
+      );
+
+      // Send to Customer
+      await emailjs.send(
+        'service_7b7bf2b',
+        'template_o3oktlr',
+        templateParams,
+        { publicKey: 'X8vIIQSyMtWBrTNOk' }
+      );
+
+      setSubmitStatus({ 
+        type: 'success', 
+        message: 'Application submitted successfully! Our admissions counsellor will contact you soon.' 
+      });
+      setFormData({ fullName: '', phone: '', email: '', program: '', education: '' });
+    } catch (error: any) {
+      console.error('EmailJS Error:', error);
+      const errorMsg = error?.text || error?.message || String(error);
+      setSubmitStatus({ 
+        type: 'error', 
+        message: `Error submitting application: ${errorMsg}` 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className={s.page}>
 
@@ -327,45 +391,56 @@ export default function AdmissionsPage() {
                   An Aviora admissions counsellor — a pilot or aviation professional —
                   will call you within 48 hours.
                 </p>
-                <div className={s.applyFormFields}>
-                  <div className={s.applyFieldGroup}>
-                    <label className={s.applyLabel}>Full Name</label>
-                    <input className={s.applyInput} type="text" placeholder="As on official ID" />
+                <form onSubmit={handleSubmit}>
+                  <div className={s.applyFormFields}>
+                    <div className={s.applyFieldGroup}>
+                      <label className={s.applyLabel}>Full Name</label>
+                      <input className={s.applyInput} type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} placeholder="As on official ID" required />
+                    </div>
+                    <div className={s.applyFieldGroup}>
+                      <label className={s.applyLabel}>Mobile Number</label>
+                      <input className={s.applyInput} type="tel" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="+91 XXXXX XXXXX" required />
+                    </div>
+                    <div className={s.applyFieldGroup}>
+                      <label className={s.applyLabel}>Email Address</label>
+                      <input className={s.applyInput} type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="your@email.com" required />
+                    </div>
+                    <div className={s.applyFieldGroup}>
+                      <label className={s.applyLabel}>Program of Interest</label>
+                      <select className={s.applySelect} name="program" value={formData.program} onChange={handleInputChange} required>
+                        <option value="">Select a program</option>
+                        <option value="cpl">Commercial Pilot — CPL</option>
+                        <option value="ppl">Private Pilot — PPL</option>
+                        <option value="cabin">Cabin Crew Program</option>
+                        <option value="type">Type Rating</option>
+                        <option value="unsure">Not sure yet</option>
+                      </select>
+                    </div>
+                    <div className={s.applyFieldGroup}>
+                      <label className={s.applyLabel}>Current Education</label>
+                      <select className={s.applySelect} name="education" value={formData.education} onChange={handleInputChange} required>
+                        <option value="">Select</option>
+                        <option value="appearing">Appearing 10+2</option>
+                        <option value="completed">Completed 10+2</option>
+                        <option value="graduate">Graduate / Post-graduate</option>
+                      </select>
+                    </div>
                   </div>
-                  <div className={s.applyFieldGroup}>
-                    <label className={s.applyLabel}>Mobile Number</label>
-                    <input className={s.applyInput} type="tel" placeholder="+91 XXXXX XXXXX" />
-                  </div>
-                  <div className={s.applyFieldGroup}>
-                    <label className={s.applyLabel}>Email Address</label>
-                    <input className={s.applyInput} type="email" placeholder="your@email.com" />
-                  </div>
-                  <div className={s.applyFieldGroup}>
-                    <label className={s.applyLabel}>Program of Interest</label>
-                    <select className={s.applySelect}>
-                      <option value="">Select a program</option>
-                      <option value="cpl">Commercial Pilot — CPL</option>
-                      <option value="ppl">Private Pilot — PPL</option>
-                      <option value="cabin">Cabin Crew Program</option>
-                      <option value="type">Type Rating</option>
-                      <option value="unsure">Not sure yet</option>
-                    </select>
-                  </div>
-                  <div className={s.applyFieldGroup}>
-                    <label className={s.applyLabel}>Current Education</label>
-                    <select className={s.applySelect}>
-                      <option value="">Select</option>
-                      <option value="appearing">Appearing 10+2</option>
-                      <option value="completed">Completed 10+2</option>
-                      <option value="graduate">Graduate / Post-graduate</option>
-                    </select>
-                  </div>
-                </div>
-                <button className={s.applySubmit}>Submit Application →</button>
-                <p className={s.applyDisclaimer}>
-                  By submitting you agree to be contacted by Aviora admissions.
-                  We do not share your information with third parties.
-                </p>
+                  
+                  {submitStatus.message && (
+                    <div style={{ marginTop: '16px', padding: '12px', borderRadius: '4px', fontSize: '14px', background: submitStatus.type === 'success' ? 'rgba(34, 197, 94, 0.1)' : 'rgba(239, 68, 68, 0.1)', color: submitStatus.type === 'success' ? '#22c55e' : '#ef4444', border: `1px solid ${submitStatus.type === 'success' ? 'rgba(34, 197, 94, 0.2)' : 'rgba(239, 68, 68, 0.2)'}` }}>
+                      {submitStatus.message}
+                    </div>
+                  )}
+
+                  <button type="submit" disabled={isSubmitting} className={s.applySubmit} style={{ opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}>
+                    {isSubmitting ? 'Submitting...' : 'Submit Application →'}
+                  </button>
+                  <p className={s.applyDisclaimer}>
+                    By submitting you agree to be contacted by Aviora admissions.
+                    We do not share your information with third parties.
+                  </p>
+                </form>
               </div>
             </div>
           </div>

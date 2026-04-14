@@ -88,12 +88,10 @@
   }
 
   html {
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-display: swap;
-    overflow-x: hidden;
     background: #0E1525;
   }
 
@@ -105,7 +103,6 @@
     line-height: 1.75;
     cursor: none;
     scrollbar-width: none;
-    overflow-x: hidden;
   }
 
   body::-webkit-scrollbar {
@@ -182,14 +179,10 @@
     text-decoration: none;
   }
 
-  /* ── Smooth page entrance ── */
+  /* Smooth page entrance removed — animation: fadeUp creates a stacking
+     context that traps position:fixed children (Nav, overlays) */
   main {
-    animation: fadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0);    }
+    /* intentionally no animation */
   }
 
 }
