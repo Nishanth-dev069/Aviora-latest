@@ -2175,20 +2175,56 @@
     }
 
     .heroContent {
-        margin-left: 24px;
-        margin-right: 24px;
-        padding-top: 100px;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 24px 100px 24px;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .heroOverlay {
+        background: linear-gradient(
+            to bottom, 
+            rgba(5,14,45,0.1) 0%, 
+            rgba(5,14,45,0.5) 45%, 
+            rgba(5,14,45,0.95) 100%
+        ) !important;
+        align-items: flex-end !important;
+    }
+
+    .heroH1 {
+        font-size: clamp(38px, 10vw, 48px) !important;
+        text-align: center;
+    }
+
+    .heroEyebrow {
+        justify-content: center;
+    }
+    
+    .heroEyebrow::before {
+        display: none;
+    }
+
+    .heroBody {
+        text-align: center;
+        margin: 0 auto 36px auto;
     }
 
     .heroCtas {
         flex-direction: column;
-        gap: 12px;
+        gap: 16px;
+        width: 100%;
     }
 
     .btnHeroPrimary,
     .btnHeroOutline {
         width: 100%;
         text-align: center;
+        padding: 16px 20px;
     }
 
     .facilitiesSection,
