@@ -55,7 +55,7 @@ export default function Nav() {
     const isDarkHero = pathname === "/" || pathname === "/admissions" || pathname === "/programs" || pathname?.startsWith("/programs/");
 
     return (
-        <nav id="main-nav" className={`${styles.nav} ${isScrolled ? styles.scrolled : (isDarkHero ? styles.navHeroDark : "")}`}>
+        <nav id="main-nav" suppressHydrationWarning className={`${styles.nav} ${isScrolled ? styles.scrolled : (isDarkHero ? styles.navHeroDark : "")}`}>
             <Link href="/" className={styles.navLogo}>
                 AVIORA
             </Link>

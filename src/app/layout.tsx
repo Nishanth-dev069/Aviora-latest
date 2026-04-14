@@ -4,6 +4,7 @@ import CustomCursor from "@/components/CustomCursor";
 import AirplaneScrollbar from "@/components/AirplaneScrollbar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import IntroOverlay from "@/components/IntroOverlay";
 import "./globals.css";
 
 /* ── Typography: Inter for everything ── */
@@ -42,6 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body>
+        <IntroOverlay />
         <CustomCursor />
         <AirplaneScrollbar />
         <Nav />

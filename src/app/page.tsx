@@ -1,26 +1,11 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from '@/styles/home.module.css';
 import CessnaFly from '@/components/CessnaFly';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
-
-interface PhaseData { eyebrow: string; headline: string; body: string; spd: number; alt: number; showCta: boolean; }
-
-const PHASES: PhaseData[] = [
-  { eyebrow: 'On Ground · Pre-Departure', headline: 'Where Legends<br/>Learn to <em>Command</em><br/>the Sky.', body: 'From first flight to airline captain — Aviora trains the world\'s finest pilots with uncompromising standards, elite instructors, and a Cessna 172 fleet that rivals the best.', spd: 0, alt: 0, showCta: true },
-  { eyebrow: 'Engine Start · Pre-flight Check', headline: 'Precision Before<br/><em>Every Single</em><br/>Takeoff.', body: 'Our cadets perform every pre-flight check with the rigour demanded by the world\'s safest airlines. No shortcut is ever acceptable.', spd: 0, alt: 0, showCta: false },
-  { eyebrow: 'Taxiing · Runway Holding Point', headline: 'Runway in Sight —<br/><em>Cleared</em> for<br/>Take-off.', body: 'The final moments on the ground. Surface movement, heading cross-checks, and precise alignment before full power.', spd: 12, alt: 0, showCta: false },
-  { eyebrow: 'Take-off Roll · Full Power', headline: 'Full Thrust.<br/><em>Maximum</em><br/>Performance.', body: 'Throttle full forward. The C172 accelerates rapidly. Every instrument alive. The runway narrows as speed builds toward rotation.', spd: 40, alt: 0, showCta: false },
-  { eyebrow: 'Vr · Rotate at 55 Knots', headline: 'ROTATE —<br/><em>Nose Up</em><br/>at 55 Knots.', body: 'Back pressure on the yoke at Vr — 55 knots. The nose rises 8°. The main gear leaves the runway. The C172 is flying.', spd: 55, alt: 0, showCta: false },
-  { eyebrow: 'Initial Climb · Vy 74 Knots', headline: 'Wheels Up.<br/><em>Your World</em><br/>Just Changed.', body: 'Positive rate confirmed. Best rate of climb — 74 knots. 700 ft per minute. The airfield falls away below.', spd: 74, alt: 600, showCta: false },
-  { eyebrow: 'Climb · Passing 3,500 ft', headline: 'Sky Above.<br/><em>Earth Below.</em><br/>You Command.', body: 'Steady climb at 74 knots. Engine at 2300 RPM. Outside air temperature drops. The ground is a patchwork of fields and roads.', spd: 74, alt: 3500, showCta: false },
-  { eyebrow: 'Cruising · 8,500 ft · 122 kts', headline: 'Cruising at<br/><em>Eight Thousand</em><br/>Five Hundred.', body: 'Level cruise at 122 knots true airspeed, 8,500 ft AGL. Mixture leaned, engine smooth. Clear skies, unbroken horizon. This is where Aviora pilots belong.', spd: 122, alt: 8500, showCta: false },
-];
-
-const PHASE_LABELS = ['Ground', 'Eng Start', 'Taxi', 'T/O Roll', 'Vr 55kts', 'Climb Vy', 'Climb 3500', 'Cruise'];
 
 const FRAME_COUNT = 242;
 const getFrameSrc = (i: number) => `/hero-sequence/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
@@ -77,279 +62,112 @@ function CabinSilhouette() {
 
 export default function HomePage() {
   const heroCanvasRef = useRef<HTMLCanvasElement>(null);
-  const starsCanvasRef = useRef<HTMLCanvasElement>(null);
-  const atmSkyRef = useRef<HTMLDivElement>(null);
-  const runwayRef = useRef<HTMLDivElement>(null);
-  const progFillRef = useRef<HTMLDivElement>(null);
-  const vsbFillRef = useRef<HTMLDivElement>(null);
-  const vsbValRef = useRef<HTMLSpanElement>(null);
-  const valSpeedRef = useRef<HTMLSpanElement>(null);
-  const valAltRef = useRef<HTMLSpanElement>(null);
-  const hudLeftRef = useRef<HTMLDivElement>(null);
-  const hudRightRef = useRef<HTMLDivElement>(null);
-  const phaseDotsRef = useRef<HTMLDivElement>(null);
-  const phaseHeadRef = useRef<HTMLDivElement>(null);
-  const eyebrowElRef = useRef<HTMLDivElement>(null);
-  const h1ElRef = useRef<HTMLHeadingElement>(null);
-  const bodyElRef = useRef<HTMLParagraphElement>(null);
-  const ctaElRef = useRef<HTMLDivElement>(null);
-  const scrollHintRef = useRef<HTMLDivElement>(null);
-  const vspeedBarRef = useRef<HTMLDivElement>(null);
+  const heroSceneRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     document.body.classList.add('homepage-active');
     return () => document.body.classList.remove('homepage-active');
   }, []);
 
-  /* ── STAR FIELD ── */
-  useEffect(() => {
-    const canvas = starsCanvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    interface Streak { x: number; y: number; length: number; speed: number; alpha: number; }
-    const streaks: Streak[] = Array.from({ length: 45 }, () => ({ x: Math.random() * canvas.width, y: Math.random() * canvas.height * 0.8, length: Math.random() * 150 + 50, speed: Math.random() * 8 + 4, alpha: Math.random() * 0.4 + 0.1 }));
-    let rafId: number;
-    let currentAlpha = 0;
-    function drawStreaks() {
-      ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
-      streaks.forEach((s) => {
-        s.x -= s.speed;
-        if (s.x < -s.length) { s.x = canvas!.width + s.length; s.y = Math.random() * canvas!.height * 0.8; }
-        const grad = ctx!.createLinearGradient(s.x, s.y, s.x + s.length, s.y);
-        grad.addColorStop(0, `rgba(79,195,247,0)`);
-        grad.addColorStop(0.5, `rgba(79,195,247,${currentAlpha * s.alpha})`);
-        grad.addColorStop(1, `rgba(79,195,247,0)`);
-        ctx!.beginPath(); ctx!.moveTo(s.x, s.y); ctx!.lineTo(s.x + s.length, s.y);
-        ctx!.strokeStyle = grad; ctx!.lineWidth = 1.5; ctx!.stroke();
-      });
-      rafId = requestAnimationFrame(drawStreaks);
-    }
-    drawStreaks();
-    (canvas as HTMLCanvasElement & { setAlpha: (a: number) => void }).setAlpha = (a: number) => { currentAlpha = a; };
-    return () => cancelAnimationFrame(rafId);
-  }, []);
-
-  /* ── IMAGE SEQUENCE + GSAP SCROLL ── */
+  /* ── IMAGE SEQUENCE + SCROLL ── */
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const canvas = heroCanvasRef.current;
-    if (!canvas) return;
+    const scene  = heroSceneRef.current;
+    if (!canvas || !scene) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // ─────────────────────────────────────────────────────────
-    // FIX 1: Size the canvas to the actual viewport — not a
-    // hardcoded 1280×720. This prevents undrawn canvas edges
-    // appearing as "blank space" when the viewport aspect ratio
-    // differs from 16:9, and ensures drawImage fills correctly.
-    // ─────────────────────────────────────────────────────────
-    canvas.width = window.innerWidth;
+    canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
 
     const images: (HTMLImageElement | null)[] = new Array(FRAME_COUNT).fill(null);
     let currentFrame = 0;
     let lastGoodFrame = -1;
+    let rafId = 0;
 
-    // ─────────────────────────────────────────────────────────
-    // FIX 2: renderFrame never clears to dark when a better
-    // option exists. If the target frame isn't loaded yet:
-    //   • show lastGoodFrame if available (canvas holds paint)
-    //   • only draw the dark placeholder if NOTHING has ever
-    //     loaded (very first moments before frame 0 arrives).
-    // This eliminates the "blank space" between frame bursts.
-    // ─────────────────────────────────────────────────────────
+    function drawCover(img: HTMLImageElement) {
+      const iR = img.naturalWidth / img.naturalHeight;
+      const cR = canvas!.width / canvas!.height;
+      let dW = canvas!.width, dH = canvas!.height, oX = 0, oY = 0;
+      if (cR > iR) { dH = canvas!.width / iR; oY = (canvas!.height - dH) / 2; }
+      else         { dW = canvas!.height * iR; oX = (canvas!.width - dW) / 2; }
+      ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
+      ctx!.fillStyle = '#050E2D';
+      ctx!.fillRect(0, 0, canvas!.width, canvas!.height);
+      ctx!.drawImage(img, oX, oY, dW, dH);
+    }
+
     function renderFrame(index: number) {
       const img = images[index];
-      if (img && img.complete && img.naturalWidth > 0) {
-        ctx!.drawImage(img, 0, 0, canvas!.width, canvas!.height);
-        lastGoodFrame = index;
-      } else if (lastGoodFrame >= 0 && images[lastGoodFrame]) {
-        // Hold the last successfully painted frame — no blank flash
-        ctx!.drawImage(images[lastGoodFrame]!, 0, 0, canvas!.width, canvas!.height);
-      }
-      // If neither: canvas retains whatever was drawn last (browser behaviour).
-      // Only falls through to transparent/background on very first paint
-      // before frame 0 loads — acceptable since heroScene bg is #0E1525.
+      if (img && img.complete && img.naturalWidth > 0) { drawCover(img); lastGoodFrame = index; }
+      else if (lastGoodFrame >= 0 && images[lastGoodFrame]) drawCover(images[lastGoodFrame]!);
     }
 
-    // ─────────────────────────────────────────────────────────
-    // FIX 3: When a frame finishes loading, immediately repaint
-    // if that frame is what's currently needed. Without this,
-    // a frame loads silently but the canvas never updates until
-    // the next GSAP tick — causing a stale hold frame to linger.
-    // ─────────────────────────────────────────────────────────
-    function loadFrame(index: number): Promise<void> {
-      return new Promise((resolve) => {
-        if (images[index]) { resolve(); return; }
-        const img = new Image();
-        img.src = getFrameSrc(index);
-        img.onload = () => {
-          images[index] = img;
-          if (index === currentFrame) renderFrame(index);
-          resolve();
-        };
-        img.onerror = () => { images[index] = null; resolve(); };
-      });
+    function loadFrame(index: number) {
+      if (images[index]) return;
+      const img = new Image();
+      img.src = getFrameSrc(index);
+      img.onload  = () => { images[index] = img; if (index === currentFrame) renderFrame(index); };
+      img.onerror = () => { images[index] = null; };
     }
 
-    // Show canvas as soon as first frame lands
-    loadFrame(0).then(() => { renderFrame(0); canvas.style.opacity = '1'; });
+    // Frame 0 first — show canvas
+    const img0 = new Image();
+    img0.src = getFrameSrc(0);
+    img0.onload = () => { images[0] = img0; renderFrame(0); canvas.style.opacity = '1'; };
 
-    // Preload first 100 frames immediately; rest in idle batches
-    for (let i = 1; i < Math.min(100, FRAME_COUNT); i++) loadFrame(i);
+    // Eager load first 80 frames
+    for (let i = 1; i < Math.min(80, FRAME_COUNT); i++) loadFrame(i);
+    // Lazy load rest
     if ('requestIdleCallback' in window) {
-      for (let batch = 100; batch < FRAME_COUNT; batch += 30) {
-        const s = batch, e = Math.min(FRAME_COUNT, batch + 30);
-        window.requestIdleCallback(() => { for (let i = s; i < e; i++) loadFrame(i); }, { timeout: 300 });
+      for (let b = 80; b < FRAME_COUNT; b += 30) {
+        const s = b, e = Math.min(FRAME_COUNT, b + 30);
+        window.requestIdleCallback(() => { for (let i = s; i < e; i++) loadFrame(i); }, { timeout: 600 });
       }
     } else {
-      setTimeout(() => { for (let i = 100; i < FRAME_COUNT; i++) loadFrame(i); }, 100);
+      setTimeout(() => { for (let i = 80; i < FRAME_COUNT; i++) loadFrame(i); }, 300);
     }
 
-    // ─────────────────────────────────────────────────────────
-    // FIX 4: Handle viewport resize — re-size canvas and redraw
-    // current frame so the image always fills the viewport.
-    // ─────────────────────────────────────────────────────────
     function handleResize() {
-      canvas!.width = window.innerWidth;
+      canvas!.width  = window.innerWidth;
       canvas!.height = window.innerHeight;
       renderFrame(currentFrame);
     }
     window.addEventListener('resize', handleResize);
 
-    if (prefersReduced) { canvas.style.opacity = '1'; return; }
+    if (prefersReduced) {
+      canvas.style.opacity = '1';
+      return () => window.removeEventListener('resize', handleResize);
+    }
 
-    let gsapCleanup: (() => void) | undefined;
-    let isMounted = true;
-
-    (async () => {
-      const { gsap } = await import('gsap');
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-      if (!isMounted) return;
-      gsap.registerPlugin(ScrollTrigger);
-
-      let currentPhaseIdx = 0;
-      const progFill = progFillRef.current;
-      const vsbFill = vsbFillRef.current;
-      const vsbVal = vsbValRef.current;
-      const valSpeed = valSpeedRef.current;
-      const valAlt = valAltRef.current;
-      const runway = runwayRef.current;
-      const atmSky = atmSkyRef.current;
-      const starsEl = starsCanvasRef.current as (HTMLCanvasElement & { setAlpha: (a: number) => void }) | null;
-      const eyebrowEl = eyebrowElRef.current;
-      const h1El = h1ElRef.current;
-      const bodyEl = bodyElRef.current;
-      const ctaEl = ctaElRef.current;
-      const scrollHint = scrollHintRef.current;
-      const phaseHead = phaseHeadRef.current;
-      const phaseDots = phaseDotsRef.current;
-
-      function updatePhase(i: number) {
-        currentPhaseIdx = i;
-        if (phaseDots) phaseDots.querySelectorAll('[data-ph]').forEach((el, j) => el.classList.toggle(styles.phActive, j === i));
-        if (i > 0 && scrollHint) gsap.to(scrollHint, { opacity: 0, duration: 0.4 });
-        if (!phaseHead || !eyebrowEl || !h1El || !bodyEl || !ctaEl) return;
-        const container = document.getElementById('phase-headline');
-        if (!container) return;
-        container.style.minHeight = container.scrollHeight + 'px';
-        gsap.to(container, {
-          opacity: 0, y: 10, filter: 'blur(4px)', duration: 0.22,
-          onComplete: () => {
-            eyebrowEl.textContent = PHASES[i].eyebrow;
-            h1El.innerHTML = PHASES[i].headline;
-            bodyEl.textContent = PHASES[i].body;
-            ctaEl.style.display = PHASES[i].showCta ? 'flex' : 'none';
-            container.style.minHeight = '';
-            gsap.to(container, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.4, ease: 'power2.out' });
-          },
-        });
-      }
-
-      const st = ScrollTrigger.create({
-        trigger: '#hero-sticky',
-        start: 'top top',
-        end: '+=500%',
-        pin: true,
-        anticipatePin: 1,
-        scrub: 0.6,
-        invalidateOnRefresh: true,
-        onUpdate(self) {
-          const p = self.progress;
-
-          // Always update currentFrame on every GSAP tick.
-          // No guard — if the frame wasn't loaded last tick but is
-          // now, renderFrame (via the onload callback) will catch it.
-          const frame = Math.min(FRAME_COUNT - 1, Math.floor(p * FRAME_COUNT));
+    // ── PURE SCROLL APPROACH ──
+    // CSS makes #hero-sticky position:sticky so NO JS pinning needed.
+    // We just read how far the scene has scrolled and map that to frames.
+    function onScroll() {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const rect   = scene!.getBoundingClientRect();
+        const sceneH = scene!.offsetHeight - window.innerHeight;
+        if (sceneH <= 0) return;
+        // progress: 0 when top of scene at top of viewport, 1 when bottom of scene at bottom
+        const progress = Math.max(0, Math.min(1, -rect.top / sceneH));
+        const frame = Math.min(FRAME_COUNT - 1, Math.floor(progress * (FRAME_COUNT - 1)));
+        if (frame !== currentFrame) {
           currentFrame = frame;
           renderFrame(frame);
-
-          // Proactively load ahead of the scrub position
-          for (let ahead = 1; ahead <= 20; ahead++) {
-            const nextF = Math.min(FRAME_COUNT - 1, frame + ahead);
-            if (!images[nextF]) loadFrame(nextF);
-          }
-
-          if (progFill) progFill.style.width = `${p * 100}%`;
-
-          const phaseIndex = Math.min(7, Math.floor(p * 8));
-          if (phaseIndex !== currentPhaseIdx) updatePhase(phaseIndex);
-
-          const frac = (p * 8) - phaseIndex;
-          const nextIdx = Math.min(7, phaseIndex + 1);
-          const spd = PHASES[phaseIndex].spd + (PHASES[nextIdx].spd - PHASES[phaseIndex].spd) * frac;
-          const alt = PHASES[phaseIndex].alt + (PHASES[nextIdx].alt - PHASES[phaseIndex].alt) * frac;
-          if (valSpeed) valSpeed.textContent = Math.round(spd).toString();
-          if (valAlt) valAlt.textContent = Math.round(alt).toLocaleString('en-IN');
-          if (vsbFill) vsbFill.style.width = `${Math.min(100, (spd / 163) * 100)}%`;
-          if (vsbVal) vsbVal.textContent = `${Math.round(spd)} kts`;
-          if (runway) runway.style.opacity = (p < 0.55 ? 1 : Math.max(0, 1 - (p - 0.55) * 5)).toString();
-
-          if (p > 0.72) {
-            const lp = (p - 0.72) / 0.28;
-            if (starsEl?.setAlpha) starsEl.setAlpha(Math.min(0.75, lp * 1.1));
-            if (atmSky) atmSky.style.background = `linear-gradient(180deg,rgba(4,12,38,${Math.min(0.55, lp * 0.6)}) 0%,rgba(14,21,37,${Math.min(0.2, lp * 0.25)}) 55%,transparent 100%)`;
-          } else {
-            if (starsEl?.setAlpha) starsEl.setAlpha(0);
-            if (atmSky) atmSky.style.background = 'radial-gradient(ellipse 80% 50% at 42% 38%,rgba(220,120,30,0.14) 0%,transparent 70%)';
-          }
-        },
+        }
+        // Pre-fetch ahead
+        for (let a = 1; a <= 20; a++) loadFrame(Math.min(FRAME_COUNT - 1, frame + a));
       });
+    }
 
-      let tl: ReturnType<typeof gsap.timeline> | undefined;
-      const initIntro = () => {
-        const overlayEl = document.getElementById('intro-overlay');
-        const chars = document.querySelectorAll('.intro-char');
-        const line = document.querySelector('.intro-line');
-        const sub = document.querySelector('.intro-sub');
-        if (!overlayEl || chars.length === 0) { setTimeout(initIntro, 50); return; }
-        document.body.style.overflow = 'hidden';
-        tl = gsap.timeline();
-        tl
-          .to(chars, { opacity: 1, y: 0, duration: 0.9, stagger: 0.07, ease: 'power3.out', delay: 0.3 })
-          .to(line, { width: 180, opacity: 1, duration: 0.7, ease: 'power2.inOut' }, '-=0.2')
-          .to(sub, { opacity: 1, duration: 0.5 }, '-=0.2')
-          .to({}, { duration: 1.0 })
-          .to(overlayEl, { opacity: 0, duration: 1.0, ease: 'power2.inOut', onComplete: () => { const el = document.getElementById('intro-overlay'); if (el) el.style.display = 'none'; document.body.style.overflow = ''; ScrollTrigger.refresh(); } })
-          .to('#main-nav', { opacity: 1, duration: 0.5 }, '-=0.5')
-          .to(['#hud-left', '#hud-right'], { opacity: 1, stagger: 0.1, duration: 0.6 }, '-=0.3')
-          .to('#phase-dots', { opacity: 1, duration: 0.5 }, '-=0.4')
-          .to('#phase-headline', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.4')
-          .to('#vspeed-bar', { opacity: 1, duration: 0.4 }, '-=0.3')
-          .to('#scroll-hint', { opacity: 1, duration: 0.5 }, '-=0.2');
-      };
-      initIntro();
-
-      gsapCleanup = () => { st.kill(); if (tl) tl.kill(); };
-    })();
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {
-      isMounted = false;
+      cancelAnimationFrame(rafId);
       window.removeEventListener('resize', handleResize);
-      if (gsapCleanup) gsapCleanup();
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 
@@ -374,61 +192,28 @@ export default function HomePage() {
 
   return (
     <>
-      <div id="intro-overlay">
-        <div className="intro-logo">{'AVIORA'.split('').map((char, i) => <span key={i} className="intro-char">{char}</span>)}</div>
-        <div className="intro-line" />
-        <div className="intro-sub">Cleared for departure · Runway 28L</div>
-      </div>
-
-      {/* ═══ HERO ═══ */}
-      <section className={styles.heroScene} id="hero-scene">
+      <section ref={heroSceneRef} className={styles.heroScene} id="hero-scene">
         <div className={styles.heroSticky} id="hero-sticky">
           <canvas ref={heroCanvasRef} className={styles.heroCanvas} />
-          <div className={styles.starsWrapper}><canvas ref={starsCanvasRef} className={styles.starsCanvas} /></div>
-          <div className={styles.atmSky} ref={atmSkyRef} />
-          <div className={styles.atmVignette} />
-          <div className={styles.filmGrain} />
-          <div className={styles.runwayOverlay} ref={runwayRef}>
-            <div className={styles.rwCenterLine} />
-            <div className={`${styles.rwEdge} ${styles.rwEdgeLeft}`} />
-            <div className={`${styles.rwEdge} ${styles.rwEdgeRight}`} />
-          </div>
-          <div id="hud-left" className={styles.hudLeft} ref={hudLeftRef}>
-            <div className={styles.hudLabel}>Airspeed</div>
-            <div className={styles.hudValue}><span ref={valSpeedRef}>0</span></div>
-            <div className={styles.hudUnit}>Knots IAS</div>
-          </div>
-          <div id="hud-right" className={styles.hudRight} ref={hudRightRef}>
-            <div className={styles.hudLabel}>Altitude</div>
-            <div className={styles.hudValue}><span ref={valAltRef}>0</span></div>
-            <div className={styles.hudUnit}>Feet AGL</div>
-          </div>
-          <div id="phase-dots" className={styles.phaseDots} ref={phaseDotsRef}>
-            {PHASE_LABELS.map((label, i) => (
-              <div key={i} className={`${styles.phItem} ${i === 0 ? styles.phActive : ''}`} data-ph={i}>
-                <span className={styles.phLabel}>{label}</span>
-                <div className={styles.phDot} />
+          {/* Hero Content Overlay */}
+          <div className={styles.heroOverlay}>
+            <div className={styles.heroContent}>
+              <div className={styles.heroEyebrow}>DGCA Certified · Est. 2009</div>
+              <h1 className={styles.heroH1}>
+                Where Legends<br />Learn to <em>Command</em><br />the Sky.
+              </h1>
+              <p className={styles.heroBody}>
+                From first flight to airline captain — Aviora trains India&apos;s finest pilots with uncompromising standards, elite instructors, and a Cessna 172 fleet that rivals the best.
+              </p>
+              <div className={styles.heroCtas}>
+                <Link href="/programs/pilot-training" className={styles.btnHeroPrimary}>Explore Pilot Training</Link>
+                <Link href="/admissions" className={styles.btnHeroOutline}>Apply for 2025</Link>
               </div>
-            ))}
-          </div>
-          <div id="phase-headline" className={styles.phaseHeadline} ref={phaseHeadRef}>
-            <div className={styles.eyebrowHero} ref={eyebrowElRef}>{PHASES[0].eyebrow}</div>
-            <h1 className={styles.heroH1} ref={h1ElRef} dangerouslySetInnerHTML={{ __html: PHASES[0].headline }} />
-            <p className={styles.heroBody} ref={bodyElRef}>{PHASES[0].body}</p>
-            <div className="hero-ctas" ref={ctaElRef}>
-              <Link href="/programs/pilot-training" className={styles.btnHeroPrimary}>Explore Pilot Training</Link>
-              <Link href="/programs/cabin-crew" className={styles.btnHeroOutline}>Become Cabin Crew</Link>
             </div>
           </div>
-          <div id="vspeed-bar" className={styles.vspeedBar} ref={vspeedBarRef}>
-            <span className={styles.vsbLabel}>V-Speed</span>
-            <div className={styles.vsbTrack}><div className={styles.vsbFill} ref={vsbFillRef} /></div>
-            <span className={styles.vsbVal} ref={vsbValRef}>0 kts</span>
-          </div>
-          <div className={styles.scrollProg}><div className={styles.scrollProgFill} ref={progFillRef} /></div>
-          <div id="scroll-hint" className={styles.scrollHint} ref={scrollHintRef}>
+          <div className={styles.heroScrollHint}>
             <span>Scroll to Take Off</span>
-            <div className={styles.shLine} />
+            <div className={styles.heroScrollLine} />
           </div>
         </div>
       </section>

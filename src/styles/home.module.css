@@ -8,19 +8,21 @@
    ─────────────────────────────────────────────── */
 .heroScene {
     position: relative;
-    background: #0E1525;
+    background: #050E2D;
+    height: 600vh;
     margin: 0;
     padding: 0;
-    /* Do NOT set overflow:hidden here — it clips GSAP's pin spacer,
-       which causes the layout gap ("blank space") after the hero */
 }
 
 .heroSticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
     height: 100vh;
-    overflow: hidden;
-    will-change: transform;
     margin: 0;
     padding: 0;
+    /* No overflow:hidden — that creates a stacking context which traps
+       position:fixed children (like the Nav). Canvas naturally clips. */
 }
 
 /* Canvas — full bleed.
@@ -35,6 +37,152 @@
     z-index: 1;
     opacity: 0;
     transition: opacity 0.8s ease-out;
+}
+
+/* ── HERO OVERLAY — content above the canvas ──────────────── */
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    /* Vignette: left side dark so text is legible */
+    background:
+        linear-gradient(to right, rgba(5,14,45,0.72) 0%, rgba(5,14,45,0.35) 48%, transparent 75%),
+        linear-gradient(to top,   rgba(5,14,45,0.80) 0%, rgba(5,14,45,0.20) 30%, transparent 60%);
+}
+
+.heroContent {
+    position: relative;
+    margin-left: 64px;
+    max-width: 560px;
+    pointer-events: auto;
+    padding-top: 72px; /* clear the nav */
+}
+
+.heroEyebrow {
+    font-family: var(--font-mono), monospace;
+    font-size: 12px;
+    letter-spacing: 0.48em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.heroEyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--color-secondary);
+    flex-shrink: 0;
+}
+
+.heroH1 {
+    font-family: var(--font-display), serif;
+    font-size: clamp(36px, 5.2vw, 76px);
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.0;
+    margin: 0 0 20px 0;
+    letter-spacing: -0.01em;
+}
+
+.heroH1 em {
+    font-style: italic;
+    color: var(--color-secondary);
+}
+
+.heroBody {
+    font-family: var(--font-body), sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(241,241,241,0.65);
+    line-height: 1.8;
+    margin: 0 0 36px 0;
+    max-width: 440px;
+}
+
+.heroCtas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btnHeroPrimary {
+    font-family: var(--font-mono), monospace;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    background: var(--color-secondary);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--color-secondary);
+    transition: background 0.25s, color 0.25s;
+    display: inline-block;
+}
+
+.btnHeroPrimary:hover {
+    background: transparent;
+    color: var(--color-secondary);
+}
+
+.btnHeroOutline {
+    font-family: var(--font-mono), monospace;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    border: 1px solid rgba(241,241,241,0.35);
+    color: rgba(241,241,241,0.85);
+    text-decoration: none;
+    transition: border-color 0.25s, color 0.25s;
+    display: inline-block;
+}
+
+.btnHeroOutline:hover {
+    border-color: rgba(241,241,241,0.8);
+    color: #fff;
+}
+
+/* ── SCROLL HINT ─────────────────────────────────────────── */
+.heroScrollHint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    pointer-events: none;
+    animation: hintFade 2.4s ease-in-out infinite;
+}
+
+.heroScrollHint span {
+    font-family: var(--font-mono), monospace;
+    font-size: 11px;
+    letter-spacing: 0.42em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+}
+
+.heroScrollLine {
+    width: 1px;
+    height: 44px;
+    background: linear-gradient(to bottom, rgba(200,150,62,0.55), transparent);
+}
+
+@keyframes hintFade {
+    0%, 100% { opacity: 0.7; }
+    50%       { opacity: 0.25; }
 }
 
 /* Stars canvas wrapper */
@@ -1879,20 +2027,7 @@
     transform: translateY(-1px);
 }
 
-/* ── INTRO + INITIAL HIDDEN STATES ── */
-:global(body.homepage-active #main-nav),
-:global(body.homepage-active #hud-left),
-:global(body.homepage-active #hud-right),
-:global(body.homepage-active #phase-dots),
-:global(body.homepage-active #phase-headline),
-:global(body.homepage-active #vspeed-bar),
-:global(body.homepage-active #scroll-hint) {
-    opacity: 0;
-}
-
-:global(body.homepage-active #phase-headline) {
-    transform: translateY(10px);
-}
+/* (intro hidden-states removed — old GSAP intro overlay was removed) */
 
 :global(#intro-overlay) {
     position: fixed;
