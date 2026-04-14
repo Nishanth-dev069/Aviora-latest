@@ -10,6 +10,7 @@
   background: #060c18;
   color: #e8edf6;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding-top: 72px; /* offset the fixed site nav */
 }
 
 /* ── SIDEBAR ── */
@@ -22,7 +23,7 @@
   flex-direction: column;
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: calc(100vh - 72px); /* full height minus nav */
   overflow: hidden;
 }
 
