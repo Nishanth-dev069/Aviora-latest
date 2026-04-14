@@ -2168,6 +2168,28 @@
         padding: 80px 24px;
     }
 
+    .heroContent {
+        margin-left: 24px;
+        margin-right: 24px;
+        padding-top: 100px;
+    }
+
+    .heroCtas {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btnHeroPrimary,
+    .btnHeroOutline {
+        width: 100%;
+        text-align: center;
+    }
+
+    .facilitiesSection,
+    .mentorsSection {
+        padding: 80px 24px;
+    }
+
     .globalVisual {
         border-left: none;
         border-top: 1px solid rgba(200, 150, 62, 0.08);

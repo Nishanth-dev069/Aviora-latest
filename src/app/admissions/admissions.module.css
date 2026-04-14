@@ -494,12 +494,58 @@
   .dayGrid { grid-template-columns: 1fr; gap: 16px; }
 }
 @media (max-width: 768px) {
+  /* Hero adjustments for mobile */
   .heroContent { padding: 120px 24px 0; }
-  .heroH1 { font-size: 36px; }
-  .heroStats { grid-template-columns: 1fr; }
-  .dayRow { grid-template-columns: 60px 1fr; gap: 20px; }
-  .dayBody { padding: 24px; }
-  .processSection, .eligibilitySection, .applySection,
-  .faqSection, .bottomCta { padding-left: 24px; padding-right: 24px; }
-  .applyStats { gap: 20px; }
+  .heroH1 { font-size: 36px; margin-bottom: 16px; }
+  .heroPara { font-size: 15px; margin-bottom: 24px; }
+  .heroActions { flex-direction: column; gap: 12px; }
+  .btnPrimaryApply, .btnSecondaryApply { text-align: center; width: 100%; }
+  
+  .heroStats { grid-template-columns: 1fr; border-top: none; margin-top: 48px; }
+  .heroStat { padding: 24px; border-right: none; border-bottom: 1px solid rgba(200, 150, 62, 0.08); }
+  .heroStat:last-child { border-bottom: none; }
+  
+  /* Section spacing */
+  .processSection { padding: 64px 24px; }
+  .eligibilitySection { padding: 64px 24px; }
+  .applySection { padding: 64px 24px; }
+  .faqSection { padding: 64px 24px; }
+  .bottomCta { padding: 80px 24px; }
+  
+  /* Section Headers */
+  .sectionH2 { font-size: 32px; margin-bottom: 40px; }
+  .eyebrow { font-size: 12px; margin-bottom: 16px; }
+  
+  /* Timeline */
+  .dayRow { grid-template-columns: 48px 1fr; gap: 16px; padding-bottom: 40px; }
+  .dayCircle { width: 48px; height: 48px; }
+  .dayNum { font-size: 18px; }
+  .dayLabel { font-size: 9px; }
+  .dayBody { padding: 20px; }
+  .dayTitle { font-size: 20px; margin-bottom: 12px; }
+  .dayDesc { font-size: 14px; }
+  
+  /* Eligibility Cards */
+  .reqCardHeader { padding: 16px 20px; }
+  .reqProgram { font-size: 18px; }
+  .reqCardBody { padding: 0 20px 20px; }
+  .reqToggle { width: 32px; height: 32px; font-size: 20px; }
+  
+  /* Apply Section */
+  .applyH2 { font-size: 32px; margin-bottom: 16px; }
+  .applyStats { gap: 16px; flex-direction: column; }
+  .applyStat { border-bottom: 1px solid rgba(7,61,127,0.08); padding-bottom: 12px; }
+  .applyStat:last-child { border-bottom: none; padding-bottom: 0; }
+  .applyCardHeader { padding: 16px 20px; }
+  .applyCardBody { padding: 20px; }
+  
+  /* FAQ */
+  .faqQuestion { padding: 20px 0; gap: 16px; }
+  .faqQ { font-size: 15px; }
+  .faqToggle { width: 32px; height: 32px; font-size: 20px; }
+  
+  /* Bottom CTA */
+  .bottomCtaH2 { font-size: 32px; margin-bottom: 32px; }
+  .bottomCtaBtns { flex-direction: column; width: 100%; gap: 12px; }
+  .btnPrimary, .btnSecondary { text-align: center; width: 100%; padding: 16px; }
 }
