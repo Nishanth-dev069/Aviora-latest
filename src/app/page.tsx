@@ -294,7 +294,7 @@ export default function HomePage() {
             {MENTORS.map((m, i) => (<div className={styles.mentorCard} key={i} data-card-reveal><div className={styles.mcAvatar}>{m.initials}</div><div className={styles.mcInfo}><div className={styles.mcName}>{m.name}</div><div className={styles.mcRole}>{m.role}</div><div className={styles.mcHours}>{m.hours} hours total time</div></div><p className={styles.mcBio}>{m.bio}</p><div className={styles.mcAirlines}>{m.airlines.map((a, j) => <span className={styles.mcAirlineTag} key={j}>{a}</span>)}</div></div>))}
           </div>
           <div className={styles.mentorsStrip}>
-            <div className={styles.msStat}><span className={styles.msNum}>5+ Experience</span><span className={styles.msLabel}>Avg. Instructor Hours</span></div>
+            <div className={styles.msStat}><span className={styles.msNum}>5,000+</span><span className={styles.msLabel}>Avg. Instructor Hours</span></div>
             <div className={styles.msDivider} />
             <div className={styles.msStat}><span className={styles.msNum}>5</span><span className={styles.msLabel}>Active Airline Captains</span></div>
             <div className={styles.msDivider} />

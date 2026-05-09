@@ -1185,7 +1185,7 @@
    SECTION 4 — LEGACY
    ═══════════════════════════════════════════════ */
 .legacySection {
-    background: var(--color-accent);
+    background: linear-gradient(180deg, #02050d 0%, #071124 100%);
     padding: 120px 64px;
     position: relative;
     overflow: hidden;
@@ -1580,7 +1580,7 @@
    SECTION 3A — FACILITIES
    ═══════════════════════════════════════════════ */
 .facilitiesSection {
-    background: var(--color-accent);
+    background: radial-gradient(ellipse at 80% 0%, rgba(100, 145, 222, 0.15) 0%, transparent 60%), #030816;
     padding: 120px 64px;
     border-top: 1px solid rgba(200, 150, 62, 0.07);
     overflow: hidden;
@@ -1689,9 +1689,9 @@
    SECTION 3B — MENTORS
    ═══════════════════════════════════════════════ */
 .mentorsSection {
-    background: var(--color-accent);
+    background: linear-gradient(180deg, #030816 0%, #050E2D 100%);
     padding: 120px 64px;
-    border-top: 1px solid rgba(200, 150, 62, 0.12);
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
 }
 
 .mentorsHeader {
@@ -1824,8 +1824,11 @@
     align-items: center;
     justify-content: center;
     gap: 0;
-    border: 1px solid rgba(7, 61, 127, 0.08);
-    background: rgba(7, 61, 127, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .msStat {
@@ -1835,6 +1838,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    justify-content: center;
 }
 
 .msNum {
@@ -1847,10 +1851,9 @@
 
 .msLabel {
     font-family: var(--font-mono), monospace;
-    font-size: 14px;
-    letter-spacing: 0.3em;
-    /* Was 0.55 opacity — raised to 0.70 for WCAG compliance on light bg */
-    color: rgba(13, 27, 42, 0.70);
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: rgba(241, 241, 241, 0.70);
     text-transform: uppercase;
 }
 
@@ -1865,7 +1868,7 @@
    SECTION 3C — GLOBAL TRAINING
    ═══════════════════════════════════════════════ */
 .globalSection {
-    background: var(--color-accent);
+    background: radial-gradient(circle at 50% 50%, #081230 0%, #02050d 100%);
     border-top: 1px solid rgba(200, 150, 62, 0.07);
     overflow: hidden;
 }
@@ -2452,6 +2455,23 @@
     .sectionEyebrow {
         font-size: 11px;
         letter-spacing: 0.2em;
+    }
+
+    /* Mentors Strip Mobile Layout */
+    .mentorsStrip {
+        flex-direction: column;
+        border-radius: 12px;
+    }
+
+    .msStat {
+        padding: 24px 20px;
+        width: 100%;
+    }
+
+    .msDivider {
+        width: 100%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.06);
     }
 }
 
