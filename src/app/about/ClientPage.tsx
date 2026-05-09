@@ -7,10 +7,10 @@ import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
 import Image from 'next/image';
 
 const STATS = [
-  { num: '2,400+', label: 'Graduates', sub: 'Since founding'            },
+  { num: '100+', label: 'Graduates', sub: 'Since founding'            },
   { num: '98%',    label: 'Placement Rate', sub: 'Direct airline hires'  },
-  { num: '42',     label: 'Airline Partners', sub: 'Across India + Gulf' },
-  { num: '140K+',  label: 'Flight Hours', sub: 'Logged by Aviora cadets' },
+  { num: '10',     label: 'Airline Partners', sub: 'Across India + Gulf' },
+  { num: '5000+',  label: 'Flight Hours', sub: 'Logged by Aviora cadets' },
 ];
 
 const MISSION_POINTS = [
@@ -32,7 +32,7 @@ const MISSION_POINTS = [
   {
     num: '04',
     title: 'Placement Is Not a Brochure Claim',
-    desc: '42 airline and aviation partner companies. Batch walk-ins with IndiGo, Air India, SpiceJet, and international carriers. Placement at Aviora is a structured operation — not a bullet point in a flyer.',
+    desc: '10 airline and aviation partner companies. Batch walk-ins with IndiGo, Air India, SpiceJet, and international carriers. Placement at Aviora is a structured operation — not a bullet point in a flyer.',
   },
 ];
 
@@ -52,13 +52,13 @@ const TEAM = [
   { name: 'Mr. Vikram Nair',      role: 'Head of Placement',        note: '15 years aviation HR · ex-IndiGo Talent Acquisition' },
 ];
 
-const FOUNDER_YEAR = '2014';
+const FOUNDER_YEAR = '2024';
 const FOUNDER_NAME = 'Capt. Rajeev Sharma';
 const STORY_TIMELINE = [
   { year: FOUNDER_YEAR, text: 'Aviora founded with a single training room' },
   { year: '2017', text: 'First batch of 12 cadets graduates and places in airlines' },
   { year: '2019', text: 'FBS Simulator & mock cabin installed on campus' },
-  { year: '2023', text: 'Reached 2,000+ total graduates milestone' },
+  { year: '2023', text: 'Reached 100+ total graduates milestone' },
 ];
 
 export default function ClientPage() {
@@ -231,7 +231,7 @@ export default function ClientPage() {
               <div className={s.programBlockNum}>03</div>
               <div className={s.programBlockTitle}>Global Training — USA</div>
               <p className={s.programBlockDesc}>
-                FAA Part 141 · Phoenix AZ · Florida · 200 flight hours on Cessna 172.
+                FAA Part 141 · Sacramento , California , USA · 200 flight hours on Cessna 172.
                 The international edge that Indian airspace cannot provide.
               </p>
               <div className={s.programBlockDuration}>6 – 10 Months</div>

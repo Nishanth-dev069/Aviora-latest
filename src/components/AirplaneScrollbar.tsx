@@ -38,13 +38,13 @@ export default function AirplaneScrollbar() {
 
             const trackHeight = trackRef.current ? trackRef.current.clientHeight : 0;
             const planeHeight = 20; // 20px wide SVG mapped to height ~20px
-            const yPos = progress * (trackHeight - planeHeight);
+            const yPos = (1 - progress) * (trackHeight - planeHeight);
 
             // Tilt plane based on velocity (max ±5deg)
-            const tilt = clamp(velocity * 0.1, -5, 5);
+            const tilt = clamp(velocity * -0.1, -5, 5);
 
             if (progressRef.current && planeRef.current) {
-                progressRef.current.style.height = `${progress * 100}%`;
+                progressRef.current.style.height = `${(1 - progress) * 100}%`;
                 gsap.set(planeRef.current, {
                     y: yPos,
                     rotation: tilt,

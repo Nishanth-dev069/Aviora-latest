@@ -85,7 +85,7 @@
 .heroH1 {
     font-family: var(--font-display), serif;
     font-size: clamp(36px, 5.2vw, 76px);
-    font-weight: 300;
+    font-weight: 700;
     color: #fff;
     line-height: 1.0;
     margin: 0 0 20px 0;
@@ -896,7 +896,7 @@
 .sectionTitle {
     font-family: var(--font-display), serif;
     font-size: clamp(34px, 5vw, 60px);
-    font-weight: 300;
+    font-weight: 700;
     color: var(--color-text-dark);
     line-height: 1.1;
     letter-spacing: -0.01em;
@@ -1483,11 +1483,11 @@
 
 .ctaTitle {
     font-family: var(--font-display), serif;
-    font-size: clamp(40px, 6vw, 72px);
-    font-weight: 300;
+    font-size: clamp(30px, 5vw, 68px);
+    font-weight: 700;
     color: #fff;
-    line-height: 1.08;
-    letter-spacing: -0.01em;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
     margin-bottom: 20px;
 }
 
@@ -1881,34 +1881,126 @@
 }
 
 .globalVisual {
-    background: rgba(200, 150, 62, 0.03);
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(200, 150, 62, 0.06) 0%, transparent 60%),
+        linear-gradient(rgba(200, 150, 62, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200, 150, 62, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    background-position: center center;
+    background-color: rgba(200, 150, 62, 0.02);
     border-left: 1px solid rgba(200, 150, 62, 0.08);
     padding: 80px 48px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 48px;
+    position: relative;
+    overflow: hidden;
 }
 
 .globalMapContainer {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    z-index: 2;
 }
 
-.usMap {
+.globalMapContainer::before,
+.globalMapContainer::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.globalMapContainer::before {
+    width: 400px;
+    height: 400px;
+    border: 1px dashed rgba(200, 150, 62, 0.15);
+    animation: spinRadar 60s linear infinite;
+}
+
+.globalMapContainer::after {
+    width: 600px;
+    height: 600px;
+    border: 1px solid rgba(200, 150, 62, 0.06);
+}
+
+@keyframes spinRadar {
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.mapWrapper {
+    position: relative;
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
+    z-index: 2;
+}
+
+.usMapImage {
+    width: 100%;
     height: auto;
+    filter: drop-shadow(0 0 30px rgba(200, 150, 62, 0.15));
+}
+
+.caliLabel {
+    position: absolute;
+    top: 45%;
+    left: 8%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.caliDot {
+    width: 6px;
+    height: 6px;
+    background: var(--color-secondary);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(200, 150, 62, 0.2);
+    animation: pulseDot 2s infinite;
+}
+
+.caliLabel span {
+    font-family: var(--font-mono), monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    background: rgba(14, 21, 37, 0.8);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(200, 150, 62, 0.2);
+}
+
+@keyframes pulseDot {
+    0% { box-shadow: 0 0 0 0 rgba(200, 150, 62, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(200, 150, 62, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(200, 150, 62, 0); }
 }
 
 .mapLabel {
     font-family: var(--font-mono), monospace;
     font-size: 14px;
     letter-spacing: 0.35em;
-    /* Was 0.45 opacity = fails 4.5:1. Raised to 0.65 */
-    color: rgba(241, 241, 241, 0.65);
+    color: rgba(200, 150, 62, 0.8);
     text-transform: uppercase;
     text-align: center;
-    margin-top: 12px;
+    margin-top: 24px;
+    position: relative;
+    z-index: 2;
+    background: rgba(14, 21, 37, 0.5);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(200, 150, 62, 0.15);
 }
 
 .globalFeatures {
@@ -1992,7 +2084,7 @@
 .sectionH2 {
     font-family: var(--font-display), serif;
     font-size: clamp(38px, 5vw, 64px);
-    font-weight: 300;
+    font-weight: 700;
     color: #fff;
     line-height: 1.1;
     margin: 0 0 24px 0;
@@ -2080,6 +2172,30 @@
 }
 
 /* ═══════════════════════════════════════════════
+   RESPONSIVE — TABLET
+   ═══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .globalInner {
+        grid-template-columns: 1fr;
+    }
+    .globalContent {
+        padding: 80px 48px;
+    }
+    .globalVisual {
+        border-left: none;
+        border-top: 1px solid rgba(200, 150, 62, 0.08);
+        padding: 60px 48px;
+    }
+    .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .twoColHead {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* ═══════════════════════════════════════════════
    RESPONSIVE — MOBILE
    ═══════════════════════════════════════════════ */
 @media (max-width: 768px) {
@@ -2121,7 +2237,7 @@
     }
 
     .pcInner {
-        padding: 40px 32px;
+        padding: 40px 24px;
     }
 
     .statsGrid {
@@ -2129,7 +2245,11 @@
     }
 
     .statItem {
-        padding: 40px 24px;
+        padding: 32px 20px;
+    }
+
+    .statNum {
+        font-size: 36px;
     }
 
     .testimonialsGrid {
@@ -2140,8 +2260,13 @@
         grid-template-columns: 1fr;
     }
 
+    .facilitiesSection,
+    .mentorsSection {
+        padding: 80px 24px;
+    }
+
     .facilityCard:nth-child(n) {
-        transform: translateY(24px) scale(1);
+        transform: translateY(0) scale(1);
     }
 
     .twoColHead {
@@ -2155,6 +2280,7 @@
     .mentorsHeader {
         flex-direction: column;
         align-items: flex-start;
+        gap: 16px;
     }
 
     .mentorsStrip {
@@ -2171,13 +2297,23 @@
     }
 
     .globalContent {
-        padding: 80px 24px;
+        padding: 60px 24px;
+    }
+
+    .globalContent .eyebrow { font-size: 11px; letter-spacing: 0.2em; }
+
+    .globalH2 {
+        font-size: clamp(28px, 8vw, 40px);
+    }
+
+    .globalFeatures {
+        gap: 16px;
     }
 
     .heroContent {
         margin-left: 0;
         margin-right: 0;
-        padding: 0 24px 100px 24px;
+        padding: 0 24px 80px 24px;
         width: 100%;
         max-width: 100%;
         text-align: center;
@@ -2197,12 +2333,17 @@
     }
 
     .heroH1 {
-        font-size: clamp(38px, 10vw, 48px) !important;
+        font-size: clamp(32px, 9vw, 48px) !important;
         text-align: center;
+        line-height: 1.1;
     }
 
     .heroEyebrow {
         justify-content: center;
+        font-size: 10px;
+        letter-spacing: 0.25em;
+        text-align: center;
+        flex-wrap: wrap;
     }
     
     .heroEyebrow::before {
@@ -2211,13 +2352,15 @@
 
     .heroBody {
         text-align: center;
-        margin: 0 auto 36px auto;
+        margin: 0 auto 28px auto;
+        font-size: 14px;
     }
 
     .heroCtas {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
         width: 100%;
+        align-items: stretch;
     }
 
     .btnHeroPrimary,
@@ -2225,11 +2368,6 @@
         width: 100%;
         text-align: center;
         padding: 16px 20px;
-    }
-
-    .facilitiesSection,
-    .mentorsSection {
-        padding: 80px 24px;
     }
 
     .hcSection {
@@ -2251,9 +2389,89 @@
         border-left: none;
         border-top: 1px solid rgba(200, 150, 62, 0.08);
         padding: 60px 24px;
+        align-items: flex-start;
+    }
+
+    .globalStats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .globalStat {
+        padding: 20px 16px;
+    }
+
+    .mapWrapper {
+        max-width: 100%;
+    }
+
+    /* CTA section */
+    .ctaSection {
+        padding: 80px 24px;
+    }
+
+    .ctaTitle {
+        font-size: clamp(28px, 9vw, 44px);
+    }
+
+    .ctaButtons {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .btnCtaPrimary,
+    .btnCtaOutline {
+        width: 100%;
+        text-align: center;
+        padding: 16px 24px;
+    }
+
+    .ctaTrust {
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 11px;
+        gap: 8px;
+    }
+
+    /* Programs hero section */
+    .programsHeroSection {
+        padding: 80px 24px;
+    }
+
+    /* Ticker wrapping */
+    .tickerTrack {
+        gap: 24px;
+    }
+
+    /* Alumni grid */
+    .alumniGrid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Section headings universal */
+    .sectionEyebrow {
+        font-size: 11px;
+        letter-spacing: 0.2em;
+    }
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE (under 480px)
+   ═══════════════════════════════════════════════ */
+@media (max-width: 480px) {
+    .heroH1 {
+        font-size: clamp(28px, 8vw, 40px) !important;
     }
 
     .globalStats {
         grid-template-columns: 1fr;
     }
-}
+
+    .statNum {
+        font-size: 32px;
+    }
+
+    .heroScrollHint {
+        display: none;
+    }
+}

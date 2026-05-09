@@ -11,20 +11,26 @@ const AIRCRAFT = [
 
 const ATR_PARTNERS = [
   { location: 'Vietnam', city: 'Ho Chi Minh City', flag: '🇻🇳', price: '€16,000', currency: 'EUR', authority: 'DGCA India Approved', facilities: 'Level D FFS · ATR 72-600', duration: '6–7 weeks' },
-  { location: 'Madrid, Spain', city: 'Madrid', flag: '🇪🇸', price: '€15,800', currency: 'EUR', authority: 'EASA + DGCA Approved', facilities: 'GTA Madrid · Indra FFS', duration: '6–7 weeks' },
+  { location: 'Madrid, Spain', city: 'Madrid', flag: '🇪🇸', price: '€15,800', currency: 'EUR', authority: 'EASA + DGCA Approved', facilities: 'Level D FFS', duration: '6–7 weeks' },
   { location: 'India', city: 'Hyderabad', flag: '🇮🇳', price: '₹13.5 Lakhs', currency: 'INR', authority: 'DGCA India', facilities: 'DGCA Approved ATO', duration: '7–8 weeks' },
+];
+
+const A320_PARTNERS = [
+  { location: 'Vietnam', city: 'Ho Chi Minh City', flag: '🇻🇳', price: 'Contact Us', currency: '', authority: 'DGCA India Approved', facilities: 'Level D FFS', duration: '6–8 weeks' },
+  { location: 'Bangkok, Thailand', city: 'Bangkok', flag: '🇹🇭', price: 'Contact Us', currency: '', authority: 'DGCA India Approved', facilities: 'Level D FFS', duration: '6–8 weeks' },
+  { location: 'Dubai, UAE', city: 'Dubai', flag: '🇦🇪', price: 'Contact Us', currency: '', authority: 'GCAA + DGCA Approved', facilities: 'Level D FFS', duration: '6–8 weeks' },
 ];
 
 const BOEING_PARTNERS = [
   { location: 'Vietnam', city: 'Ho Chi Minh City', flag: '🇻🇳', price: '€16,000', currency: 'EUR', authority: 'DGCA India Approved', facilities: 'Level D FFS · B737 NG/MAX', duration: '6–8 weeks' },
   { location: 'Madrid, Spain', city: 'Madrid', flag: '🇪🇸', price: '€15,800', currency: 'EUR', authority: 'EASA + DGCA Approved', facilities: 'GTA Madrid · Boeing FFS', duration: '6–8 weeks' },
-  { location: 'Bangkok, Thailand', city: 'Bangkok', flag: '🇹🇭', price: '€14,500', currency: 'EUR', authority: 'DGCA India Approved', facilities: 'Acron Aviation Bangkok · Level D', duration: '7–8 weeks' },
+  { location: 'Dubai, UAE', city: 'Dubai', flag: '🇦🇪', price: '€16,500', currency: 'EUR', authority: 'GCAA + DGCA Approved', facilities: 'Level D FFS', duration: '6–8 weeks' },
 ];
 
 const STEPS = [
   { num: '01', title: 'Eligibility Verification', desc: 'Hold a valid DGCA CPL with Instrument Rating and Multi-Engine Rating. Valid DGCA Class 1 Medical Certificate. ICAO Level 4 English proficiency. Aviora verifies all documents within 48 hours.' },
   { num: '02', title: 'Aircraft Type Selection', desc: 'Choose your aircraft type — A320, B737, or ATR — based on your target airline, market demand, and budget. Aviora counsellors guide this decision with current airline hiring intelligence.' },
-  { num: '03', title: 'Location & Partner Assignment', desc: 'Select your training location from our global partner network: Vietnam, Madrid Spain, Bangkok, or India. Aviora handles all enrolment, documentation, and coordination with the partner ATO.' },
+  { num: '03', title: 'Location & Partner Assignment', desc: 'Select your training location from our global partner network: Vietnam, Madrid Spain, Bangkok, Dubai, or India. Aviora handles all enrolment, documentation, and coordination with the partner ATO.' },
   { num: '04', title: 'Ground School (Theory Phase)', desc: '3–4 weeks of intensive aircraft systems theory. Covers all DGCA-required subjects for the specific aircraft type. Conducted at the partner facility or partially online before departure.' },
   { num: '05', title: 'Full Flight Simulator Training', desc: 'Minimum 32 hours in a Level D Full Flight Simulator — the highest certification standard. Real-world emergency scenarios, line operations, and cross-crew coordination under TRI-certified instructors.' },
   { num: '06', title: 'DGCA Licence Skill Test', desc: 'Final assessment conducted by a DGCA-authorised Type Rating Examiner (TRE). Upon pass, DGCA endorses your CPL with the specific type rating. Aviora provides post-test placement assistance.' },
@@ -43,13 +49,12 @@ const ELIGIBILITY = [
 const STATS = [
   { num: '85', label: 'Max cadets per year', sub: 'Quality-controlled intake' },
   { num: '3', label: 'Aircraft types', sub: 'A320 · B737 · ATR' },
-  { num: '3+', label: 'Global locations', sub: 'Vietnam · Spain · Bangkok · India' },
+  { num: '3+', label: 'Global locations', sub: 'Vietnam · Spain · Bangkok · Dubai · India' },
   { num: '6–10', label: 'Weeks to type rated', sub: 'Industry-standard duration' },
 ];
 
 export default function TypeRatingPage() {
-  const [tab, setTab] = useState<'ATR' | 'Boeing'>('ATR');
-  const partners = tab === 'ATR' ? ATR_PARTNERS : BOEING_PARTNERS;
+  const [tab, setTab] = useState<'A320' | 'ATR' | 'Boeing'>('A320');
 
   return (
     <main className={s.page}>
@@ -132,19 +137,19 @@ export default function TypeRatingPage() {
 
       {/* PARTNER LOCATIONS */}
       <section className={s.partnersSection}>
-        <div className={s.partnersHead}>
-          <span className={s.eyebrowDark}>Global Partner Network</span>
-          <h2 className={s.partnersH2}>Train Where<br /><em>Standards Are Highest.</em></h2>
+        <div className={s.sectionHead}>
+          <div className={s.eyebrowLight}>Global Partner Network</div>
+          <h2 className={s.sectionTitle}>Train Where the <em>Airlines Train</em></h2>
         </div>
-        <div className={s.tabBar}>
-          {(['ATR', 'Boeing'] as const).map(t => (
+        <div className={s.partnerTabs}>
+          {(['A320', 'ATR', 'Boeing'] as const).map(t => (
             <button key={t} className={`${s.tabBtn} ${tab === t ? s.tabActive : ''}`} onClick={() => setTab(t)}>
-              {t === 'ATR' ? 'ATR Programme' : 'Boeing B737 Programme'}
+              {t === 'A320' ? 'A320 Programme' : t === 'ATR' ? 'ATR Programme' : 'Boeing B737 Programme'}
             </button>
           ))}
         </div>
         <div className={s.partnerGrid}>
-          {partners.map((p, i) => (
+          {(tab === 'A320' ? A320_PARTNERS : tab === 'ATR' ? ATR_PARTNERS : BOEING_PARTNERS).map((p, i) => (
             <div className={s.partnerCard} key={i}>
               <div className={s.partnerTop}>
                 <span className={s.partnerFlag}>{p.flag}</span>
@@ -162,7 +167,7 @@ export default function TypeRatingPage() {
             </div>
           ))}
         </div>
-        <p className={s.partnersNote}>◆ A320 type rating available via dedicated partner. Contact Aviora admissions for current pricing and available locations.</p>
+        <p className={s.partnersNote}></p>
       </section>
 
       {/* PROCESS */}

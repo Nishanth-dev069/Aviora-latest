@@ -84,7 +84,7 @@
 .heroH1 {
     font-family: var(--font-display), serif;
     font-size: clamp(48px, 7vw, 100px);
-    font-weight: 300;
+    font-weight: 700;
     color: #fff;
     line-height: 0.98;
     letter-spacing: -0.02em;
@@ -189,11 +189,11 @@
 
 .sectionH2 {
     font-family: var(--font-display), serif;
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 300;
+    font-size: clamp(30px, 5vw, 68px);
+    font-weight: 700;
     color: #fff;
     line-height: 1.1;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     margin: 0 0 16px;
 }
 
@@ -313,11 +313,11 @@
 
 .explainerH2 {
     font-family: var(--font-display), serif;
-    font-size: clamp(32px, 4vw, 56px);
-    font-weight: 300;
+    font-size: clamp(30px, 4vw, 56px);
+    font-weight: 700;
     color: #fff;
     line-height: 1.1;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     margin: 0;
 }
 
@@ -350,11 +350,11 @@
 
 .partnersH2 {
     font-family: var(--font-display), serif;
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 300;
+    font-size: clamp(30px, 5vw, 68px);
+    font-weight: 700;
     color: #fff;
     line-height: 1.1;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     margin: 0;
 }
 
@@ -596,7 +596,7 @@
 .eligH3 {
     font-family: var(--font-display), serif;
     font-size: 36px;
-    font-weight: 300;
+    font-weight: 700;
     color: #fff;
     margin: 20px 0 36px;
     line-height: 1.15;
@@ -644,7 +644,7 @@
 .ctaCardH3 {
     font-family: var(--font-display), serif;
     font-size: 40px;
-    font-weight: 300;
+    font-weight: 700;
     color: #fff;
     margin: 0 0 20px;
     line-height: 1.1;
@@ -728,9 +728,31 @@
 
 @media (max-width: 768px) {
     .heroContent { padding: 120px 24px 0; }
-    .aircraftSection, .explainerSection, .partnersSection, .processSection, .eligSection { padding: 80px 24px; }
+    .heroH1 { font-size: clamp(32px, 9vw, 52px); }
+    .heroSub { font-size: 14px; }
+    .heroCtas { flex-direction: column; gap: 12px; }
+    .heroCtas > * { width: 100%; text-align: center; }
+    .heroBadges { flex-wrap: wrap; gap: 8px; }
+    .heroStats { grid-template-columns: 1fr 1fr; margin-top: 48px; }
+    .heroStat { padding: 20px 16px; }
+    .heroStatNum { font-size: 28px; }
+    .aircraftSection, .explainerSection, .partnersSection, .processSection, .eligSection { padding: 64px 24px; }
+    .sectionH2 { margin-bottom: 32px; }
     .step { grid-template-columns: 48px 1fr; gap: 20px; }
-    .ctaCardBtns { flex-direction: column; }
-    .tabBar { width: 100%; }
-    .tabBtn { flex: 1; text-align: center; }
+    .ctaCardBtns { flex-direction: column; gap: 12px; }
+    .tabBar { width: 100%; overflow-x: auto; }
+    .tabBtn { flex: 1; text-align: center; font-size: 12px; padding: 12px 16px; letter-spacing: 0.15em; }
+    .partnerCard { padding: 32px 24px; }
+    .partnerPrice { font-size: 32px; }
+    .aircraftCard { padding: 36px 28px; }
+    .aircraftType { font-size: 40px; }
+    .eligCard, .ctaCard { padding: 40px 28px; }
 }
+
+@media (max-width: 480px) {
+    .heroStats { grid-template-columns: 1fr; }
+    .heroStat { border-right: none; border-bottom: 1px solid rgba(200, 150, 62, 0.08); }
+    .heroStat:last-child { border-bottom: none; }
+    .partnerTabs { flex-wrap: wrap; }
+}
+

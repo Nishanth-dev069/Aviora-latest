@@ -116,7 +116,7 @@
 .heroH1 {
     font-family: var(--font-display), serif;
     font-size: clamp(48px, 7vw, 100px);
-    font-weight: 300;
+    font-weight: 700;
     color: #fff;
     line-height: 0.98;
     letter-spacing: -0.02em;
@@ -495,57 +495,71 @@
 }
 @media (max-width: 768px) {
   /* Hero adjustments for mobile */
-  .heroContent { padding: 120px 24px 0; }
-  .heroH1 { font-size: 36px; margin-bottom: 16px; }
-  .heroPara { font-size: 15px; margin-bottom: 24px; }
+  .heroContent { padding: 100px 24px 0; }
+  .heroH1 { font-size: clamp(28px, 8vw, 42px); margin-bottom: 16px; line-height: 1.1; }
+  .heroPara { font-size: 14px; margin-bottom: 24px; }
   .heroActions { flex-direction: column; gap: 12px; }
-  .btnPrimaryApply, .btnSecondaryApply { text-align: center; width: 100%; }
+  .btnPrimaryApply, .btnSecondaryApply { text-align: center; width: 100%; padding: 14px 20px; }
   
-  .heroStats { grid-template-columns: 1fr; border-top: none; margin-top: 48px; }
-  .heroStat { padding: 24px; border-right: none; border-bottom: 1px solid rgba(200, 150, 62, 0.08); }
+  .heroStats { grid-template-columns: 1fr 1fr; border-top: none; margin-top: 40px; }
+  .heroStat { padding: 20px 16px; border-right: none; border-bottom: 1px solid rgba(200, 150, 62, 0.08); }
   .heroStat:last-child { border-bottom: none; }
+  .heroStatNum { font-size: 28px; }
   
   /* Section spacing */
-  .processSection { padding: 64px 24px; }
-  .eligibilitySection { padding: 64px 24px; }
-  .applySection { padding: 64px 24px; }
-  .faqSection { padding: 64px 24px; }
-  .bottomCta { padding: 80px 24px; }
+  .processSection { padding: 56px 20px; }
+  .eligibilitySection { padding: 56px 20px; }
+  .applySection { padding: 56px 20px; }
+  .faqSection { padding: 56px 20px; }
+  .bottomCta { padding: 72px 20px; }
   
   /* Section Headers */
-  .sectionH2 { font-size: 32px; margin-bottom: 40px; }
-  .eyebrow { font-size: 12px; margin-bottom: 16px; }
+  .sectionH2 { font-size: clamp(24px, 7vw, 36px); margin-bottom: 36px; }
+  .eyebrow { font-size: 11px; margin-bottom: 16px; letter-spacing: 0.2em; }
   
   /* Timeline */
+  .timelineContainer { margin-top: 40px; }
   .dayRow { grid-template-columns: 48px 1fr; gap: 16px; padding-bottom: 40px; }
   .dayCircle { width: 48px; height: 48px; }
   .dayNum { font-size: 18px; }
   .dayLabel { font-size: 9px; }
   .dayBody { padding: 20px; }
-  .dayTitle { font-size: 20px; margin-bottom: 12px; }
+  .dayTitle { font-size: 18px; margin-bottom: 10px; }
   .dayDesc { font-size: 14px; }
+  .dayGrid { grid-template-columns: 1fr; gap: 12px; }
   
   /* Eligibility Cards */
-  .reqCardHeader { padding: 16px 20px; }
-  .reqProgram { font-size: 18px; }
-  .reqCardBody { padding: 0 20px 20px; }
+  .reqCardHeader { padding: 16px 16px; }
+  .reqProgram { font-size: 16px; }
+  .reqCardBody { padding: 0 16px 16px; }
   .reqToggle { width: 32px; height: 32px; font-size: 20px; }
+  .reqItem { font-size: 14px; }
   
   /* Apply Section */
-  .applyH2 { font-size: 32px; margin-bottom: 16px; }
+  .applyH2 { font-size: clamp(22px, 6vw, 32px); margin-bottom: 16px; }
   .applyStats { gap: 16px; flex-direction: column; }
   .applyStat { border-bottom: 1px solid rgba(7,61,127,0.08); padding-bottom: 12px; }
   .applyStat:last-child { border-bottom: none; padding-bottom: 0; }
-  .applyCardHeader { padding: 16px 20px; }
-  .applyCardBody { padding: 20px; }
+  .applyStatNum { font-size: 28px; }
+  .applyCardHeader { padding: 14px 16px; }
+  .applyCardBody { padding: 20px 16px; }
+  .applyInput, .applySelect { font-size: 16px; } /* prevent zoom on iOS */
   
   /* FAQ */
-  .faqQuestion { padding: 20px 0; gap: 16px; }
-  .faqQ { font-size: 15px; }
-  .faqToggle { width: 32px; height: 32px; font-size: 20px; }
+  .faqQuestion { padding: 16px 0; gap: 16px; }
+  .faqQ { font-size: 14px; }
+  .faqToggle { width: 32px; height: 32px; font-size: 20px; flex-shrink: 0; }
+  .faqA { font-size: 14px; }
   
   /* Bottom CTA */
-  .bottomCtaH2 { font-size: 32px; margin-bottom: 32px; }
+  .bottomCtaH2 { font-size: clamp(24px, 7vw, 40px); margin-bottom: 32px; }
   .bottomCtaBtns { flex-direction: column; width: 100%; gap: 12px; }
   .btnPrimary, .btnSecondary { text-align: center; width: 100%; padding: 16px; }
 }
+
+@media (max-width: 480px) {
+  .heroStats { grid-template-columns: 1fr; }
+  .heroH1 { font-size: clamp(26px, 7vw, 36px); }
+  .processSection, .eligibilitySection, .applySection, .faqSection { padding: 48px 16px; }
+}
+

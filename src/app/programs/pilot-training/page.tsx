@@ -8,29 +8,36 @@ const PILOT_PATHWAY = [
     phase: 'Phase 1',
     title: 'DGCA Ground School',
     duration: '4 – 6 Months',
-    detail: 'Max 15 cadets per batch · DGCA-approved instructors · 5 subject papers',
-    desc: 'Structured classroom instruction across all five DGCA CPL examination subjects — Air Navigation, Air Regulations, Aviation Meteorology, Technical General, and Technical Specific. Aviora\'s ground school follows the latest DGCA syllabus (CAR Section 7, Series B) with small batches of maximum 15 cadets. Includes topic-wise mock papers, full-length timed tests, and one-on-one doubt sessions with DGCA-approved instructors. Target pass rate: 95% first attempt.',
+    detail: 'Max 15 cadets per batch · DGCA-approved instructors · 6 Subject papers',
+    desc: 'Structured classroom instruction across all six DGCA CPL examination subjects — Air Navigation, Air Regulations, Aviation Meteorology, Technical General, and Technical Specific. Aviora\'s ground school follows the latest DGCA syllabus (CAR Section 7, Series B) with small batches of maximum 15 cadets. Includes topic-wise mock papers, full-length timed tests, and one-on-one doubt sessions with DGCA-approved instructors. Target pass rate: 95% first attempt.',
   },
   {
     phase: 'Phase 2',
     title: 'FBS Simulator Training',
     duration: '2 – 3 Months',
     detail: 'DGCA-counted sim hours · IMC / IFR scenarios · Emergency drill library',
-    desc: 'Hands-on time in a Flight Based Simulator replicating the Cessna 172 cockpit — same instruments, same feel, same emergency scenarios you\'ll face in the air. FBS hours count toward total flight time under DGCA rules. Cadets train instrument approaches (ILS, VOR, NDB), crosswind landings, engine-out procedures, stall recovery, and ATC communication under simulated IMC conditions.',
+    desc: 'Hands-on time in a Fixed Based Simulator replicating the Cessna 172 cockpit — same instruments, same feel, same emergency scenarios you\'ll face in the air. FBS hours count toward total flight time under DGCA rules. Cadets train instrument approaches (ILS, VOR, NDB), crosswind landings, engine-out procedures, stall recovery, and ATC communication under simulated IMC conditions.',
   },
   {
     phase: 'Phase 3',
     title: 'International Flight Training — USA',
     duration: '6 – 10 Months',
-    detail: 'FAA Part 141 schools · Phoenix AZ + Florida · 200 hours minimum',
-    desc: 'All practical flight hours are flown in the United States on FAA-registered Cessna 172 aircraft from Part 141-approved flight schools in Phoenix, Arizona and Florida. Cadets accumulate a minimum of 200 hours total time — including 100 hours PIC, 20 hours cross-country, 10 hours instrument, and 5 hours night flying — meeting DGCA CPL hour requirements in full.',
+    detail: 'FAA Part 141 school · Sacramento , California , USA · 200 hours minimum',
+    desc: 'All practical flight hours are flown in the United States on FAA-registered Cessna 172 aircraft from Part 141-approved flight school in Sacramento , California , USA. Cadets accumulate a minimum of 200 hours total time — including 100 hours PIC, 20 hours cross-country, 10 hours instrument, and 5 hours night flying — meeting DGCA CPL hour requirements in full.',
   },
   {
     phase: 'Phase 4',
+    title: 'Type Rating — Airbus or Boeing',
+    duration: '4 – 6 Weeks',
+    detail: 'A320 / B737 · Level D Full Flight Simulator · Airline SOPs',
+    desc: 'Specialised type rating on the Airbus A320 or Boeing 737, the workhorses of the Indian aviation market. Includes ground school, Fixed Based Simulator (FBS) and Level D Full Flight Simulator (FFS) training to airline standard operating procedures.',
+  },
+  {
+    phase: 'Phase 5',
     title: 'Airline Preparation & CPL Skill Test',
     duration: '1 – 2 Months',
-    detail: 'DGCA Skill Test prep · Psychometric coaching · 42 airline partner network',
-    desc: 'The final stage transitions cadets from trained pilots to airline-ready professionals. Includes DGCA CPL Skill Test preparation, psychometric and aptitude test coaching, airline group exercise workshops, and mock technical and HR interviews with active airline captains. Aviora\'s placement desk actively coordinates with 42 airline partners for batch walk-ins and type rating sponsorship discussions.',
+    detail: 'DGCA Skill Test prep · Psychometric coaching · 10 airline partner network',
+    desc: 'The final stage transitions cadets from trained pilots to airline-ready professionals. Includes DGCA CPL Skill Test preparation, psychometric and aptitude test coaching, airline group exercise workshops, and mock technical and HR interviews with active airline captains. Aviora\'s placement desk actively coordinates with 10 airline partners for batch walk-ins and type rating sponsorship discussions.',
   },
 ];
 
@@ -60,12 +67,17 @@ const DGCA_SUBJECTS = [
     name: 'Technical Specific',
     desc: 'The Cessna 172 in full — POH limitations, weight and balance, performance charts, systems descriptions, emergency checklists, and aircraft-specific DGCA regulations. Aviora uses the actual Cessna 172S POH.',
   },
+  {
+    num: '06',
+    name: '(RTR) Radio Telephony Restricted',
+    desc: 'Training for the RTR(A) exam conducted by WPC. Covers transmission techniques, standard phraseology, and emergency communication protocols required for international and domestic flight operations.',
+  },
 ];
 
 const HIGHLIGHTS = [
   { num: '200+', label: 'Flight Hours', sub: 'Minimum total time toward DGCA CPL' },
   { num: '95%', label: 'First-Attempt Pass', sub: 'DGCA ground school target' },
-  { num: '42+', label: 'Airline Partners', sub: 'Active placement coordination' },
+  { num: '10+', label: 'Airline Partners', sub: 'Active placement coordination' },
   { num: '15', label: 'Max Batch Size', sub: 'Small cohorts, personal attention' },
 ];
 
@@ -165,8 +177,8 @@ export default function PilotTrainingPage() {
       <section className={s.dgcaSection}>
         <div className={s.dgcaHead + ' ' + s.reveal}>
           <span className={s.eyebrow}>Ground School</span>
-          <h2 className={s.sectionH2}>Five DGCA Subjects.<br /><em>Zero Compromise.</em></h2>
-          <p className={s.sectionSub}>Aviora's ground school is structured around the DGCA CPL written examination — all five papers, taught in sequence, tested rigorously throughout.</p>
+          <h2 className={s.sectionH2}>Six DGCA Subjects.<br /><em>Zero Compromise.</em></h2>
+          <p className={s.sectionSub}>Aviora's ground school is structured around the DGCA CPL written examination — all six papers, taught in sequence, tested rigorously throughout.</p>
         </div>
         <div className={s.subjectsGrid}>
           {DGCA_SUBJECTS.map((sub, i) => (
@@ -224,9 +236,9 @@ export default function PilotTrainingPage() {
               <Link href="/contact" className={s.btnOutline}>Talk to a Pilot</Link>
             </div>
             <div className={s.ctaCardTrust}>
-              <span>DGCA Certified</span>
+              <span>South Indian's Biggest Aviation Facility</span>
               <span className={s.dot}>·</span>
-              <span>42 Airline Partners</span>
+              <span>10 Airline Partners</span>
               <span className={s.dot}>·</span>
               <span>98% Placement</span>
             </div>

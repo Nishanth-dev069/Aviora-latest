@@ -10,11 +10,11 @@ import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
 const FRAME_COUNT = 242;
 const getFrameSrc = (i: number) => `/hero-sequence/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
 
-const TICKER_ITEMS = ['DGCA Certified', 'Cessna 172 Fleet', 'Level-D FBS Simulators', '98% Airline Placement', '42 Partner Airlines', '2,400+ Graduates', '140,000+ Flight Hours', 'International Training — USA'];
+const TICKER_ITEMS = ['End to End Process.', 'Cessna 172 Fleet', 'Fixed Based Simulators', '98% Airline Placement', '10 Partner Airlines', '100+ Graduates .', '5000+ Flight Hours.', 'International Training — USA'];
 const FACILITIES = [
   { icon: '◈', title: 'Aviation Classrooms', desc: 'Spacious, purpose-built classrooms with aviation charts, instrument panels, and reference materials — nothing like a school.' },
   { icon: '⬡', title: 'Digital Smart Labs', desc: 'Interactive digital classrooms with simulation software, weather systems, and real-time ATC feeds for ground school training.' },
-  { icon: '◎', title: 'FBS Flight Simulator', desc: 'Full flight simulation replicating the Cessna 172 cockpit in motion. Practice approaches, emergencies, and instrument flying.' },
+  { icon: '◎', title: 'Fixed Based Simulator', desc: 'Full flight simulation replicating the Cessna 172 cockpit in motion. Practice approaches, emergencies, and instrument flying.' },
   { icon: '◇', title: 'Grooming & Personality Lab', desc: 'A dedicated training space for cabin crew — full-length mirrors, airline grooming standards, mock presentation setups.' },
   { icon: '△', title: 'Aviation Resource Library', desc: 'Curated DGCA study material, ICAO documents, POH manuals, and pilot logbooks available 24/7 to enrolled students.' },
   { icon: '○', title: 'Airline Pilot Mentorship', desc: 'Direct one-on-one sessions with active airline pilots — not retired instructors. Real-world guidance at every stage.' },
@@ -198,7 +198,7 @@ export default function HomePage() {
           {/* Hero Content Overlay */}
           <div className={styles.heroOverlay}>
             <div className={styles.heroContent}>
-              <div className={styles.heroEyebrow}>DGCA Certified · Est. 2009</div>
+              <div className={styles.heroEyebrow}>Est .2025 , South Indian's Biggest Aviation Facility</div>
               <h1 className={styles.heroH1}>
                 Where Legends<br />Learn to <em>Command</em><br />the Sky.
               </h1>
@@ -207,7 +207,7 @@ export default function HomePage() {
               </p>
               <div className={styles.heroCtas}>
                 <Link href="/programs/pilot-training" className={styles.btnHeroPrimary}>Explore Pilot Training</Link>
-                <Link href="/admissions" className={styles.btnHeroOutline}>Apply for 2025</Link>
+                <Link href="/admissions" className={styles.btnHeroOutline}>Apply For The Next Batch</Link>
               </div>
             </div>
           </div>
@@ -247,7 +247,7 @@ export default function HomePage() {
                 <div className={styles.pcNum}>01</div><div className={styles.pcBadge}>Pilot Training</div>
                 <h3 className={styles.pcTitle}>Commercial Pilot<br /><em>Licence Program</em></h3>
                 <p className={styles.pcDesc}>Your command begins here. From DGCA ground school preparation to international flight training in the United States — a complete Zero to Hero pathway guided by airline captains.</p>
-                <ul className={styles.pcHighlights}><li>DGCA Ground School — all 5 subjects</li><li>Flight Based Simulator (FBS) Training</li><li>International Training in the USA</li><li>Airline mentorship &amp; career placement</li></ul>
+                <ul className={styles.pcHighlights}><li>DGCA Ground School — all 6 Subjects</li><li>Fixed Based Simulator (FBS) Training</li><li>International Training in the USA</li><li>Airline mentorship &amp; career placement</li></ul>
                 <div className={styles.pcFooter}>
                   <Link href="/programs/pilot-training" className={styles.btnProgram}><span>Explore Pilot Training</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
                   <div className={styles.pcMeta}>CPL · ATP Pathway</div>
@@ -294,9 +294,9 @@ export default function HomePage() {
             {MENTORS.map((m, i) => (<div className={styles.mentorCard} key={i} data-card-reveal><div className={styles.mcAvatar}>{m.initials}</div><div className={styles.mcInfo}><div className={styles.mcName}>{m.name}</div><div className={styles.mcRole}>{m.role}</div><div className={styles.mcHours}>{m.hours} hours total time</div></div><p className={styles.mcBio}>{m.bio}</p><div className={styles.mcAirlines}>{m.airlines.map((a, j) => <span className={styles.mcAirlineTag} key={j}>{a}</span>)}</div></div>))}
           </div>
           <div className={styles.mentorsStrip}>
-            <div className={styles.msStat}><span className={styles.msNum}>18,000+</span><span className={styles.msLabel}>Avg. Instructor Hours</span></div>
+            <div className={styles.msStat}><span className={styles.msNum}>5+ Experience</span><span className={styles.msLabel}>Avg. Instructor Hours</span></div>
             <div className={styles.msDivider} />
-            <div className={styles.msStat}><span className={styles.msNum}>12</span><span className={styles.msLabel}>Active Airline Captains</span></div>
+            <div className={styles.msStat}><span className={styles.msNum}>5</span><span className={styles.msLabel}>Active Airline Captains</span></div>
             <div className={styles.msDivider} />
             <div className={styles.msStat}><span className={styles.msNum}>6</span><span className={styles.msLabel}>Type Ratings Between Them</span></div>
           </div>
@@ -317,21 +317,19 @@ export default function HomePage() {
           </div>
           <div className={styles.globalVisual}>
             <div className={styles.globalMapContainer}>
-              <svg className={styles.usMap} viewBox="0 0 400 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M40,60 L80,40 L140,35 L200,38 L260,40 L310,50 L350,65 L360,100 L355,140 L340,170 L300,185 L260,190 L220,195 L180,190 L140,185 L100,175 L60,160 L35,130 L30,95 Z" stroke="rgba(200,150,62,0.25)" strokeWidth="1.5" fill="rgba(200,150,62,0.04)" />
-                <line x1="160" y1="38" x2="165" y2="185" stroke="rgba(200,150,62,0.07)" strokeWidth="1" /><line x1="240" y1="40" x2="245" y2="188" stroke="rgba(200,150,62,0.07)" strokeWidth="1" /><line x1="40" y1="110" x2="355" y2="118" stroke="rgba(200,150,62,0.07)" strokeWidth="1" />
-                <circle cx="120" cy="155" r="5" fill="var(--gold)" opacity="0.9" /><circle cx="120" cy="155" r="12" stroke="var(--gold)" strokeWidth="1" opacity="0.3" /><circle cx="120" cy="155" r="20" stroke="var(--gold)" strokeWidth="0.5" opacity="0.15" />
-                <circle cx="280" cy="130" r="4" fill="var(--gold)" opacity="0.7" /><circle cx="280" cy="130" r="10" stroke="var(--gold)" strokeWidth="1" opacity="0.25" />
-                <path d="M120,155 Q200,60 280,130" stroke="rgba(200,150,62,0.3)" strokeWidth="1" strokeDasharray="4 6" fill="none" />
-                <text x="100" y="175" fill="rgba(200,150,62,0.5)" fontSize="9" fontFamily="Space Mono, monospace" letterSpacing="2">PHOENIX</text>
-                <text x="260" y="148" fill="rgba(200,150,62,0.5)" fontSize="9" fontFamily="Space Mono, monospace" letterSpacing="2">FLORIDA</text>
-              </svg>
+              <div className={styles.mapWrapper}>
+                <img src="/us-map.svg" alt="United States Training Locations" className={styles.usMapImage} />
+                <div className={styles.caliLabel}>
+                  <div className={styles.caliDot} />
+                  <span>Sacramento, CA</span>
+                </div>
+              </div>
               <div className={styles.mapLabel}>Active Training Locations</div>
             </div>
             <div className={styles.globalStats}>
               <div className={styles.gsItem}><div className={styles.gsNum}>FAA</div><div className={styles.gsLabel}>Licensed Training Airports</div></div>
-              <div className={styles.gsItem}><div className={styles.gsNum}>VFR+</div><div className={styles.gsLabel}>300 Days Flying Weather</div></div>
-              <div className={styles.gsItem}><div className={styles.gsNum}>DGCA</div><div className={styles.gsLabel}>Hours Count Toward CPL</div></div>
+              <div className={styles.gsItem}><div className={styles.gsNum}>VFR+</div><div className={styles.gsLabel}>320 Days Flying Weather</div></div>
+              <div className={styles.gsItem}><div className={styles.gsNum}>DGCA</div><div className={styles.gsLabel}>Hasel free licence convertion to Indian or DGCA CPL.</div></div>
             </div>
           </div>
         </div>
@@ -342,7 +340,7 @@ export default function HomePage() {
         <div className={styles.container}>
           <div className={styles.legacyHeader}><div className={styles.eyebrowDark}>By the Numbers</div><h2 className={styles.sectionTitleDark}>Decades of Excellence,<br /><em>Measured in Altitude</em></h2></div>
           <div className={styles.statsGrid}>
-            {[{ target: 2400, suffix: '+', label: 'Pilots Graduated' }, { target: 98, suffix: '%', label: 'Placement Rate' }, { target: 140, suffix: 'K+', label: 'Flight Hours Logged' }, { target: 42, suffix: '+', label: 'Airline Partners' }].map((stat, i) => (
+            {[{ target: 100, suffix: '+', label: 'Pilots Graduated' }, { target: 98, suffix: '%', label: 'Placement Rate' }, { target: 5000, suffix: '+', label: 'Flight Hours Logged' }, { target: 10, suffix: '+', label: 'Airline Partners' }].map((stat, i) => (
               <div key={i} className={styles.statItem} data-stat data-target={stat.target} data-suffix={stat.suffix}><div className={styles.statNumber} data-stat-num>0</div><div className={styles.statLabel}>{stat.label}</div></div>
             ))}
           </div>
@@ -375,7 +373,7 @@ export default function HomePage() {
         <div className={styles.container}>
           <div className={styles.sectionHead} style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div className={styles.eyebrowLight}>Operations & Enquiries</div>
-            <h2 className={styles.sectionTitle}>Get in Touch with <em>Aviora</em></h2>
+            <h2 className={styles.sectionTitle} style={{ color: 'white' }}>Get in Touch with <em>Aviora</em></h2>
           </div>
           <div className={styles.hcGrid}>
             <div className={styles.hcCard} data-card-reveal>
@@ -413,7 +411,7 @@ export default function HomePage() {
           <h2 className={styles.ctaTitle}>Are You Ready to<br /><em>Take the Controls?</em></h2>
           <p className={styles.ctaBody}>The cockpit waits only for those serious about the sky. Our 2025 intake is extremely limited — reserve your assessment today.</p>
           <div className={styles.ctaButtons}><Link href="/admissions" className={styles.btnCtaPrimary}>Enroll for 2025</Link><Link href="/contact" className={styles.btnCtaOutline}>Send an Enquiry</Link></div>
-          <div className={styles.ctaTrust}><span>DGCA Certified</span><span className={styles.trustDot}>·</span><span>42 Airline Partners</span><span className={styles.trustDot}>·</span><span>98% Placement</span></div>
+          <div className={styles.ctaTrust}><span>South Indian's Biggest Aviation Facility</span><span className={styles.trustDot}>·</span><span>10 Airline Partners</span><span className={styles.trustDot}>·</span><span>98% Placement</span></div>
         </div>
       </section>
     </>

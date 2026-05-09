@@ -94,7 +94,7 @@
 .heroH1 {
     font-family: var(--font-display), serif;
     font-size: clamp(48px, 7vw, 100px);
-    font-weight: 300;
+    font-weight: 700;
     color: #fff;
     line-height: 0.98;
     letter-spacing: -0.02em;
@@ -232,11 +232,11 @@
 
 .sectionH2 {
     font-family: var(--font-display), serif;
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 300;
+    font-size: clamp(30px, 5vw, 68px);
+    font-weight: 700;
     color: #fff;
     line-height: 1.1;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     margin: 0;
 }
 
@@ -470,11 +470,11 @@
 
 .ctaH2 {
     font-family: var(--font-display), serif;
-    font-size: clamp(36px, 4.5vw, 64px);
-    font-weight: 300;
+    font-size: clamp(30px, 4.5vw, 64px);
+    font-weight: 700;
     color: #fff;
-    line-height: 1.08;
-    letter-spacing: -0.01em;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
     margin-bottom: 16px;
 }
 
@@ -560,9 +560,26 @@
 
 @media (max-width: 768px) {
     .heroContent { padding: 120px 24px 0; }
-    .whySection, .phaseSection, .ctaSection { padding: 80px 24px; }
+    .heroH1 { font-size: clamp(32px, 9vw, 52px); }
+    .heroSub { font-size: 14px; }
+    .heroCtas { flex-direction: column; gap: 12px; }
+    .heroCtas > * { width: 100%; text-align: center; }
+    .heroBadges { flex-wrap: wrap; gap: 8px; }
+    .heroStats { grid-template-columns: 1fr 1fr; margin-top: 48px; }
+    .heroStat { padding: 20px 16px; }
+    .heroStatNum { font-size: 28px; }
+    .whySection, .phaseSection, .ctaSection { padding: 64px 24px; }
     .gallery { grid-template-columns: 1fr; height: auto; }
-    .galleryItem { height: 260px; }
+    .galleryItem { height: 240px; }
     .step { grid-template-columns: 48px 1fr; gap: 20px; }
     .heroStats { grid-template-columns: repeat(2, 1fr); }
+    .sectionH2 { margin-bottom: 40px; }
+    .ctaBtns { flex-direction: column; gap: 12px; }
+    .ctaBtns > * { width: 100%; text-align: center; }
+}
+
+@media (max-width: 480px) {
+    .heroStats { grid-template-columns: 1fr; }
+    .heroStat { border-right: none; border-bottom: 1px solid rgba(200, 150, 62, 0.08); }
+    .heroStat:last-child { border-bottom: none; }
 }

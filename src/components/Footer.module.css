@@ -281,19 +281,45 @@
   color: rgba(241, 241, 241, 0.4);
 }
 
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.legalLink {
+  font-family: var(--font-body), 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  color: rgba(241, 241, 241, 0.4);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legalLink:hover {
+  color: #4A90D9;
+}
+
 /* ═══════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════ */
 @media (max-width: 1100px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 48px;
     text-align: center;
+  }
+
+  .colBrand {
+    align-items: center;
   }
 
   .navMasterWrap {
     justify-content: center;
     gap: 40px;
+    border-left: none;
+    border-right: none;
+    padding: 0;
   }
   
   .colCenter {
@@ -308,6 +334,7 @@
   
   .contactRow {
     flex-direction: row;
+    justify-content: center;
   }
 
   .topSection {
@@ -319,6 +346,30 @@
   }
 }
 
+@media (max-width: 768px) {
+  .topSection {
+    padding: 48px 24px;
+  }
+
+  .bottomBar {
+    padding: 16px 24px;
+  }
+
+  .grid {
+    gap: 40px;
+  }
+
+  .navMasterWrap {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .navCol {
+    min-width: 140px;
+    text-align: center;
+  }
+}
+
 @media (max-width: 640px) {
   .watermarkText {
     font-size: 30vw;
@@ -326,15 +377,23 @@
   .navMasterWrap {
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 36px;
   }
   .topSection {
-    padding: 60px 24px;
+    padding: 48px 20px;
   }
   .bottomBarInner {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 12px;
+    gap: 10px;
   }
-}
+  .bottomCopy {
+    font-size: 11px;
+  }
+  .legalLinks {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+}

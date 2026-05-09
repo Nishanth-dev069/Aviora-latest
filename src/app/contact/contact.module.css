@@ -641,11 +641,27 @@
 
 @media (max-width: 768px) {
   .container  { padding: 0 24px; }
-  .heroInner  { padding: 100px 24px 60px; }
-  .heroH1     { font-size: 40px; }
-  .heroStats  { flex-direction: column; gap: 0; width: 100%; }
+  .heroInner  { padding: 100px 24px 60px; gap: 40px; }
+  .heroH1     { font-size: clamp(28px, 8vw, 44px); letter-spacing: -0.015em; }
+  .heroBody   { font-size: 15px; margin-bottom: 32px; }
+  .heroStats  { flex-direction: column; gap: 0; width: 100%; border-radius: 6px; }
   .hStatDiv   { width: 100%; height: 1px; }
-  .hStat      { padding: 20px 0; width: 100%; }
+  .hStat      { padding: 16px 0; width: 100%; }
+  .hStatNum   { font-size: 26px; }
   .formRow    { grid-template-columns: 1fr; }
   .detailsWrap { padding: 32px 24px; }
+  .mainSection { padding: 60px 0 80px; }
+  .baseSection { padding: 60px 0 80px; }
+  .baseSectionH2 { font-size: clamp(24px, 7vw, 36px); }
+  .sectionH2  { font-size: clamp(22px, 6vw, 32px); }
+  .faqRow     { padding: 16px 16px; gap: 12px; }
+  .faqA       { padding: 0 16px 16px 16px; }
+  .channelCard { padding: 18px 20px; }
+  .mapWrap    { min-height: 280px; }
 }
+
+@media (max-width: 480px) {
+  .heroH1 { font-size: clamp(26px, 7vw, 36px); }
+  .heroInner { padding: 90px 20px 48px; }
+}
+
