@@ -1,18 +1,39 @@
+"use client";
+
 import React from 'react';
 import styles from './TrainingPartnersTicker.module.css';
 
 const PARTNERS = [
-  { name: 'IndiGo',        color: '#6441C1', domain: 'goindigo.in', abbr: 'IG' },
-  { name: 'Air India',     color: '#C8102E', domain: 'airindia.com', abbr: 'AI' },
-  { name: 'Emirates',      color: '#D71921', domain: 'emirates.com', abbr: 'EK' },
-  { name: 'Qatar Airways', color: '#5C0632', domain: 'qatarairways.com', abbr: 'QA' },
-  { name: 'SpiceJet',      color: '#E2231A', domain: 'spicejet.com', abbr: 'SJ' },
-  { name: 'Etihad',        color: '#BD8B13', domain: 'etihad.com', abbr: 'EY' },
-  { name: 'Akasa Air',     color: '#FF6621', domain: 'akasaair.com', abbr: 'AK' },
-  { name: 'Fly91',         color: '#000000', domain: 'fly91.in', abbr: 'F9' },
-  { name: 'StarAir',       color: '#D71921', domain: 'starair.in', abbr: 'SA' },
-  { name: 'FlyBig',        color: '#000000', domain: 'flybig.in', abbr: 'FB' },
+  { name: 'IndiGo', color: '#6441C1', domain: 'goindigo.in', abbr: 'IG', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/69/IndiGo_Airlines_logo.svg' },
+  { name: 'Air India', color: '#C8102E', domain: 'airindia.com', abbr: 'AI', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Air_India_2023_logo.svg' },
+  { name: 'Emirates', color: '#D71921', domain: 'emirates.com', abbr: 'EK', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Emirates_logo.svg' },
+  { name: 'Qatar Airways', color: '#5C0632', domain: 'qatarairways.com', abbr: 'QA', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/9b/Qatar_Airways_Logo.svg' },
+  { name: 'SpiceJet', color: '#E2231A', domain: 'spicejet.com', abbr: 'SJ', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/d/d0/SpiceJet_logo.svg' },
+  { name: 'Etihad', color: '#BD8B13', domain: 'etihad.com', abbr: 'EY', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Etihad_Airways_Logo.svg' },
+  { name: 'Akasa Air', color: '#FF6621', domain: 'akasaair.com', abbr: 'AK', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Akasa_Air_logo.svg' },
+  { name: 'Fly91', color: '#000000', domain: 'fly91.in', abbr: 'F9', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Fly91_logo.png' },
+  { name: 'StarAir', color: '#D71921', domain: 'starair.in', abbr: 'SA', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Star_Air_Logo.svg' },
+  { name: 'FlyBig', color: '#000000', domain: 'flybig.in', abbr: 'FB', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/FlyBig_logo.png' },
 ];
+
+function PartnerLogo({ partner }: { partner: typeof PARTNERS[0] }) {
+  const [failed, setFailed] = React.useState(false);
+
+  if (failed) {
+    return <div className={styles.badge}>{partner.abbr}</div>;
+  }
+
+  return (
+    <div className={styles.logoWrapper}>
+      <img
+        src={partner.logoUrl}
+        alt={`${partner.name} logo`}
+        className={styles.logoImage}
+        onError={() => setFailed(true)}
+      />
+    </div>
+  );
+}
 
 export default function TrainingPartnersTicker() {
   const doubled = [...PARTNERS, ...PARTNERS];
@@ -26,22 +47,7 @@ export default function TrainingPartnersTicker() {
         <div className={styles.tape}>
           {doubled.map((p, i) => (
             <div key={i} className={styles.card}>
-              {/* Typographic logo — greyscale by default, colored on hover */}
-              <img 
-                src={`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${p.domain}&size=128`} 
-                alt={`${p.name} logo`}
-                style={{ width: '28px', height: '28px', objectFit: 'contain', borderRadius: '4px' }}
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling!.setAttribute('style', `display: inline-flex; --brand-color: ${p.color}`);
-                }}
-              />
-              <span
-                className={styles.logoMark}
-                style={{ '--brand-color': p.color, display: 'none' } as React.CSSProperties}
-              >
-                {p.abbr}
-              </span>
+              <PartnerLogo partner={p} />
               <span className={styles.name}>{p.name}</span>
             </div>
           ))}

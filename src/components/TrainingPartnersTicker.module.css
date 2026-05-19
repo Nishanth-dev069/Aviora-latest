@@ -4,31 +4,23 @@
    ═══════════════════════════════════════════════ */
 
 .container {
-  background-color: #070c18;
-  /* Subtle diagonal line texture at ~3% opacity */
-  background-image: repeating-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.018) 0px,
-    rgba(255, 255, 255, 0.018) 1px,
-    transparent 1px,
-    transparent 48px
-  );
-  padding: 52px 0 56px;
+  background: linear-gradient(180deg, #070D14 0%, #0A1628 100%);
+  padding: 32px 0 36px; /* Reduced to compensate for track padding */
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(201, 168, 76, 0.2);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
 }
 
 /* Label */
 .label {
   text-align: center;
   font-family: var(--font-body), sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #5a6a8a;   /* muted blue-grey — clearly readable on #070c18 */
+  color: #BFC7D5;
   margin: 0 0 36px;
   padding: 0 24px;
 }
@@ -38,20 +30,28 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 10%,
-    black 90%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 10%,
-    black 90%,
-    transparent 100%
-  );
+  padding: 20px 0; /* Added padding to prevent hover clipping */
+}
+
+.track::before,
+.track::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.track::before {
+  left: 0;
+  background: linear-gradient(to right, #070D14 0%, transparent 100%);
+}
+
+.track::after {
+  right: 0;
+  background: linear-gradient(to left, #070D14 0%, transparent 100%);
 }
 
 /* Scrolling tape */
@@ -60,7 +60,7 @@
   align-items: center;
   gap: 12px;
   min-width: max-content;
-  animation: ticker 32s linear infinite;
+  animation: ticker 38s linear infinite;
   will-change: transform;
 }
 
@@ -69,72 +69,82 @@
 }
 
 @keyframes ticker {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% / 2)); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% / 2));
+  }
 }
 
 /* Individual partner card */
 .card {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   padding: 14px 28px;
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
   cursor: default;
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.14);
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.02);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  z-index: 10;
 }
 
-/* Typographic logo mark — greyscale default, brand color on hover */
-.logoMark {
-  display: inline-flex;
+.logoWrapper {
+  width: 44px;
+  height: 44px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  font-family: var(--font-display), sans-serif;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  /* Greyscale by default */
-  color: rgba(255, 255, 255, 0.45);
-  filter: grayscale(1);
-  transition: color 0.3s ease, filter 0.3s ease, background 0.3s ease, border-color 0.3s ease;
   flex-shrink: 0;
 }
 
-.card:hover .logoMark {
-  /* Full brand color on hover */
-  color: var(--brand-color, #ffffff);
-  filter: grayscale(0);
-  background: color-mix(in srgb, var(--brand-color, #ffffff) 10%, transparent);
-  border-color: color-mix(in srgb, var(--brand-color, #ffffff) 30%, transparent);
+.logoImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #FFFFFF; /* Some logos might be dark or transparent, adding white backing could help if needed, or just let them be */
+  padding: 2px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: #C9A84C;
+  color: #0A1628;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 /* Airline name */
 .name {
   font-family: var(--font-body), sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  /* Muted white — AA compliant 4.5:1 on #070c18 */
-  color: rgba(241, 241, 241, 0.65);
-  transition: color 0.3s ease;
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+  transition: color 0.4s ease;
 }
 
 .card:hover .name {
-  color: rgba(241, 241, 241, 0.95);
+  color: #2F80ED;
 }
 
 /* Reduced motion */

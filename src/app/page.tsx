@@ -33,29 +33,35 @@ const GLOBAL_FEATURES = [
 
 function PilotSilhouette() {
   return (
-    <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
-      <path d="M150 240 L20 160 L80 80 L150 60 L220 80 L280 160 Z" fill="currentColor" />
-      <path d="M150 60 L150 30 L170 50 L150 60Z" fill="currentColor" />
-      <ellipse cx="150" cy="145" rx="90" ry="60" fill="currentColor" opacity="0.5" />
-      <path d="M60 160 L20 180 L10 200 L60 190Z" fill="currentColor" />
-      <path d="M240 160 L280 180 L290 200 L240 190Z" fill="currentColor" />
-      <circle cx="150" cy="100" r="22" fill="currentColor" opacity="0.3" />
+    <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+      <path d="M473.6,260.6c-13.8-6.1-34.9-9.2-61.9-9.2H126.8c-26.6,0-46.7,3-58.8,8.8c-10.7,5.1-15.8,11.2-15.8,18.9
+               c0,8.2,5.5,14.6,16.8,19.9c12.5,5.8,32.8,8.8,59.3,8.8h286.7c26,0,45.8-2.9,58-8.5c11.5-5.3,17.2-11.6,17.2-19.5
+               C490.1,272,485.1,265.8,473.6,260.6z"/>
+      <path d="M211.9,183.1l-25.5,68.3h41.7l13.6-68.3H211.9z"/>
+      <path d="M375.4,142.2l-37.5,109.1h42l48.8-109.1H375.4z"/>
+      <path d="M184.2,251.4h-35.3L161,281h31L184.2,251.4z"/>
+      <path d="M126.8,225.1h284.9v-15.5H126.8c-18.4,0-36.2,1.3-51.5,3.7v11.8C90.6,225.1,107.5,225.1,126.8,225.1z"/>
+      <path d="M61.9,235.1v40H74v-40H61.9z"/>
     </svg>
   );
 }
 
 function CabinSilhouette() {
   return (
-    <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
-      <rect x="40" y="100" width="220" height="130" rx="8" fill="currentColor" />
-      <path d="M40 120 Q150 60 260 120" fill="currentColor" opacity="0.4" />
-      {[80, 120, 160, 200].map((x) => (
-        <g key={x}>
-          <rect x={x} y="130" width="25" height="40" rx="4" fill="currentColor" opacity="0.3" />
-          <rect x={x} y="185" width="25" height="30" rx="4" fill="currentColor" opacity="0.25" />
-        </g>
-      ))}
-      <rect x="40" y="225" width="220" height="5" rx="2" fill="currentColor" opacity="0.2" />
+    <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', transform: 'scale(1.2) translateY(20px)' }}>
+      {/* Flight Attendant Profile */}
+      <circle cx="256" cy="120" r="30" />
+      <path d="M226 100 Q256 70 286 100 L276 115 L236 115 Z" />
+      <path d="M226 160 C200 180 200 280 220 320 L240 320 L256 220 L272 320 L292 320 C312 280 312 180 286 160 Z" />
+      <path d="M276 160 Q296 170 286 190 Q276 180 266 160" />
+      <path d="M225 320 L210 440 L235 440 L245 320 Z" />
+      <path d="M265 320 L275 440 L300 440 L285 320 Z" />
+      {/* Luggage bag / Trolley */}
+      <rect x="130" y="280" width="60" height="150" rx="8" />
+      <circle cx="145" cy="440" r="10" />
+      <circle cx="175" cy="440" r="10" />
+      <path d="M160 280 L160 230 L180 230" stroke="currentColor" strokeWidth="8" fill="none" />
+      <path d="M226 180 L180 230" stroke="currentColor" strokeWidth="12" strokeLinecap="round" />
     </svg>
   );
 }
@@ -73,12 +79,12 @@ export default function HomePage() {
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const canvas = heroCanvasRef.current;
-    const scene  = heroSceneRef.current;
+    const scene = heroSceneRef.current;
     if (!canvas || !scene) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width  = window.innerWidth;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     const images: (HTMLImageElement | null)[] = new Array(FRAME_COUNT).fill(null);
@@ -91,7 +97,7 @@ export default function HomePage() {
       const cR = canvas!.width / canvas!.height;
       let dW = canvas!.width, dH = canvas!.height, oX = 0, oY = 0;
       if (cR > iR) { dH = canvas!.width / iR; oY = (canvas!.height - dH) / 2; }
-      else         { dW = canvas!.height * iR; oX = (canvas!.width - dW) / 2; }
+      else { dW = canvas!.height * iR; oX = (canvas!.width - dW) / 2; }
       ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
       ctx!.fillStyle = '#050E2D';
       ctx!.fillRect(0, 0, canvas!.width, canvas!.height);
@@ -108,7 +114,7 @@ export default function HomePage() {
       if (images[index]) return;
       const img = new Image();
       img.src = getFrameSrc(index);
-      img.onload  = () => { images[index] = img; if (index === currentFrame) renderFrame(index); };
+      img.onload = () => { images[index] = img; if (index === currentFrame) renderFrame(index); };
       img.onerror = () => { images[index] = null; };
     }
 
@@ -130,7 +136,7 @@ export default function HomePage() {
     }
 
     function handleResize() {
-      canvas!.width  = window.innerWidth;
+      canvas!.width = window.innerWidth;
       canvas!.height = window.innerHeight;
       renderFrame(currentFrame);
     }
@@ -147,7 +153,7 @@ export default function HomePage() {
     function onScroll() {
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
-        const rect   = scene!.getBoundingClientRect();
+        const rect = scene!.getBoundingClientRect();
         const sceneH = scene!.offsetHeight - window.innerHeight;
         if (sceneH <= 0) return;
         // progress: 0 when top of scene at top of viewport, 1 when bottom of scene at bottom
@@ -198,9 +204,9 @@ export default function HomePage() {
           {/* Hero Content Overlay */}
           <div className={styles.heroOverlay}>
             <div className={styles.heroContent}>
-              <div className={styles.heroEyebrow}>Est .2025 , South Indian's Biggest Aviation Facility</div>
+              <div className={styles.heroEyebrow} style={{ color: '#DDE3EA', whiteSpace: 'nowrap', fontSize: '11px', letterSpacing: '0.45em' }}>Est. 2025, South India's Biggest Aviation Facility</div>
               <h1 className={styles.heroH1}>
-                Where Legends<br />Learn to <em>Command</em><br />the Sky.
+                <span style={{ color: '#FFFFFF' }}>Born to Fly.</span><br /><em>Trained to Lead.</em>
               </h1>
               <p className={styles.heroBody}>
                 From first flight to airline captain — Aviora trains India&apos;s finest pilots with uncompromising standards, elite instructors, and a Cessna 172 fleet that rivals the best.
@@ -212,8 +218,8 @@ export default function HomePage() {
             </div>
           </div>
           <div className={styles.heroScrollHint}>
-            <span>Scroll to Take Off</span>
-            <div className={styles.heroScrollLine} />
+            <span style={{ color: '#2F80ED', letterSpacing: '0.2em', textShadow: '0 0 12px rgba(47,128,237,0.35)' }}>Scroll to Take Off</span>
+            <div className={styles.heroScrollLine} style={{ background: 'rgba(47,128,237,0.4)', boxShadow: '0 0 8px rgba(47,128,237,0.2)' }} />
           </div>
         </div>
       </section>
@@ -242,7 +248,8 @@ export default function HomePage() {
             <p className={styles.sectionSub}>Every Aviora program is engineered by veteran captains who commanded the exact aircraft you are training for.</p>
           </RevealOnScroll>
           <div className={styles.programsGrid}>
-            <div className={styles.programCard} data-card-reveal>
+            <div className={`${styles.programCard} ${styles.pilotCard}`} data-card-reveal>
+              <div className={styles.pcAccentLine} />
               <div className={styles.pcInner}>
                 <div className={styles.pcNum}>01</div><div className={styles.pcBadge}>Pilot Training</div>
                 <h3 className={styles.pcTitle}>Commercial Pilot<br /><em>Licence Program</em></h3>
@@ -253,9 +260,9 @@ export default function HomePage() {
                   <div className={styles.pcMeta}>CPL · ATP Pathway</div>
                 </div>
               </div>
-              <div className={styles.pcVisual} style={{ color: 'var(--navy)' }}><PilotSilhouette /></div>
             </div>
-            <div className={styles.programCard} data-card-reveal>
+            <div className={`${styles.programCard} ${styles.cabinCard}`} data-card-reveal>
+              <div className={styles.pcAccentLine} />
               <div className={styles.pcInner}>
                 <div className={styles.pcNum}>02</div><div className={styles.pcBadge}>Cabin Crew</div>
                 <h3 className={styles.pcTitle}>Cabin Crew<br /><em>Training Program</em></h3>
@@ -266,7 +273,6 @@ export default function HomePage() {
                   <div className={styles.pcMeta}>6-Month Intensive</div>
                 </div>
               </div>
-              <div className={styles.pcVisual} style={{ color: 'var(--navy)' }}><CabinSilhouette /></div>
             </div>
           </div>
         </div>
@@ -378,26 +384,26 @@ export default function HomePage() {
           <div className={styles.hcGrid}>
             <div className={styles.hcCard} data-card-reveal>
               <div className={styles.hcIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
               </div>
               <h3 className={styles.hcTitle}>Call Operations</h3>
-              <div className={styles.hcText}>+91 40 2345 6789</div>
-              <div className={styles.hcText}>+91 98765 43210 (WhatsApp)</div>
+              <div className={styles.hcText}><a href="tel:+914023456789">+91 40 2345 6789</a></div>
+              <div className={styles.hcText}><a href="https://wa.me/919876543210">+91 98765 43210 (WhatsApp)</a></div>
             </div>
             <div className={styles.hcCard} data-card-reveal>
               <div className={styles.hcIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
               </div>
               <h3 className={styles.hcTitle}>Email Admissions</h3>
-              <div className={styles.hcText}>admissions@avioraacademy.com</div>
+              <div className={styles.hcText}><a href="mailto:admissions@avioraacademy.com">admissions@avioraacademy.com</a></div>
               <div className={styles.hcText}>Response within 24 hours</div>
             </div>
             <div className={styles.hcCard} data-card-reveal>
               <div className={styles.hcIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" /></svg>
               </div>
               <h3 className={styles.hcTitle}>Campus Headquarters</h3>
-              <div className={styles.hcText}>3rd Floor, Skyline Plaza, Banjara Hills<br/>Hyderabad, Telangana — 500034</div>
+              <div className={styles.hcText}>3rd Floor, Skyline Plaza, Banjara Hills<br />Hyderabad, Telangana — 500034</div>
             </div>
           </div>
         </div>
@@ -405,7 +411,7 @@ export default function HomePage() {
 
       {/* ═══ CTA ═══ */}
       <section className={styles.ctaSection} id="cta">
-        <div className={styles.ctaWatermark} aria-hidden="true">AVIORA</div>
+
         <div className={`${styles.container} ${styles.ctaContainer}`}>
           <div className={styles.ctaEyebrowWrap}><div className={styles.eyebrowDark} style={{ opacity: 1, transform: 'none' }}>Ready for Departure</div></div>
           <h2 className={styles.ctaTitle}>Are You Ready to<br /><em>Take the Controls?</em></h2>
