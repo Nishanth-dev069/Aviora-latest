@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import CustomCursor from "@/components/CustomCursor";
 import AirplaneScrollbar from "@/components/AirplaneScrollbar";
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     default: 'Aviora Aviation Academy — Pilot Training & Cabin Crew in Hyderabad',
     template: '%s | Aviora Aviation Academy',
   },
-  description: 'India\'s premier aviation training institute. DGCA CPL, Cabin Crew, Global Training USA, and Type Rating. 2,400+ graduates. 98% placement rate. Hyderabad.',
+  description: 'India\'s premier aviation training institute. DGCA CPL, Cabin Crew, Global Training USA, and Type Rating. 100+ Graduates . 98% placement rate. Hyderabad.',
   keywords: ['pilot training India', 'DGCA CPL', 'cabin crew training Hyderabad', 'type rating India', 'aviation academy Hyderabad', 'commercial pilot training'],
   openGraph: {
     type: 'website',
@@ -33,6 +33,13 @@ export const metadata: Metadata = {
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({

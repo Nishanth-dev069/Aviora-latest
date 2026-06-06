@@ -7,32 +7,32 @@ const PHASES = [
     title: 'Pre-Departure Preparation',
     duration: '3 – 4 Weeks',
     location: 'Hyderabad, India',
-    detail: 'FAA airspace briefing · Visa support · FAA Class 3 medical coordination',
-    desc: 'Before you board your flight to Arizona, Aviora ensures you are fully prepared. Ground briefings cover FAA Part 91 rules, US airspace structure (Class A through G), ATC phraseology differences between DGCA and FAA, and VFR flight planning for American airspace. Medical coordination for FAA Class 3 medicals is handled by Aviora prior to departure. Visa (B1/B2 or M1) documentation support is included.',
+    detail: 'PPL Crash Course · <em>Visa Support</em> · FAA Class 1 medical coordination',
+    desc: 'Before you board your flight to California, Aviora ensures you are fully prepared. Ground briefings cover FAA Part 91 rules, US airspace structure (Class A through G), ATC phraseology differences between DGCA and FAA, and VFR flight planning for American airspace. Medical coordination for FAA Class 1 medicals is handled by Aviora prior to departure. <em>Visa Process</em> (M1) documentation support is included.',
   },
   {
     phase: 'Phase 2',
     title: 'PPL — Private Pilot Licence (USA)',
     duration: '6 – 10 Weeks',
-    location: 'Phoenix, Arizona, USA',
+    location: 'Sacramento , California , USA',
     detail: 'Cessna 172S · FAA Part 141 school · Aviora instructor accompanies',
-    desc: 'Training begins at Aviora\'s partner school in Phoenix, Arizona — a FAA Part 141-certified flight school with a fleet of Cessna 172S aircraft. An Aviora Indian instructor accompanies each batch for cultural continuity. You complete 40 hours minimum flight time toward FAA PPL — including 20 hours with instructor and 10 hours solo. FAA PPL written exam and practical test (checkride) conducted in the USA.',
+    desc: 'Training begins at Aviora\'s partner school in Sacramento , California , USA — a FAA Part 141-certified flight school with a fleet of Cessna 172S aircraft. An Aviora Indian instructor accompanies each batch for cultural continuity. You complete 40 hours minimum flight time toward FAA PPL — including 20 hours with instructor and 10 hours solo. FAA PPL written exam and practical test (checkride) conducted in the USA.',
   },
   {
     phase: 'Phase 3',
     title: 'Hour Building — Cross-Country & Solo',
     duration: '8 – 14 Weeks',
-    location: 'Arizona + Florida, USA',
+    location: 'Sacramento , California , USA',
     detail: '200 hours total target · Cross-country · Night hours · Simulated IMC',
-    desc: 'After PPL, cadets continue hour building to accumulate the 200 total hours required for DGCA CPL conversion. Hour building includes long cross-country flights across Arizona and Florida, night flying requirements, instrument flying under VFR (simulated IMC with hood), and dual cross-country flights. The open American airspace and year-round VMC weather allows cadets to fly multiple hours per day.',
+    desc: 'After PPL, cadets continue hour building to accumulate the 200 total hours required for DGCA CPL conversion. Hour building includes long cross-country flights across California, night flying requirements, instrument flying under VFR (simulated IMC with hood), and dual cross-country flights. The open American airspace and year-round VMC weather allows cadets to fly multiple hours per day.',
   },
   {
     phase: 'Phase 4',
     title: 'Multi-Engine Rating',
     duration: '2 – 3 Weeks',
-    location: 'Florida, USA',
-    detail: 'Piper Seminole PA-44 · VMC demo · Engine-out procedures · FAA certificate',
-    desc: 'The multi-engine add-on is conducted on the Piper Seminole PA-44 — the industry standard twin-engine trainer for CPL cadets worldwide. Training covers asymmetric thrust, engine-out procedures, Vmc demonstration, multi-engine cruise performance, and multi-engine IFR approaches. FAA Multi-Engine Add-On certificate awarded. This rating dramatically increases employability.',
+    location: 'Sacramento , California , USA',
+    detail: 'Piper Seneca · VMC demo · Engine-out procedures · FAA certificate',
+    desc: 'The multi-engine add-on is conducted on the Piper Seneca — the industry standard twin-engine trainer for CPL cadets worldwide. Training covers asymmetric thrust, engine-out procedures, Vmc demonstration, multi-engine cruise performance, and multi-engine IFR approaches. FAA Multi-Engine Add-On certificate awarded. This rating dramatically increases employability.',
   },
   {
     phase: 'Phase 5',
@@ -48,12 +48,12 @@ const WHY_USA = [
   {
     num: '01',
     title: 'Uncongested Airspace',
-    body: 'Indian metro airspace is saturated — student pilots frequently wait 45–90 minutes on the ground for IFR clearances. Phoenix, Arizona sits under Class D airspace with immediate access to vast VFR practice areas. You fly more hours in 8 weeks in Arizona than you would in 6 months in India.',
+    body: 'Indian metro airspace is saturated — student pilots frequently wait 45–90 minutes on the ground for IFR clearances. Sacramento, California sits under Class D airspace with immediate access to vast VFR practice areas. You fly more hours in 8 weeks in California than you would in 6 months in India.',
   },
   {
     num: '02',
-    title: '340+ VMC Days per Year',
-    body: 'Phoenix averages less than 8 inches of rainfall annually — meaning clear skies for VFR flying almost every day. Compare that to Indian monsoon seasons that ground flights for 3–4 months. Weather delays in Arizona are measured in hours, not weeks.',
+    title: '320 VMC Days per Year',
+    body: 'Sacramento averages less than 8 inches of rainfall annually — meaning clear skies for VFR flying almost every day. Compare that to Indian monsoon seasons that ground flights for 3–4 months. Weather delays in California are measured in hours, not weeks.',
   },
   {
     num: '03',
@@ -68,9 +68,9 @@ const WHY_USA = [
 ];
 
 const USA_STATS = [
-  { num: '340+', label: 'Days of VFR weather per year', sub: 'Phoenix, Arizona' },
+  { num: '320', label: 'Days of VFR weather per year', sub: 'Sacramento , California , USA' },
   { num: '200', label: 'Minimum flight hours', sub: 'DGCA CPL requirement' },
-  { num: 'FAA', label: 'Part 141 certified schools', sub: 'Partner schools in AZ + FL' },
+  { num: 'FAA', label: 'Part 141 certified school', sub: 'Partner School in California' },
   { num: '100%', label: 'DGCA-convertible hours', sub: 'Every FAA hour counts' },
 ];
 
@@ -98,7 +98,7 @@ export default function GlobalTrainingPage() {
           <h1 className={s.heroH1}>Global Training<br /><em>Program — USA</em></h1>
           <p className={s.heroSub}>Earn real flight hours in the United States on FAA-registered aircraft. Open airspace. Year-round VFR weather. Professional aviation infrastructure. Every hour fully convertible to your DGCA CPL.</p>
           <div className={s.heroBadges}>
-            {['3 – 6 Months', 'Phoenix AZ + Florida', 'C172 + Piper Seminole', 'DGCA Convertible'].map((b, i) => (
+            {['3 – 6 Months', 'Sacramento , California , USA', 'C172 + Piper Seneca', 'DGCA Convertible'].map((b, i) => (
               <span className={s.badge} key={i}>{b}</span>
             ))}
           </div>
@@ -168,8 +168,8 @@ export default function GlobalTrainingPage() {
       {/* GALLERY */}
       <div className={s.gallery}>
         {[
-          { src: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&q=80', cap: 'Pre-flight · Cessna 172 · Phoenix' },
-          { src: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=80', cap: 'Solo cross-country · Arizona VFR' },
+          { src: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&q=80', cap: 'Pre-flight · Cessna 172 · Sacramento' },
+          { src: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=80', cap: 'Solo cross-country · California VFR' },
           { src: 'https://images.unsplash.com/photo-1559628233-100c798642d8?w=900&q=80', cap: 'Glass cockpit · Instrument training' },
         ].map((g, i) => (
           <div className={s.galleryItem} key={i}>
@@ -194,7 +194,7 @@ export default function GlobalTrainingPage() {
               <Link href="/contact" className={s.btnOutline}>Talk to a Pilot</Link>
             </div>
             <div className={s.ctaTrust}>
-              <span>FAA Part 141 Schools</span>
+              <span>FAA Part 141 School</span>
               <span className={s.dot}>·</span>
               <span>DGCA Convertible Hours</span>
               <span className={s.dot}>·</span>

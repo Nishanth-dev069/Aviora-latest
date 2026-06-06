@@ -48,6 +48,16 @@ export default function Nav() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Prevent background scrolling when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => { document.body.style.overflow = ""; };
+    }, [isMobileMenuOpen]);
+
 
     const isExploreActive = pathname?.startsWith("/explore") || pathname?.startsWith("/gallery") || pathname?.startsWith("/blog") || pathname?.startsWith("/news");
     

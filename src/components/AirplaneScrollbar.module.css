@@ -4,7 +4,7 @@
     top: 0;
     height: 100vh;
     width: 28px;
-    z-index: 500;
+    z-index: 9999;
     pointer-events: none;
     display: flex;
     justify-content: center;
@@ -12,9 +12,10 @@
 
 .track {
     position: relative;
-    width: 2px;
+    width: 6px;
     height: 100%;
-    background-color: rgba(200, 169, 110, 0.12);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
     pointer-events: auto;
     cursor: pointer;
 }
@@ -22,6 +23,7 @@
 .progressFill {
     position: absolute;
     top: 0;
+    bottom: auto;
     left: 0;
     width: 100%;
     background-color: var(--color-secondary);
@@ -33,8 +35,8 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,9 +46,12 @@
 .planeIcon {
     width: 100%;
     height: 100%;
-    /* Rotate 90deg to face downward during scroll if desired, 
-     but actually 12,2 means it faces UP. Usually plane points UP.
-     If we want it to point DOWN, we rotate 180. 
-     We'll just leave it pointing up (0deg). */
-    transform: rotate(0deg);
+    transform: rotate(180deg);
 }
+
+/* Hide on mobile - touch devices use native scrolling */
+@media (max-width: 768px) {
+    .scrollbarContainer {
+        display: none;
+    }
+}

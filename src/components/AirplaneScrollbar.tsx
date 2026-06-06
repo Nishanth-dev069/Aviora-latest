@@ -37,11 +37,11 @@ export default function AirplaneScrollbar() {
             velocity *= 0.9;
 
             const trackHeight = trackRef.current ? trackRef.current.clientHeight : 0;
-            const planeHeight = 20; // 20px wide SVG mapped to height ~20px
+            const planeHeight = 28; // 28px wide SVG
             const yPos = progress * (trackHeight - planeHeight);
 
-            // Tilt plane based on velocity (max ±5deg)
-            const tilt = clamp(velocity * 0.1, -5, 5);
+            // Tilt plane based on velocity (max ±5deg). 
+            const tilt = clamp(velocity * 0.05, -5, 5);
 
             if (progressRef.current && planeRef.current) {
                 progressRef.current.style.height = `${progress * 100}%`;

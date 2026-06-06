@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: 'Does Aviora assist with airline placement after CPL?',
-    a: 'Yes — proactively. Our active Captain network includes screeners at 42 partner airlines. The Aviora Placement Cell runs mock interviews and sim assessments calibrated to specific airline selection profiles. Our 98% placement rate has held for six consecutive years.'
+    a: 'Yes — proactively. Our active Captain network includes screeners at 10 partner airlines. The Aviora Placement Cell runs mock interviews and sim assessments calibrated to specific airline selection profiles. Our 98% placement rate has held for six consecutive years.'
   },
   {
     q: 'Can I visit the campus before enrolling?',
@@ -289,7 +289,6 @@ export default function ContactPage() {
                 <div className={s.accredList}>
                   <span className={s.accredBadge}>DGCA India</span>
                   <span className={s.accredBadge}>FAA Recognised</span>
-                  <span className={s.accredBadge}>CAPA Member</span>
                 </div>
               </div>
             </div>

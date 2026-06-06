@@ -1,0 +1,27 @@
+fragment PostParts on Post {
+  __typename
+  title
+  tag
+  date
+  excerpt
+  readTime
+  body
+}
+
+fragment NewsParts on News {
+  __typename
+  title
+  tag
+  date
+  excerpt
+  source
+  body
+}
+
+fragment GalleryParts on Gallery {
+  __typename
+  src
+  alt
+  cat
+  caption
+}

@@ -10,11 +10,11 @@ import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
 const FRAME_COUNT = 242;
 const getFrameSrc = (i: number) => `/hero-sequence/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
 
-const TICKER_ITEMS = ['DGCA Certified', 'Cessna 172 Fleet', 'Level-D FBS Simulators', '98% Airline Placement', '42 Partner Airlines', '2,400+ Graduates', '140,000+ Flight Hours', 'International Training — USA'];
+const TICKER_ITEMS = ['End to End Process.', 'Cessna 172 Fleet', 'Fixed Based Simulators', '98% Airline Placement', '10 Partner Airlines', '100+ Graduates .', '5000+ Flight Hours.', 'International Training — USA'];
 const FACILITIES = [
   { icon: '◈', title: 'Aviation Classrooms', desc: 'Spacious, purpose-built classrooms with aviation charts, instrument panels, and reference materials — nothing like a school.' },
   { icon: '⬡', title: 'Digital Smart Labs', desc: 'Interactive digital classrooms with simulation software, weather systems, and real-time ATC feeds for ground school training.' },
-  { icon: '◎', title: 'FBS Flight Simulator', desc: 'Full flight simulation replicating the Cessna 172 cockpit in motion. Practice approaches, emergencies, and instrument flying.' },
+  { icon: '◎', title: 'Fixed Based Simulator', desc: 'Full flight simulation replicating the Cessna 172 cockpit in motion. Practice approaches, emergencies, and instrument flying.' },
   { icon: '◇', title: 'Grooming & Personality Lab', desc: 'A dedicated training space for cabin crew — full-length mirrors, airline grooming standards, mock presentation setups.' },
   { icon: '△', title: 'Aviation Resource Library', desc: 'Curated DGCA study material, ICAO documents, POH manuals, and pilot logbooks available 24/7 to enrolled students.' },
   { icon: '○', title: 'Airline Pilot Mentorship', desc: 'Direct one-on-one sessions with active airline pilots — not retired instructors. Real-world guidance at every stage.' },
@@ -33,29 +33,35 @@ const GLOBAL_FEATURES = [
 
 function PilotSilhouette() {
   return (
-    <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
-      <path d="M150 240 L20 160 L80 80 L150 60 L220 80 L280 160 Z" fill="currentColor" />
-      <path d="M150 60 L150 30 L170 50 L150 60Z" fill="currentColor" />
-      <ellipse cx="150" cy="145" rx="90" ry="60" fill="currentColor" opacity="0.5" />
-      <path d="M60 160 L20 180 L10 200 L60 190Z" fill="currentColor" />
-      <path d="M240 160 L280 180 L290 200 L240 190Z" fill="currentColor" />
-      <circle cx="150" cy="100" r="22" fill="currentColor" opacity="0.3" />
+    <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+      <path d="M473.6,260.6c-13.8-6.1-34.9-9.2-61.9-9.2H126.8c-26.6,0-46.7,3-58.8,8.8c-10.7,5.1-15.8,11.2-15.8,18.9
+               c0,8.2,5.5,14.6,16.8,19.9c12.5,5.8,32.8,8.8,59.3,8.8h286.7c26,0,45.8-2.9,58-8.5c11.5-5.3,17.2-11.6,17.2-19.5
+               C490.1,272,485.1,265.8,473.6,260.6z"/>
+      <path d="M211.9,183.1l-25.5,68.3h41.7l13.6-68.3H211.9z"/>
+      <path d="M375.4,142.2l-37.5,109.1h42l48.8-109.1H375.4z"/>
+      <path d="M184.2,251.4h-35.3L161,281h31L184.2,251.4z"/>
+      <path d="M126.8,225.1h284.9v-15.5H126.8c-18.4,0-36.2,1.3-51.5,3.7v11.8C90.6,225.1,107.5,225.1,126.8,225.1z"/>
+      <path d="M61.9,235.1v40H74v-40H61.9z"/>
     </svg>
   );
 }
 
 function CabinSilhouette() {
   return (
-    <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
-      <rect x="40" y="100" width="220" height="130" rx="8" fill="currentColor" />
-      <path d="M40 120 Q150 60 260 120" fill="currentColor" opacity="0.4" />
-      {[80, 120, 160, 200].map((x) => (
-        <g key={x}>
-          <rect x={x} y="130" width="25" height="40" rx="4" fill="currentColor" opacity="0.3" />
-          <rect x={x} y="185" width="25" height="30" rx="4" fill="currentColor" opacity="0.25" />
-        </g>
-      ))}
-      <rect x="40" y="225" width="220" height="5" rx="2" fill="currentColor" opacity="0.2" />
+    <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', transform: 'scale(1.2) translateY(20px)' }}>
+      {/* Flight Attendant Profile */}
+      <circle cx="256" cy="120" r="30" />
+      <path d="M226 100 Q256 70 286 100 L276 115 L236 115 Z" />
+      <path d="M226 160 C200 180 200 280 220 320 L240 320 L256 220 L272 320 L292 320 C312 280 312 180 286 160 Z" />
+      <path d="M276 160 Q296 170 286 190 Q276 180 266 160" />
+      <path d="M225 320 L210 440 L235 440 L245 320 Z" />
+      <path d="M265 320 L275 440 L300 440 L285 320 Z" />
+      {/* Luggage bag / Trolley */}
+      <rect x="130" y="280" width="60" height="150" rx="8" />
+      <circle cx="145" cy="440" r="10" />
+      <circle cx="175" cy="440" r="10" />
+      <path d="M160 280 L160 230 L180 230" stroke="currentColor" strokeWidth="8" fill="none" />
+      <path d="M226 180 L180 230" stroke="currentColor" strokeWidth="12" strokeLinecap="round" />
     </svg>
   );
 }
@@ -73,12 +79,12 @@ export default function HomePage() {
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const canvas = heroCanvasRef.current;
-    const scene  = heroSceneRef.current;
+    const scene = heroSceneRef.current;
     if (!canvas || !scene) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width  = window.innerWidth;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     const images: (HTMLImageElement | null)[] = new Array(FRAME_COUNT).fill(null);
@@ -91,7 +97,7 @@ export default function HomePage() {
       const cR = canvas!.width / canvas!.height;
       let dW = canvas!.width, dH = canvas!.height, oX = 0, oY = 0;
       if (cR > iR) { dH = canvas!.width / iR; oY = (canvas!.height - dH) / 2; }
-      else         { dW = canvas!.height * iR; oX = (canvas!.width - dW) / 2; }
+      else { dW = canvas!.height * iR; oX = (canvas!.width - dW) / 2; }
       ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
       ctx!.fillStyle = '#050E2D';
       ctx!.fillRect(0, 0, canvas!.width, canvas!.height);
@@ -108,7 +114,7 @@ export default function HomePage() {
       if (images[index]) return;
       const img = new Image();
       img.src = getFrameSrc(index);
-      img.onload  = () => { images[index] = img; if (index === currentFrame) renderFrame(index); };
+      img.onload = () => { images[index] = img; if (index === currentFrame) renderFrame(index); };
       img.onerror = () => { images[index] = null; };
     }
 
@@ -130,7 +136,7 @@ export default function HomePage() {
     }
 
     function handleResize() {
-      canvas!.width  = window.innerWidth;
+      canvas!.width = window.innerWidth;
       canvas!.height = window.innerHeight;
       renderFrame(currentFrame);
     }
@@ -147,7 +153,7 @@ export default function HomePage() {
     function onScroll() {
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
-        const rect   = scene!.getBoundingClientRect();
+        const rect = scene!.getBoundingClientRect();
         const sceneH = scene!.offsetHeight - window.innerHeight;
         if (sceneH <= 0) return;
         // progress: 0 when top of scene at top of viewport, 1 when bottom of scene at bottom
@@ -198,22 +204,22 @@ export default function HomePage() {
           {/* Hero Content Overlay */}
           <div className={styles.heroOverlay}>
             <div className={styles.heroContent}>
-              <div className={styles.heroEyebrow}>DGCA Certified · Est. 2009</div>
+              <div className={styles.heroEyebrow} style={{ color: '#DDE3EA', whiteSpace: 'nowrap', fontSize: '11px', letterSpacing: '0.45em' }}>Est. 2025, South India's Biggest Aviation Facility</div>
               <h1 className={styles.heroH1}>
-                Where Legends<br />Learn to <em>Command</em><br />the Sky.
+                <span style={{ color: '#FFFFFF' }}>Born to Fly.</span><br /><em>Trained to Lead.</em>
               </h1>
               <p className={styles.heroBody}>
                 From first flight to airline captain — Aviora trains India&apos;s finest pilots with uncompromising standards, elite instructors, and a Cessna 172 fleet that rivals the best.
               </p>
               <div className={styles.heroCtas}>
                 <Link href="/programs/pilot-training" className={styles.btnHeroPrimary}>Explore Pilot Training</Link>
-                <Link href="/admissions" className={styles.btnHeroOutline}>Apply for 2025</Link>
+                <Link href="/admissions" className={styles.btnHeroOutline}>Apply For The Next Batch</Link>
               </div>
             </div>
           </div>
           <div className={styles.heroScrollHint}>
-            <span>Scroll to Take Off</span>
-            <div className={styles.heroScrollLine} />
+            <span style={{ color: '#2F80ED', letterSpacing: '0.2em', textShadow: '0 0 12px rgba(47,128,237,0.35)' }}>Scroll to Take Off</span>
+            <div className={styles.heroScrollLine} style={{ background: 'rgba(47,128,237,0.4)', boxShadow: '0 0 8px rgba(47,128,237,0.2)' }} />
           </div>
         </div>
       </section>
@@ -242,20 +248,21 @@ export default function HomePage() {
             <p className={styles.sectionSub}>Every Aviora program is engineered by veteran captains who commanded the exact aircraft you are training for.</p>
           </RevealOnScroll>
           <div className={styles.programsGrid}>
-            <div className={styles.programCard} data-card-reveal>
+            <div className={`${styles.programCard} ${styles.pilotCard}`} data-card-reveal>
+              <div className={styles.pcAccentLine} />
               <div className={styles.pcInner}>
                 <div className={styles.pcNum}>01</div><div className={styles.pcBadge}>Pilot Training</div>
                 <h3 className={styles.pcTitle}>Commercial Pilot<br /><em>Licence Program</em></h3>
                 <p className={styles.pcDesc}>Your command begins here. From DGCA ground school preparation to international flight training in the United States — a complete Zero to Hero pathway guided by airline captains.</p>
-                <ul className={styles.pcHighlights}><li>DGCA Ground School — all 5 subjects</li><li>Flight Based Simulator (FBS) Training</li><li>International Training in the USA</li><li>Airline mentorship &amp; career placement</li></ul>
+                <ul className={styles.pcHighlights}><li>DGCA Ground School — all 6 Subjects</li><li>Fixed Based Simulator (FBS) Training</li><li>International Training in the USA</li><li>Airline mentorship &amp; career placement</li></ul>
                 <div className={styles.pcFooter}>
                   <Link href="/programs/pilot-training" className={styles.btnProgram}><span>Explore Pilot Training</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
                   <div className={styles.pcMeta}>CPL · ATP Pathway</div>
                 </div>
               </div>
-              <div className={styles.pcVisual} style={{ color: 'var(--navy)' }}><PilotSilhouette /></div>
             </div>
-            <div className={styles.programCard} data-card-reveal>
+            <div className={`${styles.programCard} ${styles.cabinCard}`} data-card-reveal>
+              <div className={styles.pcAccentLine} />
               <div className={styles.pcInner}>
                 <div className={styles.pcNum}>02</div><div className={styles.pcBadge}>Cabin Crew</div>
                 <h3 className={styles.pcTitle}>Cabin Crew<br /><em>Training Program</em></h3>
@@ -266,7 +273,6 @@ export default function HomePage() {
                   <div className={styles.pcMeta}>6-Month Intensive</div>
                 </div>
               </div>
-              <div className={styles.pcVisual} style={{ color: 'var(--navy)' }}><CabinSilhouette /></div>
             </div>
           </div>
         </div>
@@ -294,9 +300,9 @@ export default function HomePage() {
             {MENTORS.map((m, i) => (<div className={styles.mentorCard} key={i} data-card-reveal><div className={styles.mcAvatar}>{m.initials}</div><div className={styles.mcInfo}><div className={styles.mcName}>{m.name}</div><div className={styles.mcRole}>{m.role}</div><div className={styles.mcHours}>{m.hours} hours total time</div></div><p className={styles.mcBio}>{m.bio}</p><div className={styles.mcAirlines}>{m.airlines.map((a, j) => <span className={styles.mcAirlineTag} key={j}>{a}</span>)}</div></div>))}
           </div>
           <div className={styles.mentorsStrip}>
-            <div className={styles.msStat}><span className={styles.msNum}>18,000+</span><span className={styles.msLabel}>Avg. Instructor Hours</span></div>
+            <div className={styles.msStat}><span className={styles.msNum}>5,000+</span><span className={styles.msLabel}>Avg. Instructor Hours</span></div>
             <div className={styles.msDivider} />
-            <div className={styles.msStat}><span className={styles.msNum}>12</span><span className={styles.msLabel}>Active Airline Captains</span></div>
+            <div className={styles.msStat}><span className={styles.msNum}>5</span><span className={styles.msLabel}>Active Airline Captains</span></div>
             <div className={styles.msDivider} />
             <div className={styles.msStat}><span className={styles.msNum}>6</span><span className={styles.msLabel}>Type Ratings Between Them</span></div>
           </div>
@@ -317,21 +323,19 @@ export default function HomePage() {
           </div>
           <div className={styles.globalVisual}>
             <div className={styles.globalMapContainer}>
-              <svg className={styles.usMap} viewBox="0 0 400 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M40,60 L80,40 L140,35 L200,38 L260,40 L310,50 L350,65 L360,100 L355,140 L340,170 L300,185 L260,190 L220,195 L180,190 L140,185 L100,175 L60,160 L35,130 L30,95 Z" stroke="rgba(200,150,62,0.25)" strokeWidth="1.5" fill="rgba(200,150,62,0.04)" />
-                <line x1="160" y1="38" x2="165" y2="185" stroke="rgba(200,150,62,0.07)" strokeWidth="1" /><line x1="240" y1="40" x2="245" y2="188" stroke="rgba(200,150,62,0.07)" strokeWidth="1" /><line x1="40" y1="110" x2="355" y2="118" stroke="rgba(200,150,62,0.07)" strokeWidth="1" />
-                <circle cx="120" cy="155" r="5" fill="var(--gold)" opacity="0.9" /><circle cx="120" cy="155" r="12" stroke="var(--gold)" strokeWidth="1" opacity="0.3" /><circle cx="120" cy="155" r="20" stroke="var(--gold)" strokeWidth="0.5" opacity="0.15" />
-                <circle cx="280" cy="130" r="4" fill="var(--gold)" opacity="0.7" /><circle cx="280" cy="130" r="10" stroke="var(--gold)" strokeWidth="1" opacity="0.25" />
-                <path d="M120,155 Q200,60 280,130" stroke="rgba(200,150,62,0.3)" strokeWidth="1" strokeDasharray="4 6" fill="none" />
-                <text x="100" y="175" fill="rgba(200,150,62,0.5)" fontSize="9" fontFamily="Space Mono, monospace" letterSpacing="2">PHOENIX</text>
-                <text x="260" y="148" fill="rgba(200,150,62,0.5)" fontSize="9" fontFamily="Space Mono, monospace" letterSpacing="2">FLORIDA</text>
-              </svg>
+              <div className={styles.mapWrapper}>
+                <img src="/us-map.svg" alt="United States Training Locations" className={styles.usMapImage} />
+                <div className={styles.caliLabel}>
+                  <div className={styles.caliDot} />
+                  <span>Sacramento, CA</span>
+                </div>
+              </div>
               <div className={styles.mapLabel}>Active Training Locations</div>
             </div>
             <div className={styles.globalStats}>
               <div className={styles.gsItem}><div className={styles.gsNum}>FAA</div><div className={styles.gsLabel}>Licensed Training Airports</div></div>
-              <div className={styles.gsItem}><div className={styles.gsNum}>VFR+</div><div className={styles.gsLabel}>300 Days Flying Weather</div></div>
-              <div className={styles.gsItem}><div className={styles.gsNum}>DGCA</div><div className={styles.gsLabel}>Hours Count Toward CPL</div></div>
+              <div className={styles.gsItem}><div className={styles.gsNum}>VFR+</div><div className={styles.gsLabel}>320 Days Flying Weather</div></div>
+              <div className={styles.gsItem}><div className={styles.gsNum}>DGCA</div><div className={styles.gsLabel}>Hasel free licence convertion to Indian or DGCA CPL.</div></div>
             </div>
           </div>
         </div>
@@ -342,7 +346,7 @@ export default function HomePage() {
         <div className={styles.container}>
           <div className={styles.legacyHeader}><div className={styles.eyebrowDark}>By the Numbers</div><h2 className={styles.sectionTitleDark}>Decades of Excellence,<br /><em>Measured in Altitude</em></h2></div>
           <div className={styles.statsGrid}>
-            {[{ target: 2400, suffix: '+', label: 'Pilots Graduated' }, { target: 98, suffix: '%', label: 'Placement Rate' }, { target: 140, suffix: 'K+', label: 'Flight Hours Logged' }, { target: 42, suffix: '+', label: 'Airline Partners' }].map((stat, i) => (
+            {[{ target: 100, suffix: '+', label: 'Pilots Graduated' }, { target: 98, suffix: '%', label: 'Placement Rate' }, { target: 5000, suffix: '+', label: 'Flight Hours Logged' }, { target: 10, suffix: '+', label: 'Airline Partners' }].map((stat, i) => (
               <div key={i} className={styles.statItem} data-stat data-target={stat.target} data-suffix={stat.suffix}><div className={styles.statNumber} data-stat-num>0</div><div className={styles.statLabel}>{stat.label}</div></div>
             ))}
           </div>
@@ -375,31 +379,31 @@ export default function HomePage() {
         <div className={styles.container}>
           <div className={styles.sectionHead} style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div className={styles.eyebrowLight}>Operations & Enquiries</div>
-            <h2 className={styles.sectionTitle}>Get in Touch with <em>Aviora</em></h2>
+            <h2 className={styles.sectionTitle} style={{ color: 'white' }}>Get in Touch with <em>Aviora</em></h2>
           </div>
           <div className={styles.hcGrid}>
             <div className={styles.hcCard} data-card-reveal>
               <div className={styles.hcIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
               </div>
               <h3 className={styles.hcTitle}>Call Operations</h3>
-              <div className={styles.hcText}>+91 40 2345 6789</div>
-              <div className={styles.hcText}>+91 98765 43210 (WhatsApp)</div>
+              <div className={styles.hcText}><a href="tel:+914023456789">+91 40 2345 6789</a></div>
+              <div className={styles.hcText}><a href="https://wa.me/919876543210">+91 98765 43210 (WhatsApp)</a></div>
             </div>
             <div className={styles.hcCard} data-card-reveal>
               <div className={styles.hcIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
               </div>
               <h3 className={styles.hcTitle}>Email Admissions</h3>
-              <div className={styles.hcText}>admissions@avioraacademy.com</div>
+              <div className={styles.hcText}><a href="mailto:admissions@avioraacademy.com">admissions@avioraacademy.com</a></div>
               <div className={styles.hcText}>Response within 24 hours</div>
             </div>
             <div className={styles.hcCard} data-card-reveal>
               <div className={styles.hcIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" /></svg>
               </div>
               <h3 className={styles.hcTitle}>Campus Headquarters</h3>
-              <div className={styles.hcText}>3rd Floor, Skyline Plaza, Banjara Hills<br/>Hyderabad, Telangana — 500034</div>
+              <div className={styles.hcText}>3rd Floor, Skyline Plaza, Banjara Hills<br />Hyderabad, Telangana — 500034</div>
             </div>
           </div>
         </div>
@@ -407,13 +411,13 @@ export default function HomePage() {
 
       {/* ═══ CTA ═══ */}
       <section className={styles.ctaSection} id="cta">
-        <div className={styles.ctaWatermark} aria-hidden="true">AVIORA</div>
+
         <div className={`${styles.container} ${styles.ctaContainer}`}>
           <div className={styles.ctaEyebrowWrap}><div className={styles.eyebrowDark} style={{ opacity: 1, transform: 'none' }}>Ready for Departure</div></div>
           <h2 className={styles.ctaTitle}>Are You Ready to<br /><em>Take the Controls?</em></h2>
           <p className={styles.ctaBody}>The cockpit waits only for those serious about the sky. Our 2025 intake is extremely limited — reserve your assessment today.</p>
           <div className={styles.ctaButtons}><Link href="/admissions" className={styles.btnCtaPrimary}>Enroll for 2025</Link><Link href="/contact" className={styles.btnCtaOutline}>Send an Enquiry</Link></div>
-          <div className={styles.ctaTrust}><span>DGCA Certified</span><span className={styles.trustDot}>·</span><span>42 Airline Partners</span><span className={styles.trustDot}>·</span><span>98% Placement</span></div>
+          <div className={styles.ctaTrust}><span>South Indian's Biggest Aviation Facility</span><span className={styles.trustDot}>·</span><span>10 Airline Partners</span><span className={styles.trustDot}>·</span><span>98% Placement</span></div>
         </div>
       </section>
     </>

@@ -364,3 +364,33 @@
   transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
 }
 .underlineReveal:hover::after { width: 100%; }
+
+/* ═══════════════════════════════════════════════
+   MOBILE GLOBALS
+   ═══════════════════════════════════════════════ */
+
+/* Restore natural cursor on touch/mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  body { cursor: auto !important; }
+  * { cursor: auto !important; }
+
+  /* Larger tap targets */
+  a, button { min-height: 44px; }
+
+  /* Disable hover-only transforms on touch */
+  .cardLift:hover { transform: none; box-shadow: none; }
+  .arrowLink:hover { gap: 8px; }
+  .underlineReveal:hover::after { width: 0; }
+}
+
+/* ── Prevent text overflow on small screens ── */
+@media (max-width: 768px) {
+  * { word-break: break-word; }
+
+  /* Consistent section padding on mobile */
+  section, .section { padding-left: 20px; padding-right: 20px; }
+  
+  /* Prevent fixed elements from causing layout issues */
+  img { max-width: 100%; height: auto; }
+}
+

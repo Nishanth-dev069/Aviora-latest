@@ -9,14 +9,14 @@ import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
 const PARTNERS = [
   { name: "IndiGo Airlines", short: "IG" },
   { name: "Air India", short: "AI" },
-  { name: "Vistara", short: "VS" },
+  { name: "Fly91", short: "F9" },
   { name: "SpiceJet", short: "SJ" },
   { name: "Qatar Airways", short: "QA" },
   { name: "Emirates", short: "EK" },
   { name: "Akasa Air", short: "AK" },
-  { name: "AirAsia India", short: "AA" },
+  { name: "StarAir", short: "SA" },
   { name: "Etihad Airways", short: "EY" },
-  { name: "Go First", short: "GF" },
+  { name: "FlyBig", short: "FB" },
 ];
 
 const ONBOARDING_7_DAY = [
@@ -62,16 +62,6 @@ const ONBOARDING_7_DAY = [
   },
   {
     day: '5',
-    title: 'Aptitude & Psychometric Assessment',
-    desc: 'A standardized 60-minute online assessment covering logical reasoning, spatial awareness, and basic physics/math (for pilots), alongside a psychometric profile to ensure candidates possess the resilience required for airline training environments.',
-    metrics: [
-      { label: 'Format', value: 'Online MCQ Test' },
-      { label: 'Duration', value: '60 Minutes' },
-      { label: 'Cut-off', value: '70% Minimum Score' }
-    ]
-  },
-  {
-    day: '6',
     title: 'Final Selection & Offer Letter',
     desc: 'The academy\'s selection board reviews the candidate\'s complete profile—comprising the interview, document checks, and aptitude scores. Successful candidates receive a formal Offer Letter outlining program details, start dates, and fee schedules.',
     metrics: [
@@ -81,7 +71,7 @@ const ONBOARDING_7_DAY = [
     ]
   },
   {
-    day: '7',
+    day: '6',
     title: 'Enrollment & Seat Confirmation',
     desc: 'The candidate signs the enrollment agreement and pays the initial seat reservation deposit. Upon confirmation, Aviora dispatches the official Welcome Kit, accesses to the cadet portal, and assigns the candidate to their incoming training batch.',
     metrics: [
@@ -97,7 +87,7 @@ const ELIGIBILITY = [
     program: 'Pilot Training',
     href: '/programs/pilot-training',
     items: [
-      '10+2 with Physics and Mathematics — minimum 50% aggregate',
+      '10+2 with Physics and Mathematics',
       'Minimum age: 17 years at time of first solo flight',
       'DGCA Class 2 Medical Certificate — Aviora assists with AME referral',
       'Valid passport required for USA flight training (Aviora assists)',
@@ -108,7 +98,7 @@ const ELIGIBILITY = [
     program: 'Cabin Crew',
     href: '/programs/cabin-crew',
     items: [
-      '10+2 any stream — minimum 50% aggregate',
+      '10+2 any stream',
       'Minimum age: 18 years at time of application',
       'Height: minimum 157.5 cm (Female) · 170 cm (Male)',
       'Standard fitness — no aviation medical certificate required',
@@ -119,7 +109,7 @@ const ELIGIBILITY = [
     program: 'Global Training',
     href: '/programs/global-training',
     items: [
-      '10+2 with Physics and Mathematics — minimum 50% aggregate',
+      '10+2 with Physics and Mathematics',
       'Minimum age: 18 years at time of application',
       'DGCA Class 1 Medical Certificate (FAA standard) — Aviora assists',
       'Valid passport mandatory — USA & international travel required',
@@ -148,7 +138,7 @@ const INTAKES = [
 const FAQS = [
   {
     q: 'Can I apply if I have failed in Physics or Maths in 10+2?',
-    a: 'You must have passed Physics and Mathematics at 10+2 level with minimum 50% aggregate. Compartment or supplementary passes are accepted once results are formally declared.',
+    a: 'You must have passed Physics and Mathematics at 10+2 level. Compartment or supplementary passes are accepted once results are formally declared.',
   },
   {
     q: 'Do I need to arrange my own DGCA medical?',
@@ -250,7 +240,7 @@ export default function AdmissionsPage() {
         </div>
 
         <div className={s.heroContent}>
-          <span className={s.heroEyebrow}>ADMISSIONS · AY 2025–26</span>
+          <span className={s.heroEyebrow}>ADMISSIONS · AY 2026–27</span>
           <h1 className={s.heroH1}>Your Flight Plan<br /><em>Starts Here.</em></h1>
           <p className={s.heroPara}>
             Join India's elite aviation academy. Seats are limited — secure yours before the runway closes. Applications take under 10 minutes.
@@ -408,12 +398,13 @@ export default function AdmissionsPage() {
                     <div className={s.applyFieldGroup}>
                       <label className={s.applyLabel}>Program of Interest</label>
                       <select className={s.applySelect} name="program" value={formData.program} onChange={handleInputChange} required>
-                        <option value="">Select a program</option>
-                        <option value="cpl">Commercial Pilot — CPL</option>
-                        <option value="ppl">Private Pilot — PPL</option>
-                        <option value="cabin">Cabin Crew Program</option>
-                        <option value="type">Type Rating</option>
-                        <option value="unsure">Not sure yet</option>
+                        <option value="" disabled>Select a program</option>
+                        <option value="DGCA Ground School">DGCA Ground School</option>
+                        <option value="Integrated CPL Program">Integrated CPL Program</option>
+                        <option value="Foreign Licence Conversion">Foreign Licence Conversion</option>
+                        <option value="Cabin Crew Program">Cabin Crew Program</option>
+                        <option value="Type Rating">Type Rating</option>
+                        <option value="Not Sure">Not Sure</option>
                       </select>
                     </div>
                     <div className={s.applyFieldGroup}>

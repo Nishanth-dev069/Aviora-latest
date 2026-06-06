@@ -7,5 +7,5 @@ export const CONTACT_ADDRESS_LINE_2 = "Hyderabad, Telangana, India";
 export const OFFICE_HOURS_WEEKDAY = "9:00 AM – 7:00 PM";
 export const OFFICE_HOURS_SATURDAY = "9:00 AM – 5:00 PM";
 export const FOUNDATION_YEAR = "2014";
-export const TOTAL_GRADUATES_STAT = "2,400+";
+export const TOTAL_GRADUATES_STAT = "100+ Graduates .";
 export const PLACEMENT_RATE_STAT = "98%";
