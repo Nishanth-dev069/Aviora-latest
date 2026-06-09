@@ -59,7 +59,7 @@ export default function CabinCrewPage() {
       {/* HERO */}
       <section className={s.hero}>
         <div className={s.heroBg}>
-          <img src="https://images.unsplash.com/photo-1540339832862-474599807836?w=1920&q=80" alt="Cabin Crew" className={s.heroBgImg} style={{ objectPosition: 'center 30%' }} />
+          <img src="/programs/cabin-crew.png" alt="Cabin Crew" className={s.heroBgImg} style={{ objectPosition: 'center 30%' }} />
           <div className={s.heroOverlay} />
         </div>
         <div className={s.heroContent}>
@@ -159,9 +159,9 @@ export default function CabinCrewPage() {
       {/* GALLERY */}
       <div className={s.gallery}>
         {[
-          { src: 'https://images.unsplash.com/photo-1540339832862-474599807836?w=900&q=80', cap: 'In-Flight Service' },
-          { src: 'https://images.unsplash.com/photo-1569032549301-52b3112bd2fc?w=900&q=80', cap: 'Safety & Emergency' },
-          { src: 'https://images.unsplash.com/photo-1628108426027-3806eb553bb8?w=900&q=80', cap: 'Airline Grooming' },
+          { src: '/gallery/SIV03084.webp', cap: 'In-Flight Service' },
+          { src: '/gallery/SIV03085.webp', cap: 'Safety & Emergency' },
+          { src: '/gallery/SIV03086.webp', cap: 'Airline Grooming' },
         ].map((g, i) => (
           <div className={s.galleryItem} key={i}>
             <img src={g.src} alt={g.cap} className={s.galleryImg} loading="lazy" />

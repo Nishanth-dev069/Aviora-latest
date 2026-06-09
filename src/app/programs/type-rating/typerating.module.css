@@ -42,6 +42,9 @@
 .heroContent {
     position: relative;
     z-index: 2;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
     padding: 160px 80px 0;
 }
 
@@ -89,6 +92,7 @@
     line-height: 0.98;
     letter-spacing: -0.02em;
     margin: 0 0 24px;
+    max-width: 780px;
 }
 
 .heroH1 em { font-style: italic; color: var(--color-secondary); }
@@ -211,17 +215,17 @@
 .aircraftGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(200, 150, 62, 0.08);
-    border: 1px solid rgba(200, 150, 62, 0.08);
+    gap: 24px;
 }
 
 .aircraftCard {
-    background: var(--color-accent);
+    background: #0A1628;
+    border: 1px solid rgba(200, 150, 62, 0.15);
+    border-radius: 12px;
     padding: 52px 44px;
     position: relative;
     overflow: hidden;
-    transition: background 0.3s;
+    transition: all 0.4s ease;
 }
 
 .aircraftCard::after {
@@ -235,7 +239,12 @@
 }
 
 .aircraftCard:hover::after { transform: scaleX(1); }
-.aircraftCard:hover { background: rgba(200, 150, 62, 0.04); }
+.aircraftCard:hover { 
+    background: #112341;
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(200, 150, 62, 0.4);
+}
 
 .aircraftCardTop {
     display: flex;
@@ -360,12 +369,11 @@
 
 .partnersH2 em { font-style: italic; color: var(--color-secondary); }
 
-.tabBar {
+.partnerTabs {
     display: flex;
-    gap: 1px;
-    border: 1px solid rgba(200, 150, 62, 0.15);
-    width: fit-content;
+    gap: 12px;
     margin-bottom: 48px;
+    flex-wrap: wrap;
 }
 
 .tabBtn {
@@ -373,19 +381,25 @@
     font-size: 14px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    padding: 14px 28px;
-    background: transparent;
-    color: #F1F1F1;
-    border: none;
+    padding: 14px 32px;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
 }
 
-.tabBtn:hover { color: var(--color-secondary); }
+.tabBtn:hover { 
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.25);
+}
 
 .tabActive {
     background: var(--color-secondary) !important;
     color: #000 !important;
+    border-color: var(--color-secondary) !important;
     font-weight: 700;
 }
 
@@ -397,17 +411,21 @@
 }
 
 .partnerCard {
-    background: #050E2D;
-    border: 1px solid rgba(200, 150, 62, 0.1);
-    padding: 44px 40px;
+    background: #020617;
+    border: 1px solid rgba(200, 150, 62, 0.2);
+    border-radius: 16px;
+    padding: 48px 40px;
     display: flex;
     flex-direction: column;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .partnerCard:hover {
-    border-color: rgba(200, 150, 62, 0.3);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    background: #0F172A;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(200, 150, 62, 0.4);
+    border-color: rgba(200, 150, 62, 0.5);
 }
 
 .partnerTop {
@@ -448,11 +466,20 @@
 
 .partnerPrice {
     font-family: var(--font-display), serif;
-    font-size: 44px;
-    font-weight: 300;
+    font-size: 36px;
+    font-weight: 400;
     color: var(--color-secondary);
     line-height: 1;
     margin-bottom: 4px;
+}
+
+.partnerContactText {
+    font-family: var(--font-body), sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--color-secondary);
+    margin-bottom: 32px;
+    line-height: 1.6;
 }
 
 .partnerCurrency {
@@ -588,9 +615,19 @@
 }
 
 .eligCard {
-    background: rgba(5, 14, 45, 0.5);
-    border: 1px solid rgba(200, 150, 62, 0.1);
+    background: linear-gradient(145deg, #08112A 0%, #030818 100%);
+    border: 1px solid rgba(200, 150, 62, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
     padding: 56px 52px;
+    transition: all 0.4s ease;
+}
+
+.eligCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    border-color: rgba(200, 150, 62, 0.3);
+    background: linear-gradient(145deg, #0A1635 0%, #040A1F 100%);
 }
 
 .eligH3 {
@@ -625,11 +662,21 @@
 .eligArrow { color: var(--color-secondary); flex-shrink: 0; font-size: 16px; margin-top: 2px; }
 
 .ctaCard {
-    background: var(--color-accent);
-    border: 1px solid rgba(200, 150, 62, 0.1);
+    background: linear-gradient(145deg, #0D1B3E 0%, #050A1F 100%);
+    border: 1px solid rgba(200, 150, 62, 0.3);
+    box-shadow: 0 12px 40px rgba(200, 150, 62, 0.08);
+    border-radius: 16px;
     padding: 56px 52px;
     display: flex;
     flex-direction: column;
+    transition: all 0.4s ease;
+}
+
+.ctaCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    border-color: rgba(200, 150, 62, 0.5);
+    background: linear-gradient(145deg, #0F1E4A 0%, #060C26 100%);
 }
 
 .ctaCardEye {
@@ -691,6 +738,7 @@
     font-weight: 700;
     transition: transform 0.2s, box-shadow 0.2s;
     display: inline-block;
+    white-space: nowrap;
 }
 
 .btnPrimary:hover {
@@ -709,6 +757,7 @@
     text-decoration: none;
     transition: all 0.3s;
     display: inline-block;
+    white-space: nowrap;
 }
 
 .btnOutline:hover {
@@ -727,9 +776,8 @@
 }
 
 @media (max-width: 768px) {
-    .heroContent { padding: 120px 24px 0; }
-    .heroH1 { font-size: clamp(32px, 9vw, 52px); }
-    .heroSub { font-size: 14px; }
+    .heroContent { padding: 120px 20px 0; }
+    .heroH1 { font-size: clamp(28px, 8vw, 42px); margin-bottom: 16px; line-height: 1.1; }
     .heroCtas { flex-direction: column; gap: 12px; }
     .heroCtas > * { width: 100%; text-align: center; }
     .heroBadges { flex-wrap: wrap; gap: 8px; }

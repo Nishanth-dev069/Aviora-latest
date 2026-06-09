@@ -60,14 +60,14 @@ export default function Nav() {
 
 
     const isExploreActive = pathname?.startsWith("/explore") || pathname?.startsWith("/gallery") || pathname?.startsWith("/blog") || pathname?.startsWith("/news");
-    
+
     // Determine if page has a dark hero where transparency overlay is preferred before scroll
     const isDarkHero = pathname === "/" || pathname === "/admissions" || pathname === "/programs" || pathname?.startsWith("/programs/");
 
     return (
         <nav id="main-nav" suppressHydrationWarning className={`${styles.nav} ${isScrolled ? styles.scrolled : (isDarkHero ? styles.navHeroDark : "")}`}>
             <Link href="/" className={styles.navLogo}>
-                AVIORA
+                <img src="/logos/Aviora%20White%20text%20Logo.PNG" alt="Aviora Aviation Academy" className={styles.navLogoImg} />
             </Link>
 
             <ul className={styles.navLinks}>
@@ -120,10 +120,10 @@ export default function Nav() {
             </ul>
 
             <Link href="/admissions" className={styles.navCta}>
-                Apply Now
+                    Enroll Now
             </Link>
 
-            <div 
+            <div
                 className={`${styles.navHamburger} ${isMobileMenuOpen ? styles.isOpen : ""}`}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
@@ -152,7 +152,7 @@ export default function Nav() {
                     </li>
                 </ul>
                 <Link href="/admissions" className={`${styles.navCta} ${styles.mobileOverlayCta}`} onClick={() => setIsMobileMenuOpen(false)}>
-                    Apply Now
+                        Enroll Now
                 </Link>
             </div>
         </nav>

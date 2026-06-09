@@ -38,20 +38,24 @@
 }
 
 .btnPrimary {
-  font-family: var(--font-body), sans-serif; font-size: 15px; font-weight: 600;
-  letter-spacing: 0.10em; text-transform: uppercase; padding: 14px 44px;
-  background: var(--color-accent); color: var(--color-surface); text-decoration: none;
-  transition: background 0.25s, transform 0.2s; display: inline-block; border: none; cursor: pointer;
+  font-family: var(--font-mono), monospace; font-size: 14px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase; padding: 16px 44px;
+  background: var(--color-secondary); color: #000; text-decoration: none;
+  transition: all 0.3s; display: inline-block; border: none; cursor: pointer; border-radius: 8px; white-space: nowrap;
 }
-.btnPrimary:hover { background: var(--color-secondary); transform: translateY(-1px); }
+.btnPrimary:hover {
+  transform: translateY(-2px); box-shadow: 0 8px 24px rgba(100, 145, 222, 0.35); background: #fff;
+}
 
 .btnSecondary {
-  font-family: var(--font-body), sans-serif; font-size: 15px; font-weight: 600;
-  letter-spacing: 0.10em; text-transform: uppercase; padding: 14px 36px;
-  border: 1.5px solid rgba(255, 255, 255, 0.55); color: #ffffff;
-  text-decoration: none; transition: all 0.25s; display: inline-block;
+  font-family: var(--font-mono), monospace; font-size: 14px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase; padding: 16px 36px;
+  border: 1px solid rgba(100, 145, 222, 0.5); color: #fff;
+  text-decoration: none; transition: all 0.3s; display: inline-block; border-radius: 8px; white-space: nowrap;
 }
-.btnSecondary:hover { border-color: var(--color-secondary); background: rgba(100,145,222,0.12); color: var(--color-secondary); }
+.btnSecondary:hover {
+  border-color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-2px);
+}
 
 /* ── HERO ── */
 .hero {
@@ -73,14 +77,14 @@
   background: linear-gradient(135deg, rgba(7,61,127,0.55) 0%, rgba(13,27,42,0.60) 100%);
 }
 .heroContent {
-  position: relative; z-index: 2; max-width: 780px; padding: 0 80px; flex: 1;
+  position: relative; z-index: 2; max-width: 1280px; width: 100%; margin: 0 auto; padding: 0 80px; flex: 1;
   display: flex; flex-direction: column; justify-content: center;
 }
 .heroH1 {
   font-family: var(--font-display), sans-serif;
   font-size: clamp(42px, 8.5vw, 108px); font-weight: 800; color: #F1F1F1;
   line-height: 1.0; letter-spacing: -0.020em; margin-bottom: 28px;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4); max-width: 780px;
 }
 .heroH1 em { font-style: italic; color: var(--color-secondary); }
 .heroPara {
@@ -329,24 +333,30 @@
   font-weight: 600; color: var(--color-accent); margin-bottom: 8px;
 }
 .teamNote {
-  font-family: var(--font-body), sans-serif; font-size: 14px;
-  letter-spacing: 0.08em; text-transform: uppercase; color: rgba(13, 27, 42, 0.60);
-  line-height: 1.7; font-weight: 400;
+  font-family: var(--font-body), sans-serif; font-size: 15px;
+  color: rgba(13, 27, 42, 0.70); line-height: 1.8; font-weight: 400;
 }
 
 /* ── BOTTOM CTA ── */
 .bottomCta {
-  padding: 120px 80px; background: var(--color-accent);
+  padding: 140px 80px;
+  background: linear-gradient(145deg, #020617 0%, #071530 100%);
   position: relative; overflow: hidden;
 }
 .bottomCta::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 55% 65% at 50% 50%, rgba(30,144,255,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 100%, rgba(100, 145, 222, 0.15) 0%, transparent 60%);
   pointer-events: none;
 }
 .bottomCtaInner {
-  max-width: 1280px; margin: 0 auto; position: relative; z-index: 1;
+  max-width: 1000px; margin: 0 auto; position: relative; z-index: 1;
   text-align: center; display: flex; flex-direction: column; align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 80px 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 .bottomCtaH2 {
   font-family: var(--font-display), sans-serif;
@@ -366,8 +376,8 @@
 }
 @media (max-width: 768px) {
   .hero, .storySection, .missionSection, .programsStrip,
-  .facilitiesSection, .teamSection, .bottomCta { padding-left: 24px; padding-right: 24px; }
-  .heroContent { padding-left: 24px; padding-right: 24px; }
+  .facilitiesSection, .teamSection, .bottomCta { padding-left: 20px; padding-right: 20px; }
+  .heroContent { padding-left: 20px; padding-right: 20px; }
   .heroH1 { font-size: clamp(30px, 8vw, 52px); }
   .heroPara { font-size: 15px; }
   .heroStats { grid-template-columns: 1fr 1fr; }
@@ -379,11 +389,11 @@
   .bottomCtaBtns { flex-direction: column; align-items: center; gap: 12px; }
   .btnPrimary, .btnSecondary { width: 100%; text-align: center; }
   .sectionH2 { font-size: clamp(26px, 7vw, 44px); margin-bottom: 40px; }
-  .programBlock { padding: 36px 28px; }
-  .storySection { padding-top: 72px; padding-bottom: 72px; }
-  .missionSection { padding-top: 72px; padding-bottom: 72px; }
-  .facilitiesSection { padding-top: 72px; padding-bottom: 72px; }
-  .teamSection { padding-top: 72px; padding-bottom: 72px; }
+  .programBlock { padding: 36px 20px; }
+  .storySection { padding-top: 60px; padding-bottom: 60px; }
+  .missionSection { padding-top: 60px; padding-bottom: 60px; }
+  .facilitiesSection { padding-top: 60px; padding-bottom: 60px; }
+  .teamSection { padding-top: 60px; padding-bottom: 60px; }
 }
 
 @media (max-width: 480px) {

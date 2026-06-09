@@ -55,11 +55,12 @@
 
 .heroContent {
     position: relative;
-    margin-left: 64px;
-    max-width: 560px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
     pointer-events: auto;
     padding-top: 72px;
-    /* clear the nav */
+    padding-left: 64px;
 }
 
 .heroEyebrow {
@@ -91,6 +92,7 @@
     line-height: 1.0;
     margin: 0 0 20px 0;
     letter-spacing: -0.01em;
+    max-width: 560px;
 }
 
 .heroH1 em {
@@ -648,6 +650,7 @@
 .btnHeroPrimary:hover {
     background: var(--color-secondary);
     transform: translateY(-1px);
+    color: #FFF;
 }
 
 .btnHeroOutline {
@@ -994,11 +997,11 @@
 .programCard {
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(201,168,76,0.25);
+    border: 1px solid rgba(201, 168, 76, 0.25);
     background: #0A1628;
     background-size: cover;
     background-position: center;
-    transition: box-shadow 0.5s ease, border-color 0.5s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    transition: box-shadow 0.5s ease, border-color 0.5s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: default;
     opacity: 0;
     transform: translateY(32px);
@@ -1009,7 +1012,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, rgba(5,10,20,0.82) 0%, rgba(5,10,20,0.55) 60%, rgba(5,10,20,0.75) 100%);
+    background: linear-gradient(160deg, rgba(5, 10, 20, 0.82) 0%, rgba(5, 10, 20, 0.55) 60%, rgba(5, 10, 20, 0.75) 100%);
     z-index: 1;
     transition: background 0.5s ease;
 }
@@ -1022,7 +1025,7 @@
     background: inherit;
     background-size: cover;
     background-position: center;
-    transition: transform 0.65s cubic-bezier(0.16,1,0.3,1);
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 0;
 }
 
@@ -1031,28 +1034,32 @@
 }
 
 .programCard:hover::after {
-    background: linear-gradient(160deg, rgba(5,10,20,0.72) 0%, rgba(5,10,20,0.4) 60%, rgba(5,10,20,0.65) 100%);
+    background: linear-gradient(160deg, rgba(5, 10, 20, 0.72) 0%, rgba(5, 10, 20, 0.4) 60%, rgba(5, 10, 20, 0.65) 100%);
 }
 
 .programCard.revealed {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s ease, border-color 0.5s ease;
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.5s ease;
 }
 
 .programCard:hover {
-    box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.4);
-    border-color: rgba(201,168,76,0.5);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.4);
+    border-color: rgba(201, 168, 76, 0.5);
     transform: translateY(-6px);
 }
 
 /* Card-specific photo backgrounds */
 .pilotCard {
-    background-image: url('/program-cards/pilot-training.jpg');
+    background-image: url('/programs/cessna-training.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .cabinCard {
-    background-image: url('/program-cards/cabin-crew.jpg');
+    background-image: url('/programs/cabin-crew.png');
+    background-size: cover;
+    background-position: center;
 }
 
 /* Top gold accent line on hover – sits above overlay */
@@ -1082,7 +1089,7 @@
     font-family: var(--font-mono), monospace;
     font-size: 14px;
     letter-spacing: 0.4em;
-    color: rgba(201,168,76,0.6);
+    color: rgba(201, 168, 76, 0.6);
     margin-bottom: 12px;
     transition: color 0.3s ease;
 }
@@ -1098,10 +1105,10 @@
     letter-spacing: 0.35em;
     text-transform: uppercase;
     color: #C9A84C;
-    border: 1px solid rgba(201,168,76,0.45);
+    border: 1px solid rgba(201, 168, 76, 0.45);
     padding: 5px 14px;
     margin-bottom: 28px;
-    background: rgba(201,168,76,0.08);
+    background: rgba(201, 168, 76, 0.08);
     backdrop-filter: blur(4px);
 }
 
@@ -1113,7 +1120,7 @@
     line-height: 1.2;
     letter-spacing: 0.01em;
     margin-bottom: 18px;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
 .pcTitle em {
@@ -1133,7 +1140,7 @@
 .pcHighlights {
     list-style: none;
     padding: 0;
-    border-top: 1px solid rgba(255,255,255,0.12);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
     padding-top: 22px;
     margin-bottom: 36px;
 }
@@ -1156,7 +1163,7 @@
     border-radius: 50%;
     background: #C9A84C;
     flex-shrink: 0;
-    box-shadow: 0 0 6px rgba(201,168,76,0.6);
+    box-shadow: 0 0 6px rgba(201, 168, 76, 0.6);
 }
 
 .programCard:hover .pcHighlights li::before {
@@ -1224,7 +1231,7 @@
     font-family: var(--font-mono), monospace;
     font-size: 12px;
     letter-spacing: 0.3em;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255, 255, 255, 0.45);
     text-transform: uppercase;
     white-space: nowrap;
 }
@@ -1237,10 +1244,19 @@
    SECTION 4 — LEGACY
    ═══════════════════════════════════════════════ */
 .legacySection {
-    background: #F0F4FF;
-    padding: 120px 64px;
+    background: linear-gradient(180deg, #F9FAFB 0%, #F3F6F8 100%);
+    padding: 140px 64px;
     position: relative;
     overflow: hidden;
+}
+
+.legacySection::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 100% 0%, rgba(100, 145, 222, 0.08) 0%, transparent 40%),
+                      radial-gradient(circle at 0% 100%, rgba(200, 150, 62, 0.05) 0%, transparent 40%);
+    pointer-events: none;
 }
 
 .legacyHeader {
@@ -1250,60 +1266,76 @@
 .statsGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    border: 1px solid rgba(200, 150, 62, 0.1);
-    gap: 1px;
-    background: rgba(200, 150, 62, 0.08);
+    gap: 16px;
+    background: transparent;
+    border: none;
 }
 
 .statItem {
-    background: #FFFFFF;
-    border: 1px solid #DBEAFE;
-    padding: 56px 40px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 24px;
+    padding: 64px 40px;
     text-align: center;
     opacity: 0;
     transform: translateY(18px);
+    box-shadow: 0 20px 60px -15px rgba(7, 61, 127, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.statItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.statItem:hover {
+    box-shadow: 0 20px 50px -15px rgba(7, 61, 127, 0.2);
+    transform: translateY(-8px);
+    border-color: rgba(7, 61, 127, 0.2);
+}
+
+.statItem:hover::before {
+    transform: scaleX(1);
 }
 
 .statItem.revealed {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .statNumber {
     font-family: var(--font-display), serif;
-    font-size: clamp(52px, 6vw, 80px);
+    font-size: clamp(52px, 6vw, 84px);
     font-weight: 300;
-    color: var(--color-secondary);
+    color: #073D7F;
     line-height: 1;
-    margin-bottom: 14px;
-    text-shadow: 0 0 40px rgba(232, 184, 109, 0.2);
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
 }
 
 .statNumber.done {
-    animation: glowOnce 0.8s ease-out forwards;
-}
-
-@keyframes glowOnce {
-    0% {
-        text-shadow: 0 0 0px rgba(232, 184, 109, 0);
-    }
-
-    40% {
-        text-shadow: 0 0 40px rgba(232, 184, 109, 0.45);
-    }
-
-    100% {
-        text-shadow: 0 0 20px rgba(232, 184, 109, 0.15);
-    }
+    animation: none;
 }
 
 .statLabel {
     font-family: var(--font-mono), monospace;
-    font-size: 14px;
-    letter-spacing: 0.32em;
+    font-size: 13px;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: #475569;
+    color: #64748B;
+    font-weight: 500;
 }
 
 .legacyWatermark {
@@ -1325,133 +1357,155 @@
    SECTION 5 — ALUMNI
    ═══════════════════════════════════════════════ */
 .alumniSection {
-    background: #F8F5EE;
+    background: linear-gradient(180deg, #030816 0%, #050E2D 100%);
     padding: 120px 64px;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.alumniSection .sectionTitle {
+    color: #FFFFFF;
 }
 
 .testimonialsGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--divider-light);
+    gap: 20px;
+    background: transparent;
     margin-top: 64px;
 }
 
 .tcard {
-    background: #0F172A;
-    padding: 2rem;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 3rem 2.5rem;
     position: relative;
     overflow: hidden;
     opacity: 0;
-    transform: translateY(18px);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
+    transform: translateY(24px);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.tcard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    opacity: 0.5;
 }
 
 .tcard.revealed {
     opacity: 1;
     transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .tcard:hover {
-    border-color: #3B82F6;
-    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.18);
-    transform: translateY(-4px);
+    border-color: rgba(100, 145, 222, 0.6);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(100, 145, 222, 0.2);
+    transform: translateY(-10px);
 }
 
 .tcardQuoteMark {
     position: absolute;
-    top: -10px;
-    left: 16px;
+    top: 10px;
+    right: 24px;
+    left: auto;
     font-family: var(--font-display), serif;
-    font-size: 96px;
+    font-size: 120px;
     line-height: 1;
-    color: rgba(59, 130, 246, 0.15);
-    margin-bottom: -20px;
+    color: rgba(255, 255, 255, 0.06);
     user-select: none;
     display: inline-block;
-    animation: floatQuote 6s ease-in-out infinite;
+    transition: transform 0.5s ease, color 0.5s ease;
 }
 
-.tcard:nth-child(2) .tcardQuoteMark {
-    animation-delay: 2s;
-}
-
-.tcard:nth-child(3) .tcardQuoteMark {
-    animation-delay: 4s;
-}
-
-@keyframes floatQuote {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-6px);
-    }
+.tcard:hover .tcardQuoteMark {
+    transform: scale(1.1) rotate(5deg);
+    color: rgba(100, 145, 222, 0.15);
 }
 
 .tcardText {
     font-family: var(--font-display), serif;
-    font-size: 17px;
-    line-height: 1.85;
-    font-style: italic;
+    font-size: 18px;
+    line-height: 1.8;
     color: #E2E8F0;
-    margin: 0 0 28px;
+    margin: 0 0 32px;
     border: none;
     padding: 0;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .tcardAuthor {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     padding-top: 24px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
 }
 
 .tcardAvatar {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-secondary), #C8963E);
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-display), serif;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     color: #fff;
     flex-shrink: 0;
-    border: 2px solid #3B82F6;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .tcardName {
     font-family: var(--font-display), serif;
-    font-size: 17px;
-    font-weight: 600;
-    color: #93C5FD;
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.2;
 }
 
 .tcardRole {
     font-family: var(--font-mono), monospace;
-    font-size: 14px;
-    letter-spacing: 0.2em;
-    color: #64748B;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: #8AB4F8;
     text-transform: uppercase;
-    margin-top: 3px;
+    margin-top: 6px;
+    font-weight: 600;
+    display: block;
 }
 
 /* ═══════════════════════════════════════════════
    QUICK CONTACT
    ═══════════════════════════════════════════════ */
 .hcSection {
-    background: #0A1628;
+    background: #F8F9FA;
     padding: 80px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(7, 61, 127, 0.08);
+    border-bottom: 1px solid rgba(7, 61, 127, 0.08);
+}
+
+.hcSection .sectionTitle {
+    color: var(--color-text-dark);
 }
 
 .hcGrid {
@@ -1461,23 +1515,19 @@
 }
 
 .hcCard {
-    background: #0F172A;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #FFFFFF;
+    border: 1px solid rgba(7, 61, 127, 0.1);
     padding: 40px 32px;
     border-radius: 14px;
     text-align: center;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.hcCard:nth-child(even) {
-    background: #1E3A8A;
+    box-shadow: 0 4px 20px rgba(7, 61, 127, 0.04);
 }
 
 .hcCard:hover {
-    border-color: rgba(100, 145, 222, 0.3);
+    border-color: rgba(7, 61, 127, 0.35);
     transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 16px 36px rgba(7, 61, 127, 0.08);
 }
 
 .hcCard a {
@@ -1492,8 +1542,7 @@
 }
 
 .hcIcon {
-    /* Was var(--blue) — undefined token, rendered black. Fixed to explicit value. */
-    color: #4A90D9;
+    color: #073D7F;
     margin-bottom: 24px;
     display: inline-flex;
     align-items: center;
@@ -1504,34 +1553,27 @@
     font-family: var(--font-display);
     font-size: 20px;
     font-weight: 700;
-    color: #E2E8F0;
+    color: #073D7F;
     margin-bottom: 12px;
-}
-
-.hcCard:nth-child(even) .hcTitle {
-    color: #DBEAFE;
 }
 
 .hcText {
     font-family: var(--font-body);
     font-size: 15px;
-    color: #E2E8F0;
+    color: var(--color-text-dark);
     line-height: 1.6;
-}
-
-.hcCard:nth-child(even) .hcText {
-    color: #DBEAFE;
 }
 
 /* ═══════════════════════════════════════════════
    SECTION 6 — CTA
    ═══════════════════════════════════════════════ */
 .ctaSection {
-    background: #F8F5EE;
+    background: linear-gradient(135deg, #073D7F 0%, #05244E 100%);
     padding: 140px 64px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 .ctaWatermark {
@@ -1543,7 +1585,7 @@
     font-size: 22vw;
     font-weight: 300;
     letter-spacing: 0.3em;
-    color: rgba(200, 150, 62, 0.025);
+    color: rgba(255, 255, 255, 0.015);
     pointer-events: none;
     white-space: nowrap;
     user-select: none;
@@ -1564,7 +1606,7 @@
     font-family: var(--font-display), serif;
     font-size: clamp(30px, 5vw, 68px);
     font-weight: 700;
-    color: #0F172A;
+    color: #FFFFFF;
     line-height: 1.1;
     letter-spacing: -0.015em;
     margin-bottom: 20px;
@@ -1580,7 +1622,7 @@
     font-size: 15px;
     line-height: 1.9;
     font-weight: 300;
-    color: #475569;
+    color: rgba(245, 245, 245, 0.75);
     max-width: 440px;
     margin: 0 auto 48px;
 }
@@ -1614,11 +1656,11 @@
 
 @keyframes ctaPulseRing {
     0% {
-        box-shadow: 0 0 0 0px rgba(200, 150, 62, 0.4);
+        box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.4);
     }
 
     100% {
-        box-shadow: 0 0 0 14px rgba(200, 150, 62, 0);
+        box-shadow: 0 0 0 14px rgba(255, 255, 255, 0);
     }
 }
 
@@ -1628,15 +1670,15 @@
     letter-spacing: 0.22em;
     text-transform: uppercase;
     padding: 16px 44px;
-    border: 1px solid #0F172A;
-    color: #0F172A;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
     text-decoration: none;
     transition: all 0.3s;
 }
 
 .btnCtaOutline:hover {
-    border-color: #0F172A;
-    background: rgba(15, 23, 42, 0.08);
+    border-color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .ctaTrust {
@@ -1644,7 +1686,7 @@
     font-size: 14px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: #475569;
+    color: #BFC7D5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1652,7 +1694,7 @@
 }
 
 .trustDot {
-    color: #0F172A;
+    color: #FFFFFF;
 }
 
 /* ═══════════════════════════════════════════════
@@ -1682,14 +1724,16 @@
 }
 
 .facilityCard {
-    /* Was same as section bg — add lighter surface for visibility */
-    background: rgba(255, 255, 255, 0.025);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 48px 40px;
     position: relative;
     overflow: hidden;
     opacity: 0;
-    transition: background 0.3s;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .facilityCard:nth-child(3n+1) {
@@ -1710,8 +1754,13 @@
     transition: opacity 1.2s cubic-bezier(0.1, 0.9, 0.2, 1), transform 1.2s cubic-bezier(0.1, 0.9, 0.2, 1);
 }
 
+
+
 .facilityCard:hover {
-    background: var(--bg-dark-2);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(100, 145, 222, 0.35);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(100, 145, 222, 0.15);
+    transform: translateY(-6px);
 }
 
 .facilityCard::before {
@@ -1768,9 +1817,16 @@
    SECTION 3B — MENTORS
    ═══════════════════════════════════════════════ */
 .mentorsSection {
-    background: linear-gradient(180deg, #030816 0%, #050E2D 100%);
+    background: #F8F9FA;
     padding: 120px 64px;
-    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(7, 61, 127, 0.08);
+    border-bottom: 1px solid rgba(7, 61, 127, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.mentorsSection .sectionH2 {
+    color: var(--color-text-dark);
 }
 
 .mentorsHeader {
@@ -1779,27 +1835,30 @@
     align-items: flex-end;
     margin-bottom: 72px;
     gap: 40px;
+    position: relative;
+    z-index: 2;
 }
 
-.btnOutlineLight {
+.btnOutline {
     font-family: var(--font-body), sans-serif;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--color-secondary);
+    color: var(--color-accent);
     text-decoration: none;
-    border: 1px solid rgba(200, 150, 62, 0.3);
+    border: 1px solid rgba(7, 61, 127, 0.3);
     padding: 13px 28px;
     white-space: nowrap;
     transition: all 0.3s;
     flex-shrink: 0;
+    border-radius: 4px;
 }
 
-.btnOutlineLight:hover {
-    background: var(--color-secondary);
-    color: #000;
-    border-color: var(--color-secondary);
+.btnOutline:hover {
+    background: var(--color-accent);
+    color: #FFF;
+    border-color: var(--color-accent);
 }
 
 .mentorsGrid {
@@ -1807,79 +1866,102 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-bottom: 64px;
+    position: relative;
+    z-index: 2;
 }
 
 .mentorCard {
-    background: #FFFFFF;
-    border: 1px solid rgba(7, 61, 127, 0.12);
+    background: linear-gradient(145deg, rgba(7, 61, 127, 0.95) 0%, rgba(5, 36, 78, 0.98) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     padding: 40px 36px;
     opacity: 0;
     transform: translateY(20px);
-    transition: border-color 0.3s, box-shadow 0.3s;
+    border-radius: 20px;
+    box-shadow: 0 16px 40px -10px rgba(7, 61, 127, 0.25);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.mentorCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .mentorCard.revealed {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .mentorCard:hover {
-    border-color: rgba(200, 150, 62, 0.2);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    border-color: #E8B831;
+    box-shadow: 0 24px 48px -12px rgba(7, 61, 127, 0.5), inset 0 0 24px rgba(232, 184, 49, 0.15);
+    transform: translateY(-12px) scale(1.02);
+}
+
+.mentorCard:hover::before {
+    transform: scaleX(1);
 }
 
 .mcAvatar {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(100, 145, 222, 0.30), var(--color-secondary));
+    background: rgba(232, 184, 49, 0.1);
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-display), serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #000;
-    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+    box-shadow: inset 0 0 15px rgba(232, 184, 49, 0.2), 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid #E8B831;
 }
 
 .mcName {
     font-family: var(--font-display), serif;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
-    color: #073D7F;
+    color: #FFFFFF;
     margin-bottom: 4px;
 }
 
 .mcRole {
     font-family: var(--font-mono), monospace;
-    font-size: 14px;
-    letter-spacing: 0.3em;
+    font-size: 13px;
+    letter-spacing: 0.2em;
     color: var(--color-secondary);
     text-transform: uppercase;
     margin-bottom: 6px;
 }
 
 .mcHours {
-    font-family: var(--font-mono), monospace;
-    font-size: 14px;
-    letter-spacing: 0.2em;
-    /* Was 0.55 opacity on white bg — raised to 0.65 for clearer legibility */
-    color: rgba(13, 27, 42, 0.65);
-    text-transform: uppercase;
-    margin-bottom: 20px;
+    display: none;
 }
 
 .mcBio {
     font-family: var(--font-body), sans-serif;
-    font-size: 14px;
-    line-height: 1.85;
+    font-size: 15px;
+    line-height: 1.8;
     font-weight: 300;
-    color: #0D1B2A;
-    padding-top: 20px;
-    border-top: 1px solid rgba(7, 61, 127, 0.08);
-    margin-bottom: 20px;
+    color: #E2E8F0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 24px;
+    margin-bottom: 0;
 }
 
 .mcAirlines {
@@ -1903,11 +1985,15 @@
     align-items: center;
     justify-content: center;
     gap: 0;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(145deg, rgba(7, 61, 127, 0.95) 0%, rgba(5, 36, 78, 0.98) 100%);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    box-shadow: 0 16px 40px -10px rgba(7, 61, 127, 0.25);
+    margin-top: 56px;
+    position: relative;
+    z-index: 2;
 }
 
 .msStat {
@@ -1923,8 +2009,8 @@
 .msNum {
     font-family: var(--font-display), serif;
     font-size: 42px;
-    font-weight: 300;
-    color: var(--color-secondary);
+    font-weight: 600;
+    color: #FFFFFF;
     line-height: 1;
 }
 
@@ -1932,14 +2018,14 @@
     font-family: var(--font-mono), monospace;
     font-size: 13px;
     letter-spacing: 0.25em;
-    color: rgba(241, 241, 241, 0.70);
+    color: var(--color-secondary);
     text-transform: uppercase;
 }
 
 .msDivider {
     width: 1px;
     height: 60px;
-    background: rgba(200, 150, 62, 0.1);
+    background: rgba(255, 255, 255, 0.12);
     flex-shrink: 0;
 }
 
@@ -2142,22 +2228,31 @@
 .globalStats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(200, 150, 62, 0.08);
-    border: 1px solid rgba(200, 150, 62, 0.08);
+    gap: 16px;
+    background: transparent;
+    border: none;
+    width: 100%;
 }
 
 .gsItem {
-    /* Was same as globalSection bg — differentiated surface */
-    background: rgba(255, 255, 255, 0.025);
-    padding: 24px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 28px 20px;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.gsItem:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(100, 145, 222, 0.25);
+    transform: translateY(-4px);
 }
 
 .gsNum {
     font-family: var(--font-display), serif;
     font-size: 28px;
-    font-weight: 300;
+    font-weight: 600;
     color: var(--color-secondary);
     line-height: 1;
     margin-bottom: 8px;
@@ -2165,10 +2260,10 @@
 
 .gsLabel {
     font-family: var(--font-mono), monospace;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgba(241, 241, 241, 0.65);
+    color: rgba(241, 241, 241, 0.75);
     line-height: 1.5;
 }
 
@@ -2321,7 +2416,7 @@
     .legacySection,
     .alumniSection,
     .ctaSection {
-        padding: 80px 24px;
+        padding: 60px 20px;
     }
 
     .programsGrid {
@@ -2333,7 +2428,7 @@
     }
 
     .pcInner {
-        padding: 40px 24px;
+        padding: 40px 20px;
     }
 
     .statsGrid {
@@ -2358,7 +2453,7 @@
 
     .facilitiesSection,
     .mentorsSection {
-        padding: 80px 24px;
+        padding: 60px 20px;
     }
 
     .facilityCard:nth-child(n) {
@@ -2412,7 +2507,7 @@
     .heroContent {
         margin-left: 0;
         margin-right: 0;
-        padding: 0 24px 80px 24px;
+        padding: 0 20px 60px 20px;
         width: 100%;
         max-width: 100%;
         text-align: center;

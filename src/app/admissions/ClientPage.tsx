@@ -6,18 +6,7 @@ import s from './admissions.module.css';
 import Image from 'next/image';
 import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
 
-const PARTNERS = [
-  { name: "IndiGo Airlines", short: "IG" },
-  { name: "Air India", short: "AI" },
-  { name: "Fly91", short: "F9" },
-  { name: "SpiceJet", short: "SJ" },
-  { name: "Qatar Airways", short: "QA" },
-  { name: "Emirates", short: "EK" },
-  { name: "Akasa Air", short: "AK" },
-  { name: "StarAir", short: "SA" },
-  { name: "Etihad Airways", short: "EY" },
-  { name: "FlyBig", short: "FB" },
-];
+
 
 const ONBOARDING_7_DAY = [
   {
@@ -161,7 +150,7 @@ const FAQS = [
 export default function AdmissionsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [openReq, setOpenReq] = useState<number | null>(0);
-  const allPartners = [...PARTNERS, ...PARTNERS];
+
 
   // Form states
   const [formData, setFormData] = useState({
@@ -232,8 +221,8 @@ export default function AdmissionsPage() {
       <section className={s.hero}>
         <div className={s.heroBgWrap}>
           <img
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=80"
-            alt="Commercial airplane taking off into the sky"
+            src="/admissions_cessna_realistic.png"
+            alt="Student shaking hands with flight instructor next to Cessna"
             className={s.heroBgImg}
           />
           <div className={s.heroOverlay} />
@@ -276,7 +265,7 @@ export default function AdmissionsPage() {
         <div className={s.container}>
           <div className={s.eyebrow}>Admissions Process</div>
           <h2 className={s.sectionH2}>
-            Your First 7 Days At<br /><em>Aviora Academy.</em>
+            Your First 7 Days At<br /><em>Aviora Aviation Academy.</em>
           </h2>
 
           <div className={s.timelineContainer}>
@@ -349,7 +338,7 @@ export default function AdmissionsPage() {
       <section className={s.applySection} id="apply">
         <div className={s.applyInner}>
           <div className={s.applyLeft}>
-            <div className={s.eyebrow}>Apply Now</div>
+            <div className={s.eyebrow}>Enroll Now</div>
             <h2 className={s.applyH2}>
               Reserve Your<br /><em>Seat Today.</em>
             </h2>
@@ -475,7 +464,7 @@ export default function AdmissionsPage() {
             The Cockpit is<br /><em>Waiting for You.</em>
           </h2>
           <div className={s.bottomCtaBtns}>
-            <a href="#apply" className={s.btnPrimary}>Apply Now →</a>
+            <a href="#apply" className={s.btnPrimary}>Enroll Now →</a>
             <Link href="/contact" className={s.btnSecondary}>Speak to a Counsellor</Link>
           </div>
         </div>

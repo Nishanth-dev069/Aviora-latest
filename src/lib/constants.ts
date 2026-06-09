@@ -1,9 +1,10 @@
 export const COMPANY_NAME = "Aviora Aviation Academy";
-export const CONTACT_PHONE_PRIMARY = "+91 40 XXXX XXXX";
-export const CONTACT_PHONE_SECONDARY = "+91 XXXXX XXXXX";
-export const CONTACT_EMAIL = "admissions@avioraacademy.com";
-export const CONTACT_ADDRESS_LINE_1 = "Aviora Aviation Academy";
-export const CONTACT_ADDRESS_LINE_2 = "Hyderabad, Telangana, India";
+export const CONTACT_PHONE_PRIMARY = "+91 6309342416";
+export const CONTACT_PHONE_SECONDARY = "+91 7039339716";
+export const CONTACT_EMAIL = "Fly@onestopaviation.in";
+export const CONTACT_ADDRESS_LINE_1 = "Block No 5, 8-5-255/66, Inner Ring Road";
+export const CONTACT_ADDRESS_LINE_2 = "Defence Colony, Hyderabad, TG, 500079";
+export const CONTACT_LOCATION_LINK = "https://maps.app.goo.gl/1mDtzgUFx5WT2NDX7?g_st=ic";
 export const OFFICE_HOURS_WEEKDAY = "9:00 AM – 7:00 PM";
 export const OFFICE_HOURS_SATURDAY = "9:00 AM – 5:00 PM";
 export const FOUNDATION_YEAR = "2014";

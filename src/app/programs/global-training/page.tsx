@@ -1,3 +1,5 @@
+'use client';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import s from './global.module.css';
 
@@ -75,6 +77,17 @@ const USA_STATS = [
 ];
 
 export default function GlobalTrainingPage() {
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add(s.visible); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(`.${s.reveal}`).forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <main className={s.page}>
 
@@ -82,7 +95,7 @@ export default function GlobalTrainingPage() {
       <section className={s.hero}>
         <div className={s.heroBg}>
           <img
-            src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80"
+            src="/programs/global-training.png"
             alt="Aerial view of Arizona from small aircraft"
             className={s.heroBgImg}
           />
@@ -128,7 +141,7 @@ export default function GlobalTrainingPage() {
         </div>
         <div className={s.whyGrid}>
           {WHY_USA.map((w, i) => (
-            <div className={s.whyCard} key={i}>
+            <div className={`${s.whyCard} ${s.reveal}`} key={i} style={{ transitionDelay: `${i * 60}ms` }}>
               <div className={s.whyCardNum}>{w.num}</div>
               <h3 className={s.whyCardTitle}>{w.title}</h3>
               <p className={s.whyCardBody}>{w.body}</p>
@@ -168,9 +181,9 @@ export default function GlobalTrainingPage() {
       {/* GALLERY */}
       <div className={s.gallery}>
         {[
-          { src: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&q=80', cap: 'Pre-flight · Cessna 172 · Sacramento' },
-          { src: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=80', cap: 'Solo cross-country · California VFR' },
-          { src: 'https://images.unsplash.com/photo-1559628233-100c798642d8?w=900&q=80', cap: 'Glass cockpit · Instrument training' },
+          { src: '/gallery/SIV03080.webp', cap: 'Pre-flight · Cessna 172 · Sacramento' },
+          { src: '/gallery/SIV03081.webp', cap: 'Solo cross-country · California VFR' },
+          { src: '/gallery/SIV03083.webp', cap: 'Glass cockpit · Instrument training' },
         ].map((g, i) => (
           <div className={s.galleryItem} key={i}>
             <img src={g.src} alt={g.cap} className={s.galleryImg} loading="lazy" />
@@ -180,25 +193,41 @@ export default function GlobalTrainingPage() {
         ))}
       </div>
 
-      {/* CTA */}
-      <section className={s.ctaSection}>
-        <div className={s.ctaInner}>
-          <div className={s.ctaLeft}>
-            <span className={s.eyebrowLight}>Limited Seats Per Batch</span>
-            <h2 className={s.ctaH2}>Fly America.<br /><em>Build Your Logbook.</em></h2>
-            <p className={s.ctaP}>Each USA batch is limited to ensure every cadet gets maximum flying time and personal attention from both FAA instructors and the accompanying Aviora mentor.</p>
+      {/* ELIGIBILITY & CTA */}
+      <section className={s.eligSection}>
+        <div className={s.eligInner}>
+          <div className={`${s.eligCard} ${s.reveal}`}>
+            <span className={s.eyebrow}>Who Can Apply</span>
+            <h3 className={s.eligH3}>Eligibility<br /><em>Requirements</em></h3>
+            <ul className={s.eligList}>
+              {[
+                '10+2 with Physics and Mathematics (minimum 50%)',
+                'Minimum age 17 years at time of enrollment',
+                'Valid Class 2 DGCA Medical Certificate',
+                'ICAO English Proficiency — Level 4 or above',
+                'Valid Indian Passport for US M1 Visa',
+              ].map((item, i) => (
+                <li className={s.eligItem} key={i}>
+                  <span className={s.eligArrow}>→</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className={s.ctaRight}>
-            <div className={s.ctaBtns}>
+          <div className={`${s.ctaCard} ${s.reveal}`}>
+            <div className={s.ctaCardEye}>Limited Intake · 2026 Batch</div>
+            <h3 className={s.ctaCardH3}>Ready to Begin?</h3>
+            <p className={s.ctaCardP}>Our admissions team reviews all applications within 72 hours. Speak with an active airline captain before you commit — no pressure, just honest guidance.</p>
+            <div className={s.ctaCardBtns}>
               <Link href="/admissions" className={s.btnPrimary}>Enroll Now →</Link>
               <Link href="/contact" className={s.btnOutline}>Talk to a Pilot</Link>
             </div>
-            <div className={s.ctaTrust}>
+            <div className={s.ctaCardTrust}>
               <span>FAA Part 141 School</span>
               <span className={s.dot}>·</span>
               <span>DGCA Convertible Hours</span>
               <span className={s.dot}>·</span>
-              <span>Aviora Instructor Accompanies</span>
+              <span>Aviora Mentor</span>
             </div>
           </div>
         </div>

@@ -35,7 +35,9 @@ export default function Footer() {
 
           {/* Col 1 — Brand (Left) */}
           <div className={`${styles.col} ${styles.colBrand}`}>
-            <Link href="/" className={styles.wordmark}>AVIORA</Link>
+            <Link href="/" className={styles.brandLogo}>
+              <img src="/logos/Aviora%20White%20text%20Logo.PNG" alt="Aviora Aviation Academy" className={styles.logoImage} />
+            </Link>
             <p className={styles.tagline}>Cleared for a Career Above the Clouds.</p>
             <div className={styles.dgcaBadge}>South Indian's Biggest Aviation Facility</div>
             <div className={styles.socials}>
@@ -79,24 +81,33 @@ export default function Footer() {
           <div className={`${styles.col} ${styles.colRight}`}>
             <div className={styles.colHeader}>Control Tower</div>
             <address className={styles.address}>
-              Aviora Aviation Academy<br />
-              3rd Floor, Skyline Plaza<br />
-              Banjara Hills, Hyderabad<br />
-              Telangana — 500 034, India
+              <a href="https://maps.app.goo.gl/1mDtzgUFx5WT2NDX7?g_st=ic" target="_blank" rel="noopener noreferrer" style={{color:'inherit',textDecoration:'none'}}>
+                Block No 5, 8-5-255/66, Inner Ring Road<br />
+                Defence Colony, Hyderabad, TG, 500079
+              </a>
             </address>
-            <a href="tel:+914023456789" className={styles.contactRow}>
+            <a href="tel:+916309342416" className={styles.contactRow}>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" className={styles.contactIcon}>
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
               </svg>
-              +91 40 2345 6789
+              +91 6309342416
             </a>
-            <a href="mailto:admissions@avioraacademy.com" className={styles.contactRow}>
+            <a href="mailto:Fly@onestopaviation.in" className={styles.contactRow}>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" className={styles.contactIcon}>
                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
               </svg>
-              admissions@avioraacademy.com
+              Fly@onestopaviation.in
             </a>
-            <div className={styles.hoursLabel}>Operations: Mon–Sat, 09:00–18:00 IST</div>
+            <a href="https://wa.me/917039339716" target="_blank" rel="noopener noreferrer" className={styles.contactRow}>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" className={styles.contactIcon}>
+                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              WhatsApp: +91 7039339716
+            </a>
+            <div className={styles.partnerBox}>
+              <span className={styles.partnerText}>A Proud Part Of</span>
+              <strong className={styles.partnerName}>One Stop Aviation</strong>
+            </div>
           </div>
         </div>
       </div>
@@ -107,12 +118,17 @@ export default function Footer() {
       {/* BOTTOM BAR */}
       <div className={styles.bottomBar}>
         <div className={styles.bottomBarInner}>
-          <span className={styles.copyright}>© 2025 Aviora Aviation Academy. All rights reserved.</span>
+          <span className={styles.copyright}>© 2026 Aviora Aviation Academy. All rights reserved.</span>
           <div className={styles.legalLinks}>
-            <Link href="/privacy-policy" className={styles.legalLink}>Privacy Policy</Link>
-            <Link href="/terms-and-conditions" className={styles.legalLink}>Terms & Conditions</Link>
+            <span className={styles.legalText}>Privacy Policy</span>
+            <span className={styles.legalText}>Terms & Conditions</span>
           </div>
-          <span className={styles.trustSignals}>Regulated by DGCA · ISO Certified</span>
+          <div className={styles.zyxenCredits}>
+            <span className={styles.zyxenText}>Developed and maintained by Zyxen</span>
+            <a href="https://zyxen.in" target="_blank" rel="noopener noreferrer" className={styles.zyxenLink}>
+              <img src="/logos/Zyxen-logo.jpeg" alt="Developed by Zyxen" className={styles.zyxenLogo} />
+            </a>
+          </div>
         </div>
       </div>
 

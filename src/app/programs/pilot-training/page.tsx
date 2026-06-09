@@ -99,7 +99,7 @@ export default function PilotTrainingPage() {
       {/* HERO */}
       <section className={s.hero}>
         <div className={s.heroBg}>
-          <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=1920&q=80" alt="Cockpit view" className={s.heroBgImg} />
+          <img src="/programs/cessna-training.png" alt="Cockpit view" className={s.heroBgImg} />
           <div className={s.heroOverlay} />
         </div>
         <div className={s.heroContent}>
@@ -149,7 +149,7 @@ export default function PilotTrainingPage() {
       <section className={s.phaseSection}>
         <div className={s.phaseSectionHead + ' ' + s.reveal}>
           <span className={s.eyebrow}>Training Pathway</span>
-          <h2 className={s.sectionH2}>Your Journey from<br /><em>Zero to the Cockpit</em></h2>
+          <h2 className={s.sectionH2}>Your Journey From<br /><em>Zero To The Cockpit</em></h2>
         </div>
 
         <div className={s.timeline}>
@@ -194,9 +194,9 @@ export default function PilotTrainingPage() {
       {/* GALLERY */}
       <div className={s.gallery}>
         {[
-          { src: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&q=80', cap: 'Pre-flight · Cessna 172' },
-          { src: 'https://images.unsplash.com/photo-1559628233-100c798642d8?w=900&q=80', cap: 'Instrument flying · IFR training' },
-          { src: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=900&q=80', cap: 'USA training · Open airspace' },
+          { src: '/gallery/SIV03073.webp', cap: 'Pre-flight · Cessna 172' },
+          { src: '/gallery/SIV03075.webp', cap: 'Instrument flying · IFR training' },
+          { src: '/gallery/SIV03079.webp', cap: 'USA training · Open airspace' },
         ].map((g, i) => (
           <div className={s.galleryItem} key={i}>
             <img src={g.src} alt={g.cap} className={s.galleryImg} loading="lazy" />
@@ -228,7 +228,7 @@ export default function PilotTrainingPage() {
             </ul>
           </div>
           <div className={`${s.ctaCard} ${s.reveal}`}>
-            <div className={s.ctaCardEye}>Limited Intake · 2025 Batch</div>
+            <div className={s.ctaCardEye}>Limited Intake · 2026 Batch</div>
             <h3 className={s.ctaCardH3}>Ready to Begin?</h3>
             <p className={s.ctaCardP}>Our admissions team reviews all applications within 72 hours. Speak with an active airline captain before you commit — no pressure, just honest guidance.</p>
             <div className={s.ctaCardBtns}>

@@ -14,7 +14,7 @@ export default function TermsAndConditionsPage() {
         <div className={styles.heroInner}>
           <div className={styles.eyebrow}>Legal</div>
           <h1 className={styles.heroTitle}>Terms &amp; Conditions</h1>
-          <p className={styles.heroSub}>Last updated: May 2025</p>
+          <p className={styles.heroSub}>Last updated: May 2026</p>
         </div>
       </div>
 

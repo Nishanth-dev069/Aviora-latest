@@ -16,14 +16,14 @@ const ATR_PARTNERS = [
 ];
 
 const A320_PARTNERS = [
-  { location: 'Vietnam', city: 'Ho Chi Minh City', flag: '🇻🇳', price: 'Contact Us', currency: '', authority: 'DGCA India Approved', facilities: 'Level D FFS', duration: '6–8 weeks' },
-  { location: 'Bangkok, Thailand', city: 'Bangkok', flag: '🇹🇭', price: 'Contact Us', currency: '', authority: 'DGCA India Approved', facilities: 'Level D FFS', duration: '6–8 weeks' },
-  { location: 'Dubai, UAE', city: 'Dubai', flag: '🇦🇪', price: 'Contact Us', currency: '', authority: 'GCAA + DGCA Approved', facilities: 'Level D FFS', duration: '6–8 weeks' },
+  { location: 'Vietnam', city: 'Ho Chi Minh City', flag: '🇻🇳', price: 'Contact us to know the pricing details.', currency: '', authority: 'DGCA India Approved', facilities: 'Level D FFS', duration: '6–8 weeks' },
+  { location: 'Bangkok, Thailand', city: 'Bangkok', flag: '🇹🇭', price: 'Contact us to know the pricing details.', currency: '', authority: 'DGCA India Approved', facilities: 'Level D FFS', duration: '6–8 weeks' },
+  { location: 'Dubai, UAE', city: 'Dubai', flag: '🇦🇪', price: 'Contact us to know the pricing details.', currency: '', authority: 'GCAA + DGCA Approved', facilities: 'Level D FFS', duration: '6–8 weeks' },
 ];
 
 const BOEING_PARTNERS = [
   { location: 'Vietnam', city: 'Ho Chi Minh City', flag: '🇻🇳', price: '€16,000', currency: 'EUR', authority: 'DGCA India Approved', facilities: 'Level D FFS · B737 NG/MAX', duration: '6–8 weeks' },
-  { location: 'Madrid, Spain', city: 'Madrid', flag: '🇪🇸', price: '€15,800', currency: 'EUR', authority: 'EASA + DGCA Approved', facilities: 'GTA Madrid · Boeing FFS', duration: '6–8 weeks' },
+  { location: 'Madrid, Spain', city: 'Madrid', flag: '🇪🇸', price: '€15,800', currency: 'EUR', authority: 'EASA + DGCA Approved', facilities: 'Boeing FFS', duration: '6–8 weeks' },
   { location: 'Dubai, UAE', city: 'Dubai', flag: '🇦🇪', price: '€16,500', currency: 'EUR', authority: 'GCAA + DGCA Approved', facilities: 'Level D FFS', duration: '6–8 weeks' },
 ];
 
@@ -62,7 +62,7 @@ export default function TypeRatingPage() {
       {/* HERO */}
       <section className={s.hero}>
         <div className={s.heroBg}>
-          <img src="https://images.unsplash.com/photo-1559628233-100c798642d8?w=1920&q=80" alt="Level D Simulator" className={s.heroBgImg} />
+          <img src="/programs/type-rating.png" alt="Level D Simulator" className={s.heroBgImg} />
           <div className={s.heroOverlay} />
         </div>
         <div className={s.heroContent}>
@@ -152,15 +152,20 @@ export default function TypeRatingPage() {
           {(tab === 'A320' ? A320_PARTNERS : tab === 'ATR' ? ATR_PARTNERS : BOEING_PARTNERS).map((p, i) => (
             <div className={s.partnerCard} key={i}>
               <div className={s.partnerTop}>
-                <span className={s.partnerFlag}>{p.flag}</span>
                 <div className={s.partnerLocation}>
                   <span className={s.partnerCity}>{p.city}</span>
                   <span className={s.partnerCountry}>{p.location}</span>
                 </div>
                 <span className={s.partnerDuration}>{p.duration}</span>
               </div>
-              <div className={s.partnerPrice}>{p.price}</div>
-              <div className={s.partnerCurrency}>{p.currency}</div>
+              {p.price.startsWith('Contact') ? (
+                <div className={s.partnerContactText}>{p.price}</div>
+              ) : (
+                <>
+                  <div className={s.partnerPrice}>{p.price}</div>
+                  <div className={s.partnerCurrency}>{p.currency}</div>
+                </>
+              )}
               <span className={s.partnerBadge}>{p.authority}</span>
               <p className={s.partnerFacilities}>{p.facilities}</p>
               <Link href="/admissions" className={s.partnerCta}>Apply for This Location →</Link>

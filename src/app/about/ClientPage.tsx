@@ -46,10 +46,9 @@ const FACILITIES = [
 ];
 
 const TEAM = [
-  { name: 'Capt. Rajeev Sharma',  role: 'Chief Flight Instructor', note: 'Former IndiGo Captain · 12,000 hrs TT · 18 yrs commercial experience' },
-  { name: 'Capt. Ananya Krishnan', role: 'Head of Ground School',   note: 'Former Air India A320 FO · DGCA examiner certified' },
-  { name: 'Ms. Priya Anand',      role: 'Cabin Crew Programme Lead', note: 'Former Vistara Senior Cabin Crew · 6 years Aviora' },
-  { name: 'Mr. Vikram Nair',      role: 'Head of Placement',        note: '15 years aviation HR · ex-IndiGo Talent Acquisition' },
+  { name: 'Capt. Alok Reddy', role: 'Founder & CPL Ground Instructor', note: 'A320 Rated Airline Pilot with a leading airline in India. Specialises in airline operations, aviation training, and mentoring aspiring pilots from Zero to Airline Pilot. Passionate about building the next generation of aviation professionals.' },
+  { name: 'Capt. Chaitanya Mendu', role: 'Senior CPL Ground Instructor', note: 'A320 Rated Airline Pilot and Senior Instructor for Navigation & Technical General. Known for simplifying complex aviation concepts and mentoring aspiring pilots with a strong focus on DGCA exam preparation, technical knowledge, and airline-oriented training. Passionate about shaping disciplined and industry-ready aviators.' },
+  { name: 'Capt. Arjun Rao', role: 'Senior CPL Ground Instructor', note: 'Capt. Arjun Rao is an A320 Rated Airline Pilot and Senior Instructor for Meteorology. Recognised for his practical teaching approach and deep understanding of aviation weather systems, he mentors aspiring pilots with a strong focus on DGCA Meteorology preparation and real-world airline operations. Dedicated to building confident and knowledgeable future aviators.' },
 ];
 
 const FOUNDER_YEAR = '2024';
@@ -88,8 +87,8 @@ export default function ClientPage() {
       <section className={s.hero}>
         <div className={`${s.heroBgWrap} ${s.fadeUp}`}>
           <Image
-            src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80"
-            alt="Aerial view"
+            src="/about_hero_v3.png"
+            alt="Aviora Aviation Academy Campus"
             className={s.heroBgImg}
             fill
             priority
@@ -130,7 +129,7 @@ export default function ClientPage() {
           <div className={`${s.storyLeft} ${s.slideIn}`}>
             <div className={s.eyebrow}>Our Story</div>
             <h2 className={s.sectionH2}>
-              Built Because the<br/><em>System Was Broken.</em>
+              Built Because The<br/><em>System Was Broken.</em>
             </h2>
             
             <div className={s.storyTimeline}>
@@ -180,9 +179,7 @@ export default function ClientPage() {
       <section className={s.missionSection}>
         <div className={s.container}>
           <div className={`${s.eyebrow} ${s.fadeUp}`}>What Sets Us Apart</div>
-          <h2 className={`${s.sectionH2} ${s.fadeUp}`}>
-            Four Things Aviora<br/><em>Does Differently.</em>
-          </h2>
+          <h2 className={s.sectionH2}>Four Things Aviora<br /><em>Does Differently.</em></h2>
           <div className={s.missionGrid}>
             {MISSION_POINTS.map((pt, i) => (
               <div className={`${s.missionCard} ${s.fadeUp}`} style={{ transitionDelay: `${i * 0.1}s` }} key={i}>
@@ -257,7 +254,7 @@ export default function ClientPage() {
         <div className={s.container}>
           <div className={`${s.eyebrow} ${s.fadeUp}`}>Campus & Infrastructure</div>
           <h2 className={`${s.sectionH2} ${s.fadeUp}`}>
-            Built to Train.<br/><em>Not to Impress Brochures.</em>
+            Built To Train.<br/><em>Not To Impress Brochures.</em>
           </h2>
           <div className={s.facilitiesGrid}>
             {FACILITIES.map((f, i) => (
@@ -275,9 +272,7 @@ export default function ClientPage() {
       <section className={s.teamSection}>
         <div className={s.container}>
           <div className={`${s.eyebrow} ${s.fadeUp}`}>Faculty & Leadership</div>
-          <h2 className={`${s.sectionH2} ${s.fadeUp}`}>
-            Taught by Pilots.<br/><em>Led by Professionals.</em>
-          </h2>
+          <h2 className={s.sectionTitle}>Taught By Pilots.<br /><em>Led By Professionals.</em></h2>
           <div className={s.teamGrid}>
             {TEAM.map((m, i) => (
               <div className={`${s.teamCard} ${s.fadeUp}`} style={{ transitionDelay: `${i * 0.1}s` }} key={i}>
@@ -296,10 +291,10 @@ export default function ClientPage() {
         <div className={`${s.bottomCtaInner} ${s.fadeUp}`}>
           <div className={s.eyebrow}>Join Aviora</div>
           <h2 className={s.bottomCtaH2}>
-            The Next Generation of<br/><em>Indian Aviation Starts Here.</em>
+            The Next Generation Of<br/><em>Indian Aviation Starts Here.</em>
           </h2>
           <div className={s.bottomCtaBtns}>
-            <Link href="/admissions" className={s.btnPrimary}>Apply Now →</Link>
+            <Link href="/admissions" className={s.btnPrimary}>Enroll Now →</Link>
             <Link href="/programs"   className={s.btnSecondary}>Explore Programs</Link>
           </div>
         </div>

@@ -5,7 +5,7 @@ import s from './contact.module.css';
 
 const FAQS = [
   {
-    q: 'What are the upcoming intake dates for 2025?',
+    q: 'What are the upcoming intake dates for 2026?',
     a: 'Aviora runs four structured intakes annually — January, April, July, and October. Each cohort is deliberately capped to maintain the instructor-to-student ratio that delivers our 98% placement record. We recommend initiating your application at least 12 weeks before your preferred intake.'
   },
   {
@@ -233,7 +233,7 @@ export default function ContactPage() {
         <div className={s.container}>
           <div className={s.baseSectionHead}>
             <div className={s.eyebrow}>Find Us</div>
-            <h2 className={s.baseSectionH2}>Base of <em>Operations</em></h2>
+            <h2 className={s.baseSectionH2}>Base Of <em>Operations</em></h2>
           </div>
 
           <div className={s.baseGrid}>

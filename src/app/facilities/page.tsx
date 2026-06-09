@@ -76,7 +76,7 @@ export default function FacilitiesPage() {
       <section className={s.hero}>
         <div className={s.heroBg}>
           <img
-            src="https://images.unsplash.com/photo-1559628233-100c798642d8?w=1920&q=80"
+            src="/hero/facilities_hero.png"
             alt="Aviora Facilities"
             className={s.heroBgImg}
             fetchPriority="high"
@@ -154,7 +154,7 @@ export default function FacilitiesPage() {
             and meet the instructors. No obligation — just clarity.
           </p>
           <div className={s.ctaBtns}>
-            <Link href="/admissions" className={s.btnGold}>Apply Now</Link>
+            <Link href="/admissions" className={s.btnGold}>Enroll Now</Link>
             <Link href="/contact" className={s.btnLine}>Schedule a Campus Visit</Link>
           </div>
         </div>

@@ -13,7 +13,7 @@
 .headerBg {
   position: absolute; inset: 0; z-index: 0;
   background:
-    url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=60') center/cover;
+    url('/hero/blog_hero.png') center/cover;
   filter: brightness(0.22) saturate(0.45);
 }
 /* Minimum 0.65 left-side overlay */

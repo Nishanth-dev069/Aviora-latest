@@ -10,7 +10,7 @@ import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
 const FRAME_COUNT = 242;
 const getFrameSrc = (i: number) => `/hero-sequence/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
 
-const TICKER_ITEMS = ['End to End Process.', 'Cessna 172 Fleet', 'Fixed Based Simulators', '98% Airline Placement', '10 Partner Airlines', '100+ Graduates .', '5000+ Flight Hours.', 'International Training — USA'];
+const TICKER_ITEMS = ['End to End Process.', 'Cessna 172 Fleet', 'Fixed Based Simulators', '98% Airline Placement', '10 Partner Airlines', '100+ Graduates', '5000+ Flight Hours', 'International Training — USA'];
 const FACILITIES = [
   { icon: '◈', title: 'Aviation Classrooms', desc: 'Spacious, purpose-built classrooms with aviation charts, instrument panels, and reference materials — nothing like a school.' },
   { icon: '⬡', title: 'Digital Smart Labs', desc: 'Interactive digital classrooms with simulation software, weather systems, and real-time ATC feeds for ground school training.' },
@@ -20,9 +20,9 @@ const FACILITIES = [
   { icon: '○', title: 'Airline Pilot Mentorship', desc: 'Direct one-on-one sessions with active airline pilots — not retired instructors. Real-world guidance at every stage.' },
 ];
 const MENTORS = [
-  { initials: 'CA', name: 'Capt. Arjun Mehta', role: 'Chief Flight Instructor', hours: '14,200', airlines: ['IndiGo', 'Air India'], bio: 'Former A320 Captain with IndiGo. Specialises in DGCA exam preparation and instrument rating. Known for zero-failure DGCA batch results.' },
-  { initials: 'KS', name: 'Capt. Kavitha Sharma', role: 'Senior CPL Instructor', hours: '9,800', airlines: ['SpiceJet', 'Go First'], bio: 'One of India\'s leading female aviation instructors. Multi-engine specialist with a 100% student pass rate on commercial exams.' },
-  { initials: 'RP', name: 'Capt. Rahul Pillai', role: 'FBS Simulator Lead', hours: '11,400', airlines: ['Vistara', 'Air Asia'], bio: 'Emergency procedures expert. Designed Aviora\'s entire FBS curriculum based on real airline SOPs. Every student leaves unshakeable.' },
+  { initials: 'AR', name: 'Capt. Alok Reddy', role: 'Founder & CPL Ground Instructor', bio: 'A320 Rated Airline Pilot with a leading airline in India. Specialises in airline operations, aviation training, and mentoring aspiring pilots from Zero to Airline Pilot. Passionate about building the next generation of aviation professionals.' },
+  { initials: 'CM', name: 'Capt. Chaitanya Mendu', role: 'Senior CPL Ground Instructor', bio: 'A320 Rated Airline Pilot and Senior Instructor for Navigation & Technical General. Known for simplifying complex aviation concepts and mentoring aspiring pilots with a strong focus on DGCA exam preparation, technical knowledge, and airline-oriented training. Passionate about shaping disciplined and industry-ready aviators.' },
+  { initials: 'AR', name: 'Capt. Arjun Rao', role: 'Senior CPL Ground Instructor', bio: 'Capt. Arjun Rao is an A320 Rated Airline Pilot and Senior Instructor for Meteorology. Recognised for his practical teaching approach and deep understanding of aviation weather systems, he mentors aspiring pilots with a strong focus on DGCA Meteorology preparation and real-world airline operations. Dedicated to building confident and knowledgeable future aviators.' },
 ];
 const GLOBAL_FEATURES = [
   { title: 'Open Airspace', desc: 'Uncongested training areas with real cross-country navigation — not circuits.' },
@@ -204,7 +204,7 @@ export default function HomePage() {
           {/* Hero Content Overlay */}
           <div className={styles.heroOverlay}>
             <div className={styles.heroContent}>
-              <div className={styles.heroEyebrow} style={{ color: '#DDE3EA', whiteSpace: 'nowrap', fontSize: '11px', letterSpacing: '0.45em' }}>Est. 2025, South India's Biggest Aviation Facility</div>
+              <div className={styles.heroEyebrow} style={{ color: '#DDE3EA', whiteSpace: 'nowrap', fontSize: '11px', letterSpacing: '0.45em' }}>Est. 2024, South India's Biggest Aviation Facility</div>
               <h1 className={styles.heroH1}>
                 <span style={{ color: '#FFFFFF' }}>Born to Fly.</span><br /><em>Trained to Lead.</em>
               </h1>
@@ -244,7 +244,7 @@ export default function HomePage() {
         <div className={styles.container}>
           <RevealOnScroll className={styles.sectionHead}>
             <div className={styles.eyebrowLight}>Flight Programs</div>
-            <h2 className={styles.sectionTitle}>Courses Built for Those<br />Who <em>Dare to Ascend</em></h2>
+            <h2 className={styles.sectionTitle}>Courses Built For Those<br />Who <em>Dare To Ascend</em></h2>
             <p className={styles.sectionSub}>Every Aviora program is engineered by veteran captains who commanded the exact aircraft you are training for.</p>
           </RevealOnScroll>
           <div className={styles.programsGrid}>
@@ -282,7 +282,7 @@ export default function HomePage() {
       <section className={`${styles.facilitiesSection} ${styles.darkSection}`} id="facilities">
         <div className={styles.container}>
           <div className={`${styles.sectionHead} ${styles.twoColHead}`}>
-            <div><div className={`${styles.eyebrow} ${styles.eyebrowLight}`}>World-Class Infrastructure</div><h2 className={styles.sectionH2}>A Campus Built<br />for <em>Real Aviation</em></h2></div>
+            <div><div className={`${styles.eyebrow} ${styles.eyebrowLight}`}>World-Class Infrastructure</div><h2 className={styles.sectionH2}>A Campus Built<br />For <em>Real Aviation</em></h2></div>
             <p className={styles.bodyCopy} style={{ maxWidth: 360, alignSelf: 'flex-end' }}>Aviora&apos;s training environment is designed to replicate industry conditions from day one — not a classroom. A cockpit.</p>
           </div>
           <div className={styles.facilitiesGrid}>
@@ -294,10 +294,10 @@ export default function HomePage() {
       {/* ═══ MENTORS ═══ */}
       <section className={`${styles.mentorsSection} ${styles.darkSection}`} id="mentors">
         <div className={styles.container}>
-          <div className={`${styles.eyebrow} ${styles.eyebrowLight}`}>The People Behind Your Wings</div>
-          <div className={styles.mentorsHeader}><h2 className={styles.sectionH2}>Learn From Those Who<br /><em>Commanded the Skies</em></h2><Link href="/mentors" className={styles.btnOutlineLight}>Meet All Instructors &rarr;</Link></div>
+          <div className={`${styles.eyebrow} ${styles.eyebrowDark}`}>The People Behind Your Wings</div>
+          <div className={styles.mentorsHeader}><h2 className={styles.sectionH2}>Learn From Those Who<br /><em>Commanded The Skies</em></h2><Link href="/mentors" className={styles.btnOutline}>Meet All Instructors &rarr;</Link></div>
           <div className={styles.mentorsGrid}>
-            {MENTORS.map((m, i) => (<div className={styles.mentorCard} key={i} data-card-reveal><div className={styles.mcAvatar}>{m.initials}</div><div className={styles.mcInfo}><div className={styles.mcName}>{m.name}</div><div className={styles.mcRole}>{m.role}</div><div className={styles.mcHours}>{m.hours} hours total time</div></div><p className={styles.mcBio}>{m.bio}</p><div className={styles.mcAirlines}>{m.airlines.map((a, j) => <span className={styles.mcAirlineTag} key={j}>{a}</span>)}</div></div>))}
+            {MENTORS.map((m, i) => (<div className={styles.mentorCard} key={i} data-card-reveal><div className={styles.mcAvatar}>{m.initials}</div><div className={styles.mcInfo}><div className={styles.mcName}>{m.name}</div><div className={styles.mcRole}>{m.role}</div></div><p className={styles.mcBio}>{m.bio}</p></div>))}
           </div>
           <div className={styles.mentorsStrip}>
             <div className={styles.msStat}><span className={styles.msNum}>5,000+</span><span className={styles.msLabel}>Avg. Instructor Hours</span></div>
@@ -314,7 +314,7 @@ export default function HomePage() {
         <div className={styles.globalInner}>
           <div className={styles.globalContent}>
             <div className={`${styles.eyebrow} ${styles.eyebrowLight}`}>International Flight Training</div>
-            <h2 className={styles.sectionH2}>Train Where<br />the Sky Has<br /><em>No Limits</em></h2>
+            <h2 className={styles.sectionH2}>Train Where<br />The Sky Has<br /><em>No Limits</em></h2>
             <p className={styles.bodyCopy} style={{ marginTop: 20, marginBottom: 36 }}>Aviora&apos;s exclusive partnership brings you real flight hours in the United States — open airspace, FAA standards, and internationally recognised qualifications that Indian skies simply can&apos;t offer.</p>
             <div className={styles.globalFeatures}>
               {GLOBAL_FEATURES.map((f, i) => (<div className={styles.gfItem} key={i}><div className={styles.gfDot} /><div><div className={styles.gfTitle}>{f.title}</div><div className={styles.gfDesc}>{f.desc}</div></div></div>))}
@@ -344,7 +344,7 @@ export default function HomePage() {
       {/* ═══ LEGACY ═══ */}
       <section className={styles.legacySection} id="legacy">
         <div className={styles.container}>
-          <div className={styles.legacyHeader}><div className={styles.eyebrowDark}>By the Numbers</div><h2 className={styles.sectionTitleDark}>Decades of Excellence,<br /><em>Measured in Altitude</em></h2></div>
+          <div className={styles.legacyHeader}><div className={styles.eyebrowDark}>By the Numbers</div><h2 className={styles.sectionTitle}>Decades Of Excellence,<br /><em>Measured In Altitude</em></h2></div>
           <div className={styles.statsGrid}>
             {[{ target: 100, suffix: '+', label: 'Pilots Graduated' }, { target: 98, suffix: '%', label: 'Placement Rate' }, { target: 5000, suffix: '+', label: 'Flight Hours Logged' }, { target: 10, suffix: '+', label: 'Airline Partners' }].map((stat, i) => (
               <div key={i} className={styles.statItem} data-stat data-target={stat.target} data-suffix={stat.suffix}><div className={styles.statNumber} data-stat-num>0</div><div className={styles.statLabel}>{stat.label}</div></div>
@@ -360,9 +360,9 @@ export default function HomePage() {
           <div className={styles.sectionHead}><div className={styles.eyebrowLight}>Alumni Voices</div><h2 className={styles.sectionTitle}>Captains Who Once Sat<br /><em>Where You Are Now</em></h2></div>
           <div className={styles.testimonialsGrid}>
             {[
-              { initials: 'RK', text: 'Aviora didn\'t just teach me to fly. They taught me to command. Zero to 737 First Officer in 26 months — the standard of training here is genuinely world-class.', name: 'Rahul Kapoor', role: 'First Officer · IndiGo Airlines' },
-              { initials: 'SM', text: 'The simulator scenarios are things most pilots never face in 30 years. By graduation I was unshakeable. No other academy came close to the depth here.', name: 'Sneha Mehta', role: 'Captain · AirAsia India' },
-              { initials: 'AV', text: 'My mentor had 18,000 hours and treated me as a peer from day one. That relationship — that calibre of instruction — simply doesn\'t exist anywhere else.', name: 'Arjun Verma', role: 'Senior Captain · Emirates' },
+              { initials: 'SR', text: 'From DGCA Ground school to the right seat of the A320, the journey started with discipline, consistency, and the right mentorship. The airline-focused training environment prepared me for real-world cockpit operations from day one.', name: 'Capt. Saransh Rawat', role: 'First Officer - A320' },
+              { initials: 'RR', text: 'The technical depth and mentorship gave me a huge advantage during airline selection and training. The transition from student pilot to B737 First Officer felt natural because of the foundation built here.', name: 'Rishi Rao', role: 'FIRST OFFICER · BOEING 737' },
+              { initials: 'KN', text: 'The standard here pushes you beyond clearing exams. Every session felt like preparation for airline life itself. By the time I entered airline training, I already felt cockpit-ready.', name: 'Capt. Kishan Narayan', role: 'FIRST OFFICER - A320' },
             ].map((t, i) => (
               <div key={i} className={styles.tcard} data-card-reveal>
                 <div className={styles.tcardQuoteMark}>&ldquo;</div>
@@ -379,7 +379,7 @@ export default function HomePage() {
         <div className={styles.container}>
           <div className={styles.sectionHead} style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div className={styles.eyebrowLight}>Operations & Enquiries</div>
-            <h2 className={styles.sectionTitle} style={{ color: 'white' }}>Get in Touch with <em>Aviora</em></h2>
+            <h2 className={styles.sectionTitle}>Get In Touch With <em>Aviora</em></h2>
           </div>
           <div className={styles.hcGrid}>
             <div className={styles.hcCard} data-card-reveal>
@@ -387,15 +387,15 @@ export default function HomePage() {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
               </div>
               <h3 className={styles.hcTitle}>Call Operations</h3>
-              <div className={styles.hcText}><a href="tel:+914023456789">+91 40 2345 6789</a></div>
-              <div className={styles.hcText}><a href="https://wa.me/919876543210">+91 98765 43210 (WhatsApp)</a></div>
+              <div className={styles.hcText}><a href="tel:+916309342416">+91 6309342416</a></div>
+              <div className={styles.hcText}><a href="https://wa.me/917039339716">+91 7039339716 (WhatsApp)</a></div>
             </div>
             <div className={styles.hcCard} data-card-reveal>
               <div className={styles.hcIcon}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
               </div>
               <h3 className={styles.hcTitle}>Email Admissions</h3>
-              <div className={styles.hcText}><a href="mailto:admissions@avioraacademy.com">admissions@avioraacademy.com</a></div>
+              <div className={styles.hcText}><a href="mailto:Fly@onestopaviation.in">Fly@onestopaviation.in</a></div>
               <div className={styles.hcText}>Response within 24 hours</div>
             </div>
             <div className={styles.hcCard} data-card-reveal>
@@ -403,7 +403,7 @@ export default function HomePage() {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" /></svg>
               </div>
               <h3 className={styles.hcTitle}>Campus Headquarters</h3>
-              <div className={styles.hcText}>3rd Floor, Skyline Plaza, Banjara Hills<br />Hyderabad, Telangana — 500034</div>
+              <div className={styles.hcText}><a href="https://maps.app.goo.gl/1mDtzgUFx5WT2NDX7?g_st=ic" target="_blank" rel="noopener noreferrer" style={{color:'inherit',textDecoration:'none'}}>Block No 5, 8-5-255/66, Inner Ring Road<br />Defence Colony, Hyderabad, TG, 500079</a></div>
             </div>
           </div>
         </div>
@@ -414,9 +414,9 @@ export default function HomePage() {
 
         <div className={`${styles.container} ${styles.ctaContainer}`}>
           <div className={styles.ctaEyebrowWrap}><div className={styles.eyebrowDark} style={{ opacity: 1, transform: 'none' }}>Ready for Departure</div></div>
-          <h2 className={styles.ctaTitle}>Are You Ready to<br /><em>Take the Controls?</em></h2>
-          <p className={styles.ctaBody}>The cockpit waits only for those serious about the sky. Our 2025 intake is extremely limited — reserve your assessment today.</p>
-          <div className={styles.ctaButtons}><Link href="/admissions" className={styles.btnCtaPrimary}>Enroll for 2025</Link><Link href="/contact" className={styles.btnCtaOutline}>Send an Enquiry</Link></div>
+          <h2 className={styles.ctaTitle}>Are You Ready To<br /><em>Take The Controls?</em></h2>
+          <p className={styles.ctaBody}>The cockpit waits only for those serious about the sky. Our 2026 intake is extremely limited — reserve your assessment today.</p>
+          <div className={styles.ctaButtons}><Link href="/admissions" className={styles.btnCtaPrimary}>Enroll for 2026</Link><Link href="/contact" className={styles.btnCtaOutline}>Send an Enquiry</Link></div>
           <div className={styles.ctaTrust}><span>South Indian's Biggest Aviation Facility</span><span className={styles.trustDot}>·</span><span>10 Airline Partners</span><span className={styles.trustDot}>·</span><span>98% Placement</span></div>
         </div>
       </section>

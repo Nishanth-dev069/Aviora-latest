@@ -1,6 +1,8 @@
 .nav {
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     height: 72px;
     display: flex;
@@ -14,7 +16,9 @@
 .nav::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 3px;
     background: linear-gradient(90deg, var(--color-secondary), var(--color-accent), var(--color-secondary));
     z-index: 1001;
@@ -24,7 +28,7 @@
     background: rgba(5, 14, 45, 0.55);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .scrolled {
@@ -35,19 +39,22 @@
 }
 
 .navLogo {
-    font-family: var(--font-display), sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: 0.30em;
-    color: var(--color-text-light); /* Will use light base */
-    text-decoration: none;
-    text-transform: uppercase;
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
-    transition: color 0.4s ease, text-shadow 0.3s ease;
+    text-decoration: none;
+    transition: transform 0.4s ease;
 }
 
 .navLogo:hover {
-    text-shadow: 0 0 12px rgba(241, 241, 241, 0.4);
+    transform: scale(1.02);
+}
+
+.navLogoImg {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .navLinks {
@@ -182,8 +189,15 @@
 }
 
 @keyframes dropIn {
-    from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
 .dropItem {
@@ -270,7 +284,10 @@
 
 .mobileOverlay {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: var(--color-accent);
     z-index: 100;
     display: flex;
@@ -326,12 +343,15 @@
     .nav {
         padding: 0 24px;
     }
+
     .navLinks {
         display: none;
     }
+
     .navCta {
         display: none;
     }
+
     .navHamburger {
         display: flex;
     }

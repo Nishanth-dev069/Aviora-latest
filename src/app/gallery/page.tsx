@@ -5,31 +5,26 @@ import s from './gallery.module.css';
 
 const ITEMS_PER_PAGE = 9;
 
-const ALL_GALLERY = [
-  // Campus & Ground
-  { src:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=80', alt:'Aircraft on runway at dusk', cat:'Operations', caption:'Runway Operations' },
-  { src:'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&q=80', alt:'Cessna pre-flight check on tarmac', cat:'Training', caption:'Pre-flight Walkround' },
-  { src:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=80', alt:'Cessna 172 in flight', cat:'Training', caption:'Solo Flight — Cessna 172' },
-  // Cockpit
-  { src:'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&q=80', alt:'Cessna cockpit instruments', cat:'Cockpit', caption:'Instrument Panel — C172' },
-  { src:'https://images.unsplash.com/photo-1559628233-100c798642d8?w=900&q=80', alt:'Cockpit golden hour', cat:'Cockpit', caption:'Golden Hour — Final Approach' },
-  { src:'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=900&q=80', alt:'Aerial desert landscape', cat:'USA Training', caption:'Aerial — Arizona Desert' },
-  // USA
-  { src:'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=900&q=80', alt:'Cross-country flight USA', cat:'USA Training', caption:'Cross-country — Phoenix AZ' },
-  { src:'https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=900&q=80', alt:'Wing over clouds', cat:'In-flight', caption:'Wing — 8,500 ft' },
-  { src:'https://images.unsplash.com/photo-1613690399151-65ea69478674?w=900&q=80', alt:'Aircraft at sunset', cat:'Operations', caption:'Evening Departure' },
-  // Cabin
-  { src:'https://images.unsplash.com/photo-1540339832862-474599807836?w=900&q=80', alt:'Aircraft cabin interior', cat:'Cabin Crew', caption:'Mock Cabin — Practical' },
-  { src:'https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=900&q=80', alt:'Cabin crew in uniform', cat:'Cabin Crew', caption:'Uniform Presentation' },
-  { src:'https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=900&q=80', alt:'Professional grooming session', cat:'Cabin Crew', caption:'Grooming Training' },
-  // Atmosphere
-  { src:'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=900&q=80', alt:'Airport boarding gate', cat:'Industry', caption:'Boarding Gate' },
-  { src:'https://images.unsplash.com/photo-1473621038790-b778b4750efe?w=900&q=80', alt:'Aircraft wing tip at altitude', cat:'In-flight', caption:'Wingtip — Cruise Altitude' },
-  { src:'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=900&q=80', alt:'Night time cockpit', cat:'Cockpit', caption:'Night Operations' },
-  { src:'https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=900&q=80', alt:'Professional pilot portrait', cat:'Training', caption:'Cadet — Post Solo' },
-  { src:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=80', alt:'Sky above clouds at altitude', cat:'In-flight', caption:'Above the Clouds' },
-  { src:'https://images.unsplash.com/photo-1485550409059-9afb054cada4?w=900&q=80', alt:'Aviator sunglasses reflection sky', cat:'Training', caption:'The View from the Left Seat' },
+const filenames = [
+  "SIV03073.webp", "SIV03075.webp", "SIV03079.webp", "SIV03080.webp", "SIV03081.webp",
+  "SIV03083.webp", "SIV03084.webp", "SIV03085.webp", "SIV03086.webp", "SIV03092.webp",
+  "SIV03094.webp", "SIV03096.webp", "SIV03097.webp", "SIV03099.webp", "SIV03100.webp",
+  "SIV03106.webp", "SIV03108.webp", "SIV03115.webp", "SIV03124.webp", "SIV03147.webp",
+  "SIV03159.webp", "SIV03182.webp", "SIV03192.webp", "SIV03232.webp", "SIV03233.webp",
+  "SIV03237.webp", "SIV03239.webp", "SIV03247.webp", "SIV03512.webp", "SIV03521.webp",
+  "SIV03552.webp", "SIV03564.webp", "SIV03600.webp", "SIV03617.webp", "SIV03644.webp",
+  "SIV03656.webp", "SIV03673.webp", "SIV03685.webp", "SIV03695.webp", "SIV03711.webp",
+  "SIV03715.webp"
 ];
+
+const cats = ['Training', 'Cockpit', 'Operations', 'Cabin Crew', 'In-flight', 'USA Training', 'Industry'];
+
+const ALL_GALLERY = filenames.map((f, i) => ({
+  src: `/gallery/${f}`,
+  alt: `Aviora Gallery Image ${i + 1}`,
+  cat: cats[i % cats.length],
+  caption: 'Aviora Aviation Academy'
+}));
 
 const CATS = ['All', 'Training', 'Cockpit', 'USA Training', 'In-flight', 'Cabin Crew', 'Operations', 'Industry'];
 

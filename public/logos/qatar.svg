@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <rect width="200" height="60" fill="white" rx="4"/>
+  <text x="100" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#5C0632">Qatar</text>
+  <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#5C0632">Airways</text>
+</svg>

@@ -15,7 +15,8 @@ const PROGRAMS = [
     duration: '18 – 24 Months',
     outcome: 'DGCA CPL + Instrument Rating',
     href: '/programs/pilot-training',
-    img: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&q=80',
+    img: '/programs/cessna-training.png',
+    objPos: 'center center',
   },
   {
     num: '02',
@@ -26,7 +27,8 @@ const PROGRAMS = [
     duration: '6 Months',
     outcome: 'Certified Cabin Crew — Airline Ready',
     href: '/programs/cabin-crew',
-    img: 'https://images.unsplash.com/photo-1540339832862-474599807836?w=900&q=80',
+    img: '/programs/cabin-crew.png',
+    objPos: 'center 25%',
   },
   {
     num: '03',
@@ -37,7 +39,8 @@ const PROGRAMS = [
     duration: '7 – 10 Months',
     outcome: '200+ FAA Flight Hours · CPL International Credit',
     href: '/programs/global-training',
-    img: 'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=900&q=80',
+    img: '/programs/global-training.png',
+    objPos: 'center center',
   },
   {
     num: '04',
@@ -48,7 +51,8 @@ const PROGRAMS = [
     duration: '6 – 10 Weeks',
     outcome: 'DGCA Type Rating — Airline Entry',
     href: '/programs/type-rating',
-    img: 'https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=900&q=80',
+    img: '/programs/type-rating.png',
+    objPos: 'center center',
   },
 ];
 
@@ -106,7 +110,7 @@ export default function ProgramsPage() {
       <section className={s.hero}>
         <div className={s.heroBg}>
           <img
-            src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80"
+            src="/hero/cessna_clouds.png"
             alt="Aviora Programs Cockpit"
             className={s.heroBgImg}
           />
@@ -125,7 +129,7 @@ export default function ProgramsPage() {
         </svg>
 
         <div className={s.heroContent}>
-          <h1 className={s.heroH1}>Shape Your Future<br />in the Skies</h1>
+          <h1 className={s.heroH1}>Shape Your Future<br />In The Skies</h1>
           <p className={s.heroP}>
             Four highly-specialised pathways designed with one mission — putting elite Indian aviation professionals into global cockpits and world-class cabins.
           </p>
@@ -162,7 +166,7 @@ export default function ProgramsPage() {
 
               {/* Background image */}
               <div className={s.cardImgWrapper}>
-                <img src={p.img} alt={p.title} className={s.cardBgImg} />
+                <img src={p.img} alt={p.title} className={s.cardBgImg} style={{ objectPosition: p.objPos }} />
                 <div className={s.cardImgOverlay} />
               </div>
 

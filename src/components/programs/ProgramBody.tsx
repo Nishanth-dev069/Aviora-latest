@@ -279,7 +279,7 @@ export default function ProgramBody({ program }: ProgramBodyProps) {
               cursor: 'pointer',
             }}
           >
-            Apply Now
+            Enroll Now
           </a>
           <a
             href="/contact"

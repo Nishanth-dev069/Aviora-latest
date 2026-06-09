@@ -13,7 +13,7 @@
 .headerBg {
   position: absolute; inset: 0; z-index: 0;
   background:
-    url('https://images.unsplash.com/photo-1559628233-100c798642d8?w=1920&q=60') center/cover;
+    url('/hero/cessna_mountains.png') center/cover;
   filter: brightness(0.22) saturate(0.45);
 }
 /* Minimum 0.65 left-side overlay */

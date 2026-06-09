@@ -5,35 +5,27 @@ import s from './mentors.module.css';
 const MENTORS = [
   {
     num: '01',
-    name: 'Capt. Rajeev Sharma',
-    role: 'Chief Flight Instructor',
-    credential: 'ATPL · 14,000+ hours · Former IndiGo Captain',
-    philosophy: 'Aviation demands precision above everything else. My role is not to teach cadets how to fly an aircraft — it is to teach them how to think like a pilot. That is a different discipline entirely.',
-    tags: ['CPL Ground School', 'Simulator Training', 'DGCA Preparation'],
+    name: 'Capt. Alok Reddy',
+    role: 'Founder & CPL Ground Instructor',
+    credential: 'A320 Rated Airline Pilot with a leading airline in India.',
+    philosophy: 'Specialises in airline operations, aviation training, and mentoring aspiring pilots from Zero to Airline Pilot. Passionate about building the next generation of aviation professionals.',
+    tags: ['Airline Operations', 'Aviation Training', 'Zero to Airline Pilot'],
   },
   {
     num: '02',
-    name: 'Capt. Ananya Krishnan',
-    role: 'Head of Flight Operations',
-    credential: 'CPL · 6,200 hours · Multi-Engine & Instrument Rated',
-    philosophy: 'The hardest part of becoming a pilot in India is not the flying — it is the system. I decode the DGCA pathway for every cadet so they move through it efficiently, without the wrong detours.',
-    tags: ['FAA Training Coordination', 'Cross-Country Navigation', 'USA Program Lead'],
+    name: 'Capt. Chaitanya Mendu',
+    role: 'Senior CPL Ground Instructor',
+    credential: 'A320 Rated Airline Pilot and Senior Instructor for Navigation & Technical General.',
+    philosophy: 'Known for simplifying complex aviation concepts and mentoring aspiring pilots with a strong focus on DGCA exam preparation, technical knowledge, and airline-oriented training. Passionate about shaping disciplined and industry-ready aviators.',
+    tags: ['Navigation', 'Technical General', 'DGCA Preparation'],
   },
   {
     num: '03',
-    name: 'Ms. Priya Anand',
-    role: 'Head of Cabin Crew Training',
-    credential: 'Former IndiGo Senior Cabin Crew · 9 years operational experience',
-    philosophy: 'Airlines hire people, not certificates. What they look for in the interview room is calm, composure, and the ability to read a situation. That is what we build — not just the technical checklist.',
-    tags: ['Emergency Procedures', 'Service Standards', 'Interview Coaching'],
-  },
-  {
-    num: '04',
-    name: 'Mr. Vikram Nair',
-    role: 'Ground School Lead & DGCA Examiner Liaison',
-    credential: 'Aviation academic · 11 years DGCA ground school instruction',
-    philosophy: 'A cadet who understands why a regulation exists will always perform better in the skill test than one who has memorised it. I teach understanding, not rote. The exam results speak for themselves.',
-    tags: ['Air Navigation', 'Meteorology', 'Air Regulations'],
+    name: 'Capt. Arjun Rao',
+    role: 'Senior CPL Ground Instructor',
+    credential: 'Capt. Arjun Rao is an A320 Rated Airline Pilot and Senior Instructor for Meteorology.',
+    philosophy: 'Recognised for his practical teaching approach and deep understanding of aviation weather systems, he mentors aspiring pilots with a strong focus on DGCA Meteorology preparation and real-world airline operations. Dedicated to building confident and knowledgeable future aviators.',
+    tags: ['Meteorology', 'Weather Systems', 'Airline Operations'],
   },
 ];
 
@@ -52,7 +44,7 @@ export default function MentorsPage() {
       <section className={s.hero}>
         <div className={s.heroBg}>
           <img
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=80"
+            src="/hero/mentors_hero.png"
             alt="Aviora Mentors"
             className={s.heroBgImg}
             fetchPriority="high"
@@ -134,7 +126,7 @@ export default function MentorsPage() {
             and permanent access to faculty during study hours.
           </p>
           <div className={s.ctaBtns}>
-            <Link href="/admissions" className={s.btnGold}>Apply Now</Link>
+            <Link href="/admissions" className={s.btnGold}>Enroll Now</Link>
             <Link href="/contact" className={s.btnLine}>Speak with a Mentor</Link>
           </div>
         </div>
