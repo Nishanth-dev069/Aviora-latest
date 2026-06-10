@@ -94,7 +94,7 @@ export default function ClientPage() {
       <section className={s.hero}>
         <div className={`${s.heroBgWrap} ${s.fadeUp}`}>
           <Image
-            src="/about_hero_v3.png"
+            src="/gallery/SIV03521.webp"
             alt="Aviora Aviation Academy Campus"
             className={s.heroBgImg}
             fill

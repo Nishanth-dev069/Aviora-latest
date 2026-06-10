@@ -11,10 +11,9 @@ const filenames = [
   "SIV03094.webp", "SIV03096.webp", "SIV03097.webp", "SIV03099.webp", "SIV03100.webp",
   "SIV03106.webp", "SIV03108.webp", "SIV03115.webp", "SIV03124.webp", "SIV03147.webp",
   "SIV03159.webp", "SIV03182.webp", "SIV03192.webp", "SIV03232.webp", "SIV03233.webp",
-  "SIV03237.webp", "SIV03239.webp", "SIV03247.webp", "SIV03512.webp", "SIV03521.webp",
+  "SIV03237.webp", "SIV03239.webp", "SIV03512.webp", "SIV03521.webp",
   "SIV03552.webp", "SIV03564.webp", "SIV03600.webp", "SIV03617.webp", "SIV03644.webp",
-  "SIV03656.webp", "SIV03673.webp", "SIV03685.webp", "SIV03695.webp", "SIV03711.webp",
-  "SIV03715.webp"
+  "SIV03656.webp", "SIV03673.webp", "SIV03685.webp", "SIV03695.webp", "SIV03711.webp"
 ];
 
 const cats = ['Facility', 'Student Life', 'USA Training'];
