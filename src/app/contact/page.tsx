@@ -240,7 +240,7 @@ export default function ContactPage() {
             <div className={s.mapWrap}>
               <iframe
                 className={s.mapIframe}
-                src="https://maps.google.com/maps?q=Onestop%20Aviation%20Pvt%20Ltd,%20Hyderabad&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=17.3375712,78.5372053&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%" height="100%"
                 style={{ border: 0 }}
                 allowFullScreen loading="lazy"
