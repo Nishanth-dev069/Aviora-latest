@@ -17,7 +17,7 @@ const filenames = [
   "SIV03715.webp"
 ];
 
-const cats = ['Training', 'Cockpit', 'Operations', 'Cabin Crew', 'In-flight', 'USA Training', 'Industry'];
+const cats = ['Facility', 'Student Life', 'USA Training'];
 
 const ALL_GALLERY = filenames.map((f, i) => ({
   src: `/gallery/${f}`,
@@ -26,7 +26,7 @@ const ALL_GALLERY = filenames.map((f, i) => ({
   caption: 'Aviora Aviation Academy'
 }));
 
-const CATS = ['All', 'Training', 'Cockpit', 'USA Training', 'In-flight', 'Cabin Crew', 'Operations', 'Industry'];
+const CATS = ['All', 'Facility', 'Student Life', 'USA Training'];
 
 export default function GalleryPage() {
   const [activeCat, setActiveCat] = useState('All');
