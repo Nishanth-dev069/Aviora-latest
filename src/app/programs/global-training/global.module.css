@@ -668,7 +668,15 @@
     .sectionH2 { margin-bottom: 40px; }
     .ctaCardBtns { flex-direction: column; gap: 12px; align-items: center; }
     .ctaCardBtns > * { width: 100%; text-align: center; }
-    .eligCard, .ctaCard { display: flex; flex-direction: column; text-align: center; align-items: center; }
+    .eligCard, .ctaCard { 
+        display: flex; 
+        flex-direction: column; 
+        text-align: center; 
+        align-items: center; 
+        padding: 40px 24px !important; 
+        box-sizing: border-box !important; 
+        width: 100% !important; 
+    }
     .eyebrow, .eyebrowLight, .ctaCardEye, .ctaCardTrust { justify-content: center; text-align: center; }
     .eligCard .eyebrow::before, .eligCard .eyebrowLight::before, .ctaCard .ctaCardEye::before { display: none; }
 

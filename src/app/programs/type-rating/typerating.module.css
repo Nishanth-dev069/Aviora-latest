@@ -791,7 +791,17 @@
     .partnerPrice { font-size: 32px; }
     .aircraftCard { padding: 36px 28px; }
     .aircraftType { font-size: 40px; }
-    .eligCard, .ctaCard { padding: 40px 28px; }
+    .eligCard, .ctaCard { 
+        display: flex; 
+        flex-direction: column; 
+        text-align: center; 
+        align-items: center; 
+        padding: 40px 24px !important; 
+        box-sizing: border-box !important; 
+        width: 100% !important; 
+    }
+    .eyebrow, .ctaCardEye, .ctaCardTrust { justify-content: center; text-align: center; }
+    .eligCard .eyebrow::before, .ctaCard .ctaCardEye::before { display: none; }
 
   /* INJECTED HERO FIXES */
   .hero {
