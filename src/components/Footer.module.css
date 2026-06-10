@@ -11,8 +11,8 @@
   background-size: 40px 40px;
   width: 100%;
   position: relative;
-  border-top: 1px solid transparent;
   border-image: linear-gradient(to right, #4A90D9, transparent, #4A90D9) 1;
+  overflow: hidden; /* Contains the watermark */
 }
 
 /* ── TOP SECTION ── */
@@ -82,8 +82,9 @@
 }
 
 .logoImage {
-  height: 220px;
+  height: 320px;
   width: auto;
+  max-width: 100%;
   object-fit: contain;
   display: block;
 }
@@ -397,53 +398,88 @@
 }
 
 @media (max-width: 768px) {
-  .topSection {
-    padding: 48px 24px;
+  .watermarkText {
+    display: none;
   }
 
-  .bottomBar {
-    padding: 16px 24px;
+  .topSection {
+    padding: 40px 20px 0;
   }
 
   .grid {
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 0;
+    text-align: center;
+  }
+
+  .colBrand {
+    align-items: center;
+    text-align: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .brandLogo {
+    margin-bottom: 24px;
+  }
+
+  .socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
   }
 
   .navMasterWrap {
-    flex-wrap: wrap;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .col {
+    align-items: flex-start;
+    text-align: left;
   }
 
   .navCol {
-    min-width: 140px;
-    text-align: center;
+    min-width: unset;
   }
-}
 
-@media (max-width: 640px) {
-  .watermarkText {
-    font-size: 30vw;
+  .colRight {
+    padding: 24px 0;
+    align-items: flex-start;
+    text-align: left;
   }
-  .navMasterWrap {
-    flex-direction: column;
-    align-items: center;
-    gap: 36px;
+
+  .address, .contactRow {
+    font-size: 13px;
+    justify-content: flex-start;
+    text-align: left;
   }
-  .topSection {
-    padding: 48px 20px;
+
+  .partnerBox {
+    align-items: flex-start;
+    text-align: left;
+    margin-top: 16px;
   }
+
+  .bottomBar {
+    padding: 24px 20px 32px;
+  }
+
   .bottomBarInner {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 10px;
-  }
-  .bottomCopy {
+    gap: 12px;
     font-size: 11px;
+    opacity: 0.6;
   }
+
   .legalLinks {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
+    gap: 12px;
   }
 }

@@ -6,7 +6,7 @@ import s from './explore.module.css';
 const CONTENT = [
   {
     type: 'Gallery',
-    img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80',
+    img: '/hero/cessna_mountains.png',
     title: 'Runway Operations',
     cols: 2,
     rows: 2, // Large featured item
@@ -35,7 +35,7 @@ const CONTENT = [
   },
   {
     type: 'Gallery',
-    img: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80',
+    img: '/cessna.png',
     title: 'Training Flight — Cessna 172',
     cols: 1,
     rows: 1,
@@ -53,7 +53,7 @@ const CONTENT = [
   },
   {
     type: 'Gallery',
-    img: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&q=80',
+    img: '/programs/cessna-training.png',
     title: 'USA Training — Arizona',
     cols: 1,
     rows: 2, // Tall
@@ -82,7 +82,7 @@ const CONTENT = [
   },
   {
     type: 'Gallery',
-    img: 'https://images.unsplash.com/photo-1559628233-100c798642d8?w=800&q=80',
+    img: '/hero/blog_hero.png',
     title: 'Golden Hour — Cockpit',
     cols: 2,
     rows: 1,
@@ -118,7 +118,25 @@ export default function ExplorePage() {
       {/* ═══ 2. EXPLORE GRID ═══ */}
       <section className={s.exploreSection}>
         <div className={s.container}>
-          
+          {/* Mobile Nav Row */}
+          <div className={s.mobileNavRow}>
+            <div className={s.mobileNavTitle}>EXPLORE AVIORA</div>
+            <div className={s.mobileNavCards}>
+              <Link href="/blog" className={s.mobileNavCard}>
+                <span className={s.mobileNavLabel}>Blog</span>
+                <span className={s.mobileNavArrow}>→</span>
+              </Link>
+              <Link href="/news" className={s.mobileNavCard}>
+                <span className={s.mobileNavLabel}>News</span>
+                <span className={s.mobileNavArrow}>→</span>
+              </Link>
+              <Link href="/gallery" className={s.mobileNavCard}>
+                <span className={s.mobileNavLabel}>Gallery</span>
+                <span className={s.mobileNavArrow}>→</span>
+              </Link>
+            </div>
+          </div>
+
           {/* Filters */}
           <div className={s.filterBar}>
             {FILTERS.map(f => (

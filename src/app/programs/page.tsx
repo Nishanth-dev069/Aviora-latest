@@ -147,7 +147,7 @@ export default function ProgramsPage() {
           </div>
           <div className={s.statDivider} />
           <div className={s.heroStat}>
-            <span className={s.statNum}>92%</span>
+            <span className={s.statNum}>98%</span>
             <span className={s.statLabel}>Placement Rate</span>
           </div>
         </div>

@@ -42,10 +42,8 @@
 .heroContent {
     position: relative;
     z-index: 2;
-    max-width: 1280px;
-    width: 100%;
-    margin: 0 auto;
     padding: 160px 80px 0;
+    padding-left: max(80px, calc((100vw - 1280px) / 2 + 80px));
 }
 
 .breadcrumb {
@@ -102,7 +100,6 @@
     line-height: 0.98;
     letter-spacing: -0.02em;
     margin: 0 0 24px;
-    max-width: 780px;
 }
 
 .heroH1 em {
@@ -654,7 +651,7 @@
 }
 
 @media (max-width: 768px) {
-    .heroContent { padding: 120px 20px 0; }
+    .heroContent { padding: 120px 24px 0; }
     .heroH1 { font-size: clamp(28px, 8vw, 42px); margin-bottom: 16px; line-height: 1.1; }
     .heroCtas { flex-direction: column; gap: 12px; }
     .heroCtas > * { width: 100%; text-align: center; }
@@ -662,7 +659,7 @@
     .heroStats { grid-template-columns: 1fr 1fr; margin-top: 48px; }
     .heroStat { padding: 20px 16px; }
     .heroStatNum { font-size: 28px; }
-    .eligSection, .phaseSection { padding: 64px 24px; }
+    .eligSection, .phaseSection, .usaSection, .dgcaSection { padding: 56px 20px; }
     .gallery { grid-template-columns: 1fr; height: auto; }
     .galleryItem { height: 240px; }
     .step { grid-template-columns: 48px 1fr; gap: 20px; }
@@ -670,10 +667,34 @@
     .sectionH2 { margin-bottom: 40px; }
     .ctaCardBtns { flex-direction: column; gap: 12px; }
     .ctaCardBtns > * { width: 100%; text-align: center; }
+
+  /* INJECTED HERO FIXES */
+  .hero {
+    min-height: auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .heroBg, .heroBgWrap {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    min-height: 220px !important;
+    overflow: hidden !important;
+  }
+  .heroContent {
+    padding: 60px 20px 48px !important;
+    margin: 0 !important;
+  }
+  .heroH1 {
+    font-size: clamp(28px, 7vw, 40px) !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
 }
 
 @media (max-width: 480px) {
-    .heroStats { grid-template-columns: 1fr; }
+    .heroStats { grid-template-columns: 1fr 1fr; }
     .heroStat { border-right: none; border-bottom: 1px solid rgba(200, 150, 62, 0.08); }
     .heroStat:last-child { border-bottom: none; }
 }

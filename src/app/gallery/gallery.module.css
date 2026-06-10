@@ -127,7 +127,20 @@
 /* RESPONSIVE */
 @media (max-width: 1024px) { .galleryGrid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) {
-  .headerContent, .filterBar, .gridSection { padding-left: 24px; padding-right: 24px; }
-  .galleryGrid { grid-template-columns: 1fr 1fr; }
-  .galleryItem { height: 200px; }
+  .pageHeader { padding-left: 0 !important; padding-right: 0 !important; }
+  .headerContent, .filterBar, .gridSection { padding-left: clamp(16px, 5vw, 24px); padding-right: clamp(16px, 5vw, 24px); }
+  .galleryGrid { grid-template-columns: 1fr; gap: 12px; }
+  .galleryItem { 
+    height: auto; 
+    aspect-ratio: 4 / 3; 
+    width: 100%; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    position: relative;
+    min-height: 200px;
+  }
+  .galleryImg {
+    object-fit: cover;
+    object-position: center;
+  }
 }

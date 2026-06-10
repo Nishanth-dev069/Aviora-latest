@@ -67,7 +67,7 @@ export default function Nav() {
     return (
         <nav id="main-nav" suppressHydrationWarning className={`${styles.nav} ${isScrolled ? styles.scrolled : (isDarkHero ? styles.navHeroDark : "")}`}>
             <Link href="/" className={styles.navLogo}>
-                <img src="/logos/Aviora%20White%20text%20Logo.PNG" alt="Aviora Aviation Academy" className={styles.navLogoImg} />
+                <img src="/logos/Aviora%20navbar%20logo.png" alt="Aviora Aviation Academy" className={styles.navLogoImg} />
             </Link>
 
             <ul className={styles.navLinks}>
@@ -132,8 +132,14 @@ export default function Nav() {
                 <span />
             </div>
 
-            {/* Mobile Overlay */}
-            <div className={`${styles.mobileOverlay} ${isMobileMenuOpen ? styles.isOpen : ""}`}>
+            {/* Mobile Overlay Backdrop */}
+            <div 
+                className={`${styles.mobileBackdrop} ${isMobileMenuOpen ? styles.isOpen : ""}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+            />
+            
+            {/* Sliding Drawer */}
+            <div className={`${styles.mobileDrawer} ${isMobileMenuOpen ? styles.isOpen : ""}`}>
                 <ul className={styles.mobileLinks}>
                     {navLinks.map((link) => {
                         const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));

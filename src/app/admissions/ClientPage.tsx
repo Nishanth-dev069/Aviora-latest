@@ -236,7 +236,7 @@ export default function AdmissionsPage() {
           </p>
           <div className={s.heroActions}>
             <a href="#apply" className={s.btnPrimaryApply}>Apply for Intake</a>
-            <a href="#prospectus" className={s.btnSecondaryApply}>Download Brochure</a>
+            <a href="/Aviora Brochure - Pilots .pdf" download className={s.btnSecondaryApply}>Download Brochure</a>
           </div>
         </div>
 

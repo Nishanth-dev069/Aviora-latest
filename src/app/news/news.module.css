@@ -155,6 +155,24 @@
 /* RESPONSIVE */
 @media (max-width: 1024px) { .postsGrid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) {
-  .headerContent, .filterBar, .postsSection { padding-left: 24px; padding-right: 24px; }
+  .pageHeader { padding-left: 0 !important; padding-right: 0 !important; }
+  .headerContent, .postsSection { padding-left: clamp(16px, 5vw, 24px); padding-right: clamp(16px, 5vw, 24px); }
   .postsGrid { grid-template-columns: 1fr; }
+  .postCardInner { padding: 20px 16px; min-height: auto; }
+  .postTitle { font-size: clamp(17px, 4.5vw, 22px); margin-bottom: 8px; }
+  .postExcerpt {
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .filterBar {
+    padding: 16px clamp(16px, 5vw, 24px);
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
 }

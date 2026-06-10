@@ -184,4 +184,28 @@
   .mentorsSection { padding: 64px 28px; }
   .ctaSection { padding: 64px 28px; }
   .mentorCard { padding: 36px 28px; }
+
+  /* INJECTED HERO FIXES */
+  .hero {
+    min-height: auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .heroBg, .heroBgWrap {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    min-height: 220px !important;
+    overflow: hidden !important;
+  }
+  .heroContent {
+    padding: 60px 20px 48px !important;
+    margin: 0 !important;
+  }
+  .heroH1 {
+    font-size: clamp(28px, 7vw, 40px) !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
 }

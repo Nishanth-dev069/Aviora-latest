@@ -377,19 +377,27 @@
 @media (max-width: 768px) {
   .hero, .storySection, .missionSection, .programsStrip,
   .facilitiesSection, .teamSection, .bottomCta { padding-left: 20px; padding-right: 20px; }
-  .heroContent { padding-left: 20px; padding-right: 20px; }
-  .heroH1 { font-size: clamp(30px, 8vw, 52px); }
-  .heroPara { font-size: 15px; }
-  .heroStats { grid-template-columns: 1fr 1fr; }
-  .heroStat { padding: 20px 16px; }
-  .heroStatNum { font-size: 32px; }
-  .missionGrid, .programsRow { grid-template-columns: 1fr; }
-  .facilitiesGrid { grid-template-columns: 1fr; }
-  .teamGrid { grid-template-columns: 1fr; }
-  .bottomCtaBtns { flex-direction: column; align-items: center; gap: 12px; }
+  .heroContent { padding-left: 20px; padding-right: 20px; padding-top: 100px; }
+  .heroH1 { font-size: clamp(36px, 10vw, 52px); }
+  .heroPara { font-size: 16px; max-width: 100%; }
+  .heroStats { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .heroStat { padding: 16px; }
+  .heroStatNum { font-size: 28px; }
+  .missionGrid { grid-template-columns: 1fr; gap: 16px; background: transparent; border: none; }
+  .missionCard { border-radius: 16px; border: 1px solid var(--border-dark); padding: 32px 24px; }
+  .programsRow { grid-template-columns: 1fr; gap: 16px; background: transparent; border: none; box-shadow: none; }
+  .programBlock { padding: 32px 24px; border-radius: 16px; border: 1px solid rgba(10,36,114,0.15); box-shadow: 0 4px 24px rgba(5,14,45,0.08); }
+  .facilitiesGrid { grid-template-columns: 1fr; gap: 16px; background: transparent; border: none; }
+  .facilityCard { border-radius: 16px; border: 1px solid var(--border-dark); padding: 32px 24px; }
+  .teamGrid { grid-template-columns: 1fr; gap: 16px; }
+  .teamCard { border-radius: 16px; border: 1px solid var(--border-dark); padding: 32px 24px; }
+  
+  .bottomCtaInner { padding: 48px 24px; border-radius: 16px; }
+  .bottomCtaH2 { font-size: clamp(32px, 8vw, 48px); margin-bottom: 32px; }
+  .bottomCtaBtns { flex-direction: column; align-items: stretch; gap: 12px; width: 100%; }
   .btnPrimary, .btnSecondary { width: 100%; text-align: center; }
   .sectionH2 { font-size: clamp(26px, 7vw, 44px); margin-bottom: 40px; }
-  .programBlock { padding: 36px 20px; }
+  
   .storySection { padding-top: 60px; padding-bottom: 60px; }
   .missionSection { padding-top: 60px; padding-bottom: 60px; }
   .facilitiesSection { padding-top: 60px; padding-bottom: 60px; }
@@ -397,10 +405,7 @@
 }
 
 @media (max-width: 480px) {
-  .heroStats { grid-template-columns: 1fr; }
-  .heroStat { border-right: none; border-bottom: 1px solid var(--border-dark); }
-  .heroStat:last-child { border-bottom: none; }
-  .heroH1 { font-size: clamp(26px, 7vw, 36px); }
+  .heroH1 { font-size: clamp(32px, 9vw, 40px); }
 }
 
 /* ── ANIMATIONS ── */

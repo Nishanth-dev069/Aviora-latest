@@ -508,10 +508,11 @@
   .heroStatsBar {
     bottom: 20px;
     padding: 16px 24px;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 16px;
     width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
   }
 
   .cardSection {
@@ -519,11 +520,29 @@
   }
 
   .heroH1 {
-    font-size: 38px;
+    font-size: clamp(28px, 7vw, 40px);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .hero {
-    min-height: 800px;
+    min-height: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .heroBgWrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 220px;
+    overflow: hidden;
+  }
+
+  .heroContent {
+    padding: 40px 20px;
+    margin: 0;
   }
 
   .tableSectionHead {

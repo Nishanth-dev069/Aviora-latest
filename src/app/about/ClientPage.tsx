@@ -54,10 +54,17 @@ const TEAM = [
 const FOUNDER_YEAR = '2024';
 const FOUNDER_NAME = 'Capt. Rajeev Sharma';
 const STORY_TIMELINE = [
-  { year: FOUNDER_YEAR, text: 'Aviora founded with a single training room' },
-  { year: '2017', text: 'First batch of 12 cadets graduates and places in airlines' },
-  { year: '2019', text: 'FBS Simulator & mock cabin installed on campus' },
-  { year: '2023', text: 'Reached 100+ total graduates milestone' },
+  { year: 'Feb 2023', title: 'The Beginning', text: 'Onestop Aviation was born in a small room with a simple mission to create a better pathway for aspiring aviation professionals.' },
+  { year: 'Dec 2023', title: 'Officially Registered', text: 'Onestop Aviation became a Private Limited company registered under MCA.' },
+  { year: 'Feb 2024', title: 'Mumbai Operations Started', text: 'Student counselling operations launched from a small office in Mumbai.' },
+  { year: 'Apr 2024', title: 'First Flight Training Partnership', text: 'Signed the first MOI with an international flight training partner.' },
+  { year: 'Sep 2024', title: '40+ Online Students', text: 'Rapid growth in online ground school enrollments.' },
+  { year: 'Oct 2024', title: 'License Conversions Launched', text: 'Successfully completed 22 license conversions within the first few months.' },
+  { year: 'Feb 2025', title: 'Birth of Aviora Aviation Academy', text: 'Planning began for South India’s biggest aviation training facility.' },
+  { year: 'Mar 2025', title: 'Industry Expansion', text: 'Signed multiple MOUs with FTO and ATO partners.' },
+  { year: 'Sep 2025', title: 'Major Milestone', text: '100 License Conversions completed and 72 Ground School students trained.' },
+  { year: 'Jan 2026', title: 'Hyderabad Facility Acquired', text: 'Secured a 6500 sq.ft aviation campus in Hyderabad.' },
+  { year: 'Mar 2026', title: 'Aviora Hyderabad Opened', text: '30+ admissions achieved within the first 15 days of launch.' },
 ];
 
 export default function ClientPage() {
@@ -119,7 +126,7 @@ export default function ClientPage() {
         </div>
       </section>
 
-      <section className={s.fadeUp} style={{ transitionDelay: '0.5s' }}>
+      <section className={`${s.fadeUp} ${s.tickerSection}`} style={{ transitionDelay: '0.5s' }}>
         <TrainingPartnersTicker />
       </section>
 
@@ -141,6 +148,7 @@ export default function ClientPage() {
                   </div>
                   <div className={s.stContent}>
                     <h3 className={s.stYear}>{item.year}</h3>
+                    <h4 className={s.stTitle}>{item.title}</h4>
                     <p className={s.stText}>{item.text}</p>
                   </div>
                 </div>
@@ -150,21 +158,57 @@ export default function ClientPage() {
           
           <div className={`${s.storyRight} ${s.fadeUp}`}>
             <div className={s.storyQuote}>
-              Every great journey begins with a single moment of clarity. Ours began in {FOUNDER_YEAR}, when {FOUNDER_NAME} — a seasoned aviator with thousands of hours in the skies — looked down at the city of Hyderabad and saw not just rooftops, but untapped potential.
+              Every great journey begins with one restless idea. Ours began in February 2023, not inside a massive corporate office, not backed by investors, but inside a small room with a vision that refused to stay small.
             </div>
             <p className={s.storyPara}>
-              <span>Young men and women who dreamed of the cockpit but had no clear path to reach it.</span><br/><br/>
-              What started as a modest training room with secondhand manuals and borrowed simulators has grown into one of Telangana's most trusted aviation academies — not through shortcuts, but through relentless commitment to the art and science of flight.
+              We didn’t have a perfect roadmap. We didn’t know exactly how it would unfold. But we knew one thing with absolute certainty:<br/><br/>
+              <span>India had talent. The aviation industry needed direction. And students deserved better guidance, better mentorship, and better opportunities.</span>
             </p>
             <p className={s.storyPara}>
-              <span>We have watched our students walk in uncertain, and fly out transformed.</span> We have seen engineers become captains, dreamers become navigators, and quiet resolve become soaring confidence. Every licence earned here carries with it the weight of real mentorship, real hours, and real sky.
+              That belief became the birth of Onestop Aviation. What started as a small online ground school slowly turned into a growing aviation ecosystem built on trust, networking, relentless effort, and real industry relationships. One student became ten. Ten became dozens. Every counselling call, every late-night planning session, every partnership discussion pushed us one step closer to building something bigger than ourselves.
             </p>
             <p className={s.storyPara}>
-              We do not simply train pilots. <span>We shape aviators</span> — professionals who carry our name across every airline, every airfield, every altitude. That legacy drives us forward. And we are just getting started.
+              By December 2023, Onestop Aviation was officially registered as a Private Limited company under the MCA transforming an idea into a real organization with a mission to change aviation training in India. In 2024, we stepped into Mumbai with a small office and a massive dream. We began counselling aspiring pilots face-to-face, helping students navigate an industry that often felt confusing and inaccessible. Soon after, we signed our first flight training partnership, opening real pathways for aspiring aviators.
             </p>
-            <div className={s.storySignature}>
+            <p className={s.storyPara}>
+              Momentum grew rapidly. By September 2024, over 40 students had enrolled in our online ground school programs. In October 2024, we launched License Conversion training and within months, completed 22 successful conversions before the year ended.
+            </p>
+            <p className={s.storyPara}>
+              <span>Then came the turning point. In February 2025, Aviora Aviation Academy was born.</span><br/><br/>
+              Not as just another aviation institute, but as a vision to build South India’s most ambitious aviation training facility. A place where future pilots, cabin crew, dispatchers, and aviation professionals could train under one roof with world-class standards and mentorship.
+            </p>
+            <p className={s.storyPara}>
+              The mission accelerated quickly. More MOUs were signed with leading FTO and ATO partners across the industry. By September 2025, we crossed 100 successful License Conversions and trained 72 Ground School students, milestones that once felt impossible inside that tiny room where the dream began.
+            </p>
+            <p className={s.storyPara}>
+              <span>Then came Hyderabad.</span><br/><br/>
+              In January 2026, we acquired a 6500 sq.ft aviation facility in the heart of the city. By March 2026, Aviora Aviation Academy officially opened its doors and within just 15 days, welcomed over 30 admissions.
+            </p>
+            <p className={s.storyPara}>
+              That moment proved something powerful.<br/>
+              <span>This was never just a business. This was a movement.</span>
+            </p>
+            
+            <h2 className={s.sectionH2} style={{ marginTop: '64px' }}>
+              Our<br/><em>Goal.</em>
+            </h2>
+            <p className={s.storyPara}>
+              <span>We are not here to become just another aviation academy. We are here to build an aviation ecosystem that changes how aspiring pilots and aviation professionals are trained in India.</span>
+            </p>
+            <p className={s.storyPara}>
+              Our goal is to remove confusion, eliminate outdated systems, and create a transparent pathway from dream to cockpit. Through world-class mentorship, modern infrastructure, international partnerships, and real industry exposure, we aim to shape aviators who are confident, skilled, and globally ready.
+            </p>
+            <p className={s.storyPara}>
+              Every student who walks through our doors carries a dream. Our responsibility is to give that dream direction.
+            </p>
+            <p className={s.storyPara}>
+              The vision is bigger than classrooms and simulators. We want Aviora Aviation Academy to become a name that represents ambition, credibility, and excellence across the aviation industry.<br/><br/>
+              <span>And this is only the beginning.</span>
+            </p>
+
+            <div className={s.storySignature} style={{ marginTop: '48px' }}>
               <div className={s.sigLine} />
-              <span className={s.sigText}>The Aviora Faculty</span>
+              <span className={s.sigText}>The Aviora Founders</span>
             </div>
           </div>
         </div>
