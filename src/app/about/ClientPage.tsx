@@ -107,8 +107,8 @@ export default function ClientPage() {
         <div className={s.heroContent}>
           <div className={`${s.eyebrow} ${s.fadeUp}`} style={{ transitionDelay: '0.1s' }}>About Aviora</div>
           <h1 className={`${s.heroH1} ${s.fadeUp}`} style={{ transitionDelay: '0.2s' }}>
-            Born from a Passion<br/>
-            <em>for Flight.</em>
+            Born From A Passion<br/>
+            <em>For Flight.</em>
           </h1>
           <p className={`${s.heroPara} ${s.fadeUp}`} style={{ transitionDelay: '0.3s' }}>
             Transforming dreamers into navigators, and professionals into industry leaders.
