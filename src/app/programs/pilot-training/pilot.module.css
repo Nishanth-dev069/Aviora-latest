@@ -712,9 +712,13 @@
     .galleryItem { height: 240px; }
     .subjectsGrid { grid-template-columns: 1fr; }
     .step { grid-template-columns: 48px 1fr; gap: 20px; }
-    .ctaCardBtns { flex-direction: column; gap: 12px; }
+    .ctaCardBtns { flex-direction: column; gap: 12px; align-items: center; }
     .eligH3 { font-size: 26px; }
     .sectionH2 { margin-bottom: 40px; }
+    .eligCard, .ctaCard { text-align: center; align-items: center; }
+    .eyebrow, .ctaCardEye, .ctaCardTrust { justify-content: center; text-align: center; }
+    .eligList { align-items: center; }
+    .eligItem { justify-content: center; text-align: center; }
 
   /* INJECTED HERO FIXES */
   .hero {

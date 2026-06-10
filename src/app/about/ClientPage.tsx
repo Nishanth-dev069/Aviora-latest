@@ -126,9 +126,7 @@ export default function ClientPage() {
         </div>
       </section>
 
-      <section className={`${s.fadeUp} ${s.tickerSection}`} style={{ transitionDelay: '0.5s' }}>
-        <TrainingPartnersTicker />
-      </section>
+      <TrainingPartnersTicker />
 
       {/* ═══ 2. ORIGIN STORY ═══ */}
       <section className={s.storySection}>

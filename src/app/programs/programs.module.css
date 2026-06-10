@@ -506,7 +506,9 @@
 
 @media (max-width: 768px) {
   .heroStatsBar {
-    bottom: 20px;
+    position: relative;
+    bottom: auto;
+    margin-bottom: 32px;
     padding: 16px 24px;
     gap: 16px;
     width: 90%;
