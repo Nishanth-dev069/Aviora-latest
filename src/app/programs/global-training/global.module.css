@@ -670,8 +670,7 @@
     .ctaCardBtns > * { width: 100%; text-align: center; }
     .eligCard, .ctaCard { text-align: center; align-items: center; }
     .eyebrow, .eyebrowLight, .ctaCardEye, .ctaCardTrust { justify-content: center; text-align: center; }
-    .eligList { align-items: center; }
-    .eligItem { justify-content: center; text-align: center; }
+    .eligCard .eyebrow::before, .eligCard .eyebrowLight::before, .ctaCard .ctaCardEye::before { display: none; }
 
   /* INJECTED HERO FIXES */
   .hero {

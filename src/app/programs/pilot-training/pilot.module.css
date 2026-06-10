@@ -717,8 +717,7 @@
     .sectionH2 { margin-bottom: 40px; }
     .eligCard, .ctaCard { text-align: center; align-items: center; }
     .eyebrow, .ctaCardEye, .ctaCardTrust { justify-content: center; text-align: center; }
-    .eligList { align-items: center; }
-    .eligItem { justify-content: center; text-align: center; }
+    .eligCard .eyebrow::before, .ctaCard .ctaCardEye::before { display: none; }
 
   /* INJECTED HERO FIXES */
   .hero {
