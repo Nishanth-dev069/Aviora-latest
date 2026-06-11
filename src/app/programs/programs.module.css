@@ -541,7 +541,7 @@
     flex-direction: column;
   }
 
-  .heroBgWrap {
+  .heroBg, .heroBgWrap {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;

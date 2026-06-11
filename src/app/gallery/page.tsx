@@ -38,6 +38,11 @@ export default function GalleryPage() {
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
   const visible = filtered.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
 
+  const handlePageChange = (newPage: number) => {
+    setPage(newPage);
+    document.getElementById('gallery-top')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <main className={s.page}>
 
@@ -62,12 +67,12 @@ export default function GalleryPage() {
       </section>
 
       {/* ── FILTER BAR ── */}
-      <div className={s.filterBar}>
+      <div className={s.filterBar} id="gallery-top">
         {CATS.map(cat => (
           <button
             key={cat}
             className={`${s.filterBtn} ${activeCat === cat ? s.filterBtnActive : ''}`}
-            onClick={() => { setActiveCat(cat); setPage(1); }}
+            onClick={() => { setActiveCat(cat); handlePageChange(1); }}
           >
             {cat}
           </button>
@@ -94,7 +99,7 @@ export default function GalleryPage() {
           <div className={s.pagination}>
             <button
               className={s.pageBtn}
-              onClick={() => setPage(p => Math.max(1, p - 1))}
+              onClick={() => handlePageChange(Math.max(1, page - 1))}
               disabled={page === 1}
             >
               ← Prev
@@ -103,14 +108,14 @@ export default function GalleryPage() {
               <button
                 key={i}
                 className={`${s.pageNum} ${page === i + 1 ? s.pageNumActive : ''}`}
-                onClick={() => setPage(i + 1)}
+                onClick={() => handlePageChange(i + 1)}
               >
                 {String(i + 1).padStart(2, '0')}
               </button>
             ))}
             <button
               className={s.pageBtn}
-              onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+              onClick={() => handlePageChange(Math.min(totalPages, page + 1))}
               disabled={page === totalPages}
             >
               Next →

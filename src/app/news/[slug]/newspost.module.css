@@ -175,27 +175,9 @@
   .pullQuote { padding: 24px 24px; font-size: 19px; }
   .inlineCta { flex-direction: column; align-items: flex-start; }
 
-  /* INJECTED HERO FIXES */
-  .hero {
-    min-height: auto !important;
-    padding: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  .heroBg, .heroBgWrap {
-    position: relative !important;
-    width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    min-height: 220px !important;
-    overflow: hidden !important;
-  }
-  .heroContent {
-    padding: 60px 20px 48px !important;
-    margin: 0 !important;
-  }
   .heroH1 {
-    font-size: clamp(28px, 7vw, 40px) !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
+    font-size: clamp(28px, 7vw, 40px);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }
