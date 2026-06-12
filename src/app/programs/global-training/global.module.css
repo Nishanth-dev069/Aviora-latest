@@ -659,14 +659,26 @@
     .heroStats { grid-template-columns: 1fr 1fr; margin-top: 48px; }
     .heroStat { padding: 20px 16px; }
     .heroStatNum { font-size: 28px; }
-    .eligSection, .phaseSection, .usaSection, .dgcaSection { padding: 56px 20px; }
+    .eligSection, .phaseSection, .whySection, .dgcaSection { padding: 56px 20px; }
+    .whyCard { padding: 32px 24px; }
     .gallery { grid-template-columns: 1fr; height: auto; }
     .galleryItem { height: 240px; }
     .step { grid-template-columns: 48px 1fr; gap: 20px; }
     .heroStats { grid-template-columns: repeat(2, 1fr); }
     .sectionH2 { margin-bottom: 40px; }
-    .ctaCardBtns { flex-direction: column; gap: 12px; }
+    .ctaCardBtns { flex-direction: column; gap: 12px; align-items: center; }
     .ctaCardBtns > * { width: 100%; text-align: center; }
+    .eligCard, .ctaCard { 
+        display: flex; 
+        flex-direction: column; 
+        text-align: center; 
+        align-items: center; 
+        padding: 40px 24px !important; 
+        box-sizing: border-box !important; 
+        width: 100% !important; 
+    }
+    .eyebrow, .eyebrowLight, .ctaCardEye, .ctaCardTrust { justify-content: center; text-align: center; }
+    .eligCard .eyebrow::before, .eligCard .eyebrowLight::before, .ctaCard .ctaCardEye::before { display: none; }
 
   /* INJECTED HERO FIXES */
   .hero {

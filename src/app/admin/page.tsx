@@ -21,7 +21,7 @@ type Entry = BlogEntry | NewsEntry | GalleryEntry;
 
 const BLOG_TAGS = ['Career Guide', 'DGCA Exams', 'Flight Training', 'Cabin Crew', 'Industry', 'Medical'];
 const NEWS_TAGS = ['Industry', 'DGCA', 'Global Aviation', 'Airline'];
-const GALLERY_CATS = ['Training', 'Cockpit', 'USA Training', 'In-flight', 'Cabin Crew', 'Operations', 'Industry'];
+const GALLERY_CATS = ['Facility', 'Student Life', 'USA Training'];
 
 function slugify(str: string) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');

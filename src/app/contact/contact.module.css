@@ -161,6 +161,8 @@
   color: inherit;
   transition: all 0.3s ease;
   cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .channelCard:hover {
@@ -181,6 +183,7 @@
 
 .channelBody {
   flex: 1;
+  min-width: 0; /* Prevents flexbox child from overflowing due to long text */
 }
 
 .channelLabel {
@@ -198,6 +201,8 @@
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 2px;
+  word-break: break-word; /* Wrap long emails and phone numbers */
+  overflow-wrap: break-word;
 }
 
 .channelSub {

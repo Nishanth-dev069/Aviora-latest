@@ -9,9 +9,9 @@
 }
 
 /* Hide on mobile/touch devices - they don't have mouse cursors */
-@media (hover: none) and (pointer: coarse) {
+@media (max-width: 768px) {
     .cursorWrapper {
-        display: none;
+        display: none !important;
     }
 }
 

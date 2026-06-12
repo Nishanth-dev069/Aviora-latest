@@ -204,7 +204,7 @@ export default function HomePage() {
           {/* Hero Content Overlay */}
           <div className={styles.heroOverlay}>
             <div className={styles.heroContent}>
-              <div className={styles.heroEyebrow} style={{ color: '#DDE3EA', whiteSpace: 'nowrap', fontSize: '11px', letterSpacing: '0.45em' }}>Est. 2024, South India's Biggest Aviation Facility</div>
+              <div className={styles.heroEyebrow} style={{ color: '#DDE3EA' }}>Est. 2024, South India's Biggest Aviation Facility</div>
               <h1 className={styles.heroH1}>
                 <span style={{ color: '#FFFFFF' }}>Born to Fly.</span><br /><em>Trained to Lead.</em>
               </h1>

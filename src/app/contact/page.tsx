@@ -240,7 +240,7 @@ export default function ContactPage() {
             <div className={s.mapWrap}>
               <iframe
                 className={s.mapIframe}
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.2085287408466!2d78.38696!3d17.39553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb95b0257fd4af%3A0x2d41e66e57f7cfc!2sJubilee%20Hills%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1712832000000"
+                src="https://maps.google.com/maps?q=17.3375712,78.5372053&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%" height="100%"
                 style={{ border: 0 }}
                 allowFullScreen loading="lazy"

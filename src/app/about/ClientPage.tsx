@@ -94,7 +94,7 @@ export default function ClientPage() {
       <section className={s.hero}>
         <div className={`${s.heroBgWrap} ${s.fadeUp}`}>
           <Image
-            src="/about_hero_v3.png"
+            src="/gallery/SIV03521.webp"
             alt="Aviora Aviation Academy Campus"
             className={s.heroBgImg}
             fill
@@ -107,8 +107,8 @@ export default function ClientPage() {
         <div className={s.heroContent}>
           <div className={`${s.eyebrow} ${s.fadeUp}`} style={{ transitionDelay: '0.1s' }}>About Aviora</div>
           <h1 className={`${s.heroH1} ${s.fadeUp}`} style={{ transitionDelay: '0.2s' }}>
-            Born from a Passion<br/>
-            <em>for Flight.</em>
+            Born From A Passion<br/>
+            <em>For Flight.</em>
           </h1>
           <p className={`${s.heroPara} ${s.fadeUp}`} style={{ transitionDelay: '0.3s' }}>
             Transforming dreamers into navigators, and professionals into industry leaders.
@@ -126,9 +126,7 @@ export default function ClientPage() {
         </div>
       </section>
 
-      <section className={`${s.fadeUp} ${s.tickerSection}`} style={{ transitionDelay: '0.5s' }}>
-        <TrainingPartnersTicker />
-      </section>
+      <TrainingPartnersTicker />
 
       {/* ═══ 2. ORIGIN STORY ═══ */}
       <section className={s.storySection}>

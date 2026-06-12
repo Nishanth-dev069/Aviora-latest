@@ -65,6 +65,7 @@ export default function Nav() {
     const isDarkHero = pathname === "/" || pathname === "/admissions" || pathname === "/programs" || pathname?.startsWith("/programs/");
 
     return (
+        <>
         <nav id="main-nav" suppressHydrationWarning className={`${styles.nav} ${isScrolled ? styles.scrolled : (isDarkHero ? styles.navHeroDark : "")}`}>
             <Link href="/" className={styles.navLogo}>
                 <img src="/logos/Aviora%20navbar%20logo.png" alt="Aviora Aviation Academy" className={styles.navLogoImg} />
@@ -131,36 +132,37 @@ export default function Nav() {
                 <span />
                 <span />
             </div>
-
-            {/* Mobile Overlay Backdrop */}
-            <div 
-                className={`${styles.mobileBackdrop} ${isMobileMenuOpen ? styles.isOpen : ""}`}
-                onClick={() => setIsMobileMenuOpen(false)}
-            />
-            
-            {/* Sliding Drawer */}
-            <div className={`${styles.mobileDrawer} ${isMobileMenuOpen ? styles.isOpen : ""}`}>
-                <ul className={styles.mobileLinks}>
-                    {navLinks.map((link) => {
-                        const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
-                        return (
-                            <li key={link.name}>
-                                <Link href={link.href} className={isActive ? styles.active : ""} onClick={() => setIsMobileMenuOpen(false)}>
-                                    {link.name}
-                                </Link>
-                            </li>
-                        );
-                    })}
-                    <li>
-                        <Link href="/explore" className={isExploreActive ? styles.active : ""} onClick={() => setIsMobileMenuOpen(false)}>
-                            Explore
-                        </Link>
-                    </li>
-                </ul>
-                <Link href="/admissions" className={`${styles.navCta} ${styles.mobileOverlayCta}`} onClick={() => setIsMobileMenuOpen(false)}>
-                        Enroll Now
-                </Link>
-            </div>
         </nav>
+
+        {/* Mobile Overlay Backdrop */}
+        <div 
+            className={`${styles.mobileBackdrop} ${isMobileMenuOpen ? styles.isOpen : ""}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+        />
+        
+        {/* Sliding Drawer */}
+        <div className={`${styles.mobileDrawer} ${isMobileMenuOpen ? styles.isOpen : ""}`}>
+            <ul className={styles.mobileLinks}>
+                {navLinks.map((link) => {
+                    const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                    return (
+                        <li key={link.name}>
+                            <Link href={link.href} className={isActive ? styles.active : ""} onClick={() => setIsMobileMenuOpen(false)}>
+                                {link.name}
+                            </Link>
+                        </li>
+                    );
+                })}
+                <li>
+                    <Link href="/explore" className={isExploreActive ? styles.active : ""} onClick={() => setIsMobileMenuOpen(false)}>
+                        Explore
+                    </Link>
+                </li>
+            </ul>
+            <Link href="/admissions" className={`${styles.navCta} ${styles.mobileOverlayCta}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    Enroll Now
+            </Link>
+        </div>
+        </>
     );
 }

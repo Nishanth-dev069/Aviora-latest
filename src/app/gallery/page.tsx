@@ -11,13 +11,12 @@ const filenames = [
   "SIV03094.webp", "SIV03096.webp", "SIV03097.webp", "SIV03099.webp", "SIV03100.webp",
   "SIV03106.webp", "SIV03108.webp", "SIV03115.webp", "SIV03124.webp", "SIV03147.webp",
   "SIV03159.webp", "SIV03182.webp", "SIV03192.webp", "SIV03232.webp", "SIV03233.webp",
-  "SIV03237.webp", "SIV03239.webp", "SIV03247.webp", "SIV03512.webp", "SIV03521.webp",
+  "SIV03237.webp", "SIV03239.webp", "SIV03512.webp", "SIV03521.webp",
   "SIV03552.webp", "SIV03564.webp", "SIV03600.webp", "SIV03617.webp", "SIV03644.webp",
-  "SIV03656.webp", "SIV03673.webp", "SIV03685.webp", "SIV03695.webp", "SIV03711.webp",
-  "SIV03715.webp"
+  "SIV03656.webp", "SIV03673.webp", "SIV03685.webp", "SIV03695.webp", "SIV03711.webp"
 ];
 
-const cats = ['Training', 'Cockpit', 'Operations', 'Cabin Crew', 'In-flight', 'USA Training', 'Industry'];
+const cats = ['Facility', 'Student Life', 'USA Training'];
 
 const ALL_GALLERY = filenames.map((f, i) => ({
   src: `/gallery/${f}`,
@@ -26,7 +25,7 @@ const ALL_GALLERY = filenames.map((f, i) => ({
   caption: 'Aviora Aviation Academy'
 }));
 
-const CATS = ['All', 'Training', 'Cockpit', 'USA Training', 'In-flight', 'Cabin Crew', 'Operations', 'Industry'];
+const CATS = ['All', 'Facility', 'Student Life', 'USA Training'];
 
 export default function GalleryPage() {
   const [activeCat, setActiveCat] = useState('All');
@@ -38,6 +37,11 @@ export default function GalleryPage() {
 
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
   const visible = filtered.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
+
+  const handlePageChange = (newPage: number) => {
+    setPage(newPage);
+    document.getElementById('gallery-top')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <main className={s.page}>
@@ -63,12 +67,12 @@ export default function GalleryPage() {
       </section>
 
       {/* ── FILTER BAR ── */}
-      <div className={s.filterBar}>
+      <div className={s.filterBar} id="gallery-top">
         {CATS.map(cat => (
           <button
             key={cat}
             className={`${s.filterBtn} ${activeCat === cat ? s.filterBtnActive : ''}`}
-            onClick={() => { setActiveCat(cat); setPage(1); }}
+            onClick={() => { setActiveCat(cat); handlePageChange(1); }}
           >
             {cat}
           </button>
@@ -95,7 +99,7 @@ export default function GalleryPage() {
           <div className={s.pagination}>
             <button
               className={s.pageBtn}
-              onClick={() => setPage(p => Math.max(1, p - 1))}
+              onClick={() => handlePageChange(Math.max(1, page - 1))}
               disabled={page === 1}
             >
               ← Prev
@@ -104,14 +108,14 @@ export default function GalleryPage() {
               <button
                 key={i}
                 className={`${s.pageNum} ${page === i + 1 ? s.pageNumActive : ''}`}
-                onClick={() => setPage(i + 1)}
+                onClick={() => handlePageChange(i + 1)}
               >
                 {String(i + 1).padStart(2, '0')}
               </button>
             ))}
             <button
               className={s.pageBtn}
-              onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+              onClick={() => handlePageChange(Math.min(totalPages, page + 1))}
               disabled={page === totalPages}
             >
               Next →

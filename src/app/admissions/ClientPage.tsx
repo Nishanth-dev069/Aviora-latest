@@ -175,11 +175,11 @@ export default function AdmissionsPage() {
 
     try {
       const templateParams = {
-        fullName: formData.fullName,
-        phone: formData.phone,
+        full_name: formData.fullName,
+        mobile: formData.phone,
         email: formData.email,
         program: formData.program,
-        education: formData.education,
+        message: `Current Education: ${formData.education}`,
       };
 
       // Send to Admin
