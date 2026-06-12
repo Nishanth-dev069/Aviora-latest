@@ -183,18 +183,18 @@ export default function AdmissionsPage() {
 
       // Send to Admin
       await emailjs.send(
-        'service_7b7bf2b',
-        'template_zxw602a',
+        'service_i85jvgh',
+        'template_xs7sy5x',
         templateParams,
-        { publicKey: 'X8vIIQSyMtWBrTNOk' }
+        { publicKey: 'oVFyVBBH1qhWTSWSN' }
       );
 
       // Send to Customer
       await emailjs.send(
-        'service_7b7bf2b',
-        'template_o3oktlr',
+        'service_i85jvgh',
+        'template_cq0vcoe',
         templateParams,
-        { publicKey: 'X8vIIQSyMtWBrTNOk' }
+        { publicKey: 'oVFyVBBH1qhWTSWSN' }
       );
 
       setSubmitStatus({ 
