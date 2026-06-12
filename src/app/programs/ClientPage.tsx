@@ -110,7 +110,7 @@ export default function ProgramsPage() {
       <section className={s.hero}>
         <div className={s.heroBg}>
           <img
-            src="/hero/cessna_clouds.png"
+            src="/programs/cessna-training.png"
             alt="Aviora Programs Cockpit"
             className={s.heroBgImg}
           />
