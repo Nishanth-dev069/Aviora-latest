@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
 import { CONTACT_PHONE_PRIMARY, CONTACT_PHONE_SECONDARY, CONTACT_EMAIL, CONTACT_ADDRESS_LINE_1, CONTACT_ADDRESS_LINE_2, OFFICE_HOURS_WEEKDAY, OFFICE_HOURS_SATURDAY } from '@/lib/constants';
 import s from './contact.module.css';
 
@@ -82,6 +83,59 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
+  const [formData, setFormData] = useState({
+    fullName: '',
+    mobile: '',
+    email: '',
+    program: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    console.log("🚀 Submit button clicked! Triggering EmailJS...");
+    setIsSubmitting(true);
+    setErrorMsg('');
+
+    try {
+      const templateParams = {
+        full_name: formData.fullName,
+        mobile: formData.mobile,
+        email: formData.email,
+        program: formData.program,
+        message: formData.message,
+      };
+
+      console.log("📦 Sending with params:", templateParams);
+
+      const response = await emailjs.send(
+        'service_r0toiwr',
+        'template_vldgb9l',
+        templateParams,
+        { publicKey: 'CG44PTkPexQgXOo65' }
+      );
+
+      console.log("✅ SUCCESS!", response.status, response.text);
+
+      setSubmitted(true);
+      setFormData({ fullName: '', mobile: '', email: '', program: '', message: '' });
+    } catch (error: any) {
+      console.error('❌ EmailJS Error Object:', error);
+      const errorText = error?.text || error?.message || 'Something went wrong.';
+      alert('EmailJS Error: ' + errorText + '\n\n(This usually means Google blocked the email due to permissions. Check EmailJS Dashboard!)');
+      setErrorMsg(errorText);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className={s.page}>
 
@@ -149,24 +203,25 @@ export default function ContactPage() {
               <p className={s.sectionSub}>Every enquiry is read personally by our admissions team. Include as much detail as you can for a tailored response.</p>
 
               {!submitted ? (
-                <form className={s.form} onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
+                <form className={s.form} onSubmit={handleSubmit}>
+                  {errorMsg && <div style={{ color: '#ef4444', marginBottom: '16px', fontSize: '14px' }}>{errorMsg}</div>}
                   <div className={s.formRow}>
                     <div className={s.fieldGroup}>
                       <label htmlFor="fullName" className={s.label}>Full Name</label>
-                      <input id="fullName" name="fullName" className={s.input} type="text" placeholder="Your full name" required />
+                      <input id="fullName" name="fullName" value={formData.fullName} onChange={handleInputChange} className={s.input} type="text" placeholder="Your full name" required />
                     </div>
                     <div className={s.fieldGroup}>
                       <label htmlFor="mobile" className={s.label}>Mobile / WhatsApp</label>
-                      <input id="mobile" name="mobile" className={s.input} type="tel" placeholder="+91 98765 43210" required />
+                      <input id="mobile" name="mobile" value={formData.mobile} onChange={handleInputChange} className={s.input} type="tel" placeholder="+91 98765 43210" required />
                     </div>
                   </div>
                   <div className={s.fieldGroup}>
                     <label htmlFor="email" className={s.label}>Email Address</label>
-                    <input id="email" name="email" className={s.input} type="email" placeholder="your@email.com" required />
+                    <input id="email" name="email" value={formData.email} onChange={handleInputChange} className={s.input} type="email" placeholder="your@email.com" required />
                   </div>
                   <div className={s.fieldGroup}>
                     <label htmlFor="program" className={s.label}>Program of Interest</label>
-                    <select id="program" name="program" className={s.select}>
+                    <select id="program" name="program" value={formData.program} onChange={handleInputChange} className={s.select} required>
                       <option value="">Select a program</option>
                       <option>Commercial Pilot Licence (CPL)</option>
                       <option>Cabin Crew Training</option>
@@ -176,13 +231,15 @@ export default function ContactPage() {
                   </div>
                   <div className={s.fieldGroup}>
                     <label htmlFor="message" className={s.label}>Your Message</label>
-                    <textarea id="message" name="message" className={s.textarea} rows={4} placeholder="Tell us about your current qualifications and your aviation goal..." />
+                    <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} className={s.textarea} rows={4} placeholder="Tell us about your current qualifications and your aviation goal..." required />
                   </div>
-                  <button type="submit" className={s.submitBtn}>
-                    <span>Send Enquiry</span>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M22 2L11 13M22 2L15 22 11 13 2 9 22 2z"/>
-                    </svg>
+                  <button type="submit" className={s.submitBtn} disabled={isSubmitting}>
+                    <span>{isSubmitting ? 'Sending...' : 'Send Enquiry'}</span>
+                    {!isSubmitting && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M22 2L11 13M22 2L15 22 11 13 2 9 22 2z"/>
+                      </svg>
+                    )}
                   </button>
                 </form>
               ) : (
