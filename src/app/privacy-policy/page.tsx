@@ -123,7 +123,7 @@ export default function PrivacyPolicyPage() {
               <li><strong>Withdrawal of Consent:</strong> Withdraw consent for marketing communications at any time.</li>
               <li><strong>Data Portability:</strong> Request transfer of your data in a structured format.</li>
             </ul>
-            <p className={styles.para}>To exercise any of these rights, please contact us at <a href="mailto:admissions@avioraacademy.com" className={styles.emailLink}>admissions@avioraacademy.com</a>.</p>
+            <p className={styles.para}>To exercise any of these rights, please contact us at <a href="mailto:admissions@avioraacademy.com,fly@avioraacademy.com" className={styles.emailLink}>admissions@avioraacademy.com / fly@avioraacademy.com</a>.</p>
           </section>
 
           <section className={styles.section}>
@@ -147,7 +147,7 @@ export default function PrivacyPolicyPage() {
               <p><strong>Aviora Aviation Academy</strong></p>
               <p>3rd Floor, Skyline Plaza, Banjara Hills</p>
               <p>Hyderabad, Telangana — 500 034, India</p>
-              <p>Email: <a href="mailto:admissions@avioraacademy.com" className={styles.emailLink}>admissions@avioraacademy.com</a></p>
+              <p>Email: <a href="mailto:admissions@avioraacademy.com,fly@avioraacademy.com" className={styles.emailLink}>admissions@avioraacademy.com / fly@avioraacademy.com</a></p>
               <p>Phone: <a href="tel:+914023456789" className={styles.emailLink}>+91 40 2345 6789</a></p>
             </div>
           </section>

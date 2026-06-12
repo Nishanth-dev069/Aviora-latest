@@ -1,0 +1,59 @@
+.waButton {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  animation: waPulse 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+@keyframes waPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7), 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0), 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.waButton:hover {
+  transform: scale(1.1) translateY(-4px);
+  animation: none; /* stop pulse on hover */
+  box-shadow: 0px 12px 32px rgba(37, 211, 102, 0.5);
+  background-color: #20BA56;
+}
+
+.waIcon {
+  animation: waWiggle 5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes waWiggle {
+  0%, 15%, 100% { transform: rotate(0deg); }
+  3% { transform: rotate(-15deg) scale(1.1); }
+  6% { transform: rotate(15deg) scale(1.1); }
+  9% { transform: rotate(-15deg) scale(1.1); }
+  12% { transform: rotate(15deg) scale(1.1); }
+}
+
+@media (max-width: 768px) {
+  .waButton {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+  }
+}

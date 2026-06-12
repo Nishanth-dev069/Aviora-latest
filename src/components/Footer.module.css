@@ -72,7 +72,7 @@
 .brandLogo {
   display: inline-flex;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: -16px; /* Negative margin to pull text up and counteract transparent space in image */
   text-decoration: none;
   transition: transform 0.3s ease;
 }
@@ -82,8 +82,8 @@
 }
 
 .logoImage {
-  height: 320px;
-  width: auto;
+  height: auto;
+  width: 280px; /* Increased from 220px */
   max-width: 100%;
   object-fit: contain;
   display: block;
@@ -412,6 +412,15 @@
     text-align: center;
   }
 
+  .col {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .navCol {
+    min-width: unset;
+  }
+
   .colBrand {
     align-items: center;
     text-align: center;
@@ -420,7 +429,7 @@
   }
 
   .brandLogo {
-    margin-bottom: 24px;
+    margin-bottom: 4px;
   }
 
   .socials {
@@ -435,15 +444,6 @@
     gap: 12px 24px;
     padding: 24px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .col {
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .navCol {
-    min-width: unset;
   }
 
   .colRight {
