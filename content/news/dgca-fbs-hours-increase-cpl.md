@@ -1,10 +1,10 @@
 ---
-title: "IATA Forecasts India to Become World's Third Largest Aviation Market by 2030"
-tag: "Global Aviation"
-date: "2026-02-27T18:30:00.000Z"
-excerpt: "IATA revises its India forecast upward, citing rapid fleet expansion, new route launches, and growing domestic passenger demand."
-source: "IATA"
-img: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1920&q=60"
+title: "DGCA Increases FBS Simulator Hours Acceptance for CPL Applicants"
+tag: "DGCA"
+date: "2026-02-14T18:30:00.000Z"
+excerpt: "Under a new amendment, up to 40 hours of approved FBS simulator time can now be counted toward the total flight time requirement for CPL issuance."
+source: "DGCA India"
+img: "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=1920&q=60"
 ---
 
 The announcement marks a significant shift in the Indian aviation employment landscape. Industry analysts who have tracked hiring patterns over the past decade describe this as the most concentrated period of airline recruitment activity since the post-COVID recovery began in 2022.

@@ -1,10 +1,10 @@
 ---
-title: "IATA Forecasts India to Become World's Third Largest Aviation Market by 2030"
-tag: "Global Aviation"
-date: "2026-02-27T18:30:00.000Z"
-excerpt: "IATA revises its India forecast upward, citing rapid fleet expansion, new route launches, and growing domestic passenger demand."
-source: "IATA"
-img: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1920&q=60"
+title: "SpiceJet Returns to Profit — Announces 200 Cabin Crew Positions"
+tag: "Industry"
+date: "2026-02-07T18:30:00.000Z"
+excerpt: "Following restructuring, SpiceJet signals confidence with a cabin crew hiring drive targeting experienced and fresh candidates from certified academies."
+source: "Mint"
+img: "https://images.unsplash.com/photo-1540339832862-474599807836?w=1920&q=60"
 ---
 
 The announcement marks a significant shift in the Indian aviation employment landscape. Industry analysts who have tracked hiring patterns over the past decade describe this as the most concentrated period of airline recruitment activity since the post-COVID recovery began in 2022.

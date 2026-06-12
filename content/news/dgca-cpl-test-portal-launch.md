@@ -1,10 +1,10 @@
 ---
-title: "IATA Forecasts India to Become World's Third Largest Aviation Market by 2030"
-tag: "Global Aviation"
-date: "2026-02-27T18:30:00.000Z"
-excerpt: "IATA revises its India forecast upward, citing rapid fleet expansion, new route launches, and growing domestic passenger demand."
-source: "IATA"
-img: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1920&q=60"
+title: "DGCA Issues Advisory on CPL Knowledge Test Scheduling — New Portal Launch"
+tag: "DGCA"
+date: "2026-01-17T18:30:00.000Z"
+excerpt: "DGCA launches an updated online portal for CPL ground examination scheduling, replacing the legacy system. Changes effective February 2026."
+source: "DGCA India"
+img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=60"
 ---
 
 The announcement marks a significant shift in the Indian aviation employment landscape. Industry analysts who have tracked hiring patterns over the past decade describe this as the most concentrated period of airline recruitment activity since the post-COVID recovery began in 2022.

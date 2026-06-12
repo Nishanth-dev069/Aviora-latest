@@ -1,10 +1,10 @@
 ---
-title: "The 5 DGCA Ground School Papers — What to Study and How to Pass First Time"
-tag: "DGCA Exams"
-date: "2026-01-31T18:30:00.000Z"
-excerpt: "Air Navigation, Air Regulations, Meteorology, Technical General, Technical Specific. Everything you need about preparation strategy and common failure traps."
-readTime: "9 min"
-img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=60"
+title: "First Officer to Captain — The Career Progression Timeline for Indian Pilots"
+tag: "Career Guide"
+date: "2025-10-31T18:30:00.000Z"
+excerpt: "How long does it take? What does it cost? How many hours? The realistic progression from CPL to command, with actual timelines from Indian airline first officers."
+readTime: "11 min"
+img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=60"
 ---
 
 Aviation in India is at an inflection point. The combination of fleet expansion, route liberalisation, and a young, aspirational population has created a pilot demand the country has never seen. Understanding the landscape — and positioning yourself correctly within it — is the most important career decision you will make.

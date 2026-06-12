@@ -1,10 +1,10 @@
 ---
-title: "The 5 DGCA Ground School Papers — What to Study and How to Pass First Time"
-tag: "DGCA Exams"
-date: "2026-01-31T18:30:00.000Z"
-excerpt: "Air Navigation, Air Regulations, Meteorology, Technical General, Technical Specific. Everything you need about preparation strategy and common failure traps."
-readTime: "9 min"
-img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=60"
+title: "Cabin Crew Career in 2026 — Salaries, Airlines, and What They Actually Look For"
+tag: "Cabin Crew"
+date: "2025-12-31T18:30:00.000Z"
+excerpt: "A realistic look at the cabin crew profession in India — what IndiGo, Air India, and Emirates want, and how to position yourself ahead of competition."
+readTime: "8 min"
+img: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=1920&q=60"
 ---
 
 Aviation in India is at an inflection point. The combination of fleet expansion, route liberalisation, and a young, aspirational population has created a pilot demand the country has never seen. Understanding the landscape — and positioning yourself correctly within it — is the most important career decision you will make.

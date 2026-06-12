@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description: "Explore our state-of-the-art aviation campus.",
 };
 
-export default function Page() {
-  return <ClientPage />;
+import client from '../../../tina/__generated__/client';
+
+export default async function Page() {
+  const res = await client.queries.galleryConnection();
+  const gallery = res.data.galleryConnection.edges?.map(edge => edge?.node).filter(Boolean) || [];
+
+  return <ClientPage gallery={gallery} />;
 }

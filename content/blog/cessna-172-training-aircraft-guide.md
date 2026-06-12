@@ -1,10 +1,10 @@
 ---
-title: "The 5 DGCA Ground School Papers — What to Study and How to Pass First Time"
-tag: "DGCA Exams"
-date: "2026-01-31T18:30:00.000Z"
-excerpt: "Air Navigation, Air Regulations, Meteorology, Technical General, Technical Specific. Everything you need about preparation strategy and common failure traps."
-readTime: "9 min"
-img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=60"
+title: "Cessna 172 — The Training Aircraft That Has Produced More Pilots Than Any Other"
+tag: "Flight Training"
+date: "2025-09-30T18:30:00.000Z"
+excerpt: "Why the world's most popular training aircraft is used by Aviora cadets in Arizona. The C172 airframe, its limitations, and what it teaches student pilots."
+readTime: "6 min"
+img: "https://images.unsplash.com/photo-1474321226871-e59f01059ef5?w=1920&q=60"
 ---
 
 Aviation in India is at an inflection point. The combination of fleet expansion, route liberalisation, and a young, aspirational population has created a pilot demand the country has never seen. Understanding the landscape — and positioning yourself correctly within it — is the most important career decision you will make.

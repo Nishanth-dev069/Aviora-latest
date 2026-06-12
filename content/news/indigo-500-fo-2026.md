@@ -1,10 +1,10 @@
 ---
-title: "IATA Forecasts India to Become World's Third Largest Aviation Market by 2030"
-tag: "Global Aviation"
-date: "2026-02-27T18:30:00.000Z"
-excerpt: "IATA revises its India forecast upward, citing rapid fleet expansion, new route launches, and growing domestic passenger demand."
-source: "IATA"
-img: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1920&q=60"
+title: "IndiGo Announces 500 First Officer Vacancies for 2026–27"
+tag: "Industry"
+date: "2026-03-09T18:30:00.000Z"
+excerpt: "India's largest carrier opens one of its biggest recruitment drives in five years, with positions across its A320 and ATR fleets."
+source: "Aviation Week"
+img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=60"
 ---
 
 The announcement marks a significant shift in the Indian aviation employment landscape. Industry analysts who have tracked hiring patterns over the past decade describe this as the most concentrated period of airline recruitment activity since the post-COVID recovery began in 2022.

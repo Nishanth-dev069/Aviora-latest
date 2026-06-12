@@ -1,10 +1,10 @@
 ---
-title: "IATA Forecasts India to Become World's Third Largest Aviation Market by 2030"
+title: "Qatar Airways Signs MoU with Indian Aviation Academy Network for Cabin Crew Placement"
 tag: "Global Aviation"
-date: "2026-02-27T18:30:00.000Z"
-excerpt: "IATA revises its India forecast upward, citing rapid fleet expansion, new route launches, and growing domestic passenger demand."
-source: "IATA"
-img: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1920&q=60"
+date: "2025-12-26T18:30:00.000Z"
+excerpt: "Qatar Airways' talent acquisition team formalises a partnership framework with Indian aviation training institutes for structured cabin crew entry pathways."
+source: "ATW"
+img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=60"
 ---
 
 The announcement marks a significant shift in the Indian aviation employment landscape. Industry analysts who have tracked hiring patterns over the past decade describe this as the most concentrated period of airline recruitment activity since the post-COVID recovery began in 2022.

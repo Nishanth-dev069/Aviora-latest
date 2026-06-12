@@ -1,10 +1,10 @@
 ---
-title: "The 5 DGCA Ground School Papers — What to Study and How to Pass First Time"
-tag: "DGCA Exams"
-date: "2026-01-31T18:30:00.000Z"
-excerpt: "Air Navigation, Air Regulations, Meteorology, Technical General, Technical Specific. Everything you need about preparation strategy and common failure traps."
-readTime: "9 min"
-img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=60"
+title: "Why Indian Pilot Cadets Train in the USA — And Why It Matters for Your Career"
+tag: "Flight Training"
+date: "2025-12-31T18:30:00.000Z"
+excerpt: "The airspace, weather, infrastructure, and FAA Part 141 advantage explained. Why 90% of serious aviation academies send their students overseas for flight hours."
+readTime: "7 min"
+img: "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=1920&q=60"
 ---
 
 Aviation in India is at an inflection point. The combination of fleet expansion, route liberalisation, and a young, aspirational population has created a pilot demand the country has never seen. Understanding the landscape — and positioning yourself correctly within it — is the most important career decision you will make.

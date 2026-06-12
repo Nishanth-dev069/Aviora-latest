@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description: "Insights and guides from our expert instructors.",
 };
 
-export default function Page() {
-  return <ClientPage />;
+import client from '../../../tina/__generated__/client';
+
+export default async function Page() {
+  const res = await client.queries.postConnection();
+  const posts = res.data.postConnection.edges?.map(edge => edge?.node).filter(Boolean) || [];
+
+  return <ClientPage posts={posts} />;
 }

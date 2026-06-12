@@ -1,10 +1,10 @@
 ---
-title: "The 5 DGCA Ground School Papers — What to Study and How to Pass First Time"
-tag: "DGCA Exams"
-date: "2026-01-31T18:30:00.000Z"
-excerpt: "Air Navigation, Air Regulations, Meteorology, Technical General, Technical Specific. Everything you need about preparation strategy and common failure traps."
-readTime: "9 min"
-img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=60"
+title: "DGCA Class 2 Medical — What to Expect and How to Prepare"
+tag: "Medical"
+date: "2025-10-31T18:30:00.000Z"
+excerpt: "The full Class 2 medical examination explained: vision, hearing, cardiovascular, ENT. What disqualifies you, what doesn't, and how to find an approved AME."
+readTime: "8 min"
+img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=60"
 ---
 
 Aviation in India is at an inflection point. The combination of fleet expansion, route liberalisation, and a young, aspirational population has created a pilot demand the country has never seen. Understanding the landscape — and positioning yourself correctly within it — is the most important career decision you will make.

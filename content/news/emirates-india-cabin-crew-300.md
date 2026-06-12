@@ -1,10 +1,10 @@
 ---
-title: "IATA Forecasts India to Become World's Third Largest Aviation Market by 2030"
+title: "Emirates Resumes India Recruitment — 300 Cabin Crew Positions Open"
 tag: "Global Aviation"
-date: "2026-02-27T18:30:00.000Z"
-excerpt: "IATA revises its India forecast upward, citing rapid fleet expansion, new route launches, and growing domestic passenger demand."
-source: "IATA"
-img: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1920&q=60"
+date: "2026-01-31T18:30:00.000Z"
+excerpt: "Emirates HR teams return to India for a structured recruitment campaign, targeting candidates from recognised cabin crew training programmes."
+source: "Gulf News"
+img: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1920&q=60"
 ---
 
 The announcement marks a significant shift in the Indian aviation employment landscape. Industry analysts who have tracked hiring patterns over the past decade describe this as the most concentrated period of airline recruitment activity since the post-COVID recovery began in 2022.

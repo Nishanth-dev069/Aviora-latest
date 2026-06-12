@@ -1,10 +1,10 @@
 ---
-title: "The 5 DGCA Ground School Papers — What to Study and How to Pass First Time"
-tag: "DGCA Exams"
-date: "2026-01-31T18:30:00.000Z"
-excerpt: "Air Navigation, Air Regulations, Meteorology, Technical General, Technical Specific. Everything you need about preparation strategy and common failure traps."
-readTime: "9 min"
-img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=60"
+title: "How to Become a Commercial Pilot in India — The Complete 2026 Guide"
+tag: "Career Guide"
+date: "2026-02-28T18:30:00.000Z"
+excerpt: "From choosing the right training academy to passing your DGCA exams and landing your first First Officer role — a step-by-step roadmap."
+readTime: "12 min"
+img: "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=1920&q=60"
 ---
 
 Aviation in India is at an inflection point. The combination of fleet expansion, route liberalisation, and a young, aspirational population has created a pilot demand the country has never seen. Understanding the landscape — and positioning yourself correctly within it — is the most important career decision you will make.

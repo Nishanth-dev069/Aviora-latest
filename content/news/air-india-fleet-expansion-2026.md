@@ -1,10 +1,10 @@
 ---
-title: "IATA Forecasts India to Become World's Third Largest Aviation Market by 2030"
-tag: "Global Aviation"
-date: "2026-02-27T18:30:00.000Z"
-excerpt: "IATA revises its India forecast upward, citing rapid fleet expansion, new route launches, and growing domestic passenger demand."
-source: "IATA"
-img: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1920&q=60"
+title: "Air India Expands Fleet by 40 Aircraft — Recruitment Push Expected in Q3 2026"
+tag: "Airline"
+date: "2026-02-19T18:30:00.000Z"
+excerpt: "Air India confirms delivery schedule for 40 new narrowbody aircraft, signalling significant recruitment activity for pilots and cabin crew."
+source: "The Hindu Business"
+img: "https://images.unsplash.com/photo-1613690399151-65ea69478674?w=1920&q=60"
 ---
 
 The announcement marks a significant shift in the Indian aviation employment landscape. Industry analysts who have tracked hiring patterns over the past decade describe this as the most concentrated period of airline recruitment activity since the post-COVID recovery began in 2022.
