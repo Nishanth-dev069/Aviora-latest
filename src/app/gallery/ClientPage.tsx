@@ -80,7 +80,8 @@ export default function GalleryPage({ gallery }: { gallery: any[] }) {
                 <span className={s.galleryCaption}>{item.caption}</span>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* ── PAGINATION ── */}
