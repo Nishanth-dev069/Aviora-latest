@@ -5,6 +5,7 @@ import AirplaneScrollbar from "@/components/AirplaneScrollbar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import IntroOverlay from "@/components/IntroOverlay";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 
 /* ── Typography: Inter for everything ── */
@@ -85,7 +86,7 @@ export default function RootLayout({
                 "url": "https://avioraacademy.com",
                 "logo": "https://avioraacademy.com/aviora-logo.svg",
                 "sameAs": [
-                  "https://instagram.com/your-social-placeholder",
+                  "https://www.instagram.com/aviora.aviation?igsh=MTRmenRwMmFpNHB3Yw%3D%3D&utm_source=qr",
                   "https://linkedin.com/your-social-placeholder"
                 ],
                 "contactPoint": {
@@ -105,6 +106,7 @@ export default function RootLayout({
         <Nav />
         <main style={{ minHeight: "100vh" }}>{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );
