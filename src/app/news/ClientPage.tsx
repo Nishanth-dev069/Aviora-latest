@@ -56,8 +56,19 @@ export default function NewsPage({ news }: { news: any[] }) {
       {/* POSTS GRID */}
       <section className={s.postsSection}>
         <div className={s.postsGrid}>
-          {visible.map((post, i) => (
+          {visible.map((post, i) => {
+            let imageSrc = post.img;
+            if (imageSrc?.includes('assets.tina.io')) {
+              const parts = imageSrc.split('/');
+              imageSrc = '/' + parts[parts.length - 2] + '/' + parts[parts.length - 1];
+            }
+            return (
             <Link href={`/news/${post._sys?.filename || post.slug}`} className={s.postCard} key={i}>
+              {imageSrc && (
+                <div className={s.postImgWrap}>
+                  <img src={imageSrc} alt={post.title} className={s.postImg} />
+                </div>
+              )}
               <div className={s.postCardInner}>
                 <div className={s.postMeta}>
                   <span className={s.postTag}>{post.tag}</span>
@@ -73,7 +84,8 @@ export default function NewsPage({ news }: { news: any[] }) {
                 </div>
               </div>
             </Link>
-          ))}
+          );
+          })}
         </div>
 
         {/* PAGINATION */}

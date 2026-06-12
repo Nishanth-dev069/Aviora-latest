@@ -13,7 +13,7 @@
 .headerBg {
   position: absolute; inset: 0; z-index: 0;
   background:
-    url('/hero/blog_hero.png') center/cover;
+    url('/admissions_cessna_realistic.png') center/cover;
   filter: brightness(0.22) saturate(0.45);
 }
 /* Minimum 0.65 left-side overlay */
@@ -89,6 +89,18 @@
   transform: translateY(-2px);
 }
 .postCard:hover::before { transform: scaleX(1); }
+
+.postImgWrap {
+  width: 100%; height: 220px; overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.postImg {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.4s;
+}
+.postCard:hover .postImg {
+  transform: scale(1.05);
+}
 
 .postCardInner {
   padding: 40px 36px; height: 100%; display: flex; flex-direction: column; min-height: 300px;

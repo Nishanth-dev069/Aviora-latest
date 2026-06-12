@@ -17,12 +17,18 @@ export default async function NewsPostPage({ params }: Props) {
 
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
+  let heroImage = post.img || '';
+  if (heroImage?.includes('assets.tina.io')) {
+    const parts = heroImage.split('/');
+    heroImage = '/' + parts[parts.length - 2] + '/' + parts[parts.length - 1];
+  }
+
   return (
     <main className={s.page}>
 
       {/* HERO */}
       <section className={s.hero}>
-        <img src={post.img || ''} alt={post.title} className={s.heroImg} />
+        {heroImage && <img src={heroImage} alt={post.title} className={s.heroImg} />}
         <div className={s.heroOverlay} />
         <div className={s.heroContent}>
           <nav className={s.breadcrumb}>
