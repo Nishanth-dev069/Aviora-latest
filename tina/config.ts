@@ -84,7 +84,7 @@ export default defineConfig({
           { type: "image", name: "src", label: "Photo", required: true },
           { type: "string", name: "alt", label: "Alt Text (accessibility)", required: true },
           { type: "string", name: "cat", label: "Category", required: true,
-            options: ["Training", "Cockpit", "USA Training", "In-flight", "Cabin Crew", "Operations", "Industry", "Facility", "Student Life"] },
+            options: ["Training", "Cockpit", "USA Training", "In-flight", "Cabin Crew", "Operations", "Industry"] },
           { type: "string", name: "caption", label: "Caption", isTitle: true, required: true },
         ],
       },
