@@ -220,7 +220,7 @@ export default function AdmissionsPage() {
       <section className={s.hero}>
         <div className={s.heroBgWrap}>
           <img
-            src="/admissions_cessna_realistic.png"
+            src="/contact_reception_hero.png"
             alt="Student shaking hands with flight instructor next to Cessna"
             className={s.heroBgImg}
           />
