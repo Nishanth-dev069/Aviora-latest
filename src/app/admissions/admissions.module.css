@@ -574,8 +574,16 @@
   
   /* Bottom CTA */
   .bottomCtaH2 { font-size: clamp(24px, 7vw, 40px); margin-bottom: 32px; }
+  .bottomCtaInner { padding: 40px 20px; }
   .bottomCtaBtns { flex-direction: column; width: 100%; gap: 12px; }
-  .btnPrimary, .btnSecondary { text-align: center; width: 100%; padding: 16px; }
+  .btnPrimary, .btnSecondary { 
+    text-align: center; 
+    width: 100%; 
+    padding: 16px; 
+    font-size: 12px; 
+    letter-spacing: 0.1em;
+    white-space: normal;
+  }
 }
 
 @media (max-width: 480px) {
