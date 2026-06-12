@@ -13,19 +13,40 @@
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
   z-index: 9999;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  cursor: none; /* Allows the custom cursor to work, but acts as a link */
+  cursor: pointer;
+  animation: waPulse 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
 }
 
-/* If you have a global custom cursor, you might want native cursor for buttons, or keep it none.
-   Adding cursor: pointer just in case custom cursor fails. */
-.waButton {
-  cursor: pointer;
+@keyframes waPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7), 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0), 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
 }
 
 .waButton:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 8px 24px rgba(37, 211, 102, 0.4);
+  transform: scale(1.1) translateY(-4px);
+  animation: none; /* stop pulse on hover */
+  box-shadow: 0px 12px 32px rgba(37, 211, 102, 0.5);
   background-color: #20BA56;
+}
+
+.waIcon {
+  animation: waWiggle 5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes waWiggle {
+  0%, 15%, 100% { transform: rotate(0deg); }
+  3% { transform: rotate(-15deg) scale(1.1); }
+  6% { transform: rotate(15deg) scale(1.1); }
+  9% { transform: rotate(-15deg) scale(1.1); }
+  12% { transform: rotate(15deg) scale(1.1); }
 }
 
 @media (max-width: 768px) {
