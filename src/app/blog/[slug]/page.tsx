@@ -12,8 +12,8 @@ export default async function BlogPostPage({ params }: Props) {
 
   // Fetch all posts for 'related' section
   const allRes = await client.queries.postConnection();
-  const allPosts = allRes.data.postConnection.edges?.map(e => e?.node).filter(Boolean) || [];
-  const related = allPosts.filter(p => p._sys.filename !== params.slug && p.tag === post.tag).slice(0, 3);
+  const allPosts = (allRes.data.postConnection.edges?.map(e => e?.node).filter(Boolean) as any[]) || [];
+  const related = allPosts.filter(p => p && p._sys && p._sys.filename !== params.slug && p.tag === post.tag).slice(0, 3);
 
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
 

@@ -12,8 +12,8 @@ export default async function NewsPostPage({ params }: Props) {
 
   // Fetch all news for 'related' section
   const allRes = await client.queries.newsConnection();
-  const allNews = allRes.data.newsConnection.edges?.map(e => e?.node).filter(Boolean) || [];
-  const related = allNews.filter(p => p._sys.filename !== params.slug && p.tag === post.tag).slice(0, 3);
+  const allNews = (allRes.data.newsConnection.edges?.map(e => e?.node).filter(Boolean) as any[]) || [];
+  const related = allNews.filter(p => p && p._sys && p._sys.filename !== params.slug && p.tag === post.tag).slice(0, 3);
 
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
