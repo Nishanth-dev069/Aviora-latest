@@ -13,7 +13,7 @@
 .headerBg {
   position: absolute; inset: 0; z-index: 0;
   background:
-    url('/hero/cessna_mountains.png') center/cover;
+    url('/programs/cessna-training.png') center/cover;
   filter: brightness(0.22) saturate(0.45);
 }
 /* Minimum 0.65 left-side overlay */
