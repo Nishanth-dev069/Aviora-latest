@@ -363,6 +363,7 @@ export default function HomePage() {
               </div>
               <h3 className={styles.hcTitle}>Email Admissions</h3>
               <div className={styles.hcText}><a href="mailto:Admissions@avioraacademy.com">Admissions@avioraacademy.com</a></div>
+              <div className={styles.hcText}><a href="mailto:Fly@avioraacademy.com">Fly@avioraacademy.com</a></div>
               <div className={styles.hcText}>Response within 24 hours</div>
             </div>
             <div className={styles.hcCard} data-card-reveal>

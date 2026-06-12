@@ -50,9 +50,14 @@ const CHANNELS = [
       </svg>
     ),
     label: 'Admissions Email',
-    value: CONTACT_EMAIL,
+    value: (
+      <span style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '13px', lineHeight: '1.2' }}>
+        <span>Admissions@avioraacademy.com</span>
+        <span>Fly@avioraacademy.com</span>
+      </span>
+    ) as unknown as string,
     sub: 'Response within 24 hours',
-    href: `mailto:${CONTACT_EMAIL}`
+    href: `mailto:Admissions@avioraacademy.com,Fly@avioraacademy.com`
   },
   {
     icon: (

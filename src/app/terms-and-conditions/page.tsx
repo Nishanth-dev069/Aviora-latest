@@ -75,7 +75,7 @@ export default function TermsAndConditionsPage() {
               <li><strong>Medical disqualification:</strong> If a student is medically disqualified post-enrollment (confirmed by an approved AME), fees may be partially refunded after deducting incurred costs, subject to review.</li>
               <li><strong>Visa rejection:</strong> In cases of M1 visa rejection for reasons outside the student&apos;s control, Aviora will work with the student to find alternative solutions. Fees paid for the domestic phase are non-refundable.</li>
             </ul>
-            <p className={styles.para}>All refund requests must be submitted in writing to <a href="mailto:admissions@avioraacademy.com" className={styles.emailLink}>admissions@avioraacademy.com</a> within 14 days of the event giving rise to the claim.</p>
+            <p className={styles.para}>All refund requests must be submitted in writing to <a href="mailto:admissions@avioraacademy.com,fly@avioraacademy.com" className={styles.emailLink}>admissions@avioraacademy.com / fly@avioraacademy.com</a> within 14 days of the event giving rise to the claim.</p>
 
             <h3 className={styles.subTitle}>4.3 Third-Party Costs</h3>
             <p className={styles.para}>
@@ -168,7 +168,7 @@ export default function TermsAndConditionsPage() {
               <p><strong>Aviora Aviation Academy — Admissions Office</strong></p>
               <p>3rd Floor, Skyline Plaza, Banjara Hills</p>
               <p>Hyderabad, Telangana — 500 034, India</p>
-              <p>Email: <a href="mailto:admissions@avioraacademy.com" className={styles.emailLink}>admissions@avioraacademy.com</a></p>
+              <p>Email: <a href="mailto:admissions@avioraacademy.com,fly@avioraacademy.com" className={styles.emailLink}>admissions@avioraacademy.com / fly@avioraacademy.com</a></p>
               <p>Phone: <a href="tel:+914023456789" className={styles.emailLink}>+91 40 2345 6789</a></p>
             </div>
           </section>
