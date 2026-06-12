@@ -50,6 +50,31 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body>
+        <head>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "EducationalOrganization",
+                "name": "Aviora Aviation Academy",
+                "url": "https://avioraacademy.com",
+                "logo": "https://avioraacademy.com/aviora-logo.svg",
+                "sameAs": [
+                  "https://instagram.com/your-social-placeholder",
+                  "https://linkedin.com/your-social-placeholder"
+                ],
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-6309342416",
+                  "contactType": "admissions"
+                }
+              })
+            }}
+          />
+          {/* Verification Code Placeholders */}
+          <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
+        </head>
         <IntroOverlay />
         <CustomCursor />
         <AirplaneScrollbar />

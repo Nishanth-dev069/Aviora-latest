@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useState, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import s from './admissions.module.css';
-import Image from 'next/image';
 import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
 
 

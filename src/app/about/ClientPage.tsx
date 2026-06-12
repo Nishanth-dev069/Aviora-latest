@@ -51,8 +51,6 @@ const TEAM = [
   { name: 'Capt. Arjun Rao', role: 'Senior CPL Ground Instructor', note: 'Capt. Arjun Rao is an A320 Rated Airline Pilot and Senior Instructor for Meteorology. Recognised for his practical teaching approach and deep understanding of aviation weather systems, he mentors aspiring pilots with a strong focus on DGCA Meteorology preparation and real-world airline operations. Dedicated to building confident and knowledgeable future aviators.' },
 ];
 
-const FOUNDER_YEAR = '2024';
-const FOUNDER_NAME = 'Capt. Rajeev Sharma';
 const STORY_TIMELINE = [
   { year: 'Feb 2023', title: 'The Beginning', text: 'Onestop Aviation was born in a small room with a simple mission to create a better pathway for aspiring aviation professionals.' },
   { year: 'Dec 2023', title: 'Officially Registered', text: 'Onestop Aviation became a Private Limited company registered under MCA.' },

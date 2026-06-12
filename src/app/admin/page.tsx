@@ -73,6 +73,7 @@ export default function AdminPage() {
     if (!editing) return;
     setSaving(true);
     const slug = (editing as Entry & { slug?: string }).slug || slugify((editing as BlogEntry).title || (editing as GalleryEntry).caption || 'item');
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { body, slug: _s, ...data } = editing as BlogEntry & { slug?: string };
     try {
       await fetch('/api/cms', {
