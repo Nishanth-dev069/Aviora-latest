@@ -7,15 +7,15 @@ const PHASES = [
   {
     phase: 'Phase 1',
     title: 'Pre-Departure Preparation',
-    duration: '3 – 4 Weeks',
+    duration: '1-2 Months',
     location: 'Hyderabad, India',
-    detail: 'PPL Crash Course · <em>Visa Support</em> · FAA Class 1 medical coordination',
+    detail: 'PPL Crash Course · Visa Support · FAA Class 1 medical coordination',
     desc: 'Before you board your flight to California, Aviora ensures you are fully prepared. Ground briefings cover FAA Part 91 rules, US airspace structure (Class A through G), ATC phraseology differences between DGCA and FAA, and VFR flight planning for American airspace. Medical coordination for FAA Class 1 medicals is handled by Aviora prior to departure. <em>Visa Process</em> (M1) documentation support is included.',
   },
   {
     phase: 'Phase 2',
     title: 'PPL — Private Pilot Licence (USA)',
-    duration: '6 – 10 Weeks',
+    duration: '2-3 Months',
     location: 'Sacramento , California , USA',
     detail: 'Cessna 172S · FAA Part 141 school · Aviora instructor accompanies',
     desc: 'Training begins at Aviora\'s partner school in Sacramento , California , USA — a FAA Part 141-certified flight school with a fleet of Cessna 172S aircraft. An Aviora Indian instructor accompanies each batch for cultural continuity. You complete 40 hours minimum flight time toward FAA PPL — including 20 hours with instructor and 10 hours solo. FAA PPL written exam and practical test (checkride) conducted in the USA.',
@@ -23,7 +23,7 @@ const PHASES = [
   {
     phase: 'Phase 3',
     title: 'Hour Building — Cross-Country & Solo',
-    duration: '8 – 14 Weeks',
+    duration: '3-4 Months',
     location: 'Sacramento , California , USA',
     detail: '200 hours total target · Cross-country · Night hours · Simulated IMC',
     desc: 'After PPL, cadets continue hour building to accumulate the 200 total hours required for DGCA CPL conversion. Hour building includes long cross-country flights across California, night flying requirements, instrument flying under VFR (simulated IMC with hood), and dual cross-country flights. The open American airspace and year-round VMC weather allows cadets to fly multiple hours per day.',
@@ -31,7 +31,7 @@ const PHASES = [
   {
     phase: 'Phase 4',
     title: 'Multi-Engine Rating',
-    duration: '2 – 3 Weeks',
+    duration: '1 Month',
     location: 'Sacramento , California , USA',
     detail: 'Piper Seneca · VMC demo · Engine-out procedures · FAA certificate',
     desc: 'The multi-engine add-on is conducted on the Piper Seneca — the industry standard twin-engine trainer for CPL cadets worldwide. Training covers asymmetric thrust, engine-out procedures, Vmc demonstration, multi-engine cruise performance, and multi-engine IFR approaches. FAA Multi-Engine Add-On certificate awarded. This rating dramatically increases employability.',
@@ -39,7 +39,7 @@ const PHASES = [
   {
     phase: 'Phase 5',
     title: 'DGCA CPL Conversion (Post-Return)',
-    duration: '60 – 90 Days',
+    duration: '1 Month',
     location: 'India (DGCA)',
     detail: 'Full paperwork support · RTR(A) · DGCA Skill Test prep',
     desc: 'On return to India with a completed US logbook, Aviora guides you through the DGCA CPL conversion process. This involves submitting your FAA licence, medical certificate, and authenticated logbook hours to DGCA for recognition. Aviora\'s DGCA liaison team handles all paperwork — experience forms, RTR(A) coordination, and CPL Skill Test scheduling.',
@@ -111,7 +111,7 @@ export default function GlobalTrainingPage() {
           <h1 className={s.heroH1}>Global Training<br /><em>Program — USA</em></h1>
           <p className={s.heroSub}>Earn real flight hours in the United States on FAA-registered aircraft. Open airspace. Year-round VFR weather. Professional aviation infrastructure. Every hour fully convertible to your DGCA CPL.</p>
           <div className={s.heroBadges}>
-            {['3 – 6 Months', 'Sacramento , California , USA', 'C172 + Piper Seneca', 'DGCA Convertible'].map((b, i) => (
+            {['10-12 months', 'Sacramento , California , USA', 'C152/C172 + Piper Seneca', 'DGCA Convertible'].map((b, i) => (
               <span className={s.badge} key={i}>{b}</span>
             ))}
           </div>
@@ -188,7 +188,6 @@ export default function GlobalTrainingPage() {
           <div className={s.galleryItem} key={i}>
             <img src={g.src} alt={g.cap} className={s.galleryImg} loading="lazy" />
             <div className={s.galleryFade} />
-            <span className={s.galleryCap}>{g.cap}</span>
           </div>
         ))}
       </div>
