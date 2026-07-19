@@ -74,7 +74,7 @@ export default function NewsPage({ news }: { news: any[] }) {
                   <span className={s.postTag}>{post.tag}</span>
                   <span className={s.postSource}>{post.source}</span>
                   <span className={s.postDate}>
-                    {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    {post.date ? new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Unknown Date'}
                   </span>
                 </div>
                 <h2 className={s.postTitle}>{post.title}</h2>

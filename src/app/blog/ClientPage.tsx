@@ -73,7 +73,7 @@ export default function BlogPage({ posts }: { posts: any[] }) {
                 <div className={s.postMeta}>
                   <span className={s.postTag}>{post.tag}</span>
                   <span className={s.postDate}>
-                    {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+                    {post.date ? new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) : 'Unknown Date'}
                   </span>
                 </div>
                 <h2 className={s.postTitle}>{post.title}</h2>

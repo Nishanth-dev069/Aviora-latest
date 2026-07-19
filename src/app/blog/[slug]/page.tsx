@@ -13,9 +13,16 @@ export default async function BlogPostPage({ params }: Props) {
   // Fetch all posts for 'related' section
   const allRes = await client.queries.postConnection();
   const allPosts = (allRes.data.postConnection.edges?.map(e => e?.node).filter(Boolean) as any[]) || [];
-  const related = allPosts.filter(p => p && p._sys && p._sys.filename !== params.slug && p.tag === post.tag).slice(0, 3);
+  const related = allPosts
+    .filter(p => p && p._sys && p._sys.filename !== params.slug && p.tag === post.tag)
+    .sort((a, b) => {
+      const dateA = a.date ? new Date(a.date).getTime() : 0;
+      const dateB = b.date ? new Date(b.date).getTime() : 0;
+      return dateB - dateA;
+    })
+    .slice(0, 3);
 
-  const formattedDate = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+  const formattedDate = post.date ? new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) : 'Unknown Date';
 
   let heroImage = post.img || '';
   if (heroImage?.includes('assets.tina.io')) {
