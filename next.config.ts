@@ -15,11 +15,11 @@ const nextConfig: NextConfig = {
       {
         source: '/(.*)',
         headers: [
-          { key: 'X-Content-Type-Options',     value: 'nosniff' },
-          { key: 'X-Frame-Options',           value: 'SAMEORIGIN' },
-          { key: 'Referrer-Policy',            value: 'strict-origin-when-cross-origin' },
-          { key: 'Permissions-Policy',         value: 'camera=(), microphone=(), geolocation=()' },
-          { key: 'X-XSS-Protection',           value: '1; mode=block' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+          { key: 'X-XSS-Protection', value: '1; mode=block' },
           {
             key: 'Content-Security-Policy',
             value: [
@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: blob: https://images.unsplash.com https://maps.googleapis.com https://maps.gstatic.com https://*.ggpht.com https://assets.tina.io https://t3.gstatic.com https://logo.clearbit.com",
               "frame-src https://www.google.com https://maps.google.com",
-              "connect-src 'self' https://maps.googleapis.com https://api.emailjs.com",
+              "connect-src 'self' https://maps.googleapis.com https://api.emailjs.com https://identity.tinajs.io https://content.tinajs.io https://assets.tinajs.io",
             ].join('; '),
           },
           {
