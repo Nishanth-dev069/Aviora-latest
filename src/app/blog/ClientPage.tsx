@@ -63,7 +63,7 @@ export default function BlogPage({ posts }: { posts: any[] }) {
             <Link href={`/blog/${post._sys?.filename || post.slug}`} className={s.postCard} key={i}>
               {imageSrc && (
                 <div className={s.postImgWrap}>
-                  <Image src={imageSrc} alt={post.title || 'Blog post image'} className={s.postImg} fill style={{ objectFit: 'cover' }} />
+                  <Image src={imageSrc} alt={post.title || 'Blog post image'} className={s.postImg} fill style={{ objectFit: 'cover' }} unoptimized referrerPolicy="no-referrer" />
                 </div>
               )}
               <div className={s.postCardInner}>

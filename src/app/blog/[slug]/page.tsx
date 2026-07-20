@@ -42,7 +42,7 @@ export default async function BlogPostPage(props: Props) {
 
       {/* HERO */}
       <section className={s.hero}>
-        {heroImage && <Image src={heroImage} alt={post.title || 'Blog post hero image'} className={s.heroImg} fill style={{ objectFit: 'cover' }} priority />}
+        {heroImage && <Image src={heroImage} alt={post.title || 'Blog post hero image'} className={s.heroImg} fill style={{ objectFit: 'cover' }} priority unoptimized referrerPolicy="no-referrer" />}
         <div className={s.heroOverlay} />
         <div className={s.heroContent}>
           <nav className={s.breadcrumb}>
