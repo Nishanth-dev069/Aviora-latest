@@ -63,13 +63,7 @@ export default function GalleryPage({ gallery }: { gallery: any[] }) {
       <section className={s.gridSection}>
         <div className={s.galleryGrid}>
           {visible.map((item, i) => {
-            // TinaCMS sometimes rewrites image fields to point to its cloud media bucket.
-            // Since we committed the images to the repository, we want to force them 
-            // to load from our own Vercel deployment (the public/gallery folder).
-            let imageSrc = item.src;
-            if (imageSrc?.includes('assets.tina.io') && imageSrc.includes('/gallery/')) {
-              imageSrc = '/gallery/' + imageSrc.split('/gallery/')[1];
-            }
+            let imageSrc = item.src || '';
 
             return (
               <div className={s.galleryItem} key={i}>
