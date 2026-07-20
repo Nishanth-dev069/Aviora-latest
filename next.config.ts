@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: blob: https://images.unsplash.com https://maps.googleapis.com https://maps.gstatic.com https://*.ggpht.com https://assets.tina.io https://t3.gstatic.com https://logo.clearbit.com",
               "frame-src https://www.google.com https://maps.google.com",
-              "connect-src 'self' https://maps.googleapis.com https://api.emailjs.com https://identity.tinajs.io https://content.tinajs.io https://assets.tinajs.io",
+              "connect-src 'self' https://maps.googleapis.com https://api.emailjs.com https://identity.tinajs.io https://content.tinajs.io https://assets.tinajs.io https://upload.tinajs.io https://assets.tina.io",
             ].join('; '),
           },
           {
