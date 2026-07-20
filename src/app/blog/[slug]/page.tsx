@@ -1,12 +1,14 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import s from './blogpost.module.css';
 import client from '../../../../tina/__generated__/client';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { notFound } from 'next/navigation';
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
-export default async function BlogPostPage({ params }: Props) {
+export default async function BlogPostPage(props: Props) {
+  const params = await props.params;
   let post;
   try {
     const { data } = await client.queries.post({ relativePath: `${params.slug}.md` });
@@ -40,7 +42,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* HERO */}
       <section className={s.hero}>
-        {heroImage && <img src={heroImage} alt={post.title} className={s.heroImg} />}
+        {heroImage && <Image src={heroImage} alt={post.title || 'Blog post hero image'} className={s.heroImg} fill style={{ objectFit: 'cover' }} priority />}
         <div className={s.heroOverlay} />
         <div className={s.heroContent}>
           <nav className={s.breadcrumb}>

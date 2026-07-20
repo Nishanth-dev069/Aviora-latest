@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import s from './blog.module.css';
 
 const ITEMS_PER_PAGE = 6;
@@ -62,7 +63,7 @@ export default function BlogPage({ posts }: { posts: any[] }) {
             <Link href={`/blog/${post._sys?.filename || post.slug}`} className={s.postCard} key={i}>
               {imageSrc && (
                 <div className={s.postImgWrap}>
-                  <img src={imageSrc} alt={post.title} className={s.postImg} />
+                  <Image src={imageSrc} alt={post.title || 'Blog post image'} className={s.postImg} fill style={{ objectFit: 'cover' }} />
                 </div>
               )}
               <div className={s.postCardInner}>

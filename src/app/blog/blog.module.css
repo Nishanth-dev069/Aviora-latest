@@ -92,6 +92,7 @@
 .postCard:hover::before { transform: scaleX(1); }
 
 .postImgWrap {
+  position: relative;
   width: 100%; height: 220px; overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
