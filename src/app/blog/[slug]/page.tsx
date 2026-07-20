@@ -2,13 +2,22 @@ import Link from 'next/link';
 import s from './blogpost.module.css';
 import client from '../../../../tina/__generated__/client';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { notFound } from 'next/navigation';
 
 type Props = { params: { slug: string } };
 
 export default async function BlogPostPage({ params }: Props) {
-  // Fetch the current post
-  const { data } = await client.queries.post({ relativePath: `${params.slug}.md` });
-  const post = data.post;
+  let post;
+  try {
+    const { data } = await client.queries.post({ relativePath: `${params.slug}.md` });
+    post = data.post;
+  } catch (error) {
+    console.error(error);
+  }
+
+  if (!post) {
+    notFound();
+  }
 
   // Fetch all posts for 'related' section
   const allRes = await client.queries.postConnection();
@@ -24,11 +33,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   const formattedDate = post.date ? new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) : 'Unknown Date';
 
-  let heroImage = post.img || '';
-  if (heroImage?.includes('assets.tina.io')) {
-    const parts = heroImage.split('/');
-    heroImage = '/' + parts[parts.length - 2] + '/' + parts[parts.length - 1];
-  }
+  const heroImage = post.img || '';
 
   return (
     <main className={s.page}>
