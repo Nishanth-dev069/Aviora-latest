@@ -6,6 +6,7 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { notFound } from 'next/navigation';
 
 type Props = { params: Promise<{ slug: string }> };
+export const dynamic = 'force-dynamic';
 
 export default async function BlogPostPage(props: Props) {
   const params = await props.params;
@@ -35,7 +36,10 @@ export default async function BlogPostPage(props: Props) {
 
   const formattedDate = post.date ? new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) : 'Unknown Date';
 
-  const heroImage = post.img || '';
+  let heroImage = post.img || '';
+  if (heroImage.includes('https://images.unsplash.com')) {
+    heroImage = heroImage.substring(heroImage.indexOf('https://images.unsplash.com'));
+  }
 
   return (
     <main className={s.page}>

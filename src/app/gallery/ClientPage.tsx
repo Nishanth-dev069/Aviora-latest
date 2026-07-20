@@ -64,6 +64,9 @@ export default function GalleryPage({ gallery }: { gallery: any[] }) {
         <div className={s.galleryGrid}>
           {visible.map((item, i) => {
             let imageSrc = item.src || '';
+            if (imageSrc.includes('https://images.unsplash.com')) {
+              imageSrc = imageSrc.substring(imageSrc.indexOf('https://images.unsplash.com'));
+            }
 
             return (
               <div className={s.galleryItem} key={i}>
