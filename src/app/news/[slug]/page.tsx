@@ -123,7 +123,6 @@ export default async function NewsPostPage(props: Props) {
           <div className={s.heroMeta}>
             <span className={s.postTag}>{post.tag}</span>
             <span className={s.postDate}>{formattedDate}</span>
-            <span className={s.postRead}>{post.readTime} read</span>
           </div>
           <h1 className={s.heroH1}>{post.title}</h1>
         </div>
