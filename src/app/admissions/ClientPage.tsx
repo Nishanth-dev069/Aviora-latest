@@ -4,6 +4,7 @@ import { useState, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import s from './admissions.module.css';
 import TrainingPartnersTicker from '@/components/TrainingPartnersTicker';
+import { sendGAEvent } from '@/lib/gtag';
 
 
 
@@ -197,6 +198,7 @@ export default function AdmissionsPage() {
         { publicKey: 'oVFyVBBH1qhWTSWSN' }
       );
 
+      sendGAEvent('contact_form_submit', { form_name: 'Admissions Page', program_selected: formData.program });
       setSubmitStatus({ 
         type: 'success', 
         message: 'Application submitted successfully! Our admissions counsellor will contact you soon.' 
@@ -235,7 +237,7 @@ export default function AdmissionsPage() {
           </p>
           <div className={s.heroActions}>
             <a href="#apply" className={s.btnPrimaryApply}>Apply for Intake</a>
-            <a href="/Aviora Brochure - Pilots .pdf" download className={s.btnSecondaryApply}>Download Brochure</a>
+            <a href="/Aviora Brochure - Pilots .pdf" download className={s.btnSecondaryApply} onClick={() => sendGAEvent('cta_button_click', { cta_name: 'Download Brochure' })}>Download Brochure</a>
           </div>
         </div>
 

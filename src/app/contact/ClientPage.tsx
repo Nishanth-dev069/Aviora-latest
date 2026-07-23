@@ -2,6 +2,7 @@
 import { useState, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import { CONTACT_PHONE_PRIMARY, CONTACT_PHONE_SECONDARY, CONTACT_EMAIL, CONTACT_ADDRESS_LINE_1, CONTACT_ADDRESS_LINE_2, OFFICE_HOURS_WEEKDAY, OFFICE_HOURS_SATURDAY } from '@/lib/constants';
+import { sendGAEvent } from '@/lib/gtag';
 import s from './contact.module.css';
 
 const FAQS = [
@@ -129,6 +130,7 @@ export default function ContactPage() {
 
       console.log("✅ SUCCESS!", response.status, response.text);
 
+      sendGAEvent('contact_form_submit', { form_name: 'Contact Page' });
       setSubmitted(true);
       setFormData({ fullName: '', mobile: '', email: '', program: '', message: '' });
     } catch (error: any) {
@@ -182,7 +184,18 @@ export default function ContactPage() {
           {/* CONTACT CHANNELS */}
           <div className={s.heroRight}>
             {CHANNELS.map((ch, i) => (
-              <a key={i} href={ch.href} className={s.channelCard} target={ch.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+              <a 
+                key={i} 
+                href={ch.href} 
+                className={s.channelCard} 
+                target={ch.href.startsWith('http') ? '_blank' : undefined} 
+                rel="noopener noreferrer"
+                onClick={() => {
+                  if (ch.href.startsWith('tel:')) {
+                    sendGAEvent('phone_call_click', { location: 'Contact Page' });
+                  }
+                }}
+              >
                 <div className={s.channelIcon}>{ch.icon}</div>
                 <div className={s.channelBody}>
                   <div className={s.channelLabel}>{ch.label}</div>

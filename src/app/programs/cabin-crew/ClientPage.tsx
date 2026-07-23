@@ -1,6 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { sendGAEvent } from '@/lib/gtag';
 import s from './cabin.module.css';
 
 const CABIN_CREW_PATHWAY = [
@@ -77,7 +78,7 @@ export default function CabinCrewPage() {
             ))}
           </div>
           <div className={s.heroCtas}>
-            <Link href="/admissions" className={s.btnPrimary}>Enroll Now →</Link>
+            <Link href="/admissions" className={s.btnPrimary} onClick={() => sendGAEvent('cta_button_click', { cta_name: 'Enroll Now', program: 'Cabin Crew' })}>Enroll Now →</Link>
             <Link href="/contact" className={s.btnOutline}>Talk to Admissions</Link>
           </div>
         </div>
@@ -198,7 +199,7 @@ export default function CabinCrewPage() {
             <h3 className={s.ctaCardH3}>Ready For<br /><em>Takeoff?</em></h3>
             <p className={s.ctaCardP}>Our admissions team assesses candidates for airline compatibility before enrollment to ensure the highest placement success.</p>
             <div className={s.ctaCardBtns}>
-              <Link href="/admissions" className={s.btnPrimary}>Enroll Now →</Link>
+              <Link href="/admissions" className={s.btnPrimary} onClick={() => sendGAEvent('cta_button_click', { cta_name: 'Enroll Now', program: 'Cabin Crew' })}>Enroll Now →</Link>
               <Link href="/contact" className={s.btnOutline}>Talk to Admissions</Link>
             </div>
             <div className={s.ctaCardTrust}>

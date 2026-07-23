@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { sendGAEvent } from "@/lib/gtag";
 import styles from "./Nav.module.css";
 
 const navLinks = [
@@ -120,7 +121,7 @@ export default function Nav() {
                 </li>
             </ul>
 
-            <Link href="/admissions" className={styles.navCta}>
+            <Link href="/admissions" className={styles.navCta} onClick={() => sendGAEvent('cta_button_click', { cta_name: 'Enroll Now', location: 'Nav Desktop' })}>
                     Enroll Now
             </Link>
 
@@ -159,7 +160,7 @@ export default function Nav() {
                     </Link>
                 </li>
             </ul>
-            <Link href="/admissions" className={`${styles.navCta} ${styles.mobileOverlayCta}`} onClick={() => setIsMobileMenuOpen(false)}>
+            <Link href="/admissions" className={`${styles.navCta} ${styles.mobileOverlayCta}`} onClick={() => { setIsMobileMenuOpen(false); sendGAEvent('cta_button_click', { cta_name: 'Enroll Now', location: 'Nav Mobile' }); }}>
                     Enroll Now
             </Link>
         </div>

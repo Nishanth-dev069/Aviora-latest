@@ -1,6 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { sendGAEvent } from '@/lib/gtag';
 import s from './global.module.css';
 
 const PHASES = [
@@ -116,7 +117,7 @@ export default function GlobalTrainingPage() {
             ))}
           </div>
           <div className={s.heroCtas}>
-            <Link href="/admissions" className={s.btnPrimary}>Enroll Now →</Link>
+            <Link href="/admissions" className={s.btnPrimary} onClick={() => sendGAEvent('cta_button_click', { cta_name: 'Enroll Now', program: 'Global Training' })}>Enroll Now →</Link>
             <Link href="/contact" className={s.btnOutline}>Talk to a Pilot</Link>
           </div>
         </div>
@@ -218,7 +219,7 @@ export default function GlobalTrainingPage() {
             <h3 className={s.ctaCardH3}>Ready to Begin?</h3>
             <p className={s.ctaCardP}>Our admissions team reviews all applications within 72 hours. Speak with an active airline captain before you commit — no pressure, just honest guidance.</p>
             <div className={s.ctaCardBtns}>
-              <Link href="/admissions" className={s.btnPrimary}>Enroll Now →</Link>
+              <Link href="/admissions" className={s.btnPrimary} onClick={() => sendGAEvent('cta_button_click', { cta_name: 'Enroll Now', program: 'Global Training' })}>Enroll Now →</Link>
               <Link href="/contact" className={s.btnOutline}>Talk to a Pilot</Link>
             </div>
             <div className={s.ctaCardTrust}>

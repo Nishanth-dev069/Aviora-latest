@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import { sendGAEvent } from '@/lib/gtag';
 import s from './typerating.module.css';
 
 const AIRCRAFT = [
@@ -80,7 +81,7 @@ export default function TypeRatingPage() {
             ))}
           </div>
           <div className={s.heroCtas}>
-            <Link href="/admissions" className={s.btnPrimary}>Enroll Now →</Link>
+            <Link href="/admissions" className={s.btnPrimary} onClick={() => sendGAEvent('cta_button_click', { cta_name: 'Enroll Now', program: 'Type Rating' })}>Enroll Now →</Link>
             <Link href="/contact" className={s.btnOutline}>Talk to a Pilot</Link>
           </div>
         </div>
@@ -217,7 +218,7 @@ export default function TypeRatingPage() {
             <h3 className={s.ctaCardH3}>Ready to Fly<br /><em>the Jet?</em></h3>
             <p className={s.ctaCardP}>Seats are allocated on a first-come basis. Aviora&apos;s admissions team reviews all applications within 72 hours and provides an eligibility confirmation before any financial commitment.</p>
             <div className={s.ctaCardBtns}>
-              <Link href="/admissions" className={s.btnPrimary}>Enroll Now →</Link>
+              <Link href="/admissions" className={s.btnPrimary} onClick={() => sendGAEvent('cta_button_click', { cta_name: 'Enroll Now', program: 'Type Rating' })}>Enroll Now →</Link>
               <Link href="/contact" className={s.btnOutline}>Talk to a Pilot</Link>
             </div>
             <div className={s.ctaTrust}>
