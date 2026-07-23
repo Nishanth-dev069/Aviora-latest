@@ -6,6 +6,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import IntroOverlay from "@/components/IntroOverlay";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Script from "next/script";
 import "./globals.css";
 
 /* ── Typography: Inter for everything ── */
@@ -60,28 +61,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        {/* Verification Code Placeholders */}
+        <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
+      </head>
       <body>
-        <head>
-          <meta charSet="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-          
-          {/* Google Analytics (GA4) */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-C1LVLCCEEC"></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-C1LVLCCEEC');
-              `,
-            }}
-          />
+        {/* Google Analytics (GA4) */}
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-C1LVLCCEEC" />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-C1LVLCCEEC');
+            `,
+          }}
+        />
 
-          <script
-            type="application/ld+json"
+        <script
+          type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
@@ -103,9 +106,7 @@ export default function RootLayout({
               })
             }}
           />
-          {/* Verification Code Placeholders */}
-          <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
-        </head>
+        
         <IntroOverlay />
         <CustomCursor />
         <AirplaneScrollbar />
