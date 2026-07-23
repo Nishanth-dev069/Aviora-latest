@@ -6,6 +6,7 @@ import s from './news.module.css';
 const ITEMS_PER_PAGE = 6;
 const TAGS_NEWS = ['All', 'Industry', 'DGCA', 'Global Aviation', 'Airline'];
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function NewsPage({ news }: { news: any[] }) {
   const [activeTag, setActiveTag] = useState('All');
   const [page, setPage] = useState(1);

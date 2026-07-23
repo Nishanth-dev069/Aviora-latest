@@ -9,6 +9,7 @@ export async function GET() {
   try {
     // Fetch Blog Posts
     const blogRes = await client.queries.postConnection();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const blogPosts = (blogRes.data.postConnection.edges?.map((e: any) => e?.node).filter(Boolean) as any[]) || [];
 
     for (const post of blogPosts) {
@@ -24,6 +25,7 @@ export async function GET() {
     <priority>0.7</priority>
   </url>`;
     }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error('Error generating dynamic blog sitemap:', error);
   }

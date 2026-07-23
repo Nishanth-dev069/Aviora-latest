@@ -4,6 +4,10 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./AirplaneScrollbar.module.css";
 import gsap from "gsap";
 
+function clamp(val: number, min: number, max: number) {
+    return Math.min(Math.max(val, min), max);
+}
+
 export default function AirplaneScrollbar() {
     const containerRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
@@ -14,6 +18,7 @@ export default function AirplaneScrollbar() {
 
     useEffect(() => {
         if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setIsTouch(true);
             // Restore native scrollbar for touch
             document.body.style.scrollbarWidth = "auto";
@@ -59,9 +64,7 @@ export default function AirplaneScrollbar() {
         return () => cancelAnimationFrame(animationFrameId);
     }, []);
 
-    function clamp(val: number, min: number, max: number) {
-        return Math.min(Math.max(val, min), max);
-    }
+
 
     const handleTrackClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!trackRef.current) return;

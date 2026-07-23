@@ -178,7 +178,7 @@ export default function PilotTrainingPage() {
         <div className={s.dgcaHead + ' ' + s.reveal}>
           <span className={s.eyebrow}>Ground School</span>
           <h2 className={s.sectionH2}>Six DGCA Subjects.<br /><em>Zero Compromise.</em></h2>
-          <p className={s.sectionSub}>Aviora's ground school is structured around the DGCA CPL written examination — all six papers, taught in sequence, tested rigorously throughout.</p>
+          <p className={s.sectionSub}>Aviora&apos;s ground school is structured around the DGCA CPL written examination — all six papers, taught in sequence, tested rigorously throughout.</p>
         </div>
         <div className={s.subjectsGrid}>
           {DGCA_SUBJECTS.map((sub, i) => (
@@ -236,7 +236,7 @@ export default function PilotTrainingPage() {
               <Link href="/contact" className={s.btnOutline}>Talk to a Pilot</Link>
             </div>
             <div className={s.ctaCardTrust}>
-              <span>South Indian's Biggest Aviation Facility</span>
+              <span>South Indian&apos;s Biggest Aviation Facility</span>
               <span className={s.dot}>·</span>
               <span>10 Airline Partners</span>
               <span className={s.dot}>·</span>

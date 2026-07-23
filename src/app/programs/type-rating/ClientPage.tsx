@@ -215,7 +215,7 @@ export default function TypeRatingPage() {
           <div className={s.ctaCard}>
             <div className={s.ctaCardEye}>Max 85 Cadets · Annual Intake</div>
             <h3 className={s.ctaCardH3}>Ready to Fly<br /><em>the Jet?</em></h3>
-            <p className={s.ctaCardP}>Seats are allocated on a first-come basis. Aviora's admissions team reviews all applications within 72 hours and provides an eligibility confirmation before any financial commitment.</p>
+            <p className={s.ctaCardP}>Seats are allocated on a first-come basis. Aviora&apos;s admissions team reviews all applications within 72 hours and provides an eligibility confirmation before any financial commitment.</p>
             <div className={s.ctaCardBtns}>
               <Link href="/admissions" className={s.btnPrimary}>Enroll Now →</Link>
               <Link href="/contact" className={s.btnOutline}>Talk to a Pilot</Link>

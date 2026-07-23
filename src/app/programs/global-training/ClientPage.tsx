@@ -137,7 +137,7 @@ export default function GlobalTrainingPage() {
       <section className={s.whySection}>
         <div className={s.whyHead}>
           <span className={s.eyebrow}>Why the United States</span>
-          <h2 className={s.sectionH2}>The World's Best Environment<br /><em>to Learn to Fly</em></h2>
+          <h2 className={s.sectionH2}>The World&apos;s Best Environment<br /><em>to Learn to Fly</em></h2>
         </div>
         <div className={s.whyGrid}>
           {WHY_USA.map((w, i) => (

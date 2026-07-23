@@ -127,7 +127,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>9. Children's Privacy</h2>
+            <h2 className={styles.sectionTitle}>9. Children&apos;s Privacy</h2>
             <p className={styles.para}>
               Our services are not directed to individuals under the age of 17. We do not knowingly collect personal information from minors. If we become aware that we have inadvertently collected data from a minor, we will promptly delete it.
             </p>

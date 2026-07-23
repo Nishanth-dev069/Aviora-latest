@@ -84,7 +84,7 @@ export default function MentorsPage() {
             Four Professionals.<br /><em>One Standard.</em>
           </h2>
           <p className={s.sectionSub}>
-            Aviora's mentorship philosophy is simple: cadets learn from people who have done the job,
+            Aviora&apos;s mentorship philosophy is simple: cadets learn from people who have done the job,
             not from people who have only studied it.
           </p>
         </div>

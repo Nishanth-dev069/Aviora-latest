@@ -39,7 +39,7 @@ export default function Footer() {
               <img src="/logos/Aviora%20Footer%20Logo.png" alt="Aviora Aviation Academy" className={styles.logoImage} />
             </Link>
             <p className={styles.tagline}>Cleared for a Career Above the Clouds.</p>
-            <div className={styles.dgcaBadge}>South Indian's Biggest Aviation Facility</div>
+            <div className={styles.dgcaBadge}>South Indian&apos;s Biggest Aviation Facility</div>
             <div className={styles.socials}>
 
               <a href="https://www.instagram.com/aviora.aviation?igsh=MTRmenRwMmFpNHB3Yw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="Instagram">

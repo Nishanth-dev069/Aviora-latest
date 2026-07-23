@@ -9,6 +9,7 @@ export async function GET() {
   try {
     // Fetch News Posts
     const newsRes = await client.queries.newsConnection();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const newsPosts = (newsRes.data.newsConnection.edges?.map((e: any) => e?.node).filter(Boolean) as any[]) || [];
 
     for (const post of newsPosts) {
@@ -24,6 +25,7 @@ export async function GET() {
     <priority>0.7</priority>
   </url>`;
     }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error('Error generating dynamic news sitemap:', error);
   }
