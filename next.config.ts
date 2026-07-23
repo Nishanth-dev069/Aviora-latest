@@ -35,6 +35,9 @@ const nextConfig: NextConfig = {
 
   // Powered by header removal
   poweredByHeader: false,
+  
+  // Consistent URL hygiene
+  trailingSlash: false,
 };
 
 export default nextConfig;

@@ -4,9 +4,54 @@ import s from './blogpost.module.css';
 import client from '../../../../tina/__generated__/client';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { notFound } from 'next/navigation';
+import { Metadata, ResolvingMetadata } from 'next';
 
 type Props = { params: Promise<{ slug: string }> };
 export const dynamic = 'force-dynamic';
+
+export async function generateMetadata(
+  props: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const params = await props.params;
+  try {
+    const { data } = await client.queries.post({ relativePath: `${params.slug}.md` });
+    const post = data.post;
+    if (!post) return {};
+    
+    let heroImage = post.img || '';
+    if (heroImage.includes('https://images.unsplash.com')) {
+      heroImage = heroImage.substring(heroImage.indexOf('https://images.unsplash.com'));
+    }
+    const imageUrl = heroImage.startsWith('http') ? heroImage : `https://avioraaviation.in${heroImage}`;
+    
+    return {
+      title: `${post.title} | Aviora`,
+      description: post.excerpt || post.title,
+      alternates: {
+        canonical: `https://avioraaviation.in/blog/${params.slug}`,
+      },
+      openGraph: {
+        title: post.title,
+        description: post.excerpt || post.title,
+        url: `https://avioraaviation.in/blog/${params.slug}`,
+        siteName: 'Aviora',
+        type: 'article',
+        publishedTime: post.date ? new Date(post.date).toISOString() : undefined,
+        authors: ['Aviora'],
+        images: [{ url: imageUrl }],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: post.title,
+        description: post.excerpt || post.title,
+        images: [imageUrl],
+      },
+    };
+  } catch (error) {
+    return {};
+  }
+}
 
 export default async function BlogPostPage(props: Props) {
   const params = await props.params;
@@ -43,6 +88,26 @@ export default async function BlogPostPage(props: Props) {
 
   return (
     <main className={s.page}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": post.title,
+            "datePublished": post.date ? new Date(post.date).toISOString() : undefined,
+            "dateModified": post.date ? new Date(post.date).toISOString() : undefined,
+            "author": { "@type": "Person", "name": "Aviora" },
+            "publisher": { 
+              "@type": "Organization", 
+              "name": "Aviora", 
+              "logo": { "@type": "ImageObject", "url": "https://avioraaviation.in/logos/Aviora%20Footer%20Logo.png" } 
+            },
+            "image": heroImage.startsWith('http') ? heroImage : `https://avioraaviation.in${heroImage}`,
+            "url": `https://avioraaviation.in/blog/${params.slug}`
+          })
+        }}
+      />
 
       {/* HERO */}
       <section className={s.hero}>
