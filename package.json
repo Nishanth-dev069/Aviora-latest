@@ -2,7 +2,7 @@
   "name": "aviora",
   "version": "0.1.0",
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "private": true,
   "scripts": {
@@ -25,7 +25,7 @@
     "tinacms": "^3.7.2"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

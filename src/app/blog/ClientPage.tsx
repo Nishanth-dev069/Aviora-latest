@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import s from './blog.module.css';
 
 const ITEMS_PER_PAGE = 6;
@@ -57,16 +58,15 @@ export default function BlogPage({ posts }: { posts: any[] }) {
       <section className={s.postsSection}>
         <div className={s.postsGrid}>
           {visible.map((post, i) => {
-            let imageSrc = post.img;
-            if (imageSrc?.includes('assets.tina.io')) {
-              const parts = imageSrc.split('/');
-              imageSrc = '/' + parts[parts.length - 2] + '/' + parts[parts.length - 1];
+            let imageSrc = post.img || '';
+            if (imageSrc.includes('https://images.unsplash.com')) {
+              imageSrc = imageSrc.substring(imageSrc.indexOf('https://images.unsplash.com'));
             }
             return (
             <Link href={`/blog/${post._sys?.filename || post.slug}`} className={s.postCard} key={i}>
               {imageSrc && (
                 <div className={s.postImgWrap}>
-                  <img src={imageSrc} alt={post.title} className={s.postImg} />
+                  <Image src={imageSrc} alt={post.title || 'Blog post image'} className={s.postImg} fill style={{ objectFit: 'cover' }} unoptimized referrerPolicy="no-referrer" />
                 </div>
               )}
               <div className={s.postCardInner}>

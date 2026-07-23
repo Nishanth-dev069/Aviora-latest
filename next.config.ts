@@ -20,18 +20,7 @@ const nextConfig: NextConfig = {
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
           { key: 'X-XSS-Protection', value: '1; mode=block' },
-          {
-            key: 'Content-Security-Policy',
-            value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com https://maps.gstatic.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: blob: https://images.unsplash.com https://maps.googleapis.com https://maps.gstatic.com https://*.ggpht.com https://assets.tina.io https://t3.gstatic.com https://logo.clearbit.com",
-              "frame-src https://www.google.com https://maps.google.com",
-              "connect-src 'self' https://maps.googleapis.com https://api.emailjs.com https://identity.tinajs.io https://content.tinajs.io https://assets.tinajs.io",
-            ].join('; '),
-          },
+
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload',

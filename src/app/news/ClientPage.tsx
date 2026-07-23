@@ -57,10 +57,9 @@ export default function NewsPage({ news }: { news: any[] }) {
       <section className={s.postsSection}>
         <div className={s.postsGrid}>
           {visible.map((post, i) => {
-            let imageSrc = post.img;
-            if (imageSrc?.includes('assets.tina.io')) {
-              const parts = imageSrc.split('/');
-              imageSrc = '/' + parts[parts.length - 2] + '/' + parts[parts.length - 1];
+            let imageSrc = post.img || '';
+            if (imageSrc.includes('https://images.unsplash.com')) {
+              imageSrc = imageSrc.substring(imageSrc.indexOf('https://images.unsplash.com'));
             }
             return (
             <Link href={`/news/${post._sys?.filename || post.slug}`} className={s.postCard} key={i}>

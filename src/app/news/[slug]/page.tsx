@@ -2,13 +2,23 @@ import Link from 'next/link';
 import s from './newspost.module.css';
 import client from '../../../../tina/__generated__/client';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { notFound } from 'next/navigation';
 
 type Props = { params: { slug: string } };
+export const dynamic = 'force-dynamic';
 
 export default async function NewsPostPage({ params }: Props) {
-  // Fetch the current news
-  const { data } = await client.queries.news({ relativePath: `${params.slug}.md` });
-  const post = data.news;
+  let post;
+  try {
+    const { data } = await client.queries.news({ relativePath: `${params.slug}.md` });
+    post = data.news;
+  } catch (error) {
+    console.error(error);
+  }
+
+  if (!post) {
+    notFound();
+  }
 
   // Fetch all news for 'related' section
   const allRes = await client.queries.newsConnection();
@@ -25,9 +35,8 @@ export default async function NewsPostPage({ params }: Props) {
   const formattedDate = post.date ? new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Unknown Date';
 
   let heroImage = post.img || '';
-  if (heroImage?.includes('assets.tina.io')) {
-    const parts = heroImage.split('/');
-    heroImage = '/' + parts[parts.length - 2] + '/' + parts[parts.length - 1];
+  if (heroImage.includes('https://images.unsplash.com')) {
+    heroImage = heroImage.substring(heroImage.indexOf('https://images.unsplash.com'));
   }
 
   return (

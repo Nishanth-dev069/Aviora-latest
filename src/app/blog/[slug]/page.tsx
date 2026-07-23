@@ -1,14 +1,26 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import s from './blogpost.module.css';
 import client from '../../../../tina/__generated__/client';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { notFound } from 'next/navigation';
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
+export const dynamic = 'force-dynamic';
 
-export default async function BlogPostPage({ params }: Props) {
-  // Fetch the current post
-  const { data } = await client.queries.post({ relativePath: `${params.slug}.md` });
-  const post = data.post;
+export default async function BlogPostPage(props: Props) {
+  const params = await props.params;
+  let post;
+  try {
+    const { data } = await client.queries.post({ relativePath: `${params.slug}.md` });
+    post = data.post;
+  } catch (error) {
+    console.error(error);
+  }
+
+  if (!post) {
+    notFound();
+  }
 
   // Fetch all posts for 'related' section
   const allRes = await client.queries.postConnection();
@@ -25,9 +37,8 @@ export default async function BlogPostPage({ params }: Props) {
   const formattedDate = post.date ? new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) : 'Unknown Date';
 
   let heroImage = post.img || '';
-  if (heroImage?.includes('assets.tina.io')) {
-    const parts = heroImage.split('/');
-    heroImage = '/' + parts[parts.length - 2] + '/' + parts[parts.length - 1];
+  if (heroImage.includes('https://images.unsplash.com')) {
+    heroImage = heroImage.substring(heroImage.indexOf('https://images.unsplash.com'));
   }
 
   return (
@@ -35,7 +46,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* HERO */}
       <section className={s.hero}>
-        {heroImage && <img src={heroImage} alt={post.title} className={s.heroImg} />}
+        {heroImage && <Image src={heroImage} alt={post.title || 'Blog post hero image'} className={s.heroImg} fill style={{ objectFit: 'cover' }} priority unoptimized referrerPolicy="no-referrer" />}
         <div className={s.heroOverlay} />
         <div className={s.heroContent}>
           <nav className={s.breadcrumb}>
