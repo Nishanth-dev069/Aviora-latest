@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import s from './newspost.module.css';
-import client from '../../../../tina/__generated__/client';
-import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { getPost, getAllPosts } from '@/lib/content';
 import { notFound } from 'next/navigation';
 import { Metadata, ResolvingMetadata } from 'next';
 
@@ -15,11 +14,10 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const params = await props.params;
   try {
-    const { data } = await client.queries.news({ relativePath: `${params.slug}.md` });
-    const post = data.news;
+    const post = await getPost('news', params.slug);
     if (!post) return {};
     
-    let heroImage = post.img || '';
+    let heroImage = (post.img as string) || '';
     if (heroImage.includes('https://images.unsplash.com')) {
       heroImage = heroImage.substring(heroImage.indexOf('https://images.unsplash.com'));
     }
@@ -27,13 +25,13 @@ export async function generateMetadata(
     
     return {
       title: `${post.title} | Aviora News`,
-      description: post.excerpt || post.title,
+      description: (post.excerpt as string) || post.title,
       alternates: {
         canonical: `https://avioraaviation.in/news/${params.slug}`,
       },
       openGraph: {
         title: post.title,
-        description: post.excerpt || post.title,
+        description: (post.excerpt as string) || post.title,
         url: `https://avioraaviation.in/news/${params.slug}`,
         siteName: 'Aviora',
         type: 'article',
@@ -44,7 +42,7 @@ export async function generateMetadata(
       twitter: {
         card: 'summary_large_image',
         title: post.title,
-        description: post.excerpt || post.title,
+        description: (post.excerpt as string) || post.title,
         images: [imageUrl],
       },
     };
@@ -55,33 +53,21 @@ export async function generateMetadata(
 
 export default async function NewsPostPage(props: Props) {
   const params = await props.params;
-  let post;
-  try {
-    const { data } = await client.queries.news({ relativePath: `${params.slug}.md` });
-    post = data.news;
-  } catch (error) {
-    console.error(error);
-  }
+  const post = await getPost('news', params.slug);
 
   if (!post) {
     notFound();
   }
 
   // Fetch all posts for 'related' section
-  const allRes = await client.queries.newsConnection();
-  const allNews = (allRes.data.newsConnection.edges?.map((e: any) => e?.node).filter(Boolean) as any[]) || [];
+  const allNews = getAllPosts('news');
   const related = allNews
-    .filter((p: any) => p && p._sys && p._sys.filename !== params.slug && p.tag === post.tag)
-    .sort((a: any, b: any) => {
-      const dateA = a?.date ? new Date(a.date).getTime() : 0;
-      const dateB = b?.date ? new Date(b.date).getTime() : 0;
-      return dateB - dateA;
-    })
+    .filter((p: any) => p && p.slug !== params.slug && p.tag === post.tag)
     .slice(0, 3);
 
   const formattedDate = post.date ? new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) : 'Unknown Date';
 
-  let heroImage = post.img || '';
+  let heroImage = (post.img as string) || '';
   if (heroImage.includes('https://images.unsplash.com')) {
     heroImage = heroImage.substring(heroImage.indexOf('https://images.unsplash.com'));
   }
@@ -108,19 +94,35 @@ export default async function NewsPostPage(props: Props) {
           })
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://avioraaviation.in/" },
+              { "@type": "ListItem", "position": 2, "name": "News", "item": "https://avioraaviation.in/news" },
+              { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://avioraaviation.in/news/${params.slug}` }
+            ]
+          })
+        }}
+      />
 
       {/* HERO */}
       <section className={s.hero}>
         {heroImage && <Image src={heroImage} alt={post.title || 'News post hero image'} className={s.heroImg} fill style={{ objectFit: 'cover' }} priority unoptimized referrerPolicy="no-referrer" />}
         <div className={s.heroOverlay} />
         <div className={s.heroContent}>
-          <nav className={s.breadcrumb}>
-            <Link href="/news" className={s.bcLink}>← News</Link>
+          <nav className={s.breadcrumb} aria-label="Breadcrumb">
+            <Link href="/" className={s.bcLink}>Home</Link>
             <span className={s.bcSep}>›</span>
-            <span className={s.bcCurrent}>{post.tag}</span>
+            <Link href="/news" className={s.bcLink}>News</Link>
+            <span className={s.bcSep}>›</span>
+            <span className={s.bcCurrent}>{post.tag as string}</span>
           </nav>
           <div className={s.heroMeta}>
-            <span className={s.postTag}>{post.tag}</span>
+            <span className={s.postTag}>{post.tag as string}</span>
             <span className={s.postDate}>{formattedDate}</span>
           </div>
           <h1 className={s.heroH1}>{post.title}</h1>
@@ -130,12 +132,13 @@ export default async function NewsPostPage(props: Props) {
       {/* ARTICLE */}
       <div className={s.articleWrap}>
         <div className={s.articleInner}>
-          <p className={s.lead}>{post.excerpt}</p>
+          <p className={s.lead}>{post.excerpt as string}</p>
           <hr className={s.divider} />
 
-          <div className={s.markdownBody}>
-            <TinaMarkdown content={post.body} />
-          </div>
+          <div 
+            className={s.markdownBody}
+            dangerouslySetInnerHTML={{ __html: post.contentHtml || '' }}
+          />
 
           <hr className={s.divider} />
 
@@ -156,9 +159,9 @@ export default async function NewsPostPage(props: Props) {
             <h2 className={s.relatedH2}>Related News</h2>
             <div className={s.relatedGrid}>
               {related.map(p => (
-                <Link key={p._sys.filename} href={`/news/${p._sys.filename}`} className={s.relatedCard}>
+                <Link key={p.slug} href={`/news/${p.slug}`} className={s.relatedCard}>
                   <div className={s.relatedCardAccent} />
-                  <span className={s.relatedTag}>{p.tag}</span>
+                  <span className={s.relatedTag}>{p.tag as string}</span>
                   <h3 className={s.relatedTitle}>{p.title}</h3>
                   <span className={s.relatedArrow}>Read →</span>
                 </Link>
@@ -171,3 +174,4 @@ export default async function NewsPostPage(props: Props) {
     </main>
   );
 }
+

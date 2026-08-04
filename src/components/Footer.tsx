@@ -16,6 +16,8 @@ const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Programs', href: '/programs' },
   { label: 'Admissions', href: '/admissions' },
+  { label: 'Facilities', href: '/facilities' },
+  { label: 'Mentors', href: '/mentors' },
   { label: 'About Us', href: '/about' },
   { label: 'Contact', href: '/contact' },
   { label: 'Gallery', href: '/gallery' },
@@ -125,8 +127,8 @@ export default function Footer() {
         <div className={styles.bottomBarInner}>
           <span className={styles.copyright}>© 2026 Aviora Aviation Academy. All rights reserved.</span>
           <div className={styles.legalLinks}>
-            <span className={styles.legalText}>Privacy Policy</span>
-            <span className={styles.legalText}>Terms & Conditions</span>
+            <Link href="/privacy-policy" className={styles.legalText}>Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className={styles.legalText}>Terms & Conditions</Link>
           </div>
           <div className={styles.zyxenCredits}>
             <span className={styles.zyxenText}>Developed and maintained by Zyxen</span>

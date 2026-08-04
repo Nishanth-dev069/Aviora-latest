@@ -316,6 +316,13 @@
   font-weight: 400;
   font-size: 11px;
   color: rgba(241, 241, 241, 0.4);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legalText:hover {
+  color: #4A90D9;
+  text-decoration: underline;
 }
 
 .zyxenCredits {

@@ -1,18 +1,30 @@
 ---
-title: "DGCA Increases FBS Simulator Hours Acceptance for CPL Applicants"
-tag: "DGCA"
-date: "2026-02-14T18:30:00.000Z"
-excerpt: "Under a new amendment, up to 40 hours of approved FBS simulator time can now be counted toward the total flight time requirement for CPL issuance."
-source: "DGCA India"
-img: "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=1920&q=60"
+title: "DGCA Approves Increased Flight Simulator Hours for Commercial Pilot Training"
+tag: "Regulatory"
+date: "2026-03-06T18:30:00.000Z"
+excerpt: "DGCA revises CAR guidelines to permit up to 40 hours of flight simulator training toward the 200-hour CPL requirement."
+source: "Aviation Daily"
+img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1920&q=60"
 ---
 
-The announcement marks a significant shift in the Indian aviation employment landscape. Industry analysts who have tracked hiring patterns over the past decade describe this as the most concentrated period of airline recruitment activity since the post-COVID recovery began in 2022.
+In a significant policy update aimed at modernising flight training standards and improving cadet safety readiness, the DGCA has revised its Civil Aviation Requirements (CAR) to allow up to 40 hours of certified Flight Training Device (FTD) and Full Flight Simulator (FFS) hours to be credited toward the mandatory 200-hour flight time requirement for Commercial Pilot Licences (CPL).
 
-For pilot cadets and cabin crew trainees currently in programme, the timing is strategically significant. The typical lag between training completion and airline interview invitation has compressed — airlines are now approaching academies directly for pre-screened candidate lists rather than waiting for walk-in applicants.
+### Why Simulator Integration Matters
 
-The regulatory environment is also evolving in parallel. Recent DGCA circulars have streamlined the CPL issuance process, reducing the average time between skill test completion and licence issue from 90 days to approximately 45 days in most cases.
+Modern flight simulators enable student pilots to safely experience extreme emergency scenarios that cannot be safely practiced in actual training aircraft:
+- Complete engine failures on takeoff and asymmetric thrust handling.
+- Severe weather phenomena including wind shear, microbursts, and heavy crosswind landings.
+- Instrument approaches down to minimum decision height in zero-visibility conditions.
+- Extensive CRM and multi-crew coordination drills.
 
-Cabin crew recruiting processes at Indian carriers have shifted toward structured, academy-linked pathways rather than open walk-in drives. Airlines are increasingly partnering with certified training institutes to access pre-screened candidates who have completed formal grooming, emergency procedure, and service standards training.
+### Aviora's Simulator Infrastructure
 
-The implications for those considering aviation training are straightforward: the window between training completion and first employable opportunity is shorter now than it has been in the past five years. Cadets entering programmes in 2026 will graduate into a different market than those who began in 2022.
+Aviora Aviation Academy operates advanced DGCA-recognised flight simulation systems at its Hyderabad academy, enabling cadets to master procedures before logging live aircraft hours:
+- **Full Cessna 172 Cockpit Simulator:** Replica avionics and 180° wrap-around visual system. Learn about the training aircraft in our [Cessna 172 Guide](/blog/cessna-172-training-aircraft-guide).
+- **Jet Transition Training:** Level D simulator partnerships for Airbus A320 and Boeing 737 type ratings. Explore our [Type Rating Programs](/programs/type-rating).
+- **Tour Our Simulators:** View hardware specs on our [Facilities Page](/facilities).
+
+Learn more about starting your pilot journey:
+- [DGCA Pilot Training Program](/programs/pilot-training)
+- [Global Pilot Training Pathway](/programs/global-training)
+- [Contact Admissions](/contact)

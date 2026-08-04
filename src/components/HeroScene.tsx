@@ -101,7 +101,7 @@ export default function HeroScene() {
             end: "+=4000",
             pin: true,
             scrub: 0.5,
-            onUpdate: (self) => {
+            onUpdate: (self: any) => {
                 const progress = self.progress;
 
                 // 1. Calculate and update frame

@@ -11,7 +11,9 @@ const PHASES = [
     duration: '1-2 Months',
     location: 'Hyderabad, India',
     detail: 'PPL Crash Course · Visa Support · FAA Class 1 medical coordination',
-    desc: 'Before you board your flight to California, Aviora ensures you are fully prepared. Ground briefings cover FAA Part 91 rules, US airspace structure (Class A through G), ATC phraseology differences between DGCA and FAA, and VFR flight planning for American airspace. Medical coordination for FAA Class 1 medicals is handled by Aviora prior to departure. <em>Visa Process</em> (M1) documentation support is included.',
+    desc: 'Before you board your flight to California, Aviora ensures you are fully prepared. Ground briefings cover FAA Part 91 rules, US airspace structure (Class A through G), ATC phraseology differences between DGCA and FAA, and VFR flight planning for American airspace. Medical coordination for FAA Class 1 medicals is handled by Aviora prior to departure. Visa Process (M1) documentation support is included.',
+    link: '/facilities',
+    linkText: 'Explore Hyderabad Academy Facilities →',
   },
   {
     phase: 'Phase 2',
@@ -19,7 +21,9 @@ const PHASES = [
     duration: '2-3 Months',
     location: 'Sacramento , California , USA',
     detail: 'Cessna 172S · FAA Part 141 school · Aviora instructor accompanies',
-    desc: 'Training begins at Aviora\'s partner school in Sacramento , California , USA — a FAA Part 141-certified flight school with a fleet of Cessna 172S aircraft. An Aviora Indian instructor accompanies each batch for cultural continuity. You complete 40 hours minimum flight time toward FAA PPL — including 20 hours with instructor and 10 hours solo. FAA PPL written exam and practical test (checkride) conducted in the USA.',
+    desc: 'Training begins at Aviora\'s partner school in Sacramento , California , USA — a FAA Part 141-certified flight school with a fleet of Cessna 172S aircraft. An Aviora Indian instructor accompanies each batch for cultural continuity. You complete 40 hours minimum flight time toward FAA PPL — including 20 hours with instructor and 10 hours solo.',
+    link: '/blog/cessna-172-training-aircraft-guide',
+    linkText: 'Read Cessna 172 Training Guide →',
   },
   {
     phase: 'Phase 3',
@@ -27,7 +31,9 @@ const PHASES = [
     duration: '3-4 Months',
     location: 'Sacramento , California , USA',
     detail: '200 hours total target · Cross-country · Night hours · Simulated IMC',
-    desc: 'After PPL, cadets continue hour building to accumulate the 200 total hours required for DGCA CPL conversion. Hour building includes long cross-country flights across California, night flying requirements, instrument flying under VFR (simulated IMC with hood), and dual cross-country flights. The open American airspace and year-round VMC weather allows cadets to fly multiple hours per day.',
+    desc: 'After PPL, cadets continue hour building to accumulate the 200 total hours required for DGCA CPL conversion. Hour building includes long cross-country flights across California, night flying requirements, instrument flying under VFR (simulated IMC with hood), and dual cross-country flights.',
+    link: '/blog/why-train-in-usa-indian-pilots',
+    linkText: 'Why Train in USA for Indian Pilots →',
   },
   {
     phase: 'Phase 4',
@@ -35,7 +41,9 @@ const PHASES = [
     duration: '1 Month',
     location: 'Sacramento , California , USA',
     detail: 'Piper Seneca · VMC demo · Engine-out procedures · FAA certificate',
-    desc: 'The multi-engine add-on is conducted on the Piper Seneca — the industry standard twin-engine trainer for CPL cadets worldwide. Training covers asymmetric thrust, engine-out procedures, Vmc demonstration, multi-engine cruise performance, and multi-engine IFR approaches. FAA Multi-Engine Add-On certificate awarded. This rating dramatically increases employability.',
+    desc: 'The multi-engine add-on is conducted on the Piper Seneca — the industry standard twin-engine trainer for CPL cadets worldwide. Training covers asymmetric thrust, engine-out procedures, Vmc demonstration, multi-engine cruise performance, and multi-engine IFR approaches.',
+    link: '/programs/type-rating',
+    linkText: 'Explore Jet Type Rating Programs →',
   },
   {
     phase: 'Phase 5',
@@ -44,6 +52,8 @@ const PHASES = [
     location: 'India (DGCA)',
     detail: 'Full paperwork support · RTR(A) · DGCA Skill Test prep',
     desc: 'On return to India with a completed US logbook, Aviora guides you through the DGCA CPL conversion process. This involves submitting your FAA licence, medical certificate, and authenticated logbook hours to DGCA for recognition. Aviora\'s DGCA liaison team handles all paperwork — experience forms, RTR(A) coordination, and CPL Skill Test scheduling.',
+    link: '/programs/pilot-training',
+    linkText: 'Commercial Pilot Program Overview →',
   },
 ];
 
@@ -173,6 +183,13 @@ export default function GlobalTrainingPage() {
                 </div>
                 <p className={s.stepDesc}>{ph.desc}</p>
                 <div className={s.stepDetail}>{ph.detail}</div>
+                {ph.link && (
+                  <div style={{ marginTop: '12px' }}>
+                    <Link href={ph.link} style={{ color: '#C9A84C', textDecoration: 'underline', fontSize: '13px', fontWeight: 600, letterSpacing: '0.04em' }}>
+                      {ph.linkText}
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           ))}

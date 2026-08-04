@@ -10,35 +10,45 @@ const PILOT_PATHWAY = [
     title: 'DGCA Ground School',
     duration: '4 – 6 Months',
     detail: 'Max 15 cadets per batch · DGCA-approved instructors · 6 Subject papers',
-    desc: 'Structured classroom instruction across all six DGCA CPL examination subjects — Air Navigation, Air Regulations, Aviation Meteorology, Technical General, and Technical Specific. Aviora\'s ground school follows the latest DGCA syllabus (CAR Section 7, Series B) with small batches of maximum 15 cadets. Includes topic-wise mock papers, full-length timed tests, and one-on-one doubt sessions with DGCA-approved instructors. Target pass rate: 95% first attempt.',
+    desc: 'Structured classroom instruction across all six DGCA CPL examination subjects — Air Navigation, Air Regulations, Aviation Meteorology, Technical General, and Technical Specific. Aviora\'s ground school follows the latest DGCA syllabus (CAR Section 7, Series B) with small cohorts. Read our complete guide on the 5 DGCA ground school papers to learn how we maintain a 95% first-attempt pass rate.',
+    link: '/blog/dgca-ground-school-5-papers-guide',
+    linkText: 'Explore DGCA Ground School Guide →',
   },
   {
     phase: 'Phase 2',
     title: 'FBS Simulator Training',
     duration: '2 – 3 Months',
     detail: 'DGCA-counted sim hours · IMC / IFR scenarios · Emergency drill library',
-    desc: 'Hands-on time in a Fixed Based Simulator replicating the Cessna 172 cockpit — same instruments, same feel, same emergency scenarios you\'ll face in the air. FBS hours count toward total flight time under DGCA rules. Cadets train instrument approaches (ILS, VOR, NDB), crosswind landings, engine-out procedures, stall recovery, and ATC communication under simulated IMC conditions.',
+    desc: 'Hands-on time in a Fixed Based Simulator replicating the Cessna 172 cockpit — same instruments, same feel, same emergency scenarios you\'ll face in the air. FBS hours count toward total flight time under DGCA rules. Cadets train instrument approaches (ILS, VOR, NDB), crosswind landings, and ATC communication.',
+    link: '/facilities',
+    linkText: 'Tour Aviora Simulator Facility →',
   },
   {
     phase: 'Phase 3',
     title: 'International Flight Training — USA',
     duration: '6 – 10 Months',
     detail: 'FAA Part 141 school · Sacramento , California , USA · 200 hours minimum',
-    desc: 'All practical flight hours are flown in the United States on FAA-registered Cessna 172 aircraft from Part 141-approved flight school in Sacramento , California , USA. Cadets accumulate a minimum of 200 hours total time — including 100 hours PIC, 20 hours cross-country, 10 hours instrument, and 5 hours night flying — meeting DGCA CPL hour requirements in full.',
+    desc: 'All practical flight hours are flown in the United States on FAA-registered Cessna 172 aircraft from our FAA Part 141-approved flight school partner in Sacramento, California. Cadets accumulate a minimum of 200 hours total time meeting DGCA CPL conversion requirements in full.',
+    link: '/programs/global-training',
+    linkText: 'Explore USA Global Flight Training →',
   },
   {
     phase: 'Phase 4',
     title: 'Type Rating — Airbus or Boeing',
     duration: '4 – 6 Weeks',
     detail: 'A320 / B737 · Level D Full Flight Simulator · Airline SOPs',
-    desc: 'Specialised type rating on the Airbus A320 or Boeing 737, the workhorses of the Indian aviation market. Includes ground school, Fixed Based Simulator (FBS) and Level D Full Flight Simulator (FFS) training to airline standard operating procedures.',
+    desc: 'Specialised type rating on the Airbus A320 or Boeing 737, the workhorses of the Indian aviation market. Includes ground school, Fixed Based Simulator (FBS), and Level D Full Flight Simulator (FFS) training to airline standard operating procedures.',
+    link: '/programs/type-rating',
+    linkText: 'View Type Rating Programs →',
   },
   {
     phase: 'Phase 5',
-    title: 'Airline Preparation & CPL Skill Test',
+    title: 'Airline Preparation & Mentorship',
     duration: '1 – 2 Months',
     detail: 'DGCA Skill Test prep · Psychometric coaching · 10 airline partner network',
-    desc: 'The final stage transitions cadets from trained pilots to airline-ready professionals. Includes DGCA CPL Skill Test preparation, psychometric and aptitude test coaching, airline group exercise workshops, and mock technical and HR interviews with active airline captains. Aviora\'s placement desk actively coordinates with 10 airline partners for batch walk-ins and type rating sponsorship discussions.',
+    desc: 'The final stage transitions cadets from trained pilots to airline-ready First Officers. Includes DGCA CPL Skill Test preparation, psychometric coaching, and mock technical interviews with active airline captains who mentor you personally throughout the process.',
+    link: '/mentors',
+    linkText: 'Meet Our Airline Captain Mentors →',
   },
 ];
 
@@ -47,31 +57,43 @@ const DGCA_SUBJECTS = [
     num: '01',
     name: 'Air Navigation',
     desc: 'Charts and map projections, magnetic variation, dead reckoning, VOR/NDB/GPS position fixing, flight planning, fuel calculations, and en-route track corrections. Typically the highest failure rate DGCA paper — Aviora allocates maximum hours here.',
+    link: '/blog/dgca-air-navigation-cpl-study-guide',
+    linkText: 'Read Air Navigation Guide →',
   },
   {
     num: '02',
     name: 'Air Regulations',
     desc: 'ICAO Annexes 1–19, DGCA CARs and AIC circulars, Air Traffic Services structure, airspace classification, Rules of the Air, licence requirements, aircraft registration, and accident/incident reporting under AAIB.',
+    link: '/blog/dgca-ground-school-5-papers-guide',
+    linkText: 'Read Regulations Strategy →',
   },
   {
     num: '03',
     name: 'Aviation Meteorology',
     desc: 'ICAO standard atmosphere, clouds, visibility and fog formation, thunderstorm structure, mountain wave turbulence, wind shear, icing, tropical weather systems, and METAR/TAF/SIGMET decoding.',
+    link: '/blog/dgca-aviation-meteorology-cpl-guide',
+    linkText: 'Read Meteorology Guide →',
   },
   {
     num: '04',
     name: 'Technical General',
     desc: 'Principles of flight, high-speed aerodynamics, aircraft structures, piston and turbine engine theory, propellers, carburettor icing, fuel systems, hydraulics, electrical systems, and pressurisation.',
+    link: '/blog/what-is-type-rating-commercial-pilots',
+    linkText: 'Read Aircraft Systems & Type Rating →',
   },
   {
     num: '05',
     name: 'Technical Specific',
     desc: 'The Cessna 172 in full — POH limitations, weight and balance, performance charts, systems descriptions, emergency checklists, and aircraft-specific DGCA regulations. Aviora uses the actual Cessna 172S POH.',
+    link: '/blog/cessna-172-training-aircraft-guide',
+    linkText: 'Read Cessna 172 Aircraft Guide →',
   },
   {
     num: '06',
     name: '(RTR) Radio Telephony Restricted',
     desc: 'Training for the RTR(A) exam conducted by WPC. Covers transmission techniques, standard phraseology, and emergency communication protocols required for international and domestic flight operations.',
+    link: '/facilities',
+    linkText: 'View ATC Simulation Facilities →',
   },
 ];
 
@@ -168,6 +190,13 @@ export default function PilotTrainingPage() {
                   <span className={s.stepMeta}>◆ {step.detail}</span>
                 </div>
                 <p className={s.stepDesc}>{step.desc}</p>
+                {step.link && (
+                  <div style={{ marginTop: '12px' }}>
+                    <Link href={step.link} style={{ color: '#C9A84C', textDecoration: 'underline', fontSize: '13px', fontWeight: 600, letterSpacing: '0.04em' }}>
+                      {step.linkText}
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -187,6 +216,13 @@ export default function PilotTrainingPage() {
               <div className={s.subjectNum}>{sub.num}</div>
               <h3 className={s.subjectName}>{sub.name}</h3>
               <p className={s.subjectDesc}>{sub.desc}</p>
+              {sub.link && (
+                <div style={{ marginTop: '14px' }}>
+                  <Link href={sub.link} style={{ color: '#4A90D9', textDecoration: 'underline', fontSize: '13px', fontWeight: 600, letterSpacing: '0.03em' }}>
+                    {sub.linkText}
+                  </Link>
+                </div>
+              )}
             </div>
           ))}
         </div>

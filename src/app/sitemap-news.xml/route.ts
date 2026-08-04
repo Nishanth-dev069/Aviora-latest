@@ -1,33 +1,59 @@
-import client from '../../../tina/__generated__/client';
+import fs from 'fs';
+import path from 'path';
 
-export const revalidate = 3600; // Cache for 1 hour
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function GET() {
+  const contentDir = path.join(process.cwd(), 'content', 'news');
+  let posts: Array<{ slug: string; date: string }> = [];
+
+  try {
+    if (fs.existsSync(contentDir)) {
+      const files = fs.readdirSync(contentDir).filter((file) => file.endsWith('.md'));
+
+      posts = files.map((file) => {
+        const slug = file.replace(/\.md$/, '');
+        const fullPath = path.join(contentDir, file);
+        let dateStr = new Date().toISOString().split('T')[0];
+
+        try {
+          const fileContent = fs.readFileSync(fullPath, 'utf8');
+          const dateMatch = fileContent.match(/date:\s*["']?([^"'\n\r]+)["']?/);
+          if (dateMatch && dateMatch[1]) {
+            const parsed = new Date(dateMatch[1]);
+            if (!isNaN(parsed.getTime())) {
+              dateStr = parsed.toISOString().split('T')[0];
+            }
+          } else {
+            const stats = fs.statSync(fullPath);
+            dateStr = stats.mtime.toISOString().split('T')[0];
+          }
+        } catch {
+          // fallback to current date
+        }
+
+        return { slug, date: dateStr };
+      });
+    }
+  } catch (error) {
+    console.error('Error generating dynamic news sitemap:', error);
+  }
+
+  // Sort by date descending
+  posts.sort((a, b) => (b.date > a.date ? 1 : -1));
+
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 
-  try {
-    // Fetch News Posts
-    const newsRes = await client.queries.newsConnection();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const newsPosts = (newsRes.data.newsConnection.edges?.map((e: any) => e?.node).filter(Boolean) as any[]) || [];
-
-    for (const post of newsPosts) {
-      if (!post || !post._sys || !post._sys.filename) continue;
-      
-      const date = post.date ? new Date(post.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
-      
-      sitemap += `
+  for (const post of posts) {
+    sitemap += `
   <url>
-    <loc>https://avioraaviation.in/news/${post._sys.filename}</loc>
-    <lastmod>${date}</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://avioraaviation.in/news/${post.slug}</loc>
+    <lastmod>${post.date}</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>`;
-    }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
-    console.error('Error generating dynamic news sitemap:', error);
   }
 
   sitemap += `\n</urlset>`;
@@ -35,8 +61,8 @@ export async function GET() {
   return new Response(sitemap, {
     status: 200,
     headers: {
-      'Cache-Control': 'public, max-age=3600',
-      'Content-Type': 'application/xml',
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Content-Type': 'application/xml; charset=utf-8',
     },
   });
 }

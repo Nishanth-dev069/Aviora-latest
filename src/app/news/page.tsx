@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import ClientPage from './ClientPage';
+import { getAllPosts } from '@/lib/content';
 
 export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
@@ -7,16 +8,8 @@ export const metadata: Metadata = {
   description: "Latest updates and news from Aviora.",
 };
 
-import client from '../../../tina/__generated__/client';
-
 export default async function Page() {
-  const res = await client.queries.newsConnection();
-  const news = res.data.newsConnection.edges?.map((edge: any) => edge?.node).filter(Boolean) || [];
-  const sortedNews = news.sort((a: any, b: any) => {
-    const dateA = a?.date ? new Date(a.date).getTime() : 0;
-    const dateB = b?.date ? new Date(b.date).getTime() : 0;
-    return dateB - dateA;
-  });
-
-  return <ClientPage news={sortedNews} />;
+  const news = getAllPosts('news');
+  return <ClientPage news={news} />;
 }
+

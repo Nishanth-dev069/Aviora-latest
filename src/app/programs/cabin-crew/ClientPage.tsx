@@ -11,6 +11,8 @@ const CABIN_CREW_PATHWAY = [
     duration: '6 Weeks',
     detail: 'Emergency drills · Firefighting · First Aid',
     desc: 'The core of cabin crew duties is passenger safety. Cadets simulate advanced emergency procedures including aircraft evacuation drills, firefighting on-board, First Aid & CPR certification, ditching and water survival techniques, and passenger handling during critical incident management within controlled environments.',
+    link: '/facilities',
+    linkText: 'Explore Mock Cabin Safety Facilities →',
   },
   {
     phase: 'Phase 2',
@@ -18,6 +20,8 @@ const CABIN_CREW_PATHWAY = [
     duration: '5 Weeks',
     detail: 'Galley operations · Special needs care · Meal protocols',
     desc: 'Deliver five-star hospitality at 35,000 feet. Training covers galley operations, cabin service standards, premium class service, special needs passenger care, catering, bar and duty-free service, and precise meal and beverage service protocols expected by international tier-one carriers.',
+    link: '/blog/cabin-crew-career-india-2026',
+    linkText: 'Read Cabin Crew Career & Pay Guide →',
   },
   {
     phase: 'Phase 3',
@@ -25,6 +29,8 @@ const CABIN_CREW_PATHWAY = [
     duration: '4 Weeks',
     detail: 'Voice & diction · Airline grooming · Uniform standards',
     desc: 'The face of the airline. This module encompasses voice, diction, and accent neutralisation. Cadets undergo rigorous professional grooming standards, uniform presentation coaching, skincare and makeup tutorials, etiquette lessons, and Crew Resource Management (CRM) for flawless crew cooperation.',
+    link: '/facilities',
+    linkText: 'View Grooming & Presentation Studio →',
   },
   {
     phase: 'Phase 4',
@@ -32,6 +38,8 @@ const CABIN_CREW_PATHWAY = [
     duration: '9 Weeks',
     detail: 'Live mock cabin · Profile matching · Selection coaching',
     desc: 'Supplemented heavily with extensive interview profiling coaching tailored to IndiGo, Air India, and international carriers. Includes full emergency drills in a live mock cabin, live service scenarios, group discussion practice, and 1-on-1 performance breakdown sessions ensuring you are instantly recognised as a competitive asset.',
+    link: '/blog/indigo-cabin-crew-recruitment-process',
+    linkText: 'Read IndiGo Cabin Crew Hiring Guide →',
   },
 ];
 
@@ -128,6 +136,13 @@ export default function CabinCrewPage() {
                   <span className={s.stepMeta}>◆ {step.detail}</span>
                 </div>
                 <p className={s.stepDesc}>{step.desc}</p>
+                {step.link && (
+                  <div style={{ marginTop: '12px' }}>
+                    <Link href={step.link} style={{ color: '#C9A84C', textDecoration: 'underline', fontSize: '13px', fontWeight: 600, letterSpacing: '0.04em' }}>
+                      {step.linkText}
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           ))}

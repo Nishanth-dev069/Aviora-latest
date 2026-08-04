@@ -29,12 +29,12 @@ const BOEING_PARTNERS = [
 ];
 
 const STEPS = [
-  { num: '01', title: 'Eligibility Verification', desc: 'Hold a valid DGCA CPL with Instrument Rating and Multi-Engine Rating. Valid DGCA Class 1 Medical Certificate. ICAO Level 4 English proficiency. Aviora verifies all documents within 48 hours.' },
-  { num: '02', title: 'Aircraft Type Selection', desc: 'Choose your aircraft type — A320, B737, or ATR — based on your target airline, market demand, and budget. Aviora counsellors guide this decision with current airline hiring intelligence.' },
-  { num: '03', title: 'Location & Partner Assignment', desc: 'Select your training location from our global partner network: Vietnam, Madrid Spain, Bangkok, Dubai, or India. Aviora handles all enrolment, documentation, and coordination with the partner ATO.' },
-  { num: '04', title: 'Ground School (Theory Phase)', desc: '3–4 weeks of intensive aircraft systems theory. Covers all DGCA-required subjects for the specific aircraft type. Conducted at the partner facility or partially online before departure.' },
-  { num: '05', title: 'Full Flight Simulator Training', desc: 'Minimum 32 hours in a Level D Full Flight Simulator — the highest certification standard. Real-world emergency scenarios, line operations, and cross-crew coordination under TRI-certified instructors.' },
-  { num: '06', title: 'DGCA Licence Skill Test', desc: 'Final assessment conducted by a DGCA-authorised Type Rating Examiner (TRE). Upon pass, DGCA endorses your CPL with the specific type rating. Aviora provides post-test placement assistance.' },
+  { num: '01', title: 'Eligibility Verification', desc: 'Hold a valid DGCA CPL with Instrument Rating and Multi-Engine Rating. Valid DGCA Class 1 Medical Certificate. ICAO Level 4 English proficiency. Aviora verifies all documents within 48 hours.', link: '/programs/pilot-training', linkText: 'Explore Commercial Pilot Pathway →' },
+  { num: '02', title: 'Aircraft Type Selection', desc: 'Choose your aircraft type — A320, B737, or ATR — based on your target airline, market demand, and budget. Aviora counsellors guide this decision with current airline hiring intelligence.', link: '/blog/what-is-type-rating-commercial-pilots', linkText: 'Read Type Rating Guide →' },
+  { num: '03', title: 'Location & Partner Assignment', desc: 'Select your training location from our global partner network: Vietnam, Madrid Spain, Bangkok, Dubai, or India. Aviora handles all enrolment, documentation, and coordination with the partner ATO.', link: '/programs/global-training', linkText: 'Explore Global Training Network →' },
+  { num: '04', title: 'Ground School (Theory Phase)', desc: '3–4 weeks of intensive aircraft systems theory. Covers all DGCA-required subjects for the specific aircraft type. Conducted at the partner facility or partially online before departure.', link: '/blog/first-officer-to-captain-career-timeline', linkText: 'Airline Career Timeline & Progression →' },
+  { num: '05', title: 'Full Flight Simulator Training', desc: 'Minimum 32 hours in a Level D Full Flight Simulator — the highest certification standard. Real-world emergency scenarios, line operations, and cross-crew coordination under TRI-certified instructors.', link: '/facilities', linkText: 'View Simulator & Training Infrastructure →' },
+  { num: '06', title: 'DGCA Licence Skill Test', desc: 'Final assessment conducted by a DGCA-authorised Type Rating Examiner (TRE). Upon pass, DGCA endorses your CPL with the specific type rating. Aviora provides post-test placement assistance.', link: '/mentors', linkText: 'Meet Airline Mentors & Instructors →' },
 ];
 
 const ELIGIBILITY = [
@@ -100,21 +100,20 @@ export default function TypeRatingPage() {
       {/* AIRCRAFT TYPES */}
       <section className={s.aircraftSection}>
         <div className={s.aircraftHead}>
-          <span className={s.eyebrow}>Type Rating Options</span>
-          <h2 className={s.sectionH2}>Three Aircraft.<br /><em>One Decision.</em></h2>
-          <p className={s.sectionSub}>Choose based on your target airline, the Indian fleet composition, and current hiring patterns. Aviora counsellors will give you an honest market assessment before you commit.</p>
+          <span className={s.eyebrow}>Fleet Options</span>
+          <h2 className={s.sectionH2}>Choose Your<br /><em>Aircraft Type.</em></h2>
         </div>
         <div className={s.aircraftGrid}>
-          {AIRCRAFT.map((ac, i) => (
-            <div className={s.aircraftCard} key={i}>
+          {AIRCRAFT.map(a => (
+            <div className={s.aircraftCard} key={a.type}>
               <div className={s.aircraftCardTop}>
-                <span className={s.aircraftNum}>{ac.num}</span>
-                <span className={s.aircraftType}>{ac.type}</span>
+                <span className={s.aircraftNum}>{a.num}</span>
+                <span className={s.aircraftType}>{a.type}</span>
               </div>
-              <p className={s.aircraftDesc}>{ac.desc}</p>
+              <p className={s.aircraftDesc}>{a.desc}</p>
               <div className={s.aircraftAirlines}>
                 <span className={s.aircraftAirlinesLabel}>Operates at</span>
-                <span className={s.aircraftAirlinesVal}>{ac.airlines}</span>
+                <span className={s.aircraftAirlinesVal}>{a.airlines}</span>
               </div>
             </div>
           ))}
@@ -192,6 +191,13 @@ export default function TypeRatingPage() {
               <div className={s.stepBody}>
                 <h3 className={s.stepTitle}>{step.title}</h3>
                 <p className={s.stepDesc}>{step.desc}</p>
+                {step.link && (
+                  <div style={{ marginTop: '12px' }}>
+                    <Link href={step.link} style={{ color: '#C9A84C', textDecoration: 'underline', fontSize: '13px', fontWeight: 600, letterSpacing: '0.04em' }}>
+                      {step.linkText}
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           ))}

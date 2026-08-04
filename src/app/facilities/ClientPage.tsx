@@ -16,6 +16,8 @@ const FACILITY_SECTIONS = [
       'IMC and VMC conditions with real weather patterns',
     ],
     desc: 'The Aviora FBS simulator is where instrument approaches are rehearsed, emergency procedures are drilled, and night flying is mastered — before a single real aircraft hour is logged. Every cadet completes a structured simulator curriculum before USA flight training.',
+    link: '/programs/pilot-training',
+    linkText: 'Explore Commercial Pilot Program →',
   },
   {
     tag: '02',
@@ -30,6 +32,8 @@ const FACILITY_SECTIONS = [
       'Aviation chart library and ICAO document access',
     ],
     desc: 'Ground school is where the foundation is built. Aviora classrooms are configured specifically for aviation theory — charts fixed to walls, METAR/TAF boards, instrument diagrams. DGCA aligned across all four CPL written papers.',
+    link: '/blog/dgca-ground-school-5-papers-guide',
+    linkText: 'Read DGCA Ground School Strategy →',
   },
   {
     tag: '03',
@@ -44,6 +48,8 @@ const FACILITY_SECTIONS = [
       'Video recording for debrief and interview preparation',
     ],
     desc: 'The Cabin Crew mock cabin simulates real airline emergency procedures, in-flight service, and passenger management. Grooming sessions here build the professional presentation that IndiGo, Air India, and international carriers evaluate at interview.',
+    link: '/programs/cabin-crew',
+    linkText: 'Explore Cabin Crew Programme →',
   },
   {
     tag: '04',
@@ -58,6 +64,8 @@ const FACILITY_SECTIONS = [
       'Self-study areas with chart tables and instrument trainers',
     ],
     desc: 'Every Aviora pilot cadet has access to structured mentorship. Rooms are assigned to working pilots and senior instructors for one-on-one sessions. The library is purpose-built — no general collection, only aviation.',
+    link: '/mentors',
+    linkText: 'Meet Our Airline Mentors →',
   },
 ];
 
@@ -130,6 +138,13 @@ export default function FacilitiesPage() {
                     </li>
                   ))}
                 </ul>
+                {facility.link && (
+                  <div style={{ marginTop: '20px' }}>
+                    <Link href={facility.link} style={{ color: '#C9A84C', textDecoration: 'underline', fontSize: '14px', fontWeight: 600, letterSpacing: '0.04em' }}>
+                      {facility.linkText}
+                    </Link>
+                  </div>
+                )}
               </div>
               {/* Image side */}
               <div className={s.facilityImgWrap}>

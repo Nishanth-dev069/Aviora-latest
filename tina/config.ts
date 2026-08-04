@@ -27,7 +27,7 @@ export default defineConfig({
         format: "md",
         ui: {
           filename: {
-            slugify: (values) =>
+            slugify: (values: any) =>
               values?.title?.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "") ?? "",
           },
         },
@@ -51,7 +51,7 @@ export default defineConfig({
         format: "md",
         ui: {
           filename: {
-            slugify: (values) =>
+            slugify: (values: any) =>
               values?.title?.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "") ?? "",
           },
         },
@@ -75,7 +75,7 @@ export default defineConfig({
         format: "json",
         ui: {
           filename: {
-            slugify: (values) =>
+            slugify: (values: any) =>
               values?.caption?.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "") ?? `photo-${Date.now()}`,
           },
           allowedActions: { create: true, delete: true },

@@ -17,6 +17,8 @@ export async function GET() {
     { url: 'https://avioraaviation.in/news', priority: '0.6', changefreq: 'daily', lastmod: '2026-07-01' },
     { url: 'https://avioraaviation.in/facilities', priority: '0.6', changefreq: 'monthly', lastmod: '2026-07-01' },
     { url: 'https://avioraaviation.in/mentors', priority: '0.6', changefreq: 'monthly', lastmod: '2026-07-01' },
+    { url: 'https://avioraaviation.in/privacy-policy', priority: '0.4', changefreq: 'yearly', lastmod: '2026-08-01' },
+    { url: 'https://avioraaviation.in/terms-and-conditions', priority: '0.4', changefreq: 'yearly', lastmod: '2026-08-01' },
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

@@ -1,4 +1,5 @@
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function GET() {
   const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
@@ -18,8 +19,8 @@ export async function GET() {
   return new Response(sitemapIndex, {
     status: 200,
     headers: {
-      'Cache-Control': 'public, max-age=3600',
-      'Content-Type': 'application/xml',
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Content-Type': 'application/xml; charset=utf-8',
     },
   });
 }

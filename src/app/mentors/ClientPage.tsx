@@ -10,6 +10,8 @@ const MENTORS = [
     credential: 'A320 Rated Airline Pilot with a leading airline in India.',
     philosophy: 'Specialises in airline operations, aviation training, and mentoring aspiring pilots from Zero to Airline Pilot. Passionate about building the next generation of aviation professionals.',
     tags: ['Airline Operations', 'Aviation Training', 'Zero to Airline Pilot'],
+    link: '/programs/pilot-training',
+    linkText: 'Explore Commercial Pilot Pathway →',
   },
   {
     num: '02',
@@ -18,6 +20,8 @@ const MENTORS = [
     credential: 'A320 Rated Airline Pilot and Senior Instructor for Navigation & Technical General.',
     philosophy: 'Known for simplifying complex aviation concepts and mentoring aspiring pilots with a strong focus on DGCA exam preparation, technical knowledge, and airline-oriented training. Passionate about shaping disciplined and industry-ready aviators.',
     tags: ['Navigation', 'Technical General', 'DGCA Preparation'],
+    link: '/blog/dgca-air-navigation-cpl-study-guide',
+    linkText: 'Read Air Navigation Study Guide →',
   },
   {
     num: '03',
@@ -26,6 +30,8 @@ const MENTORS = [
     credential: 'Capt. Arjun Rao is an A320 Rated Airline Pilot and Senior Instructor for Meteorology.',
     philosophy: 'Recognised for his practical teaching approach and deep understanding of aviation weather systems, he mentors aspiring pilots with a strong focus on DGCA Meteorology preparation and real-world airline operations. Dedicated to building confident and knowledgeable future aviators.',
     tags: ['Meteorology', 'Weather Systems', 'Airline Operations'],
+    link: '/blog/dgca-aviation-meteorology-cpl-guide',
+    linkText: 'Read Aviation Meteorology Guide →',
   },
 ];
 
@@ -108,6 +114,13 @@ export default function MentorsPage() {
               <blockquote className={s.mentorPhilosophy}>
                 &ldquo;{mentor.philosophy}&rdquo;
               </blockquote>
+              {mentor.link && (
+                <div style={{ marginTop: '16px' }}>
+                  <Link href={mentor.link} style={{ color: '#C9A84C', textDecoration: 'underline', fontSize: '13px', fontWeight: 600, letterSpacing: '0.03em' }}>
+                    {mentor.linkText}
+                  </Link>
+                </div>
+              )}
             </div>
           ))}
         </div>
