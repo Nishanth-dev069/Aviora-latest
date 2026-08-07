@@ -121,13 +121,26 @@ export default function Nav() {
                 </li>
             </ul>
 
-            <Link href="/admissions" className={styles.navCta} onClick={() => sendGAEvent('cta_button_click', { cta_name: 'Enroll Now', location: 'Nav Desktop' })}>
+            <div className={styles.navActions}>
+                <a
+                    href="https://portal.avioraaviation.in/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.navSignIn}
+                    onClick={() => sendGAEvent('cta_button_click', { cta_name: 'Sign In', location: 'Nav Desktop' })}
+                >
+                    Sign In
+                </a>
+
+                <Link href="/admissions" className={styles.navCta} onClick={() => sendGAEvent('cta_button_click', { cta_name: 'Enroll Now', location: 'Nav Desktop' })}>
                     Enroll Now
-            </Link>
+                </Link>
+            </div>
 
             <div
                 className={`${styles.navHamburger} ${isMobileMenuOpen ? styles.isOpen : ""}`}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle menu"
             >
                 <span />
                 <span />
@@ -160,9 +173,32 @@ export default function Nav() {
                     </Link>
                 </li>
             </ul>
-            <Link href="/admissions" className={`${styles.navCta} ${styles.mobileOverlayCta}`} onClick={() => { setIsMobileMenuOpen(false); sendGAEvent('cta_button_click', { cta_name: 'Enroll Now', location: 'Nav Mobile' }); }}>
+
+            <div className={styles.mobileActions}>
+                <a
+                    href="https://portal.avioraaviation.in/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.mobileSignIn}
+                    onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        sendGAEvent('cta_button_click', { cta_name: 'Sign In', location: 'Nav Mobile' });
+                    }}
+                >
+                    Sign In
+                </a>
+
+                <Link
+                    href="/admissions"
+                    className={`${styles.navCta} ${styles.mobileOverlayCta}`}
+                    onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        sendGAEvent('cta_button_click', { cta_name: 'Enroll Now', location: 'Nav Mobile' });
+                    }}
+                >
                     Enroll Now
-            </Link>
+                </Link>
+            </div>
         </div>
         </>
     );
