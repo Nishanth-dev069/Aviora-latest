@@ -38,6 +38,20 @@ const nextConfig: NextConfig = {
   
   // Consistent URL hygiene
   trailingSlash: false,
+
+  // TinaCMS rewrites for /admin routing
+  async rewrites() {
+    return [
+      {
+        source: '/admin',
+        destination: '/admin/index.html',
+      },
+      {
+        source: '/admin/',
+        destination: '/admin/index.html',
+      },
+    ];
+  },
 };
 
 export default nextConfig;

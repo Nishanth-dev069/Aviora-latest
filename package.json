@@ -6,8 +6,9 @@
   },
   "private": true,
   "scripts": {
-    "dev": "next dev --webpack",
-    "build": "next build",
+    "dev": "tinacms dev -c \"next dev --webpack\"",
+    "build": "tinacms build && next build",
+    "postinstall": "node scripts/fix-react-aria.js",
     "start": "next start",
     "lint": "eslint"
   },
