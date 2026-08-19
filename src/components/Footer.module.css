@@ -240,33 +240,35 @@
   flex-shrink: 0;
 }
 
-.partnerBox {
-  margin-top: 24px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  padding: 12px 20px;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-end;
+.emailSubtext {
+  font-family: var(--font-body), 'Inter', sans-serif;
+  font-size: 10.5px;
+  line-height: 1.45;
+  color: rgba(241, 241, 241, 0.4);
+  max-width: 320px;
+  margin: -2px 0 14px;
   text-align: right;
 }
 
-.partnerText {
-  font-family: var(--font-mono), monospace;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #8a9bbf;
-  margin-bottom: 4px;
+.partnerBox {
+  margin-top: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .partnerName {
-  font-family: var(--font-display), serif;
-  font-size: 16px;
-  font-weight: 600;
+  font-family: var(--font-body), 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
   color: #F1F1F1;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 /* ── DIVIDER ── */
@@ -389,6 +391,11 @@
     align-items: center;
     text-align: center;
   }
+
+  .emailSubtext {
+    text-align: center;
+    margin: -2px auto 14px;
+  }
   
   .contactRow {
     flex-direction: row;
@@ -465,10 +472,25 @@
     text-align: left;
   }
 
+  .emailSubtext {
+    text-align: left;
+    margin: -2px 0 14px;
+  }
+
   .partnerBox {
     align-items: flex-start;
+    justify-content: flex-start;
     text-align: left;
-    margin-top: 16px;
+    margin-top: 20px;
+    padding: 12px 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .partnerName {
+    white-space: normal;
+    font-size: 13px;
+    line-height: 1.5;
   }
 
   .bottomBar {

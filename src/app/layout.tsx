@@ -64,8 +64,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        {/* Verification Code Placeholders */}
-        <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
       </head>
       <body>
         {/* Google Analytics (GA4) */}

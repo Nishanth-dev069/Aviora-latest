@@ -365,6 +365,9 @@ export default function HomePage() {
               <div className={styles.hcText}><a href="mailto:Admissions@avioraacademy.com">Admissions@avioraacademy.com</a></div>
               <div className={styles.hcText}><a href="mailto:Fly@avioraacademy.com">Fly@avioraacademy.com</a></div>
               <div className={styles.hcText}>Response within 24 hours</div>
+              <div className={styles.hcDisclaimer}>
+                (Our official communications run on avioraacademy.com — both avioraaviation.in and avioraacademy.com are operated by Aviora Aviation Academy)
+              </div>
             </div>
             <div className={styles.hcCard} data-card-reveal>
               <div className={styles.hcIcon}>

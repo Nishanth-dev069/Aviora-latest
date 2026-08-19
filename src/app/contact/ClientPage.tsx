@@ -57,7 +57,14 @@ const CHANNELS = [
         <span>Fly@avioraacademy.com</span>
       </span>
     ) as unknown as string,
-    sub: 'Response within 24 hours',
+    sub: (
+      <span style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        <span>Response within 24 hours</span>
+        <span style={{ fontSize: '10.5px', color: 'rgba(241, 241, 241, 0.4)', lineHeight: '1.35', marginTop: '2px' }}>
+          (Our official communications run on avioraacademy.com — both avioraaviation.in and avioraacademy.com are operated by Aviora Aviation Academy)
+        </span>
+      </span>
+    ) as unknown as string,
     href: `mailto:Admissions@avioraacademy.com,Fly@avioraacademy.com`
   },
   {

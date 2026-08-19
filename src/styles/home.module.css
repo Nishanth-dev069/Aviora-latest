@@ -1562,6 +1562,14 @@
     line-height: 1.6;
 }
 
+.hcDisclaimer {
+    font-family: var(--font-body);
+    font-size: 11px;
+    line-height: 1.45;
+    color: #64748b;
+    margin-top: 10px;
+}
+
 /* ═══════════════════════════════════════════════
    SECTION 6 — CTA
    ═══════════════════════════════════════════════ */
