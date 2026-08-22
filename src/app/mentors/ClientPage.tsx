@@ -46,8 +46,8 @@ const MENTORS = [
 ];
 
 const COMBINED_STATS = [
-  { num: '21,000+', label: 'Combined flight hours', sub: 'Total logged hours across all instructors' },
-  { num: '26+', label: 'Years combined experience', sub: 'In active airline operations' },
+  { num: '5,000+', label: 'Combined flight hours', sub: 'Total logged hours across all instructors' },
+  { num: '11+', label: 'Years combined experience', sub: 'In active airline operations' },
   { num: '4', label: 'Airlines flown', sub: 'IndiGo · Air India · International carriers' },
   { num: '100%', label: 'DGCA pass rate', sub: 'Aviora mentored cadets — last 3 batches' },
 ];
