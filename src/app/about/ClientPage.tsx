@@ -47,8 +47,9 @@ const FACILITIES = [
 
 const TEAM = [
   { name: 'Capt. Alok Reddy', role: 'Founder & CPL Ground Instructor', note: 'A320 Rated Airline Pilot with a leading airline in India. Specialises in airline operations, aviation training, and mentoring aspiring pilots from Zero to Airline Pilot. Passionate about building the next generation of aviation professionals.' },
-  { name: 'Capt. Chaitanya Mendu', role: 'Senior CPL Ground Instructor', note: 'A320 Rated Airline Pilot and Senior Instructor for Navigation & Technical General. Known for simplifying complex aviation concepts and mentoring aspiring pilots with a strong focus on DGCA exam preparation, technical knowledge, and airline-oriented training. Passionate about shaping disciplined and industry-ready aviators.' },
+  { name: 'Capt. Aravind Sastry', role: 'Senior CPL Ground Instructor', note: 'A320 Rated Airline Pilot and Senior Instructor for Navigation & Technical General. Known for simplifying complex aviation concepts and mentoring aspiring pilots with a strong focus on DGCA exam preparation, technical knowledge, and airline-oriented training. Passionate about shaping disciplined and industry-ready aviators.' },
   { name: 'Capt. Arjun Rao', role: 'Senior CPL Ground Instructor', note: 'Capt. Arjun Rao is an A320 Rated Airline Pilot and Senior Instructor for Meteorology. Recognised for his practical teaching approach and deep understanding of aviation weather systems, he mentors aspiring pilots with a strong focus on DGCA Meteorology preparation and real-world airline operations. Dedicated to building confident and knowledgeable future aviators.' },
+  { name: 'Capt. Nikila', role: 'Senior CPL Ground Instructor', note: 'A320 Rated Commercial Pilot and Senior Instructor. Known for her structured teaching methodology and interactive guidance for DGCA exam preparation, flight safety, and airline orientation. Dedicated to shaping disciplined, confident, and industry-ready commercial aviators.' },
 ];
 
 const STORY_TIMELINE = [

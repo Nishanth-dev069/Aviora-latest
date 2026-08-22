@@ -15,7 +15,7 @@ const MENTORS = [
   },
   {
     num: '02',
-    name: 'Capt. Chaitanya Mendu',
+    name: 'Capt. Aravind Sastry',
     role: 'Senior CPL Ground Instructor',
     credential: 'A320 Rated Airline Pilot and Senior Instructor for Navigation & Technical General.',
     philosophy: 'Known for simplifying complex aviation concepts and mentoring aspiring pilots with a strong focus on DGCA exam preparation, technical knowledge, and airline-oriented training. Passionate about shaping disciplined and industry-ready aviators.',
@@ -32,6 +32,16 @@ const MENTORS = [
     tags: ['Meteorology', 'Weather Systems', 'Airline Operations'],
     link: '/blog/dgca-aviation-meteorology-cpl-guide',
     linkText: 'Read Aviation Meteorology Guide →',
+  },
+  {
+    num: '04',
+    name: 'Capt. Nikila',
+    role: 'Senior CPL Ground Instructor',
+    credential: 'A320 Rated Commercial Pilot and Senior Instructor.',
+    philosophy: 'Known for her structured teaching methodology and interactive guidance for DGCA exam preparation, flight safety, and airline orientation. Dedicated to inspiring and shaping disciplined, industry-ready commercial aviators.',
+    tags: ['A320 Type Rated', 'Ground Training', 'Flight Safety'],
+    link: '/programs/pilot-training',
+    linkText: 'Explore Commercial Pilot Pathway →',
   },
 ];
 

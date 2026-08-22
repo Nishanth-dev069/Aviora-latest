@@ -21,8 +21,9 @@ const FACILITIES = [
 ];
 const MENTORS = [
   { initials: 'AR', name: 'Capt. Alok Reddy', role: 'Founder & CPL Ground Instructor', bio: 'A320 Rated Airline Pilot with a leading airline in India. Specialises in airline operations, aviation training, and mentoring aspiring pilots from Zero to Airline Pilot. Passionate about building the next generation of aviation professionals.' },
-  { initials: 'CM', name: 'Capt. Chaitanya Mendu', role: 'Senior CPL Ground Instructor', bio: 'A320 Rated Airline Pilot and Senior Instructor for Navigation & Technical General. Known for simplifying complex aviation concepts and mentoring aspiring pilots with a strong focus on DGCA exam preparation, technical knowledge, and airline-oriented training. Passionate about shaping disciplined and industry-ready aviators.' },
+  { initials: 'AS', name: 'Capt. Aravind Sastry', role: 'Senior CPL Ground Instructor', bio: 'A320 Rated Airline Pilot and Senior Instructor for Navigation & Technical General. Known for simplifying complex aviation concepts and mentoring aspiring pilots with a strong focus on DGCA exam preparation, technical knowledge, and airline-oriented training. Passionate about shaping disciplined and industry-ready aviators.' },
   { initials: 'AR', name: 'Capt. Arjun Rao', role: 'Senior CPL Ground Instructor', bio: 'Capt. Arjun Rao is an A320 Rated Airline Pilot and Senior Instructor for Meteorology. Recognised for his practical teaching approach and deep understanding of aviation weather systems, he mentors aspiring pilots with a strong focus on DGCA Meteorology preparation and real-world airline operations. Dedicated to building confident and knowledgeable future aviators.' },
+  { initials: 'NK', name: 'Capt. Nikila', role: 'Senior CPL Ground Instructor', bio: 'A320 Rated Commercial Pilot and Senior Instructor. Known for her structured teaching methodology and interactive guidance for DGCA exam preparation, flight safety, and airline orientation. Dedicated to shaping disciplined, confident, and industry-ready commercial aviators.' },
 ];
 const GLOBAL_FEATURES = [
   { title: 'Open Airspace', desc: 'Uncongested training areas with real cross-country navigation — not circuits.' },
@@ -264,7 +265,18 @@ export default function HomePage() {
           <div className={`${styles.eyebrow} ${styles.eyebrowDark}`}>The People Behind Your Wings</div>
           <div className={styles.mentorsHeader}><h2 className={styles.sectionH2}>Learn From Those Who<br /><em>Commanded The Skies</em></h2><Link href="/mentors" className={styles.btnOutline}>Meet All Instructors &rarr;</Link></div>
           <div className={styles.mentorsGrid}>
-            {MENTORS.map((m, i) => (<div className={styles.mentorCard} key={i} data-card-reveal><div className={styles.mcAvatar}>{m.initials}</div><div className={styles.mcInfo}><div className={styles.mcName}>{m.name}</div><div className={styles.mcRole}>{m.role}</div></div><p className={styles.mcBio}>{m.bio}</p></div>))}
+            {MENTORS.map((m, i) => (
+              <div className={styles.mentorCard} key={i} data-card-reveal>
+                <div className={styles.mcHeader}>
+                  <div className={styles.mcAvatar}>{m.initials}</div>
+                  <div className={styles.mcInfo}>
+                    <div className={styles.mcName}>{m.name}</div>
+                    <div className={styles.mcRole}>{m.role}</div>
+                  </div>
+                </div>
+                <p className={styles.mcBio}>{m.bio}</p>
+              </div>
+            ))}
           </div>
           <div className={styles.mentorsStrip}>
             <div className={styles.msStat}><span className={styles.msNum}>5,000+</span><span className={styles.msLabel}>Avg. Instructor Hours</span></div>
