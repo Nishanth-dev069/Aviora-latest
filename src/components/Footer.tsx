@@ -25,6 +25,11 @@ const NAV_LINKS = [
   { label: 'News', href: '/news' },
 ];
 
+const PORTAL_LINKS = [
+  { label: 'Exam & LMS Portal ↗', href: 'https://portal.avioraaviation.in/login' },
+  { label: 'Admin & Financial ERP ↗', href: 'https://erp.avioraaviation.in' },
+];
+
 export default function Footer() {
   return (
     <footer className={styles.footer}>
@@ -73,6 +78,17 @@ export default function Footer() {
               <nav className={styles.navGroup}>
                 {NAV_LINKS.map((l) => (
                   <Link key={l.href} href={l.href} className={styles.link}>{l.label}</Link>
+                ))}
+              </nav>
+            </div>
+
+            <div className={styles.col}>
+              <div className={styles.colHeader}>Portals &amp; Systems</div>
+              <nav className={styles.navGroup}>
+                {PORTAL_LINKS.map((l) => (
+                  <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className={styles.link}>
+                    {l.label}
+                  </a>
                 ))}
               </nav>
             </div>
