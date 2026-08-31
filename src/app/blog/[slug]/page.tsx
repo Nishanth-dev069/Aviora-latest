@@ -4,6 +4,7 @@ import s from './blogpost.module.css';
 import { getPost, getAllPosts } from '@/lib/content';
 import { notFound } from 'next/navigation';
 import { Metadata, ResolvingMetadata } from 'next';
+import TableOfContents from '@/components/TableOfContents';
 
 type Props = { params: Promise<{ slug: string }> };
 export const dynamic = 'force-dynamic';
@@ -113,7 +114,7 @@ export default async function BlogPostPage(props: Props) {
       <section className={s.hero}>
         {heroImage && <Image src={heroImage} alt={post.title || 'Blog post hero image'} className={s.heroImg} fill style={{ objectFit: 'cover' }} priority unoptimized referrerPolicy="no-referrer" />}
         <div className={s.heroOverlay} />
-        <div className={s.heroContent}>
+        <div className={s.heroContainer}>
           <nav className={s.breadcrumb} aria-label="Breadcrumb">
             <Link href="/" className={s.bcLink}>Home</Link>
             <span className={s.bcSep}>›</span>
@@ -131,26 +132,41 @@ export default async function BlogPostPage(props: Props) {
       </section>
 
       {/* ARTICLE */}
-      <div className={s.articleWrap}>
-        <div className={s.articleInner}>
-          <p className={s.lead}>{post.excerpt as string}</p>
-          <hr className={s.divider} />
+      <section className={s.articleWrap}>
+        <div className={s.articleContainer}>
+          <div className={s.mainColumn}>
+            <p className={s.lead}>{post.excerpt as string}</p>
+            <hr className={s.divider} />
 
-          <div 
-            className={s.markdownBody}
-            dangerouslySetInnerHTML={{ __html: post.contentHtml || '' }}
-          />
+            <div 
+              className={s.markdownBody}
+              dangerouslySetInnerHTML={{ __html: post.contentHtml || '' }}
+            />
 
-          <hr className={s.divider} />
+            <hr className={s.divider} />
 
-          <div className={s.inlineCta}>
-            <p className={s.inlineCtaText}>
-              Ready to start the process? Aviora&apos;s admissions team responds within 48 hours.
-            </p>
-            <Link href="/admissions" className={s.inlineCtaBtn}>Enroll Now →</Link>
+            <div className={s.inlineCta}>
+              <p className={s.inlineCtaText}>
+                Ready to start the process? Aviora&apos;s admissions team responds within 48 hours.
+              </p>
+              <Link href="/admissions" className={s.inlineCtaBtn}>Enroll Now →</Link>
+            </div>
           </div>
+
+          <aside className={s.sidebarColumn}>
+            <TableOfContents />
+            <div className={s.sidebarCard}>
+              <span className={s.sidebarCtaTag}>Pilot Career Guidance</span>
+              <h4 className={s.sidebarCtaTitle}>Become a Commercial Pilot</h4>
+              <p className={s.sidebarCtaText}>
+                Get end-to-end guidance from DGCA ground classes to CPL flight training and Type Rating.
+              </p>
+              <Link href="/admissions" className={s.sidebarCtaBtn}>Apply Now →</Link>
+              <Link href="/contact" className={s.sidebarCtaLink}>Talk to a Flight Advisor</Link>
+            </div>
+          </aside>
         </div>
-      </div>
+      </section>
 
       {/* RELATED */}
       {related.length > 0 && (

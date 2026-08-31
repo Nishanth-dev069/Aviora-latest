@@ -1,0 +1,89 @@
+.tocBox {
+  background: var(--color-surface, #FFFFFF);
+  border: 1px solid rgba(7, 61, 127, 0.12);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 20px rgba(7, 61, 127, 0.05);
+}
+
+.tocHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(7, 61, 127, 0.08);
+}
+
+.tocIcon {
+  color: var(--color-secondary, #6491DE);
+}
+
+.tocTitle {
+  font-family: var(--font-body), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-dark, #0D1B2A);
+}
+
+.tocList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 420px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.tocItem {
+  margin: 0;
+}
+
+.tocLink,
+.tocLinkActive {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-body), sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.tocLink {
+  color: rgba(13, 27, 42, 0.72);
+}
+
+.tocLink:hover {
+  color: var(--color-accent, #073D7F);
+  background: rgba(100, 145, 222, 0.08);
+}
+
+.tocLinkActive {
+  color: var(--color-accent, #073D7F);
+  font-weight: 600;
+  background: rgba(100, 145, 222, 0.12);
+  border-left: 3px solid var(--color-secondary, #6491DE);
+}
+
+.tocDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+.tocText {
+  flex: 1;
+}
